@@ -1,4 +1,4 @@
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+<img src="https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1">
 
 # Engineering Requirements
 
