@@ -92,7 +92,9 @@ $$
 
 <img src="https://render.githubusercontent.com/render/math?math=(\hat{x}_{1,t}, \hat{x}_{2,t}, \ldots, \hat{x}_{n,t})\in\prod_{a=1}^n\hat{X}_a \subseteq \mathbb{R}^{nk}">
 
-<img src="https://latex.codecogs.com/svg.latex?\Large&space;(\hat{x}_{1,t}, \hat{x}_{2,t}, \ldots, \hat{x}_{n,t})\in\prod_{a=1}^n\hat{X}_a \subseteq \mathbb{R}^{nk}" title="\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}" />
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;" title="\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}" />
+
+![img](http://latex.codecogs.com/svg.latex?%28%5Chat%7Bx%7D_%7B1%2Ct%7D%2C+%5Chat%7Bx%7D_%7B2%2Ct%7D%2C+%5Cldots%2C+%5Chat%7Bx%7D_%7Bn%2Ct%7D%29%5Cin%5Cprod_%7Ba%3D1%7D%5En%5Chat%7BX%7D_a+%5Csubseteq+%5Cmathbb%7BR%7D%5E%7Bnk%7D)
 
 #### Definition 4
 The **system state** is the network’s internal state composed of a finite number of elements, denoted by $\bar{x}_t$. The system-level state depends on the information arrival process summarized by time $t$. The system-level state space is a set $\bar{X} \in R^m$, such that $\forall t$, $\bar{x}_t \in \bar{X}$ where $m$ is the number of finite elements. The system state $x_t$ is the state of all agents and the system-level state, and is given by
