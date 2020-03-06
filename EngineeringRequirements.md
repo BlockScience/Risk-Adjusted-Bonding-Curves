@@ -63,3 +63,10 @@ OutcomesPayers are explicitly excluded from the ability to execute the EvaluateC
 OutcomesPayers are disincentivized from holding bond tokens.
 
 Since an OutcomesPayer makes the final decision evaluating if the bond or project terms satisfy the conditions for payout to InvestmentAgents and ProjectOwners, holding bond tokens presents a conflict of interest.
+
+## System Boundary
+The system under consideration is at the bond system level. The level above the bond system consists of the bond portfolio, which is comprised of multiple bonds. The level below the bond system is the project system, where each bond can be a composition of many projects. 
+
+Since a bond comes into existence upon the Bond Initialization phase, and this phase corresponds with the Bond Alpha Initialization phase in the Alpha Oracle Lifecycle, the temporal system boundary starts at the Bond Initialization and Bond Alpha Initialization phase. 
+
+![](https://i.imgur.com/qYIDv36.png)
