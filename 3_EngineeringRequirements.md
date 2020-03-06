@@ -1,5 +1,3 @@
-<img src="https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1">
-
 # Engineering Requirements
 
 ## Assumptions
@@ -91,6 +89,8 @@ The **agent-level state** represents all agent states at a given time $t$. The a
 
 $$     (\hat{x}_{1,t}, \hat{x}_{2,t}, \ldots, \hat{x}_{n,t})\in\prod_{a=1}^n\hat{X}_a \subseteq \mathbb{R}^{nk}.
 $$
+
+<img src="https://render.githubusercontent.com/render/math?math=\hat{x}_{1,t}, \hat{x}_{2,t}, \ldots, \hat{x}_{n,t})\in\prod_{a=1}^n\hat{X}_a \subseteq \mathbb{R}^{nk}">
 
 #### Definition 4
 The **system state** is the network’s internal state composed of a finite number of elements, denoted by $\bar{x}_t$. The system-level state depends on the information arrival process summarized by time $t$. The system-level state space is a set $\bar{X} \in R^m$, such that $\forall t$, $\bar{x}_t \in \bar{X}$ where $m$ is the number of finite elements. The system state $x_t$ is the state of all agents and the system-level state, and is given by
