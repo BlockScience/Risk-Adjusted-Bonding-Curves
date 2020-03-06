@@ -85,7 +85,7 @@ The **timestep** or period $t$ defined for the system is one block. A block cont
 [comment]: # (Some tests or simualtions may call for a finer timestep granularity, in which case 1 timestep = 1 transaction. At this granularity, only one agent action can be performed at a single timestep.) 
 
 #### Definition 3
-The **agent-level state** represents all agent states at a given time $t$. The agent state is a vector $\hat{x}_{a,t}$ making the agent state space $ \hat{X}_{a} \in R^k $ ![img](http://latex.codecogs.com/svg.latex?%5Chat%7BX%7D_%7Ba%7D+%5Cin+R%5Ek) such that $\forall a, \forall t, \hat{x}_{a,t} \in \hat{X}_a$. Since the agent's state transition reflects an agent action, the agent-level state summarizes the flow of information in the system indexed by time. The agent-level state is given by
+The **agent-level state** represents all agent states at a given time $t$. The agent state is a vector $\hat{x}_{a,t}$ making the agent state space $ \hat{X}_{a} \in R^k $ ![img](http://latex.codecogs.com/svg.latex?%5Chat%7BX%7D_%7Ba%7D%5CinR%5Ek) such that $\forall a, \forall t, \hat{x}_{a,t} \in \hat{X}_a$. Since the agent's state transition reflects an agent action, the agent-level state summarizes the flow of information in the system indexed by time. The agent-level state is given by
 
 $$     (\hat{x}_{1,t}, \hat{x}_{2,t}, \ldots, \hat{x}_{n,t})\in\prod_{a=1}^n\hat{X}_a \subseteq \mathbb{R}^{nk}.
 $$
