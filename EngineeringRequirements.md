@@ -1,4 +1,6 @@
-# Impact Bonds Bonding Curve Engineering Requirements 
+# Engineering Requirements
+## Impact Bonds Bonding Curve
+
 
 ## Assumptions
 #### Assumption 1
@@ -59,7 +61,7 @@ Agents involved in the Claim Evaluation, Claim Auditing, and Claim Resolution st
 OutcomesPayers can perform the CompleteBond Action and SettleBond Action. 
 ##### Operational Requirement 8
 OutcomesPayers are explicitly excluded from the ability to execute the EvaluateClaim Action, AuditClaim Action, ResolveClaim Action, EvaluateDispute Action and ResolveDispute Action.
-#### Operational Requirement 9
+##### Operational Requirement 9
 OutcomesPayers are disincentivized from holding bond tokens.
 
 Since an OutcomesPayer makes the final decision evaluating if the bond or project terms satisfy the conditions for payout to InvestmentAgents and ProjectOwners, holding bond tokens presents a conflict of interest.
