@@ -82,10 +82,10 @@ Since a bond comes into existence upon the Bond Initialization phase, and this p
 #### Definition 2
 The **timestep** or period $t$ defined for the system is one block. A block contains an ordered list of transactions, also referred to as agent actions $u_t$. Therefore, in each timestep, an agent $a$ can perform multiple actions chosen from the set of all legal actions $U$.
 
-[comment]: # (Some tests or simualtions may call for a finer timestep granularity, in which case 1 timestep = 1 transaction. At this granularity, only one agent action can be performed at a single timestep.) 
+<!--[comment]: # (Some tests or simualtions may call for a finer timestep granularity, in which case 1 timestep = 1 transaction. At this granularity, only one agent action can be performed at a single timestep.) -->
 
 #### Definition 3
-The **agent-level state** represents all agent states at a given time $t$. The agent state is a vector $\hat{x}_{a,t}$ making the agent state space $ \hat{X}_{a} \in R^k $ <img src="https://render.githubusercontent.com/render/math?math=\hat{X}_{a} \in R^k"> such that $\forall a, \forall t, \hat{x}_{a,t} \in \hat{X}_a$. Since the agent's state transition reflects an agent action, the agent-level state summarizes the flow of information in the system indexed by time. The agent-level state is given by
+The **agent-level state** represents all agent states at a given time $t$. The agent state is a vector $\hat{x}_{a,t}$ making the agent state space <img src="https://render.githubusercontent.com/render/math?math=\hat{X}_{a} \in R^k"> such that $\forall a, \forall t, \hat{x}_{a,t} \in \hat{X}_a$. Since the agent's state transition reflects an agent action, the agent-level state summarizes the flow of information in the system indexed by time. The agent-level state is given by
 
 $$     (\hat{x}_{1,t}, \hat{x}_{2,t}, \ldots, \hat{x}_{n,t})\in\prod_{a=1}^n\hat{X}_a \subseteq \mathbb{R}^{nk}.
 $$
