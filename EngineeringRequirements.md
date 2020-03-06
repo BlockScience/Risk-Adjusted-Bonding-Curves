@@ -5,7 +5,7 @@
 The Bond Alpha Oracle is assumed to be pre-trained at system start. 
 
 ## Roles
-[comment]: # Link to Chapter 1: Impact Bonds Ecosystem 
+<!--- Link to Chapter 1: Impact Bonds Ecosystem -->
 
 ## Agents
 
