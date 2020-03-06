@@ -1,6 +1,4 @@
 # Engineering Requirements
-## Impact Bonds Bonding Curve
-
 
 ## Assumptions
 #### Assumption 1
