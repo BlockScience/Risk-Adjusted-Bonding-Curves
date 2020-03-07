@@ -1,7 +1,7 @@
 # Phases in Bond Lifecycle
 
 ![Diagram of Bond Phases]
-https://github.com/BlockScience/ICF_Internal/blob/structure/Paper/img/phases.png
+(https://github.com/BlockScience/ICF_Internal/blob/structure/Paper/img/phases.png)
 
 ## Phase 0: Pre-initialization 
 
