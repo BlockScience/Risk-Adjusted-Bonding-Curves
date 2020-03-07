@@ -77,6 +77,19 @@ Since a bond comes into existence upon the Bond Initialization phase, and this p
 
 ![](https://i.imgur.com/qYIDv36.png)
 
+## System Requirements
+
+#### System Requirement 1 
+The state of all Claims issued in a bond must reflect the state of the bonding curve. If the bonding curve state is not respected, disputes will be issued against the claims to regain the bonding curve state. 
+
+<!-- [comment]: # (The Dispute mechanism acts as a fail-safe, therefore making the protocol more resilient. Other fail-safes tbd) --> 
+
+#### System Requirement 2 
+The economic incentive layer of the system, which contains all the bonding curve mechanisms, must incentivize behaviour that achieves system goals. 
+
+#### System Requirement 3
+All agent roles have restrictions over their action space, which are defined in the role's corresponding operational requirement. 
+
 ## System State Variables 
 
 #### Definition 2
