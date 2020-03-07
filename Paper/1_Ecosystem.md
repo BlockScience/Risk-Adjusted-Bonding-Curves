@@ -1,5 +1,7 @@
 # Impact Bonds Ecosystem
 
+Roles as outlined in this document represent roles in the broader ecosystem. These roles may further have relations to specific steps in the life cycle and in some cases specific on chain mechanisms. Roles are distinct from entities which may in some cases occupy multiple roles.
+
 ## Roles
 
 #### Role 1
