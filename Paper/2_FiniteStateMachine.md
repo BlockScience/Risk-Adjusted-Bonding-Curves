@@ -1,7 +1,7 @@
 # Phases in Bond Lifecycle
 
 <div align="center">
-	<img width="393" height="323" src="img/phases.png" alt="bondlifecyclephases">
+	<img width="500" height="413" src="img/phases.png" alt="bondlifecyclephases">
 	<br>
 </div>
 
