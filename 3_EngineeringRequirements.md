@@ -117,4 +117,51 @@ Impact tokens are community tokens. At time $t$, the local state of agent $a$ co
 The **price** signal $P_t \in \mathbb{R}_{++}$ at time $t$ is an estimate of the value of the bond token, in units of $R$ per units of $S$.
 
 #### Definition 8
-The **bond alpha** signal at time $t$ is an estimate of the likelihood of success of the bond, represented normalized such that $\alpha = 0$ indicates that the project is estimated to fail, and $\alpha = 1$ indicates the highest likelhood of success.
+The **bond alpha** signal $\alpha_b \in [0,1]$ at time $t$ is an estimate of the likelihood of success of the bond, represented normalized such that $\alpha_b = 0$ indicates that the project is estimated to fail, and $\alpha_b = 1$ indicates the highest likelhood of success.
+
+#### Definition 9
+The **Alpha** state variable $\alpha \in [0,1]$ is an estimate of the probability of project success, as evaluated by the Alpha Oracle. It is represented normalized such that $\alpha = 0$ indicates that the project is estimated to fail, and $\alpha = 1$ indicates the highest likelhood of success.
+
+The initial value of Alpha is 0.5, as a default.
+
+#### Defintion 10
+The **ProjectTime** state variable $p \in \mathbb{Z}_{++}$ describes the duration for which the project has been in the Execution phase. 
+
+#### Defintion 11
+The **ClaimsSubmitted** state variable $c \in \mathbb{Z}_{+}$ describes the number of claims submitted towards the project during its Execution phase.
+
+## Initialization Conditions
+The ProjectTime, Alpha, ClaimsSubmitted state variables need to meet a pre-specified criteria for the state to transition into the Execution phase. In the bonding curve use case, the initialization conditions are also referred to as launch conditions.
+
+#### Definition 12
+The **ProjectTime threshold** $p_{lim}$ describes the maximum allowable duration for a project's Execution phase. 
+
+At initialization, $p_{lim}$ is set to a strictly positive finite integer $$p_{lim} \in \mathbb{Z}_{++}$$ $$p \overset{set}{=} 0$$
+
+#### Definition 13
+The **ClaimsSubmitted threshold** $c_{lim}$ describes the minimum number of claims required to be collected during the project's Execution phase. 
+
+At initialization, $c_{lim}$ is set to a positive finite integer $$c_{lim} \in \mathbb{Z}_{+}$$ $$c \overset{set}{=} 0$$
+
+#### Definition 14
+The **Alpha threshold** is $\alpha_{lim}$ describes the minimum alpha value required for the settlement to be successful. $c_{lim}$ is set to a positive finite integer during project initialization.
+
+At initialization, $\alpha_{lim}$ is set to a real value between 0 and 1 $$\alpha_{lim} \in [0,1]$$ $$\alpha \overset{set}{=} 0.5$$
+
+## Settlement Conditions
+
+#### Condition 1
+For successful settlement, the project must complete execution before the duration specified by the ProjectTime threshold. If the project does not reach Settlement Phase before $p_{lim}$, the project fails settlement and is terminated. 
+
+For successful settlement, $$p \overset{!}{\geq} p_{lim}$$
+
+#### Condition 2
+For successful settlement, the project must collect as many or more claims than the amount specified by the ClaimsSubmitted threshold $c_{lim}$. Failing to meet this criteria results in the failure of settlement and project termination.
+
+For successful settlement, $$c \overset{!}{\geq} c_{lim}$$
+
+#### Condition 3
+For successful settlement, the project's Alpha must be evaluated to be greater than or equal to $\alpha_{lim}$ set at initialization. Failing to meet this criteria results in the failure of settlement and project termination.
+
+For successful settlement, $$\alpha \overset{!}{\geq} \alpha_{lim}$$
+
