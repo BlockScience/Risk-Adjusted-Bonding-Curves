@@ -1,7 +1,12 @@
 # Phases in Bond Lifecycle
 
-![Diagram of Bond Phases]
-(img/phases.png?raw=true "Bond Phases")
+<div align="center">
+	<div width="350px" float="left">
+		<img width="350" height="230" src="img/phases.png" alt="bondlifecyclephases">
+		<br>
+		<br>
+	</div>
+</div>
 
 ## Phase 0: Pre-initialization 
 
