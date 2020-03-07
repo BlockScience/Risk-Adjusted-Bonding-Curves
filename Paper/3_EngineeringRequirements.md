@@ -165,3 +165,87 @@ For successful settlement, the project's Alpha must be evaluated to be greater t
 
 For successful settlement, $$\alpha \overset{!}{\geq} \alpha_{lim}$$
 
+## Mechanisms 
+
+#### Definition 9
+The set of **mechanisms** is $F$ such that any $f \in F$ is an operator $$f : \mathcal{X} \times U \to \mathcal{X}$$
+where $\mathcal{X}$ is the space of all possible states $X$, and $U$ is the space of all legal actions associated with the mechanism $f$.
+
+#### Functional Requirement 1
+The bonding curve mechanism should be robust enough to account for large or catastropic risks that occur at either extemes of the curve. 
+
+[comment]: # (Define a cut off point for asymptotic portion of the curve)
+
+#### Mechanism 1 
+The **bond-to-mint** mechanism mints impact tokens in exchange of bond tokens through an agent’s action $u_{a, t}$ . The agent’s action represents a transaction to transfer $\Delta R_t := r_{a,t} - r_{a, t+1} \geq 0$ quantity of bond tokens into the bonding curve system. Quantity $\Delta R_t$ of bond tokens are transferred into the bonding curve, resulting in
+
+System state, $x_{t+1}$
+
+$$R_{t+1} = R_{t} + \Delta R_t$$
+
+$$S_{t+1} = $$
+
+$$ P_{t+1} = $$
+
+$$\alpha_{t+1} = $$
+
+Agent-level state, $\hat x_{t+1}$
+
+$$r_{a, t+1} = r_t - \Delta R_t$$
+
+$$s_{a, t+1} =$$
+
+$$p_{a, t+1} =$$
+
+$$\alpha_{a, t+1} =$$
+
+#### Functional Requirement 2
+Upon the execution the Bond Action, Bond tokens are added to the bonding curve. 
+
+#### Mechanism 2 
+The **burn-to-withdraw** mechanism removes impact tokens to redeem bond tokens through an agent’s action $u_{a, t}$ . The agent’s action represents a transaction to remove $\Delta S_t := s_{a, t
+} - s_{a, t+1} \leq 0$ quantity of impact tokens from the bonding curve system. Quantity $\Delta S_t$ of impact tokens are removed from the bonding curve, resulting in:
+
+System state, $x_{t+1}$
+
+$$R_{t+1} = $$
+
+$$S_{t+1} = S_t + \Delta S_t$$
+
+$$ P_{t+1} = $$
+
+$$\alpha_{t+1} = $$
+
+Agent-level state, $\hat x_{t+1}$
+
+$$r_{a, t+1} = $$
+
+$$s_{a, t+1} = s_{a,t} + \Delta S_t$$
+
+$$p_{a, t+1} = $$
+
+$$\alpha_{a, t+1} = $$
+
+#### Functional Requirement 3
+Upon the execution of the Burn Action, Impact tokens are removed from the bonding curve.
+
+#### Mechanism 3
+The **attestation** mechanism involves the lifecylce of claims. Claims undergo the stages of submission, evaluation, and resolution. During resolution, if a claim does not reflect the state of the bonding curve, a dispute is issued against it to regain the bonding curve state.
+
+![](https://i.imgur.com/vamnLGV.png)
+
+#### Functional Requirement 4
+A lack of trading activity on the bonding curve does not indicate a degradation of the Bond Alpha, Project Alpha,  or the bonding curve itself. 
+
+<!-- [comment]: # (Sustainability: Consider temporal effects on investor sentiment, i.e passage of time correlates with decaying excitement about project, thus lesser activity. However, sunk cost bias simultaneously is in contention with this.) -->
+    
+#### Definition 10
+The bonding curve **conservation function** describes a conserved quantity, which is a functional relationship between the reserve and supply tokens, and is given by 
+
+$$V(R_t,S_t)  := \frac{S_t^\kappa}{R_t} \equiv V_0,$$
+
+where $V_0 = V(R_0,S_0) := \frac{S_0^\kappa}{R_0}$ is a constant defined by initial supply $S_0$ and initial reserve $R_0$. Parameter $\kappa$ is the curvature of the bonding curve.
+
+This conservation function imposed over the bonding curve ensures that the price of the token reflects the amount invested into projects in the platform, thus preventing imbalances through incentive design.
+
+
