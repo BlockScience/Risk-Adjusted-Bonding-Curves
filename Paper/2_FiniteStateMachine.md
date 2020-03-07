@@ -1,11 +1,8 @@
 # Phases in Bond Lifecycle
 
 <div align="center">
-	<div width="350px" float="left">
-		<img width="350" height="230" src="img/phases.png" alt="bondlifecyclephases">
-		<br>
-		<br>
-	</div>
+	<img width="393" height="323" src="img/phases.png" alt="bondlifecyclephases">
+	<br>
 </div>
 
 ## Phase 0: Pre-initialization 
