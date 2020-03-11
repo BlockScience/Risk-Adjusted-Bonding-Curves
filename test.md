@@ -1,2 +1,0 @@
-# InterchainFoundation
-test
