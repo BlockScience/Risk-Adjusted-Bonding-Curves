@@ -19,11 +19,11 @@ Since this is the first state of the bond lifecycle, there are no inward transit
 ### Next State Outputs
 1. Amount secured in Non-Bond Funds
 
-### Transitions out of Pre-initilization Phase
+### Transitions out of Pre-initialization Phase
 A Funding Secured Event will move the system from the Pre-initialization Phase into the Initialization Phase.
 
 ## Phase 1: Initialization
-During the Initialziation phase, bond funds are raised, launch conditions are specified including ProjectTime, ClaimsSubmitted and Alpha thresholds, and the bond Alpha is initialized to 0.5.
+During the Initialization phase, bond funds are raised, launch conditions are specified including ProjectTime, ClaimsSubmitted and Alpha thresholds, and the bond Alpha is initialized to 0.5.
 
 ### Transitions into Initialization Phase
 A Funding Secured Event will move the system from the Pre-initialization Phase into the Initialization Phase.
@@ -106,10 +106,10 @@ A Dispute Triggering event moves the system from the Execution Phase to the Disp
 ### Transitions out of Dispute Pause Phase
 If Dispute Verdict = return to Execution, the system will move from the Dispute Pause Phase back to the Execution Phase.
 
-Else if Dispute Verdict = resolved to completion, the sytstem will move from the Dispute Pause Phase back to the Settlement Consideration Phase Phase.
+Else if Dispute Verdict = resolved to completion, the system will move from the Dispute Pause Phase back to the Settlement Consideration Pause Phase.
 
 ## Phase 4: Settlement Consideration Pause 
-In this phase, the bond is evaluated against the Settlement Conditions for success or failure. Similarly to the Dispute Pause Phase, all system activity other than settlement consideration activity is paused during this phase.
+In this phase, the bond is evaluated against the Settlement Conditions for success or failure. Similar to the Dispute Pause Phase, all system activity other than settlement consideration activity is paused during this phase.
 
 ### Transitions into Settlement Consideration Pause Phase
 1. A Propose Completion Event moves the system from the Execution Phase to the Settlement Consideration Pause Phase.
@@ -135,13 +135,15 @@ A Completion event moves the system from the Settlement Consideration Pause Phas
 ### Inputs
 1. Bond to Token Conversion
 2. Payments to be redeeemed
-3. Outcomes Payees / Fee Distribution
-4. Outcomes Payments / Fee Distribution
+3. Outcomes Payees
+4. Outcomes Payments
 
 ### Next State Outputs
-None, since there is no next state.
+1. Fee Distribution
+2. Impact Token Distribution
+3. Outcomes Payment Distribution
 
 ### Transitions out of Settlement Consideration Pause Phase
-This is the last phase of the system, thus no outward state transitions. 
+This is the last phase of the system, thus there are no outward state transitions. 
 
 
