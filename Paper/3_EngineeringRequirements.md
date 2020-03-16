@@ -175,7 +175,7 @@ For successful settlement, <br/> <br/> ![img](https://latex.codecogs.com/svg.lat
 ## Mechanisms 
 
 #### Definition 15
-The set of **mechanisms** is ![img](https://latex.codecogs.com/svg.latex?F) such that any ![img](https://latex.codecogs.com/svg.latex?f%20%5Cin%20F) is an operator <br/> <br/> ![img](https://latex.codecogs.com/svg.latex?f%20%3A%20%5Cmathcal%7BX%7D%20%5Ctimes%20U%20%5Cto%20%5Cmathcal%7BX%7D) <br/>
+The set of **mechanisms** is ![img](https://latex.codecogs.com/svg.latex?F) such that any ![img](https://latex.codecogs.com/svg.latex?f%20%5Cin%20F) is an operator <br/> ![img](https://latex.codecogs.com/svg.latex?f%20%3A%20%5Cmathcal%7BX%7D%20%5Ctimes%20U%20%5Cto%20%5Cmathcal%7BX%7D) <br/>
 where ![img](https://latex.codecogs.com/svg.latex?%5Cmathcal%7BX%7D) is the space of all possible states ![img](https://latex.codecogs.com/svg.latex?X), and ![img](https://latex.codecogs.com/svg.latex?U) is the space of all legal actions associated with the mechanism ![img](https://latex.codecogs.com/svg.latex?f).
 
 #### Functional Requirement 1
