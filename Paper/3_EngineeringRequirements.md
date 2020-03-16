@@ -103,12 +103,17 @@ The **agent-level state** represents all agent states at a given time ![img](htt
 <!-- <img src="https://render.githubusercontent.com/render/math?math=(\hat{x}_{1,t}, \hat{x}_{2,t}, \ldots, \hat{x}_{n,t})\in\prod_{a=1}^n\hat{X}_a \subseteq \mathbb{R}^{nk}"> -->
 
 <!-- <img src="https://latex.codecogs.com/svg.latex?\Large&space;" title="\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}" /> -->
-![img](http://latex.codecogs.com/svg.latex?%28%5Chat%7Bx%7D_%7B1%2Ct%7D%2C+%5Chat%7Bx%7D_%7B2%2Ct%7D%2C+%5Cldots%2C+%5Chat%7Bx%7D_%7Bn%2Ct%7D%29%5Cin%5Cprod_%7Ba%3D1%7D%5En%5Chat%7BX%7D_a+%5Csubseteq+%5Cmathbb%7BR%7D%5E%7Bnk%7D)
+
+<p align="center">
+ <img src="http://latex.codecogs.com/svg.latex?%28%5Chat%7Bx%7D_%7B1%2Ct%7D%2C+%5Chat%7Bx%7D_%7B2%2Ct%7D%2C+%5Cldots%2C+%5Chat%7Bx%7D_%7Bn%2Ct%7D%29%5Cin%5Cprod_%7Ba%3D1%7D%5En%5Chat%7BX%7D_a+%5Csubseteq+%5Cmathbb%7BR%7D%5E%7Bnk%7D">
+</p>
 
 #### Definition 4
 The **system state** is the network’s internal state composed of a finite number of elements, denoted by ![img](https://latex.codecogs.com/svg.latex?%5Cbar%7Bx%7D_t). The system-level state depends on the information arrival process summarized by time ![img](https://latex.codecogs.com/svg.latex?t). The system-level state space is a set ![img](https://latex.codecogs.com/svg.latex?%5Cbar%7BX%7D%20%5Cin%20R%5Em), such that ![img](https://latex.codecogs.com/svg.latex?%5Cforall%20t), ![img](https://latex.codecogs.com/svg.latex?%5Cbar%7Bx%7D_t%20%5Cin%20%5Cbar%7BX%7D) where ![img](https://latex.codecogs.com/svg.latex?m) is the number of finite elements. The system state ![img](https://latex.codecogs.com/svg.latex?x_t) is the state of all agents and the system-level state, and is given by <br/>
 
-![img](https://latex.codecogs.com/svg.latex?x_t%20%3A%3D%20%28%5Chat%7Bx%7D_%7B1%2Ct%7D%2C%20%5Chat%7Bx%7D_%7B2%2Ct%7D%2C%20%5Cldots%2C%20%5Chat%7Bx%7D_%7Bn%2Ct%7D%2C%20%5Cbar%7Bx%7D_t%29%20%5Cin%20X%20%3A%3D%20%5Cprod_%7Ba%3D1%7D%5En%5Chat%7BX%7D_a%20%5Ctimes%20%5Cbar%7BX%7D%20%5Csubseteq%20%5Cmathbb%7BR%7D%5E%7Bnk%7D%20%5Ctimes%20%5Cmathbb%7BR%7D%5Em)
+<p align="center">
+ <img src="https://latex.codecogs.com/svg.latex?x_t%20%3A%3D%20%28%5Chat%7Bx%7D_%7B1%2Ct%7D%2C%20%5Chat%7Bx%7D_%7B2%2Ct%7D%2C%20%5Cldots%2C%20%5Chat%7Bx%7D_%7Bn%2Ct%7D%2C%20%5Cbar%7Bx%7D_t%29%20%5Cin%20X%20%3A%3D%20%5Cprod_%7Ba%3D1%7D%5En%5Chat%7BX%7D_a%20%5Ctimes%20%5Cbar%7BX%7D%20%5Csubseteq%20%5Cmathbb%7BR%7D%5E%7Bnk%7D%20%5Ctimes%20%5Cmathbb%7BR%7D%5Em">
+</p>
 
 #### Definition 5
 The **reserve** ![img](https://latex.codecogs.com/svg.latex?R_t%20%5Cin%20%5Cmathbb%7BR%7D_%7B&plus;&plus;%7D). at time ![img](https://latex.codecogs.com/svg.latex?t) is the total quantity of bond tokens bonded to the bonding curve contract.
@@ -143,39 +148,68 @@ The ProjectTime, Alpha, ClaimsSubmitted state variables need to meet a pre-speci
 #### Definition 12
 The **ProjectTime threshold** ![img](https://latex.codecogs.com/svg.latex?p_%7Blim%7D) describes the maximum allowable duration for a project's Execution phase. 
 
-At initialization, ![img](https://latex.codecogs.com/svg.latex?p_%7Blim%7D) is set to a strictly positive finite integer <br/><br/> ![img](https://latex.codecogs.com/svg.latex?p_%7Blim%7D%20%5Cin%20%5Cmathbb%7BZ%7D_%7B&plus;&plus;%7D%24%24%20%24%24p%20%5Coverset%7Bset%7D%7B%3D%7D%200)
+At initialization, ![img](https://latex.codecogs.com/svg.latex?p_%7Blim%7D) is set to a strictly positive finite integer 
+
+<p align="center">
+ <img src="https://latex.codecogs.com/svg.latex?p_%7Blim%7D%20%5Cin%20%5Cmathbb%7BZ%7D_%7B&plus;&plus;%7D%24%24%20%24%24p%20%5Coverset%7Bset%7D%7B%3D%7D%200">
+</p>
 
 #### Definition 13
 The **ClaimsSubmitted threshold** ![img](https://latex.codecogs.com/svg.latex?c_%7Blim%7D) describes the minimum number of claims required to be collected during the project's Execution phase. 
 
-At initialization, ![img](https://latex.codecogs.com/svg.latex?c_%7Blim%7D) is set to a positive finite integer <br/><br/> ![img](https://latex.codecogs.com/svg.latex?c_%7Blim%7D%20%5Cin%20%5Cmathbb%7BZ%7D_%7B&plus;%7D%24%24%20%24%24c%20%5Coverset%7Bset%7D%7B%3D%7D%200)
+At initialization, ![img](https://latex.codecogs.com/svg.latex?c_%7Blim%7D) is set to a positive finite integer 
+
+<p align="center">
+ <img src="https://latex.codecogs.com/svg.latex?c_%7Blim%7D%20%5Cin%20%5Cmathbb%7BZ%7D_%7B&plus;%7D%24%24%20%24%24c%20%5Coverset%7Bset%7D%7B%3D%7D%200">
+</p>
 
 #### Definition 14
 The **Alpha threshold** is ![img](https://latex.codecogs.com/svg.latex?%5Calpha_%7Blim%7D) describes the minimum alpha value required for the settlement to be successful. ![img](https://latex.codecogs.com/svg.latex?%5Calpha_%7Blim%7D) is set to a positive finite integer during project initialization.
 
-At initialization, ![img](https://latex.codecogs.com/svg.latex?%5Calpha_%7Blim%7D) is set to a real value between 0 and 1 <br/><br/> ![img](https://latex.codecogs.com/svg.latex?%5Calpha_%7Blim%7D%20%5Cin%20%5B0%2C1%5D) <br/> ![img](https://latex.codecogs.com/svg.latex?%5Calpha%20%5Coverset%7Bset%7D%7B%3D%7D%200.5)
+At initialization, ![img](https://latex.codecogs.com/svg.latex?%5Calpha_%7Blim%7D) is set to a real value between 0 and 1 
+
+<p align="center">
+ <img src="https://latex.codecogs.com/svg.latex?%5Calpha_%7Blim%7D%20%5Cin%20%5B0%2C1%5D">
+ <br/> 
+ <img src="https://latex.codecogs.com/svg.latex?%5Calpha%20%5Coverset%7Bset%7D%7B%3D%7D%200.5">
+</p>
+ 
 
 ## Settlement Conditions
 
 #### Condition 1
 For successful settlement, the project must complete execution before the duration specified by the ProjectTime threshold. If the project does not reach Settlement Phase before ![img](https://latex.codecogs.com/svg.latex?p_%7Blim%7D), the project fails settlement and is terminated. 
 
-For successful settlement, <br/> <br/> ![img](https://latex.codecogs.com/svg.latex?p%20%5Coverset%7B%21%7D%7B%5Cgeq%7D%20p_%7Blim%7D)
+For successful settlement, 
+<p align="center">
+ <img src="https://latex.codecogs.com/svg.latex?p%20%5Coverset%7B%21%7D%7B%5Cgeq%7D%20p_%7Blim%7D">
+</p>
 
 #### Condition 2
 For successful settlement, the project must collect as many or more claims than the amount specified by the ClaimsSubmitted threshold ![img](https://latex.codecogs.com/svg.latex?c_%7Blim%7D) Failing to meet this criteria results in the failure of settlement and project termination.
 
-For successful settlement, <br/> <br/> ![img](https://latex.codecogs.com/svg.latex?c%20%5Coverset%7B%21%7D%7B%5Cgeq%7D%20c_%7Blim%7D)
+For successful settlement, 
+<p align="center">
+ <img src="https://latex.codecogs.com/svg.latex?c%20%5Coverset%7B%21%7D%7B%5Cgeq%7D%20c_%7Blim%7D">
+</p>
 
 #### Condition 3
 For successful settlement, the project's Alpha must be evaluated to be greater than or equal to ![img](https://latex.codecogs.com/svg.latex?%5Calpha_%7Blim%7D) set at initialization. Failing to meet this criteria results in the failure of settlement and project termination.
 
-For successful settlement, <br/> <br/> ![img](https://latex.codecogs.com/svg.latex?%5Calpha%20%5Coverset%7B%21%7D%7B%5Cgeq%7D%20%5Calpha_%7Blim%7D)
+For successful settlement, 
+<p align="center">
+ <img src="https://latex.codecogs.com/svg.latex?%5Calpha%20%5Coverset%7B%21%7D%7B%5Cgeq%7D%20%5Calpha_%7Blim%7D">
+</p>
 
 ## Mechanisms 
 
 #### Definition 15
-The set of **mechanisms** is ![img](https://latex.codecogs.com/svg.latex?F) such that any ![img](https://latex.codecogs.com/svg.latex?f%20%5Cin%20F) is an operator <br/> ![img](https://latex.codecogs.com/svg.latex?f%20%3A%20%5Cmathcal%7BX%7D%20%5Ctimes%20U%20%5Cto%20%5Cmathcal%7BX%7D) <br/>
+The set of **mechanisms** is ![img](https://latex.codecogs.com/svg.latex?F) such that any ![img](https://latex.codecogs.com/svg.latex?f%20%5Cin%20F) is an operator 
+
+<p align="center">
+ <img src="https://latex.codecogs.com/svg.latex?f%20%3A%20%5Cmathcal%7BX%7D%20%5Ctimes%20U%20%5Cto%20%5Cmathcal%7BX%7D">
+</p>
+
 where ![img](https://latex.codecogs.com/svg.latex?%5Cmathcal%7BX%7D) is the space of all possible states ![img](https://latex.codecogs.com/svg.latex?X), and ![img](https://latex.codecogs.com/svg.latex?U) is the space of all legal actions associated with the mechanism ![img](https://latex.codecogs.com/svg.latex?f).
 
 #### Functional Requirement 1
@@ -188,23 +222,27 @@ The **bond-to-mint** mechanism mints impact tokens in exchange of bond tokens th
 
 System state, ![img](https://latex.codecogs.com/svg.latex?x_%7Bt&plus;1%7D)
 
-<br/> ![img](https://latex.codecogs.com/svg.latex?R_%7Bt&plus;1%7D%20%3D%20R_%7Bt%7D%20&plus;%20%5CDelta%20R_t)
-
-<br/> ![img](https://latex.codecogs.com/svg.latex?S_%7Bt&plus;1%7D%20%3D)
-
-<br/> ![img](https://latex.codecogs.com/svg.latex?P_%7Bt&plus;1%7D%20%3D)
-
-<br/> ![img](https://latex.codecogs.com/svg.latex?%5Calpha_%7Bt&plus;1%7D%20%3D)
+<p align="center">
+ <img src="https://latex.codecogs.com/svg.latex?R_%7Bt&plus;1%7D%20%3D%20R_%7Bt%7D%20&plus;%20%5CDelta%20R_t">
+ <br/> 
+ <img src="https://latex.codecogs.com/svg.latex?S_%7Bt&plus;1%7D%20%3D">
+ <br/> 
+ <img src="https://latex.codecogs.com/svg.latex?P_%7Bt&plus;1%7D%20%3D">
+ <br/> 
+ <img src="https://latex.codecogs.com/svg.latex?%5Calpha_%7Bt&plus;1%7D%20%3D">
+</p>
 
 Agent-level state, ![img](https://latex.codecogs.com/svg.latex?%5Chat%20x_%7Bt&plus;1%7D)
 
-<br/> ![img](https://latex.codecogs.com/svg.latex?r_%7Ba%2C%20t&plus;1%7D%20%3D%20r_t%20-%20%5CDelta%20R_t)
-
-<br/> ![img](https://latex.codecogs.com/svg.latex?s_%7Ba%2C%20t&plus;1%7D%20%3D)
-
-<br/> ![img](https://latex.codecogs.com/svg.latex?p_%7Ba%2C%20t&plus;1%7D%20%3D)
-
-<br/> ![img](https://latex.codecogs.com/svg.latex?%5Calpha_%7Ba%2C%20t&plus;1%7D%20%3D)
+<p align="center">
+ <img src="https://latex.codecogs.com/svg.latex?r_%7Ba%2C%20t&plus;1%7D%20%3D%20r_t%20-%20%5CDelta%20R_t">
+ <br/>
+ <img src="https://latex.codecogs.com/svg.latex?s_%7Ba%2C%20t&plus;1%7D%20%3D">
+ <br/>
+ <img src="https://latex.codecogs.com/svg.latex?p_%7Ba%2C%20t&plus;1%7D%20%3D">
+ <br/>
+ <img src="https://latex.codecogs.com/svg.latex?%5Calpha_%7Ba%2C%20t&plus;1%7D%20%3D">
+</p>
 
 #### Functional Requirement 2
 Upon the execution the Bond Action, Bond tokens are added to the bonding curve. 
@@ -214,23 +252,27 @@ The **burn-to-withdraw** mechanism removes impact tokens to redeem bond tokens t
 
 System state, ![img](https://latex.codecogs.com/svg.latex?x_%7Bt&plus;1%7D)
 
-<br/> ![img](https://latex.codecogs.com/svg.latex?R_%7Bt&plus;1%7D%20%3D)
-
-<br/> ![img](https://latex.codecogs.com/svg.latex?S_%7Bt&plus;1%7D%20%3D%20S_t%20&plus;%20%5CDelta%20S_t)
-
-<br/> ![img](https://latex.codecogs.com/svg.latex?P_%7Bt&plus;1%7D%20%3D)
-
-<br/> ![img](https://latex.codecogs.com/svg.latex?%5Calpha_%7Bt&plus;1%7D%20%3D)
+<p align="center">
+ <img src="https://latex.codecogs.com/svg.latex?R_%7Bt&plus;1%7D%20%3D">
+ <br/>
+ <img src="https://latex.codecogs.com/svg.latex?S_%7Bt&plus;1%7D%20%3D%20S_t%20&plus;%20%5CDelta%20S_t">
+ <br/>
+ <img src="https://latex.codecogs.com/svg.latex?P_%7Bt&plus;1%7D%20%3D">
+ <br/>
+ <img src="https://latex.codecogs.com/svg.latex?%5Calpha_%7Bt&plus;1%7D%20%3D">
+</p>
 
 Agent-level state, ![img](https://latex.codecogs.com/svg.latex?%5Chat%20x_%7Bt&plus;1%7D)
 
-<br/> ![img](https://latex.codecogs.com/svg.latex?r_%7Ba%2C%20t&plus;1%7D%20%3D)
-
-<br/> ![img](https://latex.codecogs.com/svg.latex?s_%7Ba%2C%20t&plus;1%7D%20%3D%20s_%7Ba%2Ct%7D%20&plus;%20%5CDelta%20S_t)
-
-<br/> ![img](https://latex.codecogs.com/svg.latex?p_%7Ba%2C%20t&plus;1%7D%20%3D)
-
-<br/> ![img](https://latex.codecogs.com/svg.latex?%5Calpha_%7Ba%2C%20t&plus;1%7D%20%3D)
+<p align="center">
+ <img src="https://latex.codecogs.com/svg.latex?r_%7Ba%2C%20t&plus;1%7D%20%3D">
+ <br/>
+ <img src="https://latex.codecogs.com/svg.latex?s_%7Ba%2C%20t&plus;1%7D%20%3D%20s_%7Ba%2Ct%7D%20&plus;%20%5CDelta%20S_t">
+ <br/>
+ <img src="https://latex.codecogs.com/svg.latex?p_%7Ba%2C%20t&plus;1%7D%20%3D">
+ <br/>
+ <img src="https://latex.codecogs.com/svg.latex?%5Calpha_%7Ba%2C%20t&plus;1%7D%20%3D">
+</p>
 
 #### Functional Requirement 3
 Upon the execution of the Burn Action, Impact tokens are removed from the bonding curve.
@@ -248,9 +290,17 @@ A lack of trading activity on the bonding curve does not indicate a degradation 
 #### Definition 16
 The bonding curve **conservation function** describes a conserved quantity, which is a functional relationship between the reserve and supply tokens, and is given by 
 
-<br/> ![img](https://latex.codecogs.com/svg.latex?V%28R_t%2CS_t%29%20%3A%3D%20%5Cfrac%7BS_t%5E%5Ckappa%7D%7BR_t%7D%20%5Cequiv%20V_0%2C)
+<p align="center">
+ <img src="https://latex.codecogs.com/svg.latex?V%28R_t%2CS_t%29%20%3A%3D%20%5Cfrac%7BS_t%5E%5Ckappa%7D%7BR_t%7D%20%5Cequiv%20V_0%2C">
+</p>
 
-where <br/> ![img](https://latex.codecogs.com/svg.latex?V_0%20%3D%20V%28R_0%2CS_0%29%20%3A%3D%20%5Cfrac%7BS_0%5E%5Ckappa%7D%7BR_0%7D) <br/> is a constant defined by initial supply ![img](https://latex.codecogs.com/svg.latex?S_0) and initial reserve ![img](https://latex.codecogs.com/svg.latex?R_0). Parameter ![img](https://latex.codecogs.com/svg.latex?%5Ckappa) is the curvature of the bonding curve.
+where 
+
+<p align="center">
+ <img src="https://latex.codecogs.com/svg.latex?V_0%20%3D%20V%28R_0%2CS_0%29%20%3A%3D%20%5Cfrac%7BS_0%5E%5Ckappa%7D%7BR_0%7D">
+</p>
+
+is a constant defined by initial supply ![img](https://latex.codecogs.com/svg.latex?S_0) and initial reserve ![img](https://latex.codecogs.com/svg.latex?R_0). Parameter ![img](https://latex.codecogs.com/svg.latex?%5Ckappa) is the curvature of the bonding curve.
 
 This conservation function imposed over the bonding curve ensures that the price of the token reflects the amount invested into projects in the platform, thus preventing imbalances through incentive design.
 
