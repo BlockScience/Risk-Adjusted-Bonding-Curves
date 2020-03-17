@@ -70,11 +70,11 @@ Administrators are explicitly excluded from participating in *Bond-to-Mint*, *Bu
 1. Attestation - Claim Evaluation
 
 ### Role 8
-The **Project Owner** is the initiator and controller of a project on an impact bond blockchain network. This stakeholder creates the project and defines its parameters. Once a project parameters have been set up, the Project Owner deploys the project on an impact bond blockchain network, using their cryptographic keys to instantiate the project by signing a message payload that records the genesis of the project in a blockchain record.
+The **Project Owner** is the initiator and controller of a project on an impact bond blockchain network. This stakeholder creates the project and defines its parameters. Once a project's parameters have been set up, the Project Owner deploys the project on an impact bond blockchain network, using their cryptographic keys to instantiate the project by signing a message payload that records the genesis of the project in a blockchain record.
 
 A **ProjectOwner** role is characterized by the ability to create projects, receive bond and impact tokens, distribute tokens to project stakeholders, change project parameters or terminate project life, and submit disputes.  
 
-ProjectOwners can purchase the first tranche of bond tokens during project initialization a at an entry price close to 0. They then distribute these tokens to various project stakeholders to incentivize them to participate in roles in the project.
+ProjectOwners can purchase the first tranche of bond tokens during project initialization at an entry price close to 0. They then distribute these tokens to various project stakeholders to incentivize them to participate in roles in the project.
 
 #### **ProjectOwner** Mechanism Action Space:
 1. Attestation - Dispute Submission
