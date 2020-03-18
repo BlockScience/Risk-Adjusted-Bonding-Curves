@@ -1,0 +1,17 @@
+Systems Engineering is a process that integrates the technical effort within a managed project to transform an operational need, or user's requirement, into a description of systems performance parameters and systems configuration. When implemented early in the design process, systems engineering ensures that the total system is efficient, cost-effective, operable, reliable, and maintainable. In addition to a fully integrated engineering effort and an established definition of system operating parameters, the customer also gains these benefits: 
+1. The design is conducted on a total system basis which incorporates other requirements.
+1. A means is provided for evaluating changes which affect the overall system performance. 
+1. A framework of coherent system requirements exists that will be used as performance, design, and test criteria, further, these criteria serve as source data for specifications, tests, contract work statements, and documentation.
+1. A means of documenting technical decisions made during the course of the program is available to managers.
+
+### Development Phase 1 Requirements
+
+A collaborative effort of the business and technical teams, through facilitated discussions, is necessary in order to define and analyze the ecosystem scope, program plan, role taxonomies, program phasing requirements, and system requirements. Requirements analysis will address customer expectations, project and enterprise constraints, external constraints, operational scenarios, measures of effectiveness/suitability; and will extend to system boundaries, interfaces, utilization environments, life cycle process outputs, functional requirements, performance requirements, modes of operation, and human factors. At the conclusion of this phase, all requirements business and systems­ must be clear, concise, correct, and complete in order to create a strong foundation for subsequent development phases.
+
+### Development Phase 2­ Design
+
+The system model will incorporate system requirement aspects, including stakeholder goals, purposes, and success conditions for the system. Specification will incorporate black box behavior and characteristics, specifically what the system has to do to meet the requirements, the transformations of inputs to outputs (functional/activity models), and state/mode­based behavioral differences (state models). The structure of the model will include the parts that exhibit the behavior and the component hierarchy, elements, and stores. The properties of the model are the performance, physical characteristics, and governing rules that constrain the structure and behavior. The interconnections of the model are the way the structural elements arrange and communicate to achieve the required behavior under the given constraints. Component level mathematical specifications precisely characterizing the systems mechanisms, allowed action spaces for users of all roles, and any explicit reachable subspace proofs will be provided. 
+
+### Development Phase 3 Validation
+
+ Simulation techniques may involving discrete differential equations, Monte Carlo methods and Markov chains provide the numerical experiments necessary to validate the design. This process involves developing a custom battery of system level tests which correspond to system requirements, through an implementation of deterministic and stochastic processes. User behavior models will be derived strategies including but not limited to rational best response irrational antagonism, and random actions.
