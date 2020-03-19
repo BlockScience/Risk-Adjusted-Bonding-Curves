@@ -109,7 +109,7 @@ If Dispute Verdict = return to Execution, the system will move from the Dispute 
 Else if Dispute Verdict = resolved to completion, the system will move from the Dispute Pause Phase back to the Settlement Consideration Pause Phase.
 
 ## Phase 4: Settlement Consideration Pause 
-In this phase, the bond is evaluated against the Settlement Conditions for success or failure. Similar to the Dispute Pause Phase, all system activity other than settlement consideration activity is paused during this phase.
+In this phase, the bond is evaluated against the Settlement Conditions for success or failure. Similar to the Dispute Pause Phase, all system activity other than settlement consideration activity is paused during this phase. A detailed view of the Settlement process is shown [here](artifacts/SettlementConsiderationPhase.png).
 
 ### Transitions into Settlement Consideration Pause Phase
 1. A Propose Completion Event moves the system from the Execution Phase to the Settlement Consideration Pause Phase.
