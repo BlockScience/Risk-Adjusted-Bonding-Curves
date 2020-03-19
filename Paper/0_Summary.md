@@ -10,7 +10,7 @@ The impact bond bonding curve is parametrically adjusted to mitigate risk, there
 ### Problem: Static bonding curves
 Current token bonding curve implementations act as automated market makers for initial and ongoing investment. However, they generally are static, with fixed *a priori* assumptions about the interaction between the token economy and its external factors. 
 <br/><br/> 
-Since these bonding curve implementations are static, they cannot incororate external risk factors during live execution. This results in pricing and supply anomalies, such as tokens being misallocated on both buy-side and sell-side, with loss in risk correlation. 
+Since these bonding curve implementations are static, they cannot incorpoate external risk factors during live execution. This results in pricing and supply anomalies, such as tokens being misallocated on both buy-side and sell-side, with loss in risk correlation. 
 <br/><br/> 
 Ultimately, risk remains poorly mitigated, and investors do not receive a fair return on investment.
 Systems with compound economic mechanisms (e.g. staking deposits also being used as debt collateral) contain interdependencies that produce non-linear effects. In the case of static bonding curves, risk accumulates in a non-linear fashion which can lead to systemic collapse.
@@ -24,9 +24,5 @@ The system consists of several impact investors who invest in impact bonds conta
 A bonding curve issues and burns tokens according to the investor's buy and sell decisions. The token price is governed by the bonding curve which is influenced by aggregated investor decisions. Since the system employs a risk-adjusted bonding curve, there exists a parameter alpha which predicts the bond's likelihood of success based on internal and external inputs. Alpha changes as the bond participants in the issue claims or disputes towards the bond or its constituent projects.
 <br/><br/> 
 The bonding curve thus acts as an estimator of market price and the bond's likelihood of success, alpha.
-
-#### Systemic Map of the Impact Bonds System
-
-![](https://i.imgur.com/wbq8GpR.png)
 
 In the following paper, we demonstrate our entire economic engineering process from discovery and formulating business and engineering requirements to arriving at a suitable mathematical model to be input into a simulation. 
