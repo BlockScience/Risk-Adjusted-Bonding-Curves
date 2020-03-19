@@ -307,3 +307,4 @@ is a constant defined by initial supply ![img](https://latex.codecogs.com/svg.la
 This conservation function imposed over the bonding curve ensures that the price of the token reflects the amount invested into projects in the platform, thus preventing imbalances through incentive design.
 
 
+
