@@ -201,6 +201,8 @@ For successful settlement,
  <img src="https://latex.codecogs.com/svg.latex?%5Calpha%20%5Coverset%7B%21%7D%7B%5Cgeq%7D%20%5Calpha_%7Blim%7D">
 </p>
 
+![settlement phase diagram](artifacts/SettlementConsiderationPhase.png)
+
 ## Mechanisms 
 
 #### Definition 15
@@ -303,3 +305,6 @@ where
 is a constant defined by initial supply ![img](https://latex.codecogs.com/svg.latex?S_0) and initial reserve ![img](https://latex.codecogs.com/svg.latex?R_0). Parameter ![img](https://latex.codecogs.com/svg.latex?%5Ckappa) is the curvature of the bonding curve.
 
 This conservation function imposed over the bonding curve ensures that the price of the token reflects the amount invested into projects in the platform, thus preventing imbalances through incentive design.
+
+
+
