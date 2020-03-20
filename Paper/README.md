@@ -38,7 +38,7 @@ A means of documenting technical decisions made during the course of the program
 #### Design Phase 1 Requirements
 A collaborative effort of the business and technical teams, through facilitated discussions, is necessary in order to define and analyze the ecosystem scope, program plan, role taxonomies, program phasing requirements, and system requirements. Requirements analysis will address customer expectations, project and enterprise constraints, external constraints, operational scenarios, measures of effectiveness/suitability; and will extend to system boundaries, interfaces, utilization environments, life cycle process outputs, functional requirements, performance requirements, modes of operation, and human factors. At the conclusion of this phase, all requirements business and systems­ must be clear, concise, correct, and complete in order to create a strong foundation for subsequent design phases.
 
-The culmination of this first phase of development effort produced the following deliverables:
+The culmination of this first phase of design effort produced the following deliverables:
 1. [Ecosystem Scope](1_Ecosystem.md)
 1. [Finite State Machine](2_FiniteStateMachine.md)
 1. [System Requirements](3_EngineeringRequirements.md)
