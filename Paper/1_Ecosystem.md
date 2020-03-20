@@ -86,3 +86,5 @@ An **OutcomesPayer** role is characterized by the ability to make final payments
 
 #### **OutcomesPayer** Mechanism Action Space:
 1. Attestation - Dispute Submission
+
+Continue reading Chapter 2: [Finite Sate Machine](2_FiniteStateMachine.md)
