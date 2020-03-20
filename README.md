@@ -9,7 +9,7 @@ System Requirements and Functional Requirements will be mapped to formally frame
 
 # Summary of Work
 - Use Case Research - Interviewing and gathering requirements from the impact investment space ~*active*
-- Converting business requirements and user stories in formal functional requirements for the bond mechanism ~*active*
+- Converting business requirements and user stories into formal functional requirements for the bond mechanism ~*active*
 - Preliminary Algorithm Design - Mathematical Derivations
 - Initial Implementation of cadCAD model
 - Design Iterations based on computational experiments
