@@ -7,6 +7,8 @@ Document, Design, and Test an Impact Bond Mechanism to fund outcome driven proje
 
 Begin by reading the [Problem Statement and Methodology](paper/README.md).
 
+Begin by reading the [Problem Statement and Methodology](Paper/0_Summary.md).
+
 # Methods and Tools
 System Requirements and Functional Requirements will be mapped to formally frame the inherently human challenge into a bounded dynamic Mechanism Design problem. The Framework for Discrete Event Games as described in [Economic Games as Estimators](https://epub.wu.ac.at/7433/1/zargham_paruch_shorish.pdf) will be applied. The Impact Bonds will be more advanced variations of Bonding Curves, see [From Curved Bonding to Configuration Spaces](https://epub.wu.ac.at/7385/1/zargham_shorish_paruch.pdf). While initial designs will be analytical in nature, the computer aided design process is iterative. The [cadCAD](https://github.com/BlockScience/cadCAD/tree/master/cadCAD) modeling software will be applied to develop a computational model of the mechanisms. The model will be used for failure mode analysis, sensitivity analysis and other design validation procedures prior to implementation.
 
