@@ -21,7 +21,7 @@ To maintain practicality, we have anchored it in a motivating use case of alpha-
 alpha-Bonds are currently being implemented for high-profile development projects for improving the quality of primary school education in India. 
 <br/><br/> 
 The system consists of several impact investors who invest in impact bonds containing social good projects and receive a return contingent on the project's degree of success. 
-A bonding curve issues and burns tokens according to the investor's buy and sell decisions. The token price is governed by the bonding curve which is influenced by aggregated investor decisions. Since the system employs a risk-adjusted bonding curve, there exists a parameter alpha which predicts the bond's likelihood of success based on internal and external inputs. Alpha changes as the bond participants in the issue claims or disputes towards the bond or its constituent projects.
+A bonding curve issues and burns tokens according to the investor's buy and sell decisions. The token price is governed by the bonding curve which is influenced by aggregated investor decisions. Since the system employs a risk-adjusted bonding curve, there exists a parameter alpha which predicts the bond's likelihood of success based on internal and external inputs. Alpha changes as the bond participants issue claims or disputes towards the bond or its constituent projects.
 <br/><br/> 
 The bonding curve thus acts as an estimator of market price and the bond's likelihood of success, alpha.
 
@@ -40,13 +40,13 @@ A collaborative effort of the business and technical teams, through facilitated 
 
 The culmination of this first phase of development effort produced the following deliverables:
 1. [Ecosystem Scope](1_Ecosystem.md)
-1. [Finite Sate Machine](2_FiniteStateMachine.md)
+1. [Finite State Machine](2_FiniteStateMachine.md)
 1. [System Requirements](3_EngineeringRequirements.md)
 
 #### Development Phase 2­ Design
 The system model will incorporate system requirement aspects, including stakeholder goals, purposes, and success conditions for the system. Specification will incorporate black box behavior and characteristics, specifically what the system has to do to meet the requirements, the transformations of inputs to outputs (functional/activity models), and state/mode­based behavioral differences (state models). The structure of the model will include the parts that exhibit the behavior and the component hierarchy, elements, and stores. The properties of the model are the performance, physical characteristics, and governing rules that constrain the structure and behavior. The interconnections of the model are the way the structural elements arrange and communicate to achieve the required behavior under the given constraints. Component level mathematical specifications precisely characterizing the systems mechanisms, allowed action spaces for users of all roles, and any explicit reachable subspace proofs will be provided.
 
 #### Development Phase 3 Validation
-Simulation techniques may involving discrete differential equations, Monte Carlo methods and Markov chains provide the numerical experiments necessary to validate the design. This process involves developing a custom battery of system level tests which correspond to system requirements, through an implementation of deterministic and stochastic processes. User behavior models will be derived strategies including but not limited to rational best response irrational antagonism, and random actions.
+Simulation techniques may involve discrete differential equations, Monte Carlo methods and Markov chains to provide the numerical experiments necessary to validate the design. This process involves developing a custom battery of system level tests which correspond to system requirements, through an implementation of deterministic and stochastic processes. User behavior models will be derived strategies including but not limited to rational best response irrational antagonism, and random actions.
 
 Continue reading Chapter 1: [Ecosystem Scope](1_Ecosystem.md)
