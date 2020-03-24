@@ -7,7 +7,7 @@ Roles as outlined in this document represent roles in the broader ecosystem. The
 ### Role 1
 **Investment Agents** are individuals, institutions or funding mechanisms that commit capital to a bond in return for financial and non-financial returns on the capital. Investors tend to seek returns that are above the market average (Alpha) and are rewarded for their investments if a project funded by the bond is successful in achieving targets. Investors must therefore analyse the financial risks associated with the bond, as well as the operational risks associated with the project which is funded by the bond.
 
-An **InvestmentAgent** role is characterized by the ability to buy and redeem bond tokens to compose a bond portfolio. The investment agent has a private valuation of a given project, which they employ to make buy and sell decisions and ultimately their manage portfolio’s risk to return ratio.
+An **InvestmentAgent** role is characterized by the ability to buy and redeem bond tokens to compose a bond portfolio. The investment agent has a private valuation of a given project, which they employ to make buy and sell decisions and ultimately their managed portfolio’s risk to return ratio.
 
 An **InvestmentAgent** may employ two modes of investing:
 1. Invest working capital into the project
