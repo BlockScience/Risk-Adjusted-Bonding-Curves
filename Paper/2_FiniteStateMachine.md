@@ -4,29 +4,31 @@
 	<br>
 </div>
 
+`//TODO: Add white background to image. Currently it's transparent and can't be seed outside of a website w a white background`
+
 ## Phase 0: Pre-initialization 
-During the pre-initialization phase, the bond is set up with an associated wallet and repository, bond parameters are initialized for best-fit to the project, the Fund Receipient role is set, and all Bond Participants are identified with decentralized IDs, public keys, and credentials. The bond also acquires non-bond investment such as resources, materials, and equipment. 
+During the pre-initialization phase, the bond is set up with an associated wallet and repository, bond parameters are initialized for best-fit to the project, the Fund Recipient role is set, and all Bond Participants are identified with decentralized IDs, public keys, and credentials. The bond also acquires non-bond investment such as resources, materials, and equipment. 	`//TODO: Add link to definition of "Fund Recipient"  and "Bond Participant" roles. Give a concrete example to explain what this bond is and who might be interacting with it.`
 
 ### Transitions into Pre-initialization Phase
-Since this is the first state of the bond lifecycle, there are no inward transitions.
+Since this is the first state of the bond lifecycle, there are no inward transitions. 	`//TODO: What ia an "inward transition"?`
 
 ### Inputs
 1. Amount raised in Non-Bond Funds 
 2. Wallet Address
-3. Repository Account
+3. Repository Account 	`//TODO: What is this?`
 4. Bond Curve Parameter
 
 ### Next State Outputs
 1. Amount secured in Non-Bond Funds
 
 ### Transitions out of Pre-initialization Phase
-A Funding Secured Event will move the system from the Pre-initialization Phase into the Initialization Phase.
+A Funding Secured Event will move the system from the Pre-initialization Phase into the Initialization Phase. `//TODO: link to "Funding Secured Event"`
 
 ## Phase 1: Initialization
-During the Initialization phase, bond funds are raised, launch conditions are specified including ProjectTime, ClaimsSubmitted and Alpha thresholds, and the bond Alpha is initialized to 0.5.
+During the Initialization phase, bond funds are raised, launch conditions are specified including ProjectTime, ClaimsSubmitted and Alpha thresholds, and the bond Alpha is initialized to 0.5. `//TODO: What are "bond funds"? Can you give specifc example for this as well wrt a specific project and specific participants? What are "ClaimsSubmitted" and "Alpha thresholds" at this point, who would come up with them and what are their justifications?` 
 
 ### Transitions into Initialization Phase
-A Funding Secured Event will move the system from the Pre-initialization Phase into the Initialization Phase.
+A Funding Secured Event will move the system from the Pre-initialization Phase into the Initialization Phase. `//TODO: link to "Funding Secured Event"`
 
 ### Inputs
 1. Amount required in Bond Funds 
@@ -41,7 +43,7 @@ A Funding Secured Event will move the system from the Pre-initialization Phase i
 4. Alpha threshold
 
 ### Transitions out of Initilization Phase
-If Funding Threshold = Go, the system will move from the Initialization Phase to the Execution Phase.
+If Funding Threshold = Go, the system will move from the Initialization Phase to the Execution Phase. `//TODO: What is Funding Threshold and how does it equal "Go" or "No-Go". If these are state update functions please introduce the proper context to let the reader know that we are looking at pseudo code and not a protocol for running an organization.`
 
 Else if Funding Threshold = No-Go, the system will move from the Initialization Phase to the Settlement Phase.
 
