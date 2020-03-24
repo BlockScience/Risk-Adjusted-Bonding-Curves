@@ -2,34 +2,35 @@
 
 ## Assumptions
 #### Assumption 1
-The Bond Alpha Oracle is assumed to be pre-trained at system start. 
+The Bond Alpha Oracle is assumed to be pre-trained at system start. `// TODO: What is a "Bond Alpha Oracle" and what does it mean to be "pre-trained" at system start?`
 
 ## Roles
 <!--- Link to Chapter 1: Impact Bonds Ecosystem -->
+`// TODO: Add link`
 
 ## Agents
 
 #### Definition 1
-Let A be the set of all possible addresses that interact within the system. At any timestep, the set of addresses that exist is ![img](https://latex.codecogs.com/svg.latex?A%20%5Csubset%20%5Clambda)
+Let A be the set of all possible addresses that interact within the system. At any timestep, the set of addresses that exist is ![img](https://latex.codecogs.com/svg.latex?A%20%5Csubset%20%5Clambda) `// TODO: These links generally do not load`
 
-The address ![img](https://latex.codecogs.com/svg.latex?a%20%5Csubset%20%5Clambda) is called an **agent** when referring to an address which takes an action. Agent decisions and actions take place over time ![img](https://latex.codecogs.com/svg.latex?t%20%5Cin%20Z%5E%7Bv%5Cgeq%200%7D) such that at any timestep ![img](https://latex.codecogs.com/svg.latex?t), an agent can perform an array of agent actions represented as an ordered list of transactions. 
+The address ![img](https://latex.codecogs.com/svg.latex?a%20%5Csubset%20%5Clambda) is called an **agent** when referring to an address which takes an action. Agent decisions and actions take place over time ![img](https://latex.codecogs.com/svg.latex?t%20%5Cin%20Z%5E%7Bv%5Cgeq%200%7D) such that at any timestep ![img](https://latex.codecogs.com/svg.latex?t), an agent can perform an array of agent actions represented as an ordered list of transactions. `// TODO: Maybe give some more context that this is meant to represent interacting with a blockchain?`
 
 
 ### Agent Class 1: Trader Agents
-- Trader Agents can execute the *Bond-to-Mint* and *Burn-to-Withdraw* mechanisms.
+- Trader Agents can execute the *Bond-to-Mint* and *Burn-to-Withdraw* mechanisms. `// TODO: Still don't know what either of these mechanisms are although they've ben mentioned throughout the previous two documents`
 
  - Constitutes of roles:
 1. InvestmentAgent
  
-##### Operational Requirement 1
-Trader Agents can call the Bond Action and the Burn Action. 
+##### Operational Requirement 1 `// TODO: What is an Operational Requirement?`
+Trader Agents can call the Bond Action and the Burn Action. `// TODO: What is "Bond Action" and "Burn Action"?`
 ##### Operational Requirement 2
-An agent which is able to execute the *Bond-to-Mint* or *Burn-to-Withdraw* mechanisms - such as Trader Agents - must not be involved in the Claim Evaluation, Claim Auditing, and Claim Resolution stages of the *Attestation* mechanism. 
+An agent which is able to execute the *Bond-to-Mint* or *Burn-to-Withdraw* mechanisms - such as Trader Agents - must not be involved in the Claim Evaluation, Claim Auditing, and Claim Resolution stages of the *Attestation* mechanism. `// TODO: Explain why they can't be involved in those things. Is this a conflict of interest? Can you give an example?`
 
 ### Agent Class 2: Claim & Dispute Issuers
-- Claim & Dispute Issuers can execute the Claim Submission and Dispute Submission functions of the *Attestations* mechanism.
+- Claim & Dispute Issuers can execute the Claim Submission and Dispute Submission functions of the *Attestations* mechanism. `// TODO: What is the "Attestations mechanism"?`
 
-- Constitutes of roles:
+- Constitutes of roles: `// TODO: Link to thes role definitions from document 1`
 1. InvestmentAgent
 2. ServiceAgent
 3. BondIssuer
@@ -37,14 +38,14 @@ An agent which is able to execute the *Bond-to-Mint* or *Burn-to-Withdraw* mecha
 5. OutcomesPayer
  
 ##### Operational Requirement 3
-Claim & Dispute Issuers call the SubmitClaim Action or SubmitDispute Action
+Claim & Dispute Issuers call the SubmitClaim Action or SubmitDispute Action `// TODO: Give an example when they might do this?`
 ##### Operational Requirment 4
-Claim & Dispute Issuers are explicity excluded from having the ability to call EvaluateClaim Action, AuditClaim Action, or ResolveClaim Action. 
+Claim & Dispute Issuers are explicity excluded from having the ability to call EvaluateClaim Action, AuditClaim Action, or ResolveClaim Action. `// TODO: Explain why that might be the case?`
  
 ### Agent Class 3: Evaluators
  - Claim Evaluators can execute the Claim Evaluation, Claim Auditing, and Claim Resolution functions of the *Attestations* mechanism.
 
-- Constitutes of roles:
+- Constitutes of roles: `// TODO: links to roles on first document`
 1. VerificationAgent
 2. Administrator
 3. Auditor
@@ -56,7 +57,7 @@ Evaluators can call the EvaluateClaim Action, AuditClaim Action, or ResolveClaim
 Agents involved in the Claim Evaluation, Claim Auditing, and Claim Resolution stages of the *Attestation* mechanism, such as Claim & Dispute Evaluators, are explictly excluded from holding or trading bond tokens as it results in a conflict of interest. 
 
 ### Agent Class 4: Outcomes Payers
-- Outcomes Payers evaluate the state of the project through the CompleteBond Action and  disburse the final payout to Bond token holders through the SettleBond Action, all according to the project terms.
+- Outcomes Payers evaluate the state of the project through the CompleteBond Action and disburse the final payout to Bond token holders through the SettleBond Action, all according to the project terms.
 
 - Constitutes of roles:
 1. OutcomesPayers
@@ -64,38 +65,38 @@ Agents involved in the Claim Evaluation, Claim Auditing, and Claim Resolution st
 ##### Operational Requirement 7
 OutcomesPayers can perform the CompleteBond Action and SettleBond Action. 
 ##### Operational Requirement 8
-OutcomesPayers are explicitly excluded from the ability to execute the EvaluateClaim Action, AuditClaim Action, ResolveClaim Action, EvaluateDispute Action and ResolveDispute Action.
+OutcomesPayers are explicitly excluded from the ability to execute the EvaluateClaim Action, AuditClaim Action, ResolveClaim Action, EvaluateDispute Action and ResolveDispute Action. `// TODO: Explain why?`
 ##### Operational Requirement 9
 OutcomesPayers are disincentivized from holding bond tokens.
 
 Since an OutcomesPayer makes the final decision evaluating if the bond or project terms satisfy the conditions for payout to InvestmentAgents and ProjectOwners, holding bond tokens presents a conflict of interest.
 
-## System Boundary
+## System Boundary `// TODO: What is a "System Boundary?"`
 The system under consideration is at the bond system level. The level above the bond system consists of the bond portfolio, which is comprised of multiple bonds. The level below the bond system is the project system, where each bond can be a composition of many projects. 
 
-Since a bond comes into existence upon the Bond Initialization phase, and this phase corresponds with the Bond Alpha Initialization phase in the Alpha Oracle Lifecycle, the temporal system boundary starts at the Bond Initialization and Bond Alpha Initialization phase. 
+Since a bond comes into existence upon the Bond Initialization phase, and this phase corresponds with the Bond Alpha Initialization phase in the Alpha Oracle Lifecycle, the temporal system boundary starts at the Bond Initialization and Bond Alpha Initialization phase. `// TODO: Link to definitions to all of these terms?`
 
 ![](https://i.imgur.com/qYIDv36.png)
 
-## System Requirements
+## System Requirements `// TODO: What is a "System Requirement"?`
 
 #### System Requirement 1 
 The state of all Claims issued in a bond must reflect the state of the bonding curve. If the bonding curve state is not respected, disputes will be issued against the claims to regain the bonding curve state. 
 
-<!-- [comment]: # (The Dispute mechanism acts as a fail-safe, therefore making the protocol more resilient. Other fail-safes tbd) --> 
+<!-- [comment]: # (The Dispute mechanism acts as a fail-safe, therefore making the protocol more resilient. Other fail-safes tbd) --> `// TODO: Why is this comment not included?`
 
 #### System Requirement 2 
-The economic incentive layer of the system, which contains all the bonding curve mechanisms, must incentivize behaviour that achieves system goals. 
+The economic incentive layer of the system, which contains all the bonding curve mechanisms, must incentivize behaviour that achieves system goals. `// TODO: What are system goals?`
 
 #### System Requirement 3
-All agent roles have restrictions over their action space, which are defined in the role's corresponding operational requirement. 
+All agent roles have restrictions over their action space, which are defined in the role's corresponding operational requirement. `// TODO: What is an "operational requirement"?`
 
 ## System State Variables 
 
 #### Definition 2
-The **timestep** or period ![img](https://latex.codecogs.com/svg.latex?t) defined for the system is one block. A block contains an ordered list of transactions, also referred to as agent actions ![img](https://latex.codecogs.com/svg.latex?u_t). Therefore, in each timestep, an agent ![img](https://latex.codecogs.com/svg.latex?a) can perform multiple actions chosen from the set of all legal actions ![img](https://latex.codecogs.com/svg.latex?U).
+The **timestep** or period ![img](https://latex.codecogs.com/svg.latex?t) defined for the system is one block. A block contains an ordered list of transactions, also referred to as agent actions ![img](https://latex.codecogs.com/svg.latex?u_t). Therefore, in each timestep, an agent ![img](https://latex.codecogs.com/svg.latex?a) can perform multiple actions chosen from the set of all legal actions ![img](https://latex.codecogs.com/svg.latex?U). `// TODO: Maybe give more background about why this was chose or what alternative set ups would look like?`
 
-<!--[comment]: # (Some tests or simualtions may call for a finer timestep granularity, in which case 1 timestep = 1 transaction. At this granularity, only one agent action can be performed at a single timestep.) -->
+<!--[comment]: # (Some tests or simualtions may call for a finer timestep granularity, in which case 1 timestep = 1 transaction. At this granularity, only one agent action can be performed at a single timestep.) --> `// TODO: Why isn't this comment included?`
 
 #### Definition 3
 The **agent-level state** represents all agent states at a given time ![img](https://latex.codecogs.com/svg.latex?t). The agent state is a vector ![img](https://latex.codecogs.com/svg.latex?%5Chat%7Bx%7D_%7Ba%2Ct%7D) making the agent state space <img src="https://render.githubusercontent.com/render/math?math=\hat{X}_{a} \in R^k"> such that ![img](https://latex.codecogs.com/svg.latex?%5Cforall%20a%2C%20%5Cforall%20t%2C%20%5Chat%7Bx%7D_%7Ba%2Ct%7D%20%5Cin%20%5Chat%7BX%7D_a). Since the agent's state transition reflects an agent action, the agent-level state summarizes the flow of information in the system indexed by time. The agent-level state is given by <br/>
@@ -116,55 +117,55 @@ The **system state** is the network’s internal state composed of a finite numb
 </p>
 
 #### Definition 5
-The **reserve** ![img](https://latex.codecogs.com/svg.latex?R_t%20%5Cin%20%5Cmathbb%7BR%7D_%7B&plus;&plus;%7D). at time ![img](https://latex.codecogs.com/svg.latex?t) is the total quantity of bond tokens bonded to the bonding curve contract.
+The **reserve** ![img](https://latex.codecogs.com/svg.latex?R_t%20%5Cin%20%5Cmathbb%7BR%7D_%7B&plus;&plus;%7D). at time ![img](https://latex.codecogs.com/svg.latex?t) is the total quantity of bond tokens bonded to the bonding curve contract. `// TODO: The word "Bond" is already used too much for too many different things is it necessary here too?`
 
 Bond Tokens are reserve currency tokens. At time ![img](https://latex.codecogs.com/svg.latex?t), each agent ![img](https://latex.codecogs.com/svg.latex?a) possess their holding of Bond Tokens, denoted by ![img](https://latex.codecogs.com/svg.latex?r_%7Ba%2Ct%7D%3E0).
 
 #### Definition 6
 The **supply** ![img](https://latex.codecogs.com/svg.latex?S_t%20%5Cin%20%5Cmathbb%7BR%7D_%7B&plus;&plus;%7D) at time ![img](https://latex.codecogs.com/svg.latex?t) is the total quantity of impact tokens issued by the bonding curve contract.
 
-Impact tokens are community tokens. At time ![img](https://latex.codecogs.com/svg.latex?t), the local state of agent ![img](https://latex.codecogs.com/svg.latex?a) comprises of the individual holding of Impact Tokens, ![img](https://latex.codecogs.com/svg.latex?s_%7Ba%2Ct%7D).
+Impact tokens are community tokens. At time ![img](https://latex.codecogs.com/svg.latex?t), the local state of agent ![img](https://latex.codecogs.com/svg.latex?a) comprises of the individual holding of Impact Tokens, ![img](https://latex.codecogs.com/svg.latex?s_%7Ba%2Ct%7D). `// TODO: What does it mean to be a "community token"?`
 
 #### Definition 7
 The **price** signal ![img](https://latex.codecogs.com/svg.latex?P_t%20%5Cin%20%5Cmathbb%7BR%7D_%7B&plus;&plus;%7D) at time ![img](https://latex.codecogs.com/svg.latex?t) is an estimate of the value of the bond token, in units of ![img](https://latex.codecogs.com/svg.latex?R) per units of ![img](https://latex.codecogs.com/svg.latex?S).
 
 #### Definition 8
-The **bond alpha** signal ![img](https://latex.codecogs.com/svg.latex?%5Calpha_b%20%5Cin%20%5B0%2C1%5D) at time ![img](https://latex.codecogs.com/svg.latex?t) is an estimate of the likelihood of success of the bond, represented normalized such that ![img](https://latex.codecogs.com/svg.latex?%5Calpha_b%20%3D%200) indicates that the project is estimated to fail, and ![img](https://latex.codecogs.com/svg.latex?%5Calpha_b%20%3D%201) indicates the highest likelhood of success.
+The **bond alpha** signal ![img](https://latex.codecogs.com/svg.latex?%5Calpha_b%20%5Cin%20%5B0%2C1%5D) at time ![img](https://latex.codecogs.com/svg.latex?t) is an estimate of the likelihood of success of the bond, represented normalized such that ![img](https://latex.codecogs.com/svg.latex?%5Calpha_b%20%3D%200) indicates that the project is estimated to fail, and ![img](https://latex.codecogs.com/svg.latex?%5Calpha_b%20%3D%201) indicates the highest likelhood of success. `// TODO: Maybe introduce or remidn the reader how the bond alpha signal is created or affected by different agents at different times?`
 
 #### Definition 9
-The **Alpha** state variable ![img](https://latex.codecogs.com/svg.latex?%5Calpha%20%5Cin%20%5B0%2C1%5D) is an estimate of the probability of project success, as evaluated by the Alpha Oracle. It is represented normalized such that ![img](https://latex.codecogs.com/svg.latex?%5Calpha%20%3D%200) indicates that the project is estimated to fail, and ![img](https://latex.codecogs.com/svg.latex?%5Calpha%20%3D%201) indicates the highest likelhood of success.
+The **Alpha** state variable ![img](https://latex.codecogs.com/svg.latex?%5Calpha%20%5Cin%20%5B0%2C1%5D) is an estimate of the probability of project success, as evaluated by the Alpha Oracle. It is represented normalized such that ![img](https://latex.codecogs.com/svg.latex?%5Calpha%20%3D%200) indicates that the project is estimated to fail, and ![img](https://latex.codecogs.com/svg.latex?%5Calpha%20%3D%201) indicates the highest likelhood of success. `// TODO: What is the difference between the bond apha signal and the alpha state variable?`
 
-The initial value of Alpha is 0.5, as a default.
+The initial value of Alpha is 0.5, as a default. `// TODO: Which denotes what? a 50% chance of success? Why is that a good initial value?`
 
 #### Defintion 10
-The **ProjectTime** state variable ![img](https://latex.codecogs.com/svg.latex?p%20%5Cin%20%5Cmathbb%7BZ%7D_%7B&plus;&plus;%7D) describes the duration for which the project has been in the Execution phase. 
+The **ProjectTime** state variable ![img](https://latex.codecogs.com/svg.latex?p%20%5Cin%20%5Cmathbb%7BZ%7D_%7B&plus;&plus;%7D) describes the duration for which the project has been in the Execution phase.  `// TODO: What is the "Execution phase"? link?`
 
 #### Defintion 11
 The **ClaimsSubmitted** state variable ![img](https://latex.codecogs.com/svg.latex?c%20%5Cin%20%5Cmathbb%7BZ%7D_%7B&plus;%7D) describes the number of claims submitted towards the project during its Execution phase.
 
 ## Initialization Conditions
-The ProjectTime, Alpha, ClaimsSubmitted state variables need to meet a pre-specified criteria for the state to transition into the Execution phase. In the bonding curve use case, the initialization conditions are also referred to as launch conditions.
+The ProjectTime, Alpha, ClaimsSubmitted state variables need to meet a pre-specified criteria for the state to transition into the Execution phase. In the bonding curve use case, the initialization conditions are also referred to as launch conditions. `// TODO: What are some examples of a realistic initialization condition and why would those values be chosed?`
 
 #### Definition 12
 The **ProjectTime threshold** ![img](https://latex.codecogs.com/svg.latex?p_%7Blim%7D) describes the maximum allowable duration for a project's Execution phase. 
 
-At initialization, ![img](https://latex.codecogs.com/svg.latex?p_%7Blim%7D) is set to a strictly positive finite integer 
+At initialization, ![img](https://latex.codecogs.com/svg.latex?p_%7Blim%7D) is set to a strictly positive finite integer `// TODO: Meaning a project can't go negative time or infinite time?`
 
 <p align="center">
  <img src="https://latex.codecogs.com/svg.latex?p_%7Blim%7D%20%5Cin%20%5Cmathbb%7BZ%7D_%7B&plus;&plus;%7D%24%24%20%24%24p%20%5Coverset%7Bset%7D%7B%3D%7D%200">
 </p>
 
 #### Definition 13
-The **ClaimsSubmitted threshold** ![img](https://latex.codecogs.com/svg.latex?c_%7Blim%7D) describes the minimum number of claims required to be collected during the project's Execution phase. 
+The **ClaimsSubmitted threshold** ![img](https://latex.codecogs.com/svg.latex?c_%7Blim%7D) describes the minimum number of claims required to be collected during the project's Execution phase. `// TODO: Elaborate why you would want a minimum?`
 
-At initialization, ![img](https://latex.codecogs.com/svg.latex?c_%7Blim%7D) is set to a positive finite integer 
+At initialization, ![img](https://latex.codecogs.com/svg.latex?c_%7Blim%7D) is set to a positive finite integer `// TODO: Meaning a project can't have negative submissions or infinite submissions?`
 
 <p align="center">
  <img src="https://latex.codecogs.com/svg.latex?c_%7Blim%7D%20%5Cin%20%5Cmathbb%7BZ%7D_%7B&plus;%7D%24%24%20%24%24c%20%5Coverset%7Bset%7D%7B%3D%7D%200">
 </p>
 
 #### Definition 14
-The **Alpha threshold** is ![img](https://latex.codecogs.com/svg.latex?%5Calpha_%7Blim%7D) describes the minimum alpha value required for the settlement to be successful. ![img](https://latex.codecogs.com/svg.latex?%5Calpha_%7Blim%7D) is set to a positive finite integer during project initialization.
+The **Alpha threshold** ![img](https://latex.codecogs.com/svg.latex?%5Calpha_%7Blim%7D) describes the minimum alpha value required for the settlement to be successful. ![img](https://latex.codecogs.com/svg.latex?%5Calpha_%7Blim%7D) is set to a positive finite integer during project initialization. `// TODO: I thought it was set to 0.5 (not an integer) at the beginning?`
 
 At initialization, ![img](https://latex.codecogs.com/svg.latex?%5Calpha_%7Blim%7D) is set to a real value between 0 and 1 
 
@@ -215,14 +216,16 @@ The set of **mechanisms** is ![img](https://latex.codecogs.com/svg.latex?F) such
 where ![img](https://latex.codecogs.com/svg.latex?%5Cmathcal%7BX%7D) is the space of all possible states ![img](https://latex.codecogs.com/svg.latex?X), and ![img](https://latex.codecogs.com/svg.latex?U) is the space of all legal actions associated with the mechanism ![img](https://latex.codecogs.com/svg.latex?f).
 
 #### Functional Requirement 1
-The bonding curve mechanism should be robust enough to account for large or catastropic risks that occur at either extemes of the curve. 
+The bonding curve mechanism should be robust enough to account for large or catastropic risks that occur at either extemes of the curve. `// TODO: What would these risks look like? How would they affect the system and why?`
 
 [comment]: # (Define a cut off point for asymptotic portion of the curve)
 
 #### Mechanism 1 
-The **bond-to-mint** mechanism mints impact tokens in exchange of bond tokens through an agent’s action ![img](https://latex.codecogs.com/svg.latex?u_%7Ba%2C%20t%7D). The agent’s action represents a transaction to transfer ![img](https://latex.codecogs.com/svg.latex?%5CDelta%20R_t%20%3A%3D%20r_%7Ba%2Ct%7D%20-%20r_%7Ba%2C%20t&plus;1%7D%20%5Cgeq%200) quantity of bond tokens into the bonding curve system. Quantity ![img](https://latex.codecogs.com/svg.latex?%5CDelta%20R_t) of bond tokens are transferred into the bonding curve, resulting in
+The **bond-to-mint** mechanism mints impact tokens in exchange of bond tokens through an agent’s action ![img](https://latex.codecogs.com/svg.latex?u_%7Ba%2C%20t%7D). The agent’s action represents a transaction to transfer ![img](https://latex.codecogs.com/svg.latex?%5CDelta%20R_t%20%3A%3D%20r_%7Ba%2Ct%7D%20-%20r_%7Ba%2C%20t&plus;1%7D%20%5Cgeq%200) quantity of bond tokens into the bonding curve system. Quantity ![img](https://latex.codecogs.com/svg.latex?%5CDelta%20R_t) of bond tokens are transferred into the bonding curve, resulting in 
 
 System state, ![img](https://latex.codecogs.com/svg.latex?x_%7Bt&plus;1%7D)
+
+`// TODO: FINALLY THE DEFININTION OF BOND-TO-MINT! How can this document be re-arranged so that it doesn't take untli page 3 to learn the meaning of a term which is used heavily since page 1?`
 
 <p align="center">
  <img src="https://latex.codecogs.com/svg.latex?R_%7Bt&plus;1%7D%20%3D%20R_%7Bt%7D%20&plus;%20%5CDelta%20R_t">
@@ -280,12 +283,12 @@ Agent-level state, ![img](https://latex.codecogs.com/svg.latex?%5Chat%20x_%7Bt&p
 Upon the execution of the Burn Action, Impact tokens are removed from the bonding curve.
 
 #### Mechanism 3
-The **attestation** mechanism involves the lifecylce of claims. Claims undergo the stages of submission, evaluation, and resolution. During resolution, if a claim does not reflect the state of the bonding curve, a dispute is issued against it to regain the bonding curve state.
+The **attestation** mechanism involves the lifecylce of claims. Claims undergo the stages of submission, evaluation, and resolution. During resolution, if a claim does not reflect the state of the bonding curve, a dispute is issued against it to regain the bonding curve state. `// TODO: Can you elaborate on this process? Maybe with a real example?`
 
 ![](https://i.imgur.com/vamnLGV.png)
 
 #### Functional Requirement 4
-A lack of trading activity on the bonding curve does not indicate a degradation of the Bond Alpha, Project Alpha,  or the bonding curve itself. 
+A lack of trading activity on the bonding curve does not indicate a degradation of the Bond Alpha, Project Alpha,  or the bonding curve itself.  `// TODO: Can you explain how that might affect a project positively or negatively? I would understand it to mean that just because a project has no updates, does not mean the viability of its success (alpha) is negatively affected. Is that correct? Why should that be the case actually? I guess that is what the follwing comment is about, why not include it?`
 
 <!-- [comment]: # (Sustainability: Consider temporal effects on investor sentiment, i.e passage of time correlates with decaying excitement about project, thus lesser activity. However, sunk cost bias simultaneously is in contention with this.) -->
     
@@ -302,9 +305,9 @@ where
  <img src="https://latex.codecogs.com/svg.latex?V_0%20%3D%20V%28R_0%2CS_0%29%20%3A%3D%20%5Cfrac%7BS_0%5E%5Ckappa%7D%7BR_0%7D">
 </p>
 
-is a constant defined by initial supply ![img](https://latex.codecogs.com/svg.latex?S_0) and initial reserve ![img](https://latex.codecogs.com/svg.latex?R_0). Parameter ![img](https://latex.codecogs.com/svg.latex?%5Ckappa) is the curvature of the bonding curve.
+is a constant defined by initial supply ![img](https://latex.codecogs.com/svg.latex?S_0) and initial reserve ![img](https://latex.codecogs.com/svg.latex?R_0). Parameter ![img](https://latex.codecogs.com/svg.latex?%5Ckappa) is the curvature of the bonding curve. `// TODO: Can you explain more how the parametner affeccts the curvature of the bonding curve?`
 
-This conservation function imposed over the bonding curve ensures that the price of the token reflects the amount invested into projects in the platform, thus preventing imbalances through incentive design.
+This conservation function imposed over the bonding curve ensures that the price of the token reflects the amount invested into projects in the platform, thus preventing imbalances through incentive design. `// TODO: How does this prevent imbalances through incentive design?`
 
 
 
