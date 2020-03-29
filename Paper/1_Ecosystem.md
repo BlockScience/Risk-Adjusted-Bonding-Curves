@@ -1,39 +1,39 @@
 # Impact Bonds Ecosystem
 
-Roles as outlined in this document represent roles of agents in the broader impact bond ecosystem. These roles may further have relations to specific steps in the lifecycle of the bond and in some cases, specific on-chain mechanisms [??]. Roles are distinct from *entities* which may, in some cases, occupy multiple roles.
+Roles as outlined in this document represent roles of agents in the broader impact bond ecosystem. These roles may further have relations to specific steps in the lifecycle of the bond and in some cases, specific on-chain mechanisms. Roles are distinct from *entities* which may, in some cases, occupy multiple roles.
 
 ## Roles
 
 ### Role 1: Investment Agent
 **Investment Agents** are individuals, institutions, or funding mechanisms that commit capital to a bond in return for financial and non-financial returns on the capital. Investors tend to seek returns that are above the market average (Alpha) and are rewarded for their investments if a project funded by the bond is successful in achieving its targets. Investors must therefore analyse the financial risks associated with the bond, as well as the operational risks associated with the projects which are funded by the bond.
 
-An **InvestmentAgent** role is characterized by the ability to buy and redeem bond tokens [??] to compose a portfolio [??] of bonds. The Investment Agent has a private valuation of a given project, which they employ to make buy and sell decisions and ultimately  manage their portfolio’s risk to return ratio.
+An **InvestmentAgent** role is characterized by the ability to buy and redeem bond tokens[21] to compose a portfolio[10] of bonds. The Investment Agent has a private valuation of a given project, which they employ to make buy and sell decisions and ultimately  manage their portfolio’s risk to return ratio.
 
 An **InvestmentAgent** may employ two modes of investing:
 1. Invest working capital into the project
 2. Give up collateral for providing liquidity to the bonding curve trading pool
 
 #### **InvestmentAgent** Mechanism Action Space:
-1. Bond-to-mint [??]
-2. Burn-to-withdraw [??]
-3. Attestation - Claim Submission [??]
+1. Bond-to-mint [11]
+2. Burn-to-withdraw [12]
+3. Attestation - Claim Submission [13]
 
 ### Role 2
 **Service Agents** can be organisations, individuals, or machines that provide goods and services to the project, to produce a change in state for the project's beneficiaries.  
 
-A **ServiceAgent** role is characterized by issuing claims, submitting disputes, receiving impact and bond tokens, and the ability to stake a performance deposit. [??]
+A **ServiceAgent** role is characterized by issuing claims, submitting disputes, receiving impact and bond tokens, and the ability to stake a performance deposit.
 
-The ServiceAgent receives a portion of bond tokens from the ProjectOwner's founder's share during the project's initialization phase. [??]
+The ServiceAgent receives a portion of bond tokens from the ProjectOwner's founder's share during the project's initialization phase. [15]
 
 #### **ServiceAgent** Mechanism Action Space:
 1. Attestation - Claim Submission
 
 ### Role 3
-**Verification Agents** evaluate the claims made by Service Agents, to opinionate on the probability of a claim being both factually true and positively correlated with an outcome state. In this process, a Verification Agent may further enrich the claims data with additional information, such as statistical predictions, data transformations, and external data. The result of the claim evaluation is cryptographically verified, with the Verification Agent's digital identity credentials and signature. This process may issue an impact token. [??]
+**Verification Agents** evaluate the claims made by Service Agents, to opinionate on the probability of a claim being both factually true and positively correlated with an outcome state. In this process, a Verification Agent may further enrich the claims data with additional information, such as statistical predictions, data transformations, and external data. The result of the claim evaluation is cryptographically verified, with the Verification Agent's digital identity credentials and signature. This process may issue an impact token. [20]
 
 A **VerificationAgent** role is characterized by providing project verification services, evaluating claims and esponding to disputes for Service Agents, and the ability to stake a performance deposit.
 
-VerificationAgents are explicitly excluded from participating in the *Bond-to-Mint* and *Burn-to-Withdraw* mechanisms, as well as holding tokens due to reasons detailed in Operational Requirement 1.[??] 
+VerificationAgents are explicitly excluded from participating in the *Bond-to-Mint* and *Burn-to-Withdraw* mechanisms, as well as holding tokens due to reasons detailed in Operational Requirement 1 and 2. [22][23] 
 
 #### **VerificationAgent** Mechanism Action Space:
 1. Attestation - Claim Submission
@@ -56,7 +56,7 @@ An **Auditor** role is characterized by providing auditing services, auditing cl
 
 #
 ## Role 6
-The **Bond Issuer** raises capital for a project through an impact bond debt instrument. [??] They are responsible for ensuring regulatory compliance and for establishing the legal constructs of the fund. The Bond Issuer is liable to investors for the capital raised and liable to project owners for making payments for goods and services to be delivered through the project.  The Bond Issuer authorises agents to participate in the bond and interact with the bond mechanisms within the scopes of capabilities allowed by their respective roles. Note that a Bond Issuer should be a positively identified legal entity and/or person.
+The **Bond Issuer** raises capital for a project through an impact bond debt instrument. They are responsible for ensuring regulatory compliance and for establishing the legal constructs of the fund. The Bond Issuer is liable to investors for the capital raised and liable to project owners for making payments for goods and services to be delivered through the project.  The Bond Issuer authorises agents to participate in the bond and interact with the bond mechanisms within the scopes of capabilities allowed by their respective roles. Note that a Bond Issuer should be a positively identified legal entity and/or person.
 
 A **BondIssuer** role is characterized by the ability to issue bonds, receive impact tokens and bond tokens, distribute tokens to the bond’s stakeholders, change bond parameters or terminate bond life, and submit disputes. 
 
