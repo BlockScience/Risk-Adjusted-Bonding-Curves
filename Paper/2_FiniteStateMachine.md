@@ -40,12 +40,12 @@ A Funding Secured Event will move the system from the Pre-initialization Phase i
 
 ### Next State Outputs
 1. Amount raised in bond funds 
-2. ProjectTime threshold [??]
-3. ClaimsSubmitted threshold [??]
-4. Alpha threshold [??]
+2. ProjectTime threshold <sup id="28">[28]</sup>
+3. ClaimsSubmitted threshold <sup id="29">[29]</sup>
+4. Alpha threshold <sup id="30">[30]</sup>
 
 ### Transitions out of Initilization Phase
-If Funding Threshold = Go [??], the system will move from the Initialization Phase to the Execution Phase.
+If Funding Threshold = Go, the system will move from the Initialization Phase to the Execution Phase.
 
 Else if Funding Threshold = No-Go, the system will move from the Initialization Phase to the Settlement Phase.
 
@@ -58,10 +58,10 @@ The execution phase is the phase where active bond trading occurs.
 3. A Not Complete Event from the Settlement Consideration Pause Phase
 
 ### Inputs
-1. Reserve Funds [??] to be Deposited
-1. Supply Tokens [??] to be Burned
-1. Project Success Attestation Supply Tokens [??]
-1. Project Failure Attestation Supply Tokens [??]
+1. Reserve Funds <sup id="31">[31]</sup> to be Deposited
+1. Supply Tokens <sup id="32">[32]</sup> to be Burned
+1. Project Success Attestation Supply Tokens <sup id="33">[33]</sup>
+1. Project Failure Attestation Supply Tokens <sup id="34">[34]</sup>
 1. Dispute Claim
 1. Settlement Consideration Claim
 
@@ -71,7 +71,7 @@ The execution phase is the phase where active bond trading occurs.
 2. Amount of Funds to Project
 2. Price Update
 3. Alpha Update
-1. Reserve Ratio [??] Update
+1. Reserve Ratio <sup id="35">[35]</sup> Update
 1. Project Attestion Token Ratio
 
 ### Transitions out of Execution Phase
@@ -85,9 +85,9 @@ Once the threshold is met during the Initialization Phase, an output set of init
 3. Supply of Tokens Minted
 4. Alpha
 5. Project Operating Funds
-6. Impact Payers Commitment [??]
+6. Impact Payers Commitment <sup id="37">[37]</sup>
 7. Reserve Ratio
-8. Price [??]
+8. Price <sup id="36">[36]</sup>
 9. Maximum Reserve Ratio
 10. Minimum Reserve Ratio
 11. Fund Fee
@@ -113,7 +113,7 @@ If Dispute Verdict = return to execution, the system will move from the Dispute 
 Else if Dispute Verdict = resolved to completion, the system will move from the Dispute Pause Phase back to the Settlement Consideration Pause Phase.
 
 ## Phase 4: Settlement Consideration Pause 
-In this phase, the bond is evaluated against the Settlement Conditions [??] for success or failure. Similar to the Dispute Pause Phase, all system activity other than settlement consideration activity is paused during this phase. A detailed view of the Settlement process is shown [here](artifacts/SettlementConsiderationPhase.png).
+In this phase, the bond is evaluated against the Settlement Conditions <sup id="39">[39]</sup> for success or failure. Similar to the Dispute Pause Phase, all system activity other than settlement consideration activity is paused during this phase. A detailed view of the Settlement process is shown [here](artifacts/SettlementConsiderationPhase.png).
 
 ### Transitions into Settlement Consideration Pause Phase
 1. A Propose Completion Event moves the system from the Execution Phase to the Settlement Consideration Pause Phase.
@@ -140,7 +140,7 @@ A Completion event moves the system from the Settlement Consideration Pause Phas
 1. Bond to Token Conversion
 2. Payments to be redeeemed
 3. Outcomes Payees
-4. Outcomes Payments [??]
+4. Outcomes Payments 
 
 ### Next State Outputs
 1. Fee Distribution
