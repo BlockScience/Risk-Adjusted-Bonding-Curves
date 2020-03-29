@@ -7,33 +7,33 @@ Roles as outlined in this document represent roles of agents in the broader impa
 ### Role 1: Investment Agent
 **Investment Agents** are individuals, institutions, or funding mechanisms that commit capital to a bond in return for financial and non-financial returns on the capital. Investors tend to seek returns that are above the market average (Alpha) and are rewarded for their investments if a project funded by the bond is successful in achieving its targets. Investors must therefore analyse the financial risks associated with the bond, as well as the operational risks associated with the projects which are funded by the bond.
 
-An **InvestmentAgent** role is characterized by the ability to buy and redeem bond tokens[21] to compose a portfolio[10] of bonds. The Investment Agent has a private valuation of a given project, which they employ to make buy and sell decisions and ultimately  manage their portfolio’s risk to return ratio.
+An **InvestmentAgent** role is characterized by the ability to buy and redeem bond tokens <sup id="21">[21]</sup> to compose a portfolio <sup id="10">[10]</sup> of bonds. The Investment Agent has a private valuation of a given project, which they employ to make buy and sell decisions and ultimately  manage their portfolio’s risk to return ratio.
 
 An **InvestmentAgent** may employ two modes of investing:
 1. Invest working capital into the project
 2. Give up collateral for providing liquidity to the bonding curve trading pool
 
 #### **InvestmentAgent** Mechanism Action Space:
-1. Bond-to-mint [11]
-2. Burn-to-withdraw [12]
-3. Attestation - Claim Submission [13]
+1. Bond-to-mint <sup id="11">[11]</sup>
+2. Burn-to-withdraw <sup id="12">[12]</sup>
+3. Attestation - Claim Submission <sup id="13">[13]</sup>
 
 ### Role 2
 **Service Agents** can be organisations, individuals, or machines that provide goods and services to the project, to produce a change in state for the project's beneficiaries.  
 
 A **ServiceAgent** role is characterized by issuing claims, submitting disputes, receiving impact and bond tokens, and the ability to stake a performance deposit.
 
-The ServiceAgent receives a portion of bond tokens from the ProjectOwner's founder's share during the project's initialization phase. [15]
+The ServiceAgent receives a portion of bond tokens from the ProjectOwner's founder's share during the project's initialization phase. <sup id="15">[15]</sup>
 
 #### **ServiceAgent** Mechanism Action Space:
 1. Attestation - Claim Submission
 
 ### Role 3
-**Verification Agents** evaluate the claims made by Service Agents, to opinionate on the probability of a claim being both factually true and positively correlated with an outcome state. In this process, a Verification Agent may further enrich the claims data with additional information, such as statistical predictions, data transformations, and external data. The result of the claim evaluation is cryptographically verified, with the Verification Agent's digital identity credentials and signature. This process may issue an impact token. [20]
+**Verification Agents** evaluate the claims made by Service Agents, to opinionate on the probability of a claim being both factually true and positively correlated with an outcome state. In this process, a Verification Agent may further enrich the claims data with additional information, such as statistical predictions, data transformations, and external data. The result of the claim evaluation is cryptographically verified, with the Verification Agent's digital identity credentials and signature. This process may issue an impact token. <sup id="20">[20]</sup>
 
 A **VerificationAgent** role is characterized by providing project verification services, evaluating claims and esponding to disputes for Service Agents, and the ability to stake a performance deposit.
 
-VerificationAgents are explicitly excluded from participating in the *Bond-to-Mint* and *Burn-to-Withdraw* mechanisms, as well as holding tokens due to reasons detailed in Operational Requirement 1 and 2. [22][23] 
+VerificationAgents are explicitly excluded from participating in the *Bond-to-Mint* and *Burn-to-Withdraw* mechanisms, as well as holding tokens due to reasons detailed in Operational Requirement 1 and 2. <sup id="22">[22]</sup><sup id="23">[23]</sup> 
 
 #### **VerificationAgent** Mechanism Action Space:
 1. Attestation - Claim Submission
@@ -47,7 +47,7 @@ An **Arbitrator** role is characterized by providing artibitration services, eva
 1. Attestation - Claim Resolution, Dispute Evaluation
 
 ### Role 5
-**Auditors** are independent agents who may be employed by any of the participating agents in a project or a bond to audit transactions and claims, using available transaction records and data. Audits may be required as part of a bond's Settlement [??] process. Auditors may provide inputs to dispute resolution mechanisms.
+**Auditors** are independent agents who may be employed by any of the participating agents in a project or a bond to audit transactions and claims, using available transaction records and data. Audits may be required as part of a bond's Settlement <sup id="19">[19]</sup> process. Auditors may provide inputs to dispute resolution mechanisms.
 
 An **Auditor** role is characterized by providing auditing services, auditing claims, auditing financial transactions, and submitting disputes.
 
