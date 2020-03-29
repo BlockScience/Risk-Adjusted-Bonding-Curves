@@ -79,7 +79,7 @@ The execution phase is the phase where active bond trading occurs.
 2. A Propose Completion Event will move from the Execution Phase into the Settlement Consideration Pause Phase
 
 ### Initial State
-Once the threshold is met during the Initialization Phase, an output set of initial conditions determine the initial state of the Execution Phase. All values are at time $t=0$:
+Once the threshold is met during the Initialization Phase, an output set of initial conditions determine the initial state of the Execution Phase. All values are at time t = 0:
 1. Time to Complete Execution
 2. Reserve Funds raised
 3. Supply of Tokens Minted
