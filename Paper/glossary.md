@@ -115,13 +115,13 @@
     Supply or Impact Tokens that are bonded to attest that the project will fail.
     
 34. Reserve Ratio <br/>
-    The Reserve Ratio $\rho \in [0, 1]$ is determined by the curvature of the bonding curve $\kappa$, and is given by $$ \rho = 1/\kappa$$
+    The Reserve Ratio ![img](https://latex.codecogs.com/svg.latex?\rho&space;\in&space;[0,&space;1]) is determined by the curvature of the bonding curve ![img](https://latex.codecogs.com/svg.latex?$\kappa$), and is given by ![img](https://latex.codecogs.com/svg.latex?$$&space;\rho&space;=&space;1/\kappa$$)
 
 35. Price <br/>
     The **price** signal ![img](https://latex.codecogs.com/svg.latex?P_t%20%5Cin%20%5Cmathbb%7BR%7D_%7B&plus;&plus;%7D) at time ![img](https://latex.codecogs.com/svg.latex?t) is an estimate of the value of the bond token, in units of ![img](https://latex.codecogs.com/svg.latex?R) per units of ![img](https://latex.codecogs.com/svg.latex?S).
 
 36. Impact Payers Commitment <br/>
-    Outcome Payer's commitment of a set amount of tokens that they will pay out during the Settlement Phase conditioned on one or many state variables, typically ![img](https://latex.codecogs.com/gif.latex?$\Omega$). The outcome payers' commitment $C\in\mathbb{R}_+$ is set during the Initialization Phase. The bond terms set during Initialization outline all $(C, \Omega)$ pairs, and remain constant through the following phases. $C$ is known to all agents after the Initialization phase. 
+    Outcome Payer's commitment of a set amount of tokens that they will pay out during the Settlement Phase conditioned on one or many state variables, typically ![img](https://latex.codecogs.com/svg.latex?$\Omega$). The outcome payers' commitment  ![img](https://latex.codecogs.com/svg.latex?$C\in\mathbb{R}_&plus;$) is set during the Initialization Phase. The bond terms set during Initialization outline all $(C, \Omega)$ pairs, and remain constant through the following phases. ![img](https://latex.codecogs.com/svg.latex?$C$) is known to all agents after the Initialization phase. 
 
 37. Initialization Conditions <br/>
     Criteria specified at the Initialization Phase which need to be met for the state to transition into the Execution phase. In the bonding curve use case, the initialization conditions are also referred to as launch conditions.
