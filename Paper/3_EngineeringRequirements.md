@@ -2,7 +2,7 @@
 
 ## Assumptions
 #### Assumption 1
-The Bond Alpha Oracle is assumed to be pre-trained at system start. 
+The Bond Alpha Oracle [??] is assumed to be pre-trained at system start. 
 
 ## Roles
 <!--- Link to Chapter 1: Impact Bonds Ecosystem -->
@@ -12,7 +12,7 @@ The Bond Alpha Oracle is assumed to be pre-trained at system start.
 #### Definition 1
 Let A be the set of all possible addresses that interact within the system. At any timestep, the set of addresses that exist is ![img](https://latex.codecogs.com/svg.latex?A%20%5Csubset%20%5Clambda)
 
-The address ![img](https://latex.codecogs.com/svg.latex?a%20%5Csubset%20%5Clambda) is called an **agent** when referring to an address which takes an action. Agent decisions and actions take place over time ![img](https://latex.codecogs.com/svg.latex?t%20%5Cin%20Z%5E%7Bv%5Cgeq%200%7D) such that at any timestep ![img](https://latex.codecogs.com/svg.latex?t), an agent can perform an array of agent actions represented as an ordered list of transactions. 
+The address ![img](https://latex.codecogs.com/svg.latex?a%20%5Csubset%20%5Clambda) is called an **agent** when referring to an address which perfoms an action. Agent decisions and actions take place over time ![img](https://latex.codecogs.com/svg.latex?t%20%5Cin%20Z%5E%7Bv%5Cgeq%200%7D) such that at any timestep ![img](https://latex.codecogs.com/svg.latex?t), an agent can perform an array of agent actions represented as an ordered list of transactions. 
 
 
 ### Agent Class 1: Trader Agents
@@ -73,14 +73,14 @@ Since an OutcomesPayer makes the final decision evaluating if the bond or projec
 ## System Boundary
 The system under consideration is at the bond system level. The level above the bond system consists of the bond portfolio, which is comprised of multiple bonds. The level below the bond system is the project system, where each bond can be a composition of many projects. 
 
-Since a bond comes into existence upon the Bond Initialization phase, and this phase corresponds with the Bond Alpha Initialization phase in the Alpha Oracle Lifecycle, the temporal system boundary starts at the Bond Initialization and Bond Alpha Initialization phase. 
+Since a bond comes into existence upon the Bond Initialization Phase [??], and this phase corresponds with the Bond Alpha Initialization Phase in the external Alpha Oracle Lifecycle, the temporal system boundary starts at the Bond Initialization and Bond Alpha Initialization phase. 
 
 ![](https://i.imgur.com/qYIDv36.png)
 
 ## System Requirements
 
 #### System Requirement 1 
-The state of all Claims issued in a bond must reflect the state of the bonding curve. If the bonding curve state is not respected, disputes will be issued against the claims to regain the bonding curve state. 
+The state of all Claims issued in a bond must reflect the state of the bonding curve. If the bonding curve state is not respected, Disputes will be issued against the Claims to regain the bonding curve state. 
 
 <!-- [comment]: # (The Dispute mechanism acts as a fail-safe, therefore making the protocol more resilient. Other fail-safes tbd) --> 
 
@@ -88,7 +88,7 @@ The state of all Claims issued in a bond must reflect the state of the bonding c
 The economic incentive layer of the system, which contains all the bonding curve mechanisms, must incentivize behaviour that achieves system goals. 
 
 #### System Requirement 3
-All agent roles have restrictions over their action space, which are defined in the role's corresponding operational requirement. 
+All agent roles have restrictions over their action space, which are defined in the role's corresponding operational requirements. 
 
 ## System State Variables 
 
@@ -99,10 +99,6 @@ The **timestep** or period ![img](https://latex.codecogs.com/svg.latex?t) define
 
 #### Definition 3
 The **agent-level state** represents all agent states at a given time ![img](https://latex.codecogs.com/svg.latex?t). The agent state is a vector ![img](https://latex.codecogs.com/svg.latex?%5Chat%7Bx%7D_%7Ba%2Ct%7D) making the agent state space <img src="https://render.githubusercontent.com/render/math?math=\hat{X}_{a} \in R^k"> such that ![img](https://latex.codecogs.com/svg.latex?%5Cforall%20a%2C%20%5Cforall%20t%2C%20%5Chat%7Bx%7D_%7Ba%2Ct%7D%20%5Cin%20%5Chat%7BX%7D_a). Since the agent's state transition reflects an agent action, the agent-level state summarizes the flow of information in the system indexed by time. The agent-level state is given by <br/>
-
-<!-- <img src="https://render.githubusercontent.com/render/math?math=(\hat{x}_{1,t}, \hat{x}_{2,t}, \ldots, \hat{x}_{n,t})\in\prod_{a=1}^n\hat{X}_a \subseteq \mathbb{R}^{nk}"> -->
-
-<!-- <img src="https://latex.codecogs.com/svg.latex?\Large&space;" title="\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}" /> -->
 
 <p align="center">
  <img src="http://latex.codecogs.com/svg.latex?%28%5Chat%7Bx%7D_%7B1%2Ct%7D%2C+%5Chat%7Bx%7D_%7B2%2Ct%7D%2C+%5Cldots%2C+%5Chat%7Bx%7D_%7Bn%2Ct%7D%29%5Cin%5Cprod_%7Ba%3D1%7D%5En%5Chat%7BX%7D_a+%5Csubseteq+%5Cmathbb%7BR%7D%5E%7Bnk%7D">
@@ -129,7 +125,7 @@ Impact tokens are community tokens. At time ![img](https://latex.codecogs.com/sv
 The **price** signal ![img](https://latex.codecogs.com/svg.latex?P_t%20%5Cin%20%5Cmathbb%7BR%7D_%7B&plus;&plus;%7D) at time ![img](https://latex.codecogs.com/svg.latex?t) is an estimate of the value of the bond token, in units of ![img](https://latex.codecogs.com/svg.latex?R) per units of ![img](https://latex.codecogs.com/svg.latex?S).
 
 #### Definition 8
-The **bond alpha** signal ![img](https://latex.codecogs.com/svg.latex?%5Calpha_b%20%5Cin%20%5B0%2C1%5D) at time ![img](https://latex.codecogs.com/svg.latex?t) is an estimate of the likelihood of success of the bond, represented normalized such that ![img](https://latex.codecogs.com/svg.latex?%5Calpha_b%20%3D%200) indicates that the project is estimated to fail, and ![img](https://latex.codecogs.com/svg.latex?%5Calpha_b%20%3D%201) indicates the highest likelhood of success.
+The **alpha** signal ![img](https://latex.codecogs.com/svg.latex?%5Calpha_b%20%5Cin%20%5B0%2C1%5D) at time ![img](https://latex.codecogs.com/svg.latex?t) is an estimate of the likelihood of success of the bond, represented normalized such that ![img](https://latex.codecogs.com/svg.latex?%5Calpha_b%20%3D%200) indicates that the project is estimated to fail, and ![img](https://latex.codecogs.com/svg.latex?%5Calpha_b%20%3D%201) indicates the highest likelhood of success.
 
 #### Definition 9
 The **Alpha** state variable ![img](https://latex.codecogs.com/svg.latex?%5Calpha%20%5Cin%20%5B0%2C1%5D) is an estimate of the probability of project success, as evaluated by the Alpha Oracle. It is represented normalized such that ![img](https://latex.codecogs.com/svg.latex?%5Calpha%20%3D%200) indicates that the project is estimated to fail, and ![img](https://latex.codecogs.com/svg.latex?%5Calpha%20%3D%201) indicates the highest likelhood of success.
@@ -148,7 +144,7 @@ The ProjectTime, Alpha, ClaimsSubmitted state variables need to meet a pre-speci
 #### Definition 12
 The **ProjectTime threshold** ![img](https://latex.codecogs.com/svg.latex?p_%7Blim%7D) describes the maximum allowable duration for a project's Execution phase. 
 
-At initialization, ![img](https://latex.codecogs.com/svg.latex?p_%7Blim%7D) is set to a strictly positive finite integer 
+At initialization, ![img](https://latex.codecogs.com/svg.latex?p_%7Blim%7D) is set to a strictly positive finite integer. 
 
 <p align="center">
  <img src="https://latex.codecogs.com/svg.latex?p_%7Blim%7D%20%5Cin%20%5Cmathbb%7BZ%7D_%7B&plus;&plus;%7D%24%24%20%24%24p%20%5Coverset%7Bset%7D%7B%3D%7D%200">
