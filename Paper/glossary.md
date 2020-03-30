@@ -81,7 +81,7 @@
 27. Operational Requirement 6 <br/>
     Agents involved in the Claim Evaluation, Claim Auditing, and Claim Resolution stages of the *Attestation* mechanism, such as Claim & Dispute Evaluators, are explictly excluded from holding or trading bond tokens as it results in a conflict of interest. 
     
-28. ProjectTime threshold <br/>
+<a id="note28" href="#note28ref"><sup>28</sup></a> **ProjectTime threshold** <br/>
     The **ProjectTime** state variable ![img](https://latex.codecogs.com/svg.latex?p%20%5Cin%20%5Cmathbb%7BZ%7D_%7B&plus;&plus;%7D) describes the duration for which the project has been in the Execution phase.<br/> 
 
     The **ProjectTime threshold** ![img](https://latex.codecogs.com/svg.latex?p_%7Blim%7D) describes the maximum allowable duration for a project's Execution phase. 
