@@ -82,23 +82,23 @@ The **alpha** signal ![img](https://latex.codecogs.com/svg.latex?%5Calpha_b%20%5
     Agents involved in the Claim Evaluation, Claim Auditing, and Claim Resolution stages of the *Attestation* mechanism, such as Claim & Dispute Evaluators, are explictly excluded from holding or trading bond tokens as it results in a conflict of interest. 
     
 <a id="note28" href="#note28ref"><sup>28</sup></a> **ProjectTime** <br/><br/>
-    The **ProjectTime** state variable ![img](https://latex.codecogs.com/svg.latex?p%20%5Cin%20%5Cmathbb%7BZ%7D_%7B&plus;&plus;%7D) describes the duration for which the project has been in the Execution phase.<br/> 
+    The ProjectTime state variable ![img](https://latex.codecogs.com/svg.latex?p%20%5Cin%20%5Cmathbb%7BZ%7D_%7B&plus;&plus;%7D) describes the duration for which the project has been in the Execution phase.
 
 <a id="note29" href="#note29ref">29</a> **ProjectTime threshold** <br/><br/>
-    The **ProjectTime threshold** ![img](https://latex.codecogs.com/svg.latex?p_%7Blim%7D) describes the maximum allowable duration for a project's Execution phase. 
+    The ProjectTime threshold ![img](https://latex.codecogs.com/svg.latex?p_%7Blim%7D) describes the maximum allowable duration for a project's Execution phase. 
 
 <a id="note30" href="#note30ref">30</a> **ClaimsSubmitted** <br/><br/>
-    The **ClaimsSubmitted** state variable ![img](https://latex.codecogs.com/svg.latex?c%20%5Cin%20%5Cmathbb%7BZ%7D_%7B&plus;%7D) describes the number of claims submitted towards the project during its Execution phase. <br/>
+    The ClaimsSubmitted state variable ![img](https://latex.codecogs.com/svg.latex?c%20%5Cin%20%5Cmathbb%7BZ%7D_%7B&plus;%7D) describes the number of claims submitted towards the project during its Execution phase.
 
 <a id="note31" href="#note31ref">31</a> **ClaimsSubmitted threshold** <br/><br/>   
-    The **ClaimsSubmitted threshold** ![img](https://latex.codecogs.com/svg.latex?c_%7Blim%7D) describes the minimum number of claims required to be collected during the project's Execution phase. 
+    The ClaimsSubmitted threshold ![img](https://latex.codecogs.com/svg.latex?c_%7Blim%7D) describes the minimum number of claims required to be collected during the project's Execution phase. 
 
-<a id="note32" href="#note32ref">32</a> **Alpha (state variable)*** <br/><br/>
+<a id="note32" href="#note32ref">32</a> **Alpha (state variable)** <br/><br/>
     The **Alpha** state variable ![img](https://latex.codecogs.com/svg.latex?%5Calpha%20%5Cin%20%5B0%2C1%5D) is an estimate of the probability of project success, as evaluated by the Alpha Oracle. It is represented normalized such that ![img](https://latex.codecogs.com/svg.latex?%5Calpha%20%3D%200) indicates that the project is estimated to fail, and ![img](https://latex.codecogs.com/svg.latex?%5Calpha%20%3D%201) indicates the highest likelhood of success. <br/>
 
-   The initial value of Alpha is 0.5, as a default. <br/>
+   The initial value of Alpha is 0.5, as a default. 
 
-<a id="note33" href="#note33ref">33</a> **Alpha threshold*** <br/><br/>   
+<a id="note33" href="#note33ref">33</a> **Alpha threshold** <br/><br/>   
     The **Alpha threshold** is ![img](https://latex.codecogs.com/svg.latex?%5Calpha_%7Blim%7D) describes the minimum alpha value required for the settlement to be successful. ![img](https://latex.codecogs.com/svg.latex?%5Calpha_%7Blim%7D) is set to a positive finite integer during project initialization.
 
 31. Reserve Funds <br/>
