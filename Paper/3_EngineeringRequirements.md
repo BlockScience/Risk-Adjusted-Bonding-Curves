@@ -2,7 +2,7 @@
 
 ## Assumptions
 #### Assumption 1
-The Bond Alpha Oracle [??] is assumed to be pre-trained at system start. 
+The Bond Alpha Oracle is assumed to be pre-trained at system start. 
 
 ## Roles
 <!--- Link to Chapter 1: Impact Bonds Ecosystem -->
@@ -73,7 +73,7 @@ Since an OutcomesPayer makes the final decision evaluating if the bond or projec
 ## System Boundary
 The system under consideration is at the bond system level. The level above the bond system consists of the bond portfolio, which is comprised of multiple bonds. The level below the bond system is the project system, where each bond can be a composition of many projects. 
 
-Since a bond comes into existence upon the Bond Initialization Phase [??], and this phase corresponds with the Bond Alpha Initialization Phase in the external Alpha Oracle Lifecycle, the temporal system boundary starts at the Bond Initialization and Bond Alpha Initialization phase. 
+Since a bond comes into existence upon the Bond Initialization Phase<a href="glossary.md#note15" id="note15ref"><sup>15</sup></a>, and this phase corresponds with the Bond Alpha Initialization Phase in the external Alpha Oracle Lifecycle, the temporal system boundary starts at the Bond Initialization and Bond Alpha Initialization phase. 
 
 ![](https://i.imgur.com/qYIDv36.png)
 

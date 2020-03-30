@@ -27,7 +27,7 @@ Since this is the first state of the bond lifecycle, there are no state transiti
 A Funding Secured Event will move the system from the Pre-initialization Phase into the Initialization Phase.
 
 ## Phase 1: Initialization
-During the Initialization Phase, bond funds are raised, conditions for project launch are specified including ProjectTime, ClaimsSubmitted and Alpha thresholds, and the bond Alpha is initialized to 0.5.
+During the Initialization Phase, bond funds are raised, conditions for project launch are specified including ProjectTime, ClaimsSubmitted and Alpha thresholds<a href="glossary.md#note29" id="note29ref"><sup>29,31,33</sup></a> , and the bond Alpha is initialized to 0.5.
 
 ### Transitions into Initialization Phase
 A Funding Secured Event will move the system from the Pre-initialization Phase into the Initialization Phase.
@@ -40,9 +40,9 @@ A Funding Secured Event will move the system from the Pre-initialization Phase i
 
 ### Next State Outputs
 1. Amount raised in bond funds 
-2. ProjectTime threshold <sup id="28">[28]</sup>
-3. ClaimsSubmitted threshold <sup id="29">[29]</sup>
-4. Alpha threshold <sup id="30">[30]</sup>
+2. ProjectTime threshold<a href="glossary.md#note29" id="note29ref"><sup>29</sup></a> 
+3. ClaimsSubmitted threshold<a href="glossary.md#note31" id="note31ref"><sup>31</sup></a> 
+4. Alpha threshold<a href="glossary.md#note33" id="note33ref"><sup>33</sup></a> 
 
 ### Transitions out of Initilization Phase
 If Funding Threshold = Go, the system will move from the Initialization Phase to the Execution Phase.
@@ -58,10 +58,10 @@ The execution phase is the phase where active bond trading occurs.
 3. A Not Complete Event from the Settlement Consideration Pause Phase
 
 ### Inputs
-1. Reserve Funds <sup id="31">[31]</sup> to be Deposited
-1. Supply Tokens <sup id="32">[32]</sup> to be Burned
-1. Project Success Attestation Supply Tokens <sup id="33">[33]</sup>
-1. Project Failure Attestation Supply Tokens <sup id="34">[34]</sup>
+1. Reserve Funds<a href="glossary.md#note34" id="note34ref"><sup>34</sup></a>  to be Deposited
+1. Supply Tokens<a href="glossary.md#note35" id="note35ref"><sup>35</sup></a>  to be Burned
+1. Project Success Attestation Supply Tokens<a href="glossary.md#note36" id="note36ref"><sup>36</sup></a> 
+1. Project Failure Attestation Supply Tokens<a href="glossary.md#note37" id="note37ref"><sup>37</sup></a> 
 1. Dispute Claim
 1. Settlement Consideration Claim
 
@@ -71,7 +71,7 @@ The execution phase is the phase where active bond trading occurs.
 2. Amount of Funds to Project
 2. Price Update
 3. Alpha Update
-1. Reserve Ratio <sup id="35">[35]</sup> Update
+1. Reserve Ratio<a href="glossary.md#note38" id="note38ref"><sup>38</sup></a> Update
 1. Project Attestion Token Ratio
 
 ### Transitions out of Execution Phase
@@ -85,9 +85,9 @@ Once the threshold is met during the Initialization Phase, an output set of init
 3. Supply of Tokens Minted
 4. Alpha
 5. Project Operating Funds
-6. Impact Payers Commitment <sup id="37">[37]</sup>
+6. Impact Payers Commitment<a href="glossary.md#note40" id="note40ref"><sup>40</sup></a> 
 7. Reserve Ratio
-8. Price <sup id="36">[36]</sup>
+8. Price<a href="glossary.md#note39" id="note39ref"><sup>39</sup></a>
 9. Maximum Reserve Ratio
 10. Minimum Reserve Ratio
 11. Fund Fee
@@ -113,7 +113,7 @@ If Dispute Verdict = return to execution, the system will move from the Dispute 
 Else if Dispute Verdict = resolved to completion, the system will move from the Dispute Pause Phase back to the Settlement Consideration Pause Phase.
 
 ## Phase 4: Settlement Consideration Pause 
-In this phase, the bond is evaluated against the Settlement Conditions <sup id="39">[39]</sup> for success or failure. Similar to the Dispute Pause Phase, all system activity other than settlement consideration activity is paused during this phase. A detailed view of the Settlement process is shown [here](artifacts/SettlementConsiderationPhase.png).
+In this phase, the bond is evaluated against the Settlement Conditions<a href="glossary.md#note42" id="note42ref"><sup>42</sup></a> for success or failure. Similar to the Dispute Pause Phase, all system activity other than settlement consideration activity is paused during this phase. A detailed view of the Settlement process is shown [here](artifacts/SettlementConsiderationPhase.png).
 
 ### Transitions into Settlement Consideration Pause Phase
 1. A Propose Completion Event moves the system from the Execution Phase to the Settlement Consideration Pause Phase.
