@@ -8,7 +8,7 @@ A bonding curve is a mechanism for distribution of blockchain tokens, in which t
 The impact bond bonding curve is parametrically adjusted to mitigate risk, thereby adapting to external events. 
 
 ### Problem: Static bonding curves
-Current token bonding curve implementations act as automated market makers for initial and ongoing investment. However, they generally are static, with fixed *a priori* assumptions about the interaction between the token economy <a href="#note1" id="note1ref"><sup>1</sup></a> and its external factors. 
+Current token bonding curve implementations act as automated market makers for initial and ongoing investment. However, they generally are static, with fixed *a priori* assumptions about the interaction between the token economy <a href="https://github.com/BlockScience/InterchainFoundation/blob/shruti-definitions/Paper/glossary.md#note1ref" id="note1ref"><sup>1</sup></a> and its external factors. 
 <br/><br/> 
 Since these bonding curve implementations are static, they cannot incorpoate external risk factors during live execution. This results in pricing and supply anomalies, such as tokens being misallocated on both buy-side and sell-side, with loss in risk correlation. 
 <br/><br/> 
