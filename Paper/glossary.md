@@ -90,7 +90,7 @@ The **alpha** signal ![img](https://latex.codecogs.com/svg.latex?%5Calpha_b%20%5
 <a id="note30" href="#note30ref">30</a> **ClaimsSubmitted** <br/><br/>
     The ClaimsSubmitted state variable ![img](https://latex.codecogs.com/svg.latex?c%20%5Cin%20%5Cmathbb%7BZ%7D_%7B&plus;%7D) describes the number of claims submitted towards the project during its Execution phase.
 
-<a id="note31" href="#note31ref">31</a> **ClaimsSubmitted threshold** <br/><br/>   
+<a id="note31" href="#note31ref">31</a> **ClaimsSubmitted threshold** <br/>  
     The ClaimsSubmitted threshold ![img](https://latex.codecogs.com/svg.latex?c_%7Blim%7D) describes the minimum number of claims required to be collected during the project's Execution phase. 
 
 <a id="note32" href="#note32ref">32</a> **Alpha (state variable)** <br/><br/>
@@ -98,7 +98,7 @@ The **alpha** signal ![img](https://latex.codecogs.com/svg.latex?%5Calpha_b%20%5
 
    The initial value of Alpha is 0.5, as a default. 
 
-<a id="note33" href="#note33ref">33</a> **Alpha threshold** <br/><br/>   
+<a id="note33" href="#note33ref">33</a> **Alpha threshold** <br/> 
     The **Alpha threshold** is ![img](https://latex.codecogs.com/svg.latex?%5Calpha_%7Blim%7D) describes the minimum alpha value required for the settlement to be successful. ![img](https://latex.codecogs.com/svg.latex?%5Calpha_%7Blim%7D) is set to a positive finite integer during project initialization.
 
 31. Reserve Funds <br/>
