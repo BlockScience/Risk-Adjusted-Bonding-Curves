@@ -1,7 +1,7 @@
 # Glossary 
 
 <a id="note1" href="#note1ref"><sup>1</sup></a> **Token Economy** <br/>
-    Bonding Curves are continuous liquidity mechanisms which are used in market design for cryptographically-supported token economies. Academic literature increasingly refers to bonding curves as "configuration spaces" as Bonding Curves are part of a larger theory of scalar functions that remain invariant under legal changes in state.
+<p> Token economies are data-driven, multiscale, adaptive, and dynamic peer-to-peer economic systems enabled by a blockchain.These systems use cryptographic tokens as information carriers, allowing for economic activities to emerge on top of a shared distributed ledger technology (DLT) enabled infrastructure such as blockchain. DLT creates the conditions for a digital economic game with enforced state-space restrictions, by providing a tamper-proof universal state layer. </p>
     
 2. Impact Bond <br/>
     A social impact bond is a type of bond where repayment to investors is contingent on the bond's success in achieving certain pre-specified social impact objectives.
