@@ -81,7 +81,7 @@ The **alpha** signal ![img](https://latex.codecogs.com/svg.latex?%5Calpha_b%20%5
 <a id="note27" href="#note27ref">27</a> **Operational requirement 6** <br/>
 <p>    Agents involved in the Claim Evaluation, Claim Auditing, and Claim Resolution stages of the *Attestation* mechanism, such as Claim & Dispute Evaluators, are explictly excluded from holding or trading bond tokens as it results in a conflict of interest. </p>
     
-<a id="note28" href="#note28ref"><sup>28</sup></a> **ProjectTime** <br/><br/>
+<a id="note28" href="#note28ref">28</a> **ProjectTime** <br/><br/>
     The ProjectTime state variable ![img](https://latex.codecogs.com/svg.latex?p%20%5Cin%20%5Cmathbb%7BZ%7D_%7B&plus;&plus;%7D) describes the duration for which the project has been in the Execution phase.
 
 <a id="note29" href="#note29ref">29</a> **ProjectTime threshold** <br/><br/>
@@ -101,38 +101,38 @@ The **alpha** signal ![img](https://latex.codecogs.com/svg.latex?%5Calpha_b%20%5
 <a id="note33" href="#note33ref">33</a> **Alpha threshold** <br/><br/> 
     The Alpha threshold is ![img](https://latex.codecogs.com/svg.latex?%5Calpha_%7Blim%7D) describes the minimum alpha value required for the settlement to be successful. ![img](https://latex.codecogs.com/svg.latex?%5Calpha_%7Blim%7D) is set to a positive finite integer during project initialization.
 
-31. Reserve Funds <br/>
+<a id="note33" href="#note33ref">33</a> **Reserve Funds** <br/><br/>
     The **reserve** ![img](https://latex.codecogs.com/svg.latex?R_t%20%5Cin%20%5Cmathbb%7BR%7D_%7B&plus;&plus;%7D). at time ![img](https://latex.codecogs.com/svg.latex?t) is the total quantity of bond tokens bonded to the bonding curve contract. <br/>
 
-    Bond Tokens are reserve currency tokens. At time ![img](https://latex.codecogs.com/svg.latex?t), each agent ![img](https://latex.codecogs.com/svg.latex?a) possess their holding of Bond Tokens, denoted by ![img](https://latex.codecogs.com/svg.latex?r_%7Ba%2Ct%7D%3E0).
+   Bond Tokens are reserve currency tokens. At time ![img](https://latex.codecogs.com/svg.latex?t), each agent ![img](https://latex.codecogs.com/svg.latex?a) possess their holding of Bond Tokens, denoted by ![img](https://latex.codecogs.com/svg.latex?r_%7Ba%2Ct%7D%3E0).
 
-32. Supply Tokens <br/>
+<a id="note33" href="#note33ref">33</a> **Supply Tokens** <br/><br/>
     The **supply** ![img](https://latex.codecogs.com/svg.latex?S_t%20%5Cin%20%5Cmathbb%7BR%7D_%7B&plus;&plus;%7D) at time ![img](https://latex.codecogs.com/svg.latex?t) is the total quantity of impact tokens issued by the bonding curve contract. <br/>
 
-    Impact tokens are community tokens. At time ![img](https://latex.codecogs.com/svg.latex?t), the local state of agent ![img](https://latex.codecogs.com/svg.latex?a) comprises of the individual holding of Impact Tokens, ![img](https://latex.codecogs.com/svg.latex?s_%7Ba%2Ct%7D).
+   Impact tokens are community tokens. At time ![img](https://latex.codecogs.com/svg.latex?t), the local state of agent ![img](https://latex.codecogs.com/svg.latex?a) comprises of the individual holding of Impact Tokens, ![img](https://latex.codecogs.com/svg.latex?s_%7Ba%2Ct%7D).
     
-33. Project Success Attestation Supply Tokens <br/>
-    Supply or Impact Tokens that are bonded to attest that the project will succeed.
+<a id="note33" href="#note33ref">33</a> **Project Success Attestation Supply Tokens** <br/>
+<p>    Supply or Impact Tokens that are bonded to attest that the project will succeed. </p>
     
-50. Project Failure Attestation Supply Tokens <br/>
-    Supply or Impact Tokens that are bonded to attest that the project will fail.
+<a id="note33" href="#note33ref">33</a> **Project Failure Attestation Supply Tokens** <br/>
+<p>     Supply or Impact Tokens that are bonded to attest that the project will fail. </p>
     
-34. Reserve Ratio <br/>
+<a id="note33" href="#note33ref">33</a> **Reserve Ratio** <br/><br/>
     The Reserve Ratio ![img](https://latex.codecogs.com/svg.latex?\rho&space;\in&space;[0,&space;1]) is determined by the curvature of the bonding curve ![img](https://latex.codecogs.com/svg.latex?$\kappa$), and is given by ![img](https://latex.codecogs.com/svg.latex?$$&space;\rho&space;=&space;1/\kappa$$)
 
-35. Price <br/>
+<a id="note33" href="#note33ref">33</a> **Price** <br/><br/>
     The **price** signal ![img](https://latex.codecogs.com/svg.latex?P_t%20%5Cin%20%5Cmathbb%7BR%7D_%7B&plus;&plus;%7D) at time ![img](https://latex.codecogs.com/svg.latex?t) is an estimate of the value of the bond token, in units of ![img](https://latex.codecogs.com/svg.latex?R) per units of ![img](https://latex.codecogs.com/svg.latex?S).
 
-36. Impact Payers Commitment <br/>
+<a id="note33" href="#note33ref">33</a> **Impact Payers Commitment** <br/><br/>
     Outcome Payer's commitment of a set amount of tokens that they will pay out during the Settlement Phase conditioned on one or many state variables, typically ![img](https://latex.codecogs.com/svg.latex?$\Omega$). The outcome payers' commitment  ![img](https://latex.codecogs.com/svg.latex?$C\in\mathbb{R}_&plus;$) is set during the Initialization Phase. The bond terms set during Initialization outline all $(C, \Omega)$ pairs, and remain constant through the following phases. ![img](https://latex.codecogs.com/svg.latex?$C$) is known to all agents after the Initialization phase. 
 
-37. Initialization Conditions <br/>
-    Criteria specified at the Initialization Phase which need to be met for the state to transition into the Execution phase. In the bonding curve use case, the initialization conditions are also referred to as launch conditions.
+<a id="note33" href="#note33ref">33</a> **Initialization Conditions** <br/>
+<p>     Criteria specified at the Initialization Phase which need to be met for the state to transition into the Execution phase. In the bonding curve use case, the initialization conditions are also referred to as launch conditions. </p>
 
-38. Settlement Conditions <br/>
-    Conditions that need to be achieved by the bond during the Executuion Phase for a bond to be considered successful.
+<a id="note33" href="#note33ref">33</a> **Settlement Conditions** <br/>
+<p>     Conditions that need to be achieved by the bond during the Executuion Phase for a bond to be considered successful. </p>
 
-39. Conservation function <br/>
-    The bonding curve **conservation function** describes a conserved quantity, which is a functional relationship between the reserve and supply tokens. <br/>
+<a id="note33" href="#note33ref">33</a> **Conservation function** <br/>
+<p>     The bonding curve **conservation function** describes a conserved quantity, which is a functional relationship between the reserve and supply tokens. <br/>
     
-    This conservation function imposed over the bonding curve ensures that the price of the token reflects the amount invested into projects in the platform, thus preventing imbalances through incentive design.
+   This conservation function imposed over the bonding curve ensures that the price of the token reflects the amount invested into projects in the platform, thus preventing imbalances through incentive design. </p>
