@@ -19,7 +19,7 @@
     Set of all possible configurations of a system. It is a useful abstraction for reasoning about the behavior of a given system and is widely used in the fields of artificial intelligence and game theory. May be interpreted as that collection of variables which serve to define the system at any point in time.
 
 7. Action space <br/>
-    The set $U(X_a; x)$ ![img](https://latex.codecogs.com/gif.latex?$U(X_a;&space;x)$) represents the set of feasible actions, given agent a’s local state space ![img](https://latex.codecogs.com/gif.latex?$X_a$), and the global state ![img](https://latex.codecogs.com/gif.latex?$x$).
+    The set $U(X_a; x)$ ![img](https://latex.codecogs.com/gif.latex?$U(X_a;&space;x)$) represents the set of feasible actions, given agent a’s local state space ![img](https://latex.codecogs.com/gif.latex?$X_a$), and the global state ![img](https://latex.codecogs.com/svg.latex?%24x%24).
 
 8. Configuration space <br/>
     Reachable state space. Subset of a system's (global) state space, representing all achievable states under the designed mechanisms. Any global properties true for all points in the configuration space are true for all possible sequences of actions on the part of agents. A Manifold characterized by the enforced conservation of one or more desired global properties. Resulting induced state space after introducing internally consistent restrictions to the global state spac. Serves the role of enforcing desirable macro-economic properties, while retaining sufficient degrees of freedom for the agents at the micro level to act according to their own private preferences.
