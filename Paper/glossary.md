@@ -3,20 +3,20 @@
 <a id="note1" href="#note1ref">1</a> **Token Economy** <br/>
 <p> Token economies are data-driven, multiscale, adaptive, and dynamic peer-to-peer economic systems enabled by a blockchain.These systems use cryptographic tokens as information carriers, allowing for economic activities to emerge on top of a shared distributed ledger technology (DLT) enabled infrastructure such as blockchain. DLT creates the conditions for a digital economic game with enforced state-space restrictions, by providing a tamper-proof universal state layer. </p>
     
-2. Impact Bond <br/>
-    A social impact bond is a type of bond where repayment to investors is contingent on the bond's success in achieving certain pre-specified social impact objectives.
+<a id="note2" href="#note2ref">2</a> **Impact Bond** <br/>
+<p> A social impact bond is a type of bond where repayment to investors is contingent on the bond's success in achieving certain pre-specified social impact objectives. </p>
 
-3. Bonding Curve <br/>
-    Bonding Curves are continuous liquidity mechanisms which are used in market design for cryptographically-supported token economies. Academic literature increasingly refers to bonding curves as "configuration spaces" as Bonding Curves are part of a larger theory of scalar functions that remain invariant under legal changes in state.
+<a id="note3" href="#note3ref">3</a> **Bonding Curve** <br/>
+<p> Bonding Curves are continuous liquidity mechanisms which are used in market design for cryptographically-supported token economies. Academic literature increasingly refers to bonding curves as "configuration spaces" as Bonding Curves are part of a larger theory of scalar functions that remain invariant under legal changes in state. </p>
 
-4. Alpha <br/>
-    The **alpha** signal ![img](https://latex.codecogs.com/svg.latex?%5Calpha_b%20%5Cin%20%5B0%2C1%5D) at time ![img](https://latex.codecogs.com/svg.latex?t) is an estimate of the likelihood of success of the bond, represented normalized such that ![img](https://latex.codecogs.com/svg.latex?%5Calpha_b%20%3D%200) indicates that the project is estimated to fail, and ![img](https://latex.codecogs.com/svg.latex?%5Calpha_b%20%3D%201) indicates the highest likelhood of success.
+<a id="note4" href="#note4ref">4</a>  **Alpha** <br/>
+ <p>   The **alpha** signal ![img](https://latex.codecogs.com/svg.latex?%5Calpha_b%20%5Cin%20%5B0%2C1%5D) at time ![img](https://latex.codecogs.com/svg.latex?t) is an estimate of the likelihood of success of the bond, represented normalized such that ![img](https://latex.codecogs.com/svg.latex?%5Calpha_b%20%3D%200) indicates that the project is estimated to fail, and ![img](https://latex.codecogs.com/svg.latex?%5Calpha_b%20%3D%201) indicates the highest likelhood of success. </p>
     
-5. Economic engineering <br/>
-	The professional discipline around the design, modelling, analysis, implementation and steering of economic systems, rooted in and drawing from the well-established scientific body of knowledge of System Theory, Control Systems Engineering, Operations Research, Mathematics, and several other relevant fields.
+<a id="note5" href="#note5ref">5</a>  **Economic engineering** <br/>
+<p>	The professional discipline around the design, modelling, analysis, implementation and steering of economic systems, rooted in and drawing from the well-established scientific body of knowledge of System Theory, Control Systems Engineering, Operations Research, Mathematics, and several other relevant fields. </p>
 
-6. State Space <br/>
-    Set of all possible configurations of a system. It is a useful abstraction for reasoning about the behavior of a given system and is widely used in the fields of artificial intelligence and game theory. May be interpreted as that collection of variables which serve to define the system at any point in time.
+<a id="note6" href="#note6ref">6</a> **State Space** <br/>
+<p>   Set of all possible configurations of a system. It is a useful abstraction for reasoning about the behavior of a given system and is widely used in the fields of artificial intelligence and game theory. May be interpreted as that collection of variables which serve to define the system at any point in time. </p>
 
 7. Action space <br/>
     The set ![img](https://latex.codecogs.com/svg.latex?U%28X_a%3B%20x%29) represents the set of feasible actions, given agent a’s local state space ![img](https://latex.codecogs.com/svg.latex?X_a), and the global state ![img](https://latex.codecogs.com/svg.latex?X).
