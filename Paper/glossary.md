@@ -1,6 +1,6 @@
 # Glossary 
 
-1. Token Economy <br/>
+<a id="note1" href="#note1ref"><sup>1</sup></a> **Token Economy** <br/>
     Bonding Curves are continuous liquidity mechanisms which are used in market design for cryptographically-supported token economies. Academic literature increasingly refers to bonding curves as "configuration spaces" as Bonding Curves are part of a larger theory of scalar functions that remain invariant under legal changes in state.
     
 2. Impact Bond <br/>
