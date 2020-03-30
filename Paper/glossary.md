@@ -1,6 +1,6 @@
 # Glossary 
 
-<a id="note1" href="#note1ref"><sup>1</sup></a> **Token Economy** <br/>
+<a id="note1" href="#note1ref">1</a> **Token Economy** <br/>
 <p> Token economies are data-driven, multiscale, adaptive, and dynamic peer-to-peer economic systems enabled by a blockchain.These systems use cryptographic tokens as information carriers, allowing for economic activities to emerge on top of a shared distributed ledger technology (DLT) enabled infrastructure such as blockchain. DLT creates the conditions for a digital economic game with enforced state-space restrictions, by providing a tamper-proof universal state layer. </p>
     
 2. Impact Bond <br/>
