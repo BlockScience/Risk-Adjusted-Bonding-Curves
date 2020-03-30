@@ -21,41 +21,41 @@ The **alpha** signal ![img](https://latex.codecogs.com/svg.latex?%5Calpha_b%20%5
 <a id="note7" href="#note7ref">7</a> **Action space** <br/> <br/>
     The set ![img](https://latex.codecogs.com/svg.latex?U%28X_a%3B%20x%29) represents the set of feasible actions, given agent a’s local state space ![img](https://latex.codecogs.com/svg.latex?X_a), and the global state ![img](https://latex.codecogs.com/svg.latex?X).
 
-8. Configuration space <br/>
-    Reachable state space. Subset of a system's (global) state space, representing all achievable states under the designed mechanisms. Any global properties true for all points in the configuration space are true for all possible sequences of actions on the part of agents. A Manifold characterized by the enforced conservation of one or more desired global properties. Resulting induced state space after introducing internally consistent restrictions to the global state spac. Serves the role of enforcing desirable macro-economic properties, while retaining sufficient degrees of freedom for the agents at the micro level to act according to their own private preferences.
+<a id="note8" href="#note8ref">8</a> **Configuration space** <br/>
+<p> Reachable state space.The configuration space describes the *allowable* state and action space available to agents acting within a system, given its conservation laws. It is a subset of a system's (global) state space, representing all achievable states under the designed mechanisms. Any global properties that are true for all points in the configuration space are true for all possible sequences of actions on the part of agents. It is a manifold characterized by the enforced conservation of one or more desired global properties. The configuration space serves the role of enforcing desirable macro-economic properties, while retaining sufficient degrees of freedom for the agents at the micro level to act according to their own private preferences. </p>
 
-9. Markov chain <br/>
-    A Markov chain is a stochastic model describing a sequence of possible events in which the probability of each event depends only on the state attained in the previous event. In continuous-time, it is known as a Markov process. Markov processes are the basis for general stochastic simulation methods known as Markov chain Monte Carlo
+<a id="note9" href="#note9ref">9</a> **Markov chain** <br/>
+ <p> A Markov chain is a stochastic model describing a sequence of possible events in which the probability of each event depends only on the state attained in the previous event. In continuous-time, it is known as a Markov process. Markov processes are the basis for general stochastic simulation methods known as Markov chain Monte Carlo. </p>
 
-10. Portfolio
-    Similar to an investment portfolio, a bond consists of multiple bonds picked by an investor, based on their preferences, evaluated on their risk/return ratio.
+<a id="note10" href="#note10ref">10</a> **Portfolio** <br/>
+<p>   Similar to an investment portfolio, a bond consists of multiple bonds picked by an investor, based on their preferences, evaluated on their risk/return ratio.  </p>
     
-11. Bond-to-mint <br/><br/>
-    The **bond-to-mint** mechanism mints impact tokens in exchange of bond tokens through an agent’s action ![img](https://latex.codecogs.com/svg.latex?u_%7Ba%2C%20t%7D). The agent’s action represents a transaction to transfer ![img](https://latex.codecogs.com/svg.latex?%5CDelta%20R_t%20%3A%3D%20r_%7Ba%2Ct%7D%20-%20r_%7Ba%2C%20t&plus;1%7D%20%5Cgeq%200) quantity of bond tokens into the bonding curve system. 
+<a id="note11" href="#note11ref">11</a> **Bond-to-mint** <br/><br/>
+    The bond-to-mint mechanism mints impact tokens in exchange of bond tokens through an agent’s action ![img](https://latex.codecogs.com/svg.latex?u_%7Ba%2C%20t%7D). The agent’s action represents a transaction to transfer ![img](https://latex.codecogs.com/svg.latex?%5CDelta%20R_t%20%3A%3D%20r_%7Ba%2Ct%7D%20-%20r_%7Ba%2C%20t&plus;1%7D%20%5Cgeq%200) quantity of bond tokens into the bonding curve system. 
 
-12. Burn-to-withdraw <br/><br/>
-    The **burn-to-withdraw** mechanism removes impact tokens to redeem bond tokens through an agent’s action ![img](https://latex.codecogs.com/svg.latex?u_%7Ba%2C%20t%7D). The agent’s action represents a transaction to remove ![img](https://latex.codecogs.com/svg.latex?%5CDelta%20S_t%20%3A%3D%20s_%7Ba%2C%20t%7D%20-%20s_%7Ba%2C%20t&plus;1%7D%20%5Cleq%200) quantity of impact tokens from the bonding curve system. 
+<a id="note12" href="#note12ref">12</a> **Burn-to-withdraw** <br/><br/>
+    The burn-to-withdraw mechanism removes impact tokens to redeem bond tokens through an agent’s action ![img](https://latex.codecogs.com/svg.latex?u_%7Ba%2C%20t%7D). The agent’s action represents a transaction to remove ![img](https://latex.codecogs.com/svg.latex?%5CDelta%20S_t%20%3A%3D%20s_%7Ba%2C%20t%7D%20-%20s_%7Ba%2C%20t&plus;1%7D%20%5Cleq%200) quantity of impact tokens from the bonding curve system. 
 
-13. Attestation <br/>
+<a id="note13" href="#note13ref">13</a> **Attestation** <br/><br/>
     The **attestation** mechanism involves the lifecylce of claims. Claims undergo the stages of submission, evaluation, and resolution. During resolution, if a claim does not reflect the state of the bonding curve, a dispute is issued against it to regain the bonding curve state.
     
-14. Pre-initialization Phase <br/>
-    During the pre-initialization phase, the bond is set up with an associated wallet and repository, bond parameters are initialized for best-fit to the project, the receipients of project funds are set, and all bond participants are identified with digital IDs, public keys, and credentials. The bond also acquires non-bond investment such as resources, materials, and equipment. 
+<a id="note14" href="#note14ref">14</a> **Pre-initialization Phase** <br/>
+<p> During the pre-initialization phase, the bond is set up with an associated wallet and repository, bond parameters are initialized for best-fit to the project, the receipients of project funds are set, and all bond participants are identified with digital IDs, public keys, and credentials. The bond also acquires non-bond investment such as resources, materials, and equipment. </p>
+    
+<a id="note15" href="#note15ref">15</a> **Initialization Phase** <br/>
+<p>     During the Initialization Phase, bond funds are raised, conditions for project launch are specified including ProjectTime, ClaimsSubmitted and Alpha thresholds, and the bond Alpha is initialized to 0.5. </p>
 
-15. Initialization Phase <br/>
-    During the Initialization Phase, bond funds are raised, conditions for project launch are specified including ProjectTime, ClaimsSubmitted and Alpha thresholds, and the bond Alpha is initialized to 0.5.
+<a id="note16" href="#note16ref">16</a> **Execution Phase** <br/>
+<p>     The execution phase is the phase where active bond trading occurs. </p>
 
-16. Execution Phase <br/>
-    The execution phase is the phase where active bond trading occurs.
+<a id="note17" href="#note17ref">17</a> **Dispute Pause Phase** <br/>
+<p>     In the Dispute Pause Phase, disputes issued against the bond will undergo external resolution. During this state, all system activity except those directly involved in dispute resolution is paused. </p>
 
-17. Dispute Pause Phase
-    In the Dispute Pause Phase, disputes issued against the bond will undergo external resolution. During this state, all system activity except those directly involved in dispute resolution is paused.
+<a id="note18" href="#note18ref">18</a> **Settlement Consideration Pause Phase** <br/><br/>
+  In this phase, the bond is evaluated against the Settlement Conditions for success or failure. Similar to the Dispute Pause Phase, all system activity other than settlement consideration activity is paused during this phase. A detailed view of the Settlement process is shown [here](artifacts/SettlementConsiderationPhase.png). 
 
-18. Settlement Consideration Pause Phase <br/><br/>
-    In this phase, the bond is evaluated against the Settlement Conditions for success or failure. Similar to the Dispute Pause Phase, all system activity other than settlement consideration activity is paused during this phase. A detailed view of the Settlement process is shown [here](artifacts/SettlementConsiderationPhase.png).
-
-19. Settlement Phase <br/>
-    During the Settlement Phase, Bond Tokens are converted into a compatible form and are distributed to the participants in the bond.
+<a id="note19" href="#note19ref">19</a> **Settlement Phase** <br/>
+<p>     During the Settlement Phase, Bond Tokens are converted into a compatible form and are distributed to the participants in the bond. </p>
 
 20. Impact Token <br/><br/>
     Impact tokens are the the supply or community tokens. At time ![img](https://latex.codecogs.com/svg.latex?t), the local state of agent ![img](https://latex.codecogs.com/svg.latex?a) comprises of the individual holding of Impact Tokens, ![img](https://latex.codecogs.com/svg.latex?s_%7Ba%2Ct%7D).
