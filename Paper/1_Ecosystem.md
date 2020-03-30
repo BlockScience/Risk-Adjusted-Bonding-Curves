@@ -14,26 +14,26 @@ An **InvestmentAgent** may employ two modes of investing:
 2. Give up collateral for providing liquidity to the bonding curve trading pool
 
 #### **InvestmentAgent** Mechanism Action Space:
-1. Bond-to-mint <sup id="11">[11]</sup>
-2. Burn-to-withdraw <sup id="12">[12]</sup>
-3. Attestation - Claim Submission <sup id="13">[13]</sup>
+1. Bond-to-mint<a href="glossary.md#note11" id="note11ref"><sup>11</sup></a> 
+2. Burn-to-withdraw<a href="glossary.md#note12" id="note12ref"><sup>12</sup></a> 
+3. Attestation - Claim Submission<a href="glossary.md#note13" id="note13ref"><sup>13</sup></a> 
 
 ### Role 2
 **Service Agents** can be organisations, individuals, or machines that provide goods and services to the project, to produce a change in state for the project's beneficiaries.  
 
 A **ServiceAgent** role is characterized by issuing claims, submitting disputes, receiving impact and bond tokens, and the ability to stake a performance deposit.
 
-The ServiceAgent receives a portion of bond tokens from the ProjectOwner's founder's share during the project's initialization phase. <sup id="15">[15]</sup>
+The ServiceAgent receives a portion of bond tokens from the ProjectOwner's founder's share during the project's initialization phase<a href="glossary.md#note15" id="note15ref"><sup>15</sup></a>. 
 
 #### **ServiceAgent** Mechanism Action Space:
 1. Attestation - Claim Submission
 
 ### Role 3
-**Verification Agents** evaluate the claims made by Service Agents, to opinionate on the probability of a claim being both factually true and positively correlated with an outcome state. In this process, a Verification Agent may further enrich the claims data with additional information, such as statistical predictions, data transformations, and external data. The result of the claim evaluation is cryptographically verified, with the Verification Agent's digital identity credentials and signature. This process may issue an impact token. <sup id="20">[20]</sup>
+**Verification Agents** evaluate the claims made by Service Agents, to opinionate on the probability of a claim being both factually true and positively correlated with an outcome state. In this process, a Verification Agent may further enrich the claims data with additional information, such as statistical predictions, data transformations, and external data. The result of the claim evaluation is cryptographically verified, with the Verification Agent's digital identity credentials and signature. This process may issue an impact token<a href="glossary.md#note20" id="note20ref"><sup>20</sup></a>.
 
 A **VerificationAgent** role is characterized by providing project verification services, evaluating claims and esponding to disputes for Service Agents, and the ability to stake a performance deposit.
 
-VerificationAgents are explicitly excluded from participating in the *Bond-to-Mint* and *Burn-to-Withdraw* mechanisms, as well as holding tokens due to reasons detailed in Operational Requirement 1 and 2. <sup id="22">[22]</sup><sup id="23">[23]</sup> 
+VerificationAgents are explicitly excluded from participating in the *Bond-to-Mint* and *Burn-to-Withdraw* mechanisms, as well as holding tokens due to reasons detailed in Operational Requirement 1 and 2<a href="glossary.md#note22" id="note22ref"><sup>22,23</sup></a>. 
 
 #### **VerificationAgent** Mechanism Action Space:
 1. Attestation - Claim Submission
