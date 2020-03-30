@@ -40,7 +40,7 @@ A Funding Secured Event will move the system from the Pre-initialization Phase i
 
 ### Next State Outputs
 1. Amount raised in bond funds 
-2. ProjectTime threshold <a href="https://github.com/BlockScience/InterchainFoundation/blob/shruti-definitions/Paper/glossary.md#note28ref" id="note28ref"><sup>28</sup></a> 
+2. ProjectTime threshold <a href="https://github.com/BlockScience/InterchainFoundation/blob/shruti-definitions/Paper/glossary.md#note28" id="note28ref"><sup>28</sup></a> 
 3. ClaimsSubmitted threshold <sup id="29">[29]</sup>
 4. Alpha threshold <sup id="30">[30]</sup>
 
