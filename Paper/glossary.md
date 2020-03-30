@@ -9,7 +9,7 @@
 <a id="note3" href="#note3ref">3</a> **Bonding Curve** <br/>
 <p> Bonding Curves are continuous liquidity mechanisms which are used in market design for cryptographically-supported token economies. Academic literature increasingly refers to bonding curves as "configuration spaces" as Bonding Curves are part of a larger theory of scalar functions that remain invariant under legal changes in state. </p>
 
-<a id="note4" href="#note4ref">4</a>  **Alpha** <br/>
+<a id="note4" href="#note4ref">4</a>  **Alpha** <br/> <br/>
 The **alpha** signal ![img](https://latex.codecogs.com/svg.latex?%5Calpha_b%20%5Cin%20%5B0%2C1%5D) at time ![img](https://latex.codecogs.com/svg.latex?t) is an estimate of the likelihood of success of the bond, represented normalized such that ![img](https://latex.codecogs.com/svg.latex?%5Calpha_b%20%3D%200) indicates that the project is estimated to fail, and ![img](https://latex.codecogs.com/svg.latex?%5Calpha_b%20%3D%201) indicates the highest likelhood of success.
     
 <a id="note5" href="#note5ref">5</a>  **Economic engineering** <br/>
