@@ -94,12 +94,12 @@ The **alpha** signal ![img](https://latex.codecogs.com/svg.latex?%5Calpha_b%20%5
     The ClaimsSubmitted threshold ![img](https://latex.codecogs.com/svg.latex?c_%7Blim%7D) describes the minimum number of claims required to be collected during the project's Execution phase. 
 
 <a id="note32" href="#note32ref">32</a> **Alpha (state variable)** <br/><br/>
-    The **Alpha** state variable ![img](https://latex.codecogs.com/svg.latex?%5Calpha%20%5Cin%20%5B0%2C1%5D) is an estimate of the probability of project success, as evaluated by the Alpha Oracle. It is represented normalized such that ![img](https://latex.codecogs.com/svg.latex?%5Calpha%20%3D%200) indicates that the project is estimated to fail, and ![img](https://latex.codecogs.com/svg.latex?%5Calpha%20%3D%201) indicates the highest likelhood of success. <br/>
+    The Alpha state variable ![img](https://latex.codecogs.com/svg.latex?%5Calpha%20%5Cin%20%5B0%2C1%5D) is an estimate of the probability of project success, as evaluated by the Alpha Oracle. It is represented normalized such that ![img](https://latex.codecogs.com/svg.latex?%5Calpha%20%3D%200) indicates that the project is estimated to fail, and ![img](https://latex.codecogs.com/svg.latex?%5Calpha%20%3D%201) indicates the highest likelhood of success. <br/>
 
    The initial value of Alpha is 0.5, as a default. 
 
-<a id="note33" href="#note33ref">33</a> **Alpha threshold** <br/> 
-    The **Alpha threshold** is ![img](https://latex.codecogs.com/svg.latex?%5Calpha_%7Blim%7D) describes the minimum alpha value required for the settlement to be successful. ![img](https://latex.codecogs.com/svg.latex?%5Calpha_%7Blim%7D) is set to a positive finite integer during project initialization.
+<a id="note33" href="#note33ref">33</a> **Alpha threshold** <br/><br/> 
+    The Alpha threshold is ![img](https://latex.codecogs.com/svg.latex?%5Calpha_%7Blim%7D) describes the minimum alpha value required for the settlement to be successful. ![img](https://latex.codecogs.com/svg.latex?%5Calpha_%7Blim%7D) is set to a positive finite integer during project initialization.
 
 31. Reserve Funds <br/>
     The **reserve** ![img](https://latex.codecogs.com/svg.latex?R_t%20%5Cin%20%5Cmathbb%7BR%7D_%7B&plus;&plus;%7D). at time ![img](https://latex.codecogs.com/svg.latex?t) is the total quantity of bond tokens bonded to the bonding curve contract. <br/>
