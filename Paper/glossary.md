@@ -57,29 +57,29 @@ The **alpha** signal ![img](https://latex.codecogs.com/svg.latex?%5Calpha_b%20%5
 <a id="note19" href="#note19ref">19</a> **Settlement Phase** <br/>
 <p>     During the Settlement Phase, Bond Tokens are converted into a compatible form and are distributed to the participants in the bond. </p>
 
-20. Impact Token <br/><br/>
+<a id="note20" href="#note20ref">20</a> **Impact Token** <br/><br/>
     Impact tokens are the the supply or community tokens. At time ![img](https://latex.codecogs.com/svg.latex?t), the local state of agent ![img](https://latex.codecogs.com/svg.latex?a) comprises of the individual holding of Impact Tokens, ![img](https://latex.codecogs.com/svg.latex?s_%7Ba%2Ct%7D).
 
-21. Bond Token <br/><br/>
+<a id="note21" href="#note21ref">21</a> **Bond Token** <br/><br/>
     Bond Tokens are the bond's reserve currency tokens. At time ![img](https://latex.codecogs.com/svg.latex?t), each agent ![img](https://latex.codecogs.com/svg.latex?a) possess their holding of Bond Tokens, denoted by ![img](https://latex.codecogs.com/svg.latex?r_%7Ba%2Ct%7D%3E0).
 
-22. Operational requirement 1 <br/>
-    Trader Agents can call the Bond Action and the Burn Action. 
+<a id="note22" href="#note22ref">22</a> **Operational requirement 1** <br/>
+ <p>   Trader Agents can call the Bond Action and the Burn Action. </p>
 
-23. Operational requirement 2 <br/>
-    An agent which is able to execute the *Bond-to-Mint* or *Burn-to-Withdraw* mechanisms - such as Trader Agents - must not be involved in the Claim Evaluation, Claim Auditing, and Claim Resolution stages of the *Attestation* mechanism. 
+<a id="note23" href="#note23ref">23</a> **Operational requirement 2** <br/>
+<p>    An agent which is able to execute the *Bond-to-Mint* or *Burn-to-Withdraw* mechanisms - such as Trader Agents - must not be involved in the Claim Evaluation, Claim Auditing, and Claim Resolution stages of the *Attestation* mechanism. </p>
 
-24. Operational requirement 3 <br/>
-    Claim & Dispute Issuers call the SubmitClaim Action or SubmitDispute Action
+<a id="note24" href="#note24ref">24</a> **Operational requirement 3** <br/>
+<p>    Claim & Dispute Issuers call the SubmitClaim Action or SubmitDispute Action. </p>
 
-25. Operational requirment 4 <br/>
-    Claim & Dispute Issuers are explicity excluded from having the ability to call EvaluateClaim Action, AuditClaim Action, or ResolveClaim Action.
+<a id="note25" href="#note25ref">25</a> **Operational requirment 4** <br/>
+<p>    Claim & Dispute Issuers are explicity excluded from having the ability to call EvaluateClaim Action, AuditClaim Action, or ResolveClaim Action. </p>
 
-26. Operational requirement 5 <br/>
-    Evaluators can call the EvaluateClaim Action, AuditClaim Action, or ResolveClaim Action to process Claims, or the EvaluateDispute Action or ResolveDispute Action to process Disputes
+<a id="note26" href="#note26ref">26</a> **Operational requirement 5** <br/>
+<p>    Evaluators can call the EvaluateClaim Action, AuditClaim Action, or ResolveClaim Action to process Claims, or the EvaluateDispute Action or ResolveDispute Action to process Disputes. </p>
 
-27. Operational requirement 6 <br/>
-    Agents involved in the Claim Evaluation, Claim Auditing, and Claim Resolution stages of the *Attestation* mechanism, such as Claim & Dispute Evaluators, are explictly excluded from holding or trading bond tokens as it results in a conflict of interest. 
+<a id="note27" href="#note27ref">27</a> **Operational requirement 6** <br/>
+<p>    Agents involved in the Claim Evaluation, Claim Auditing, and Claim Resolution stages of the *Attestation* mechanism, such as Claim & Dispute Evaluators, are explictly excluded from holding or trading bond tokens as it results in a conflict of interest. </p>
     
 <a id="note28" href="#note28ref"><sup>28</sup></a> **ProjectTime** <br/><br/>
     The ProjectTime state variable ![img](https://latex.codecogs.com/svg.latex?p%20%5Cin%20%5Cmathbb%7BZ%7D_%7B&plus;&plus;%7D) describes the duration for which the project has been in the Execution phase.
