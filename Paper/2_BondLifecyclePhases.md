@@ -1,4 +1,4 @@
-# Phases in Bond Lifecycle
+# Bond Lifecycle Phases
 The bonding curve system can be described as a finite state machine, with multiple  finite phases or states, inputs and outputs in and out of each state, and state transitions from one state to another in response to an input.
 
 > Note: For simplicity and consistency with modelling and simulation explainers, this document adopts a pseudo-code or protocol-like language.
