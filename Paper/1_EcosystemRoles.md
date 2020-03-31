@@ -1,6 +1,6 @@
 # Ecosystem Roles
 
-Defining all of the possible roles one can take in an ecosystem is a crucial first step in understanding the overall requirements of the system. Roles as outlined in this document represent roles of agents in the broader impact bond ecosystem. These roles may further have relations to specific steps in the lifecycle of the bond and in some cases, specific on-chain mechanisms. Roles are distinct from *entities* which may, in some cases, occupy multiple roles.
+Defining all of the possible roles one can take in an ecosystem is a crucial first step in understanding the overall requirements of the system. Roles as outlined in this document represent roles of agents in the broader impact bond ecosystem. These roles may further have relations to specific steps in the lifecycle of the bond and in some cases, specific on-chain mechanisms. Roles are distinct from *entities* which may, in some cases, occupy multiple roles. 
 
 ## Roles
 
@@ -18,6 +18,9 @@ An **InvestmentAgent** may employ two modes of investing:
 2. Burn-to-withdraw<a href="glossary.md#note12" id="note12ref"><sup>12</sup></a> 
 3. Attestation - Claim Submission<a href="glossary.md#note13" id="note13ref"><sup>13</sup></a> 
 
+#### Example:
+High net worth investor willing to take on the risk of investment for the social good and/or potential above market average return.
+
 ### Role 2
 **Service Agents** can be organisations, individuals, or machines that provide goods and services to the project, to produce a change in state for the project's beneficiaries.  
 
@@ -27,6 +30,9 @@ The ServiceAgent receives a portion of bond tokens from the ProjectOwner's found
 
 #### **ServiceAgent** Mechanism Action Space:
 1. Attestation - Claim Submission
+
+#### Example:
+
 
 ### Role 3
 **Verification Agents** evaluate the claims made by Service Agents, to opinionate on the probability of a claim being both factually true and positively correlated with an outcome state. In this process, a Verification Agent may further enrich the claims data with additional information, such as statistical predictions, data transformations, and external data. The result of the claim evaluation is cryptographically verified, with the Verification Agent's digital identity credentials and signature. This process may issue an impact token.<a href="glossary.md#note20" id="note20ref"><sup>20</sup></a>
