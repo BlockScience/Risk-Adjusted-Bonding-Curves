@@ -1,4 +1,4 @@
-# Impact Bonds Ecosystem
+# Ecosystem Roles
 
 Roles as outlined in this document represent roles of agents in the broader impact bond ecosystem. These roles may further have relations to specific steps in the lifecycle of the bond and in some cases, specific on-chain mechanisms. Roles are distinct from *entities* which may, in some cases, occupy multiple roles.
 
