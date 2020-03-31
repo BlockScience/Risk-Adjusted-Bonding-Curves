@@ -72,7 +72,7 @@ The **alpha** signal ![img](https://latex.codecogs.com/svg.latex?%5Calpha_b%20%5
 <a id="note24" href="#note24ref">24</a> **Operational requirement 3** <br/>
 <p>    Claim & Dispute Issuers call the SubmitClaim Action or SubmitDispute Action. </p>
 
-<a id="note25" href="#note25ref">25</a> **Operational requirment 4** <br/>
+<a id="note25" href="#note25ref">25</a> **Operational requirement 4** <br/>
 <p>    Claim & Dispute Issuers are explicity excluded from having the ability to call EvaluateClaim Action, AuditClaim Action, or ResolveClaim Action. </p>
 
 <a id="note26" href="#note26ref">26</a> **Operational requirement 5** <br/>
