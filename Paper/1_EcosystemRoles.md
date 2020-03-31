@@ -68,7 +68,7 @@ A **BondIssuer** role is characterized by the ability to issue bonds, receive im
 
 These two roles can be generalized under the **Administrator** role which is characterized by performing bond or project administration, reporting on bond or project performance against milestones, evaluating claims, and the ability to change bond or project parameters or terminate bond or project life.
 
-Administrators are explicitly excluded from participating in the Bond-to-Mint mechanism, Burn-to-Withdraw mechanism, and holding tokens due to reasons detailed in Operational Requirement 1.<a href="glossary.md#note22" id="note22ref"><sup>22</sup></a>  
+Administrators are explicitly excluded from participating in the *Bond-to-Mint* mechanism, *Burn-to-Withdraw* mechanism, and holding tokens due to reasons detailed in Operational Requirement 1.<a href="glossary.md#note22" id="note22ref"><sup>22</sup></a>  
 
 #### **Adminstrator** Mechanism Action Space:
 1. Attestation - Claim Evaluation
