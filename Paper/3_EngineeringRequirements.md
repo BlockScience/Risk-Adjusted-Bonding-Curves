@@ -211,7 +211,7 @@ The set of **mechanisms** is ![img](https://latex.codecogs.com/svg.latex?F) such
 where ![img](https://latex.codecogs.com/svg.latex?%5Cmathcal%7BX%7D) is the space of all possible states ![img](https://latex.codecogs.com/svg.latex?X), and ![img](https://latex.codecogs.com/svg.latex?U) is the space of all legal actions associated with the mechanism ![img](https://latex.codecogs.com/svg.latex?f).
 
 #### Functional Requirement 1
-The bonding curve mechanism should be robust enough to account for large or catastropic risks that occur at either extemes of the curve. 
+The bonding curve mechanism should be robust enough to account for large or catastropic risks that occur at either extremes of the curve. 
 
 [comment]: # (Define a cut off point for asymptotic portion of the curve)
 
