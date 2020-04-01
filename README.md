@@ -5,7 +5,7 @@ Public Repo for Collaboration between Interchain Foundation and BlockScience
 Document, Design, and Test an Impact Bond Mechanism to fund outcome driven projects. The Bonds life cycle will account for the (i) pre-conditions and execution of bond initialization, (ii) a set of mechanisms available to participants for continuous funding and attestation regarding project status, and (iii) a close-out plus reconcilation mechanism that accounts for a final verdict on the success of the project, as well as the post-conditions for the system, e.g. impact tokens representing the participation level in a successful project. This design is for a parameterized class of bond mechanisms which may be configured to fit a wide range of circumstances.  
 
 
-Begin by reading the [Problem Statement and Methodology](Paper/README.md).
+Begin by reading the [Problem Statement and Methodology](Paper/ProblemStatementandMethodology.md).
 
 
 
