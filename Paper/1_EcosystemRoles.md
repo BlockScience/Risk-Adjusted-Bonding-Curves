@@ -19,7 +19,7 @@ An **InvestmentAgent** may employ two modes of investing:
 3. Attestation - Claim Submission<a href="glossary.md#note13" id="note13ref"><sup>13</sup></a> 
 
 #### Example:
-High net worth investor willing to take on the risk of investment for the social good and/or potential above market average return.
+High net worth investor willing to take on the risk of investment for the social benefit to childhood education in India, as well as the potential above market average return.
 
 ### Role 2
 **Service Agents** can be organisations, individuals, or machines that provide goods and services to the project, to produce a change in state for the project's beneficiaries.  
@@ -32,7 +32,7 @@ The ServiceAgent receives a portion of bond tokens from the ProjectOwner's found
 1. Attestation - Claim Submission
 
 #### Example:
-
+Chimple - a non-profit education technology provider that will aim to utilize their technology to improve childhood learning in India. 
 
 ### Role 3
 **Verification Agents** evaluate the claims made by Service Agents, to opinionate on the probability of a claim being both factually true and positively correlated with an outcome state. In this process, a Verification Agent may further enrich the claims data with additional information, such as statistical predictions, data transformations, and external data. The result of the claim evaluation is cryptographically verified, with the Verification Agent's digital identity credentials and signature. This process may issue an impact token.<a href="glossary.md#note20" id="note20ref"><sup>20</sup></a>
@@ -44,6 +44,9 @@ VerificationAgents are explicitly excluded from participating in the *Bond-to-Mi
 #### **VerificationAgent** Mechanism Action Space:
 1. Attestation - Claim Submission
 
+#### Example:
+Gray Matters India - an independent evaluator that will measure growth in learning outcomes of school-going children in India.
+
 ### Role 4
 **Arbitrators** are independent agents employed to facilitate dispute resolution when disputes are raised by any of the participants in a project or bond. The Arbitrator evaluates claims made by counterparties and recommends resolutions.
 
@@ -51,6 +54,9 @@ An **Arbitrator** role is characterized by providing artibitration services, eva
 
 #### **Arbitrator** Mechanism Action Space:
 1. Attestation - Claim Resolution, Dispute Evaluation
+
+#### Example:
+Jur - a blockchain-based ecosystem for creating smart legal contracts and providing a platform for conflict resolution. This platform could be used to resolve disputes online, with agreed upon arbitrators that have expertise in particular topics. 
 
 ### Role 5
 **Auditors** are independent agents who may be employed by any of the participating agents in a project or a bond to audit transactions and claims, using available transaction records and data. Audits may be required as part of a bond's Settlement<a href="glossary.md#note19" id="note19ref"><sup>19</sup></a> process. Auditors may provide inputs to dispute resolution mechanisms.
@@ -60,7 +66,9 @@ An **Auditor** role is characterized by providing auditing services, auditing cl
 #### **Auditor** Mechanism Action Space:
 1. Attestation - Claim Auditing
 
-#
+#### Example:
+KPMG - one of the "big four" accounting organizations
+
 ## Role 6
 The **Bond Issuer** raises capital for a project through an impact bond debt instrument. They are responsible for ensuring regulatory compliance and for establishing the legal constructs of the fund. The Bond Issuer is liable to investors for the capital raised and liable to project owners for making payments for goods and services to be delivered through the project.  The Bond Issuer authorises agents to participate in the bond and interact with the bond mechanisms within the scopes of capabilities allowed by their respective roles. Note that a Bond Issuer should be a positively identified legal entity and/or person.
 
@@ -68,6 +76,9 @@ A **BondIssuer** role is characterized by the ability to issue bonds, receive im
 
 ####  **BondIssuer** Mechanism Action Space:
 1. Attestation - Dispute Submission
+
+#### Example:
+UBS Optimus Foundation - foundation linked to a global wealth manager staffed with philanthropy experts.
 
 ### Role 7
 **Project Administrator** can be assigned by the Project Owner to act on their behalf and run the project. In this role the Project Administrator is also responsible for the approval of milestones and settlements of payments. A **Bond Administrator** on the other hand is equivalent to the traditional finance role of a fund administrator. This agent may be one or more entities or persons, or a system like a governance DAO. The role is assigned by the Bond Issuer. The Bond Administrator is responsible for authorizing projects for funding, fund disbursements and facilitating settlements. They facilitate the governance of the bond. 
@@ -79,6 +90,9 @@ Administrators are explicitly excluded from participating in the *Bond-to-Mint* 
 #### **Adminstrator** Mechanism Action Space:
 1. Attestation - Claim Evaluation
 
+#### Example:
+Dalberg Capital - an experienced advisor on impact investing. 
+
 ### Role 8
 The **Project Owner** is the initiator and controller of a project on an impact bond blockchain network. This stakeholder creates the project and defines its parameters. Once a project's parameters have been set up, the Project Owner deploys the project on an impact bond blockchain network, using their cryptographic keys to instantiate the project by signing a message payload that records the genesis of the project in a blockchain record.
 
@@ -89,6 +103,9 @@ ProjectOwners can purchase the first tranche of bond tokens during project initi
 #### **ProjectOwner** Mechanism Action Space:
 1. Attestation - Dispute Submission
 
+#### Example:
+International Red Cross
+
 ### Role 9
 The **Outcomes Payer** purchases the outcomes of a Project for a promised future value. This purchase is made typically from Investment Agents who provide the working capital for outcomes to be delivered. Payments are usually conditioned on the project achieving predetermined performance milestones.
 
@@ -96,5 +113,8 @@ An **OutcomesPayer** role is characterized by the ability to make final payments
 
 #### **OutcomesPayer** Mechanism Action Space:
 1. Attestation - Dispute Submission
+
+#### Example:
+Government of India
 
 Continue reading Chapter 2: [Bond Lifecycle Phases](2_BondLifecyclePhases.md)
