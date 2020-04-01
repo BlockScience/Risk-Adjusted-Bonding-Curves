@@ -1,6 +1,6 @@
 # Ecosystem Roles
 
-Defining all of the possible roles one can take in an ecosystem is a crucial first step in understanding the overall requirements of the system. Roles as outlined in this document represent roles of agents in the broader impact bond ecosystem. These roles may further have relations to specific steps in the lifecycle of the bond and in some cases, specific on-chain mechanisms. Roles are distinct from *entities* which may, in some cases, occupy multiple roles. 
+Defining all of the possible roles one can take in an ecosystem is a crucial first step in understanding the overall requirements of the system. Roles as outlined in this document represent roles of agents in the broader impact bond ecosystem. These roles may further have relations to specific steps in the lifecycle of the bond and in some cases, specific on-chain mechanisms. Roles are distinct from *entities* which may, in some cases, occupy multiple roles. We will take the case of a development impact project improving the quality of primary school education in India to provide real-world examples for each role.
 
 ## Roles
 
@@ -56,7 +56,7 @@ An **Arbitrator** role is characterized by providing artibitration services, eva
 1. Attestation - Claim Resolution, Dispute Evaluation
 
 #### Example:
-Jur - a blockchain-based ecosystem for creating smart legal contracts and providing a platform for conflict resolution. This platform could be used to resolve disputes online, with agreed upon arbitrators that have expertise in particular topics. 
+Jur - a blockchain-based ecosystem for creating smart legal contracts and providing a platform for conflict resolution. This platform will be used to resolve disputes online, with agreed upon arbitrators that have expertise in particular topics. 
 
 ### Role 5: Auditor
 **Auditors** are independent agents who may be employed by any of the participating agents in a project or a bond to audit transactions and claims, using available transaction records and data. Audits may be required as part of a bond's Settlement<a href="glossary.md#note19" id="note19ref"><sup>19</sup></a> process. Auditors may provide inputs to dispute resolution mechanisms.
@@ -78,7 +78,7 @@ A **BondIssuer** role is characterized by the ability to issue bonds, receive im
 1. Attestation - Dispute Submission
 
 #### Example:
-UBS Optimus Foundation - foundation linked to a global wealth manager staffed with philanthropy experts.
+UBS Optimus Foundation - a foundation linked to a global wealth manager staffed with philanthropy experts.
 
 ### Role 7: Project Administrator
 **Project Administrator** can be assigned by the Project Owner to act on their behalf and run the project. In this role the Project Administrator is also responsible for the approval of milestones and settlements of payments. A **Bond Administrator** on the other hand is equivalent to the traditional finance role of a fund administrator. This agent may be one or more entities or persons, or a system like a governance DAO. The role is assigned by the Bond Issuer. The Bond Administrator is responsible for authorizing projects for funding, fund disbursements and facilitating settlements. They facilitate the governance of the bond. 
@@ -104,7 +104,7 @@ ProjectOwners can purchase the first tranche of bond tokens during project initi
 1. Attestation - Dispute Submission
 
 #### Example:
-International Red Cross
+Quality Education India
 
 ### Role 9: Outcomes Payer
 The **Outcomes Payer** purchases the outcomes of a Project for a promised future value. This purchase is made typically from Investment Agents who provide the working capital for outcomes to be delivered. Payments are usually conditioned on the project achieving predetermined performance milestones.
