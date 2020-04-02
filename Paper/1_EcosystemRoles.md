@@ -19,7 +19,7 @@ An **InvestmentAgent** may employ two modes of investing:
 3. Attestation - Claim Submission<a href="glossary.md#note13" id="note13ref"><sup>13</sup></a> 
 
 #### Example:
-High net worth investor willing to take on the risk of investment for the social benefit to childhood education in India, as well as the potential above market average return.
+A high net worth investor willing to take on the risk of investment for the social benefit to childhood education in India, as well as the potential above market average return.
 
 ### Role 2: Service Agent
 **Service Agents** can be organisations, individuals, or machines that provide goods and services to the project, to produce a change in state for the project's beneficiaries.  
@@ -104,7 +104,7 @@ ProjectOwners can purchase the first tranche of bond tokens during project initi
 1. Attestation - Dispute Submission
 
 #### Example:
-Quality Education India - creator of this development impact bond.
+Quality Education India - the creator of the development impact bond.
 
 ### Role 9: Outcomes Payer
 The **Outcomes Payer** purchases the outcomes of a Project for a promised future value. This purchase is made typically from Investment Agents who provide the working capital for outcomes to be delivered. Payments are usually conditioned on the project achieving predetermined performance milestones.
@@ -115,6 +115,6 @@ An **OutcomesPayer** role is characterized by the ability to make final payments
 1. Attestation - Dispute Submission
 
 #### Example:
-Michael and Susan Dell Foundation - non-profit foundation dedicated to transforming the lives of children living in urban poverty through improving their education, health, and family economic stability.
+Michael and Susan Dell Foundation - a non-profit foundation dedicated to transforming the lives of children living in urban poverty through improving their education, health, and family economic stability.
 
 Continue reading Chapter 2: [Bond Lifecycle Phases](2_BondLifecyclePhases.md)
