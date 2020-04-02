@@ -1,5 +1,5 @@
 # Engineering Requirements
-Now that we've defined the roles and bond lifecycle phases, we can create formal mathematical definitions and requirements for the ecosystem. We will take the roles identified and categorize them into classes of agents based on the types of actions that they can take. We will also define the system state variables and the mechanisms that cause changes to those state variables.   
+Now that we've defined the roles and bond lifecycle phases, we can create formal mathematical definitions and requirements for the ecosystem. We will take the roles identified and categorize them into classes of agents based on the types of actions that they can take. We will also define the system state variables, mechanisms, and initialization/settlement conditions.   
 
 ## Assumptions
 #### Assumption 1
