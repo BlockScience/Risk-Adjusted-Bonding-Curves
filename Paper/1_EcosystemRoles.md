@@ -67,7 +67,7 @@ An **Auditor** role is characterized by providing auditing services, auditing cl
 1. Attestation - Claim Auditing
 
 #### Example:
-KPMG - one of the "big four" accounting organizations
+KPMG - one of the "big four" accounting organizations.
 
 ### Role 6: Bond Issuer
 The **Bond Issuer** raises capital for a project through an impact bond debt instrument. They are responsible for ensuring regulatory compliance and for establishing the legal constructs of the fund. The Bond Issuer is liable to investors for the capital raised and liable to project owners for making payments for goods and services to be delivered through the project.  The Bond Issuer authorises agents to participate in the bond and interact with the bond mechanisms within the scopes of capabilities allowed by their respective roles. Note that a Bond Issuer should be a positively identified legal entity and/or person.
@@ -104,7 +104,7 @@ ProjectOwners can purchase the first tranche of bond tokens during project initi
 1. Attestation - Dispute Submission
 
 #### Example:
-Quality Education India
+Quality Education India - creator of this development impact bond.
 
 ### Role 9: Outcomes Payer
 The **Outcomes Payer** purchases the outcomes of a Project for a promised future value. This purchase is made typically from Investment Agents who provide the working capital for outcomes to be delivered. Payments are usually conditioned on the project achieving predetermined performance milestones.
@@ -115,6 +115,6 @@ An **OutcomesPayer** role is characterized by the ability to make final payments
 1. Attestation - Dispute Submission
 
 #### Example:
-Government of India
+Michael and Susan Dell Foundation - non-profit foundation dedicated to transforming the lives of children living in urban poverty through improving their education, health, and family economic stability.
 
 Continue reading Chapter 2: [Bond Lifecycle Phases](2_BondLifecyclePhases.md)
