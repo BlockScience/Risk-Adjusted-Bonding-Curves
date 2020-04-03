@@ -195,7 +195,7 @@ For successful settlement,
  <img src="https://latex.codecogs.com/svg.latex?%5Calpha%20%5Coverset%7B%21%7D%7B%5Cgeq%7D%20%5Calpha_%7Blim%7D">
 </p>
 
-![settlement phase diagram](artifacts/SettlementConsiderationPhase.png)
+![settlement phase diagram](artifacts/SettlementConsiderationPhasev1.png)
 
 ## Mechanisms 
 
