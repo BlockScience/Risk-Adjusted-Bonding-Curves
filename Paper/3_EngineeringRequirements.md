@@ -36,7 +36,7 @@ An agent which is able to execute the *Bond-to-Mint* or *Burn-to-Withdraw* mecha
  
 ##### Operational Requirement 3
 Claim & Dispute Issuers call the SubmitClaim Action or SubmitDispute Action
-##### Operational Requirment 4
+##### Operational Requirement 4
 Claim & Dispute Issuers are explicity excluded from having the ability to call EvaluateClaim Action, AuditClaim Action, or ResolveClaim Action. 
  
 ### Agent Class 3: Evaluators
