@@ -22,7 +22,7 @@ The address ![img](https://latex.codecogs.com/svg.latex?a%20%5Csubset%20%5Clambd
 ##### Operational Requirement 1
 Trader Agents can call the Bond Action and the Burn Action. 
 ##### Operational Requirement 2
-An agent which is able to execute the *Bond-to-Mint* or *Burn-to-Withdraw* mechanisms - such as Trader Agents - must not be involved in the Claim Evaluation, Claim Auditing, and Claim Resolution stages of the *Attestation* mechanism. 
+An agent which is able to execute the *Bond-to-Mint* or *Burn-to-Withdraw* mechanisms - such as Trader Agents - must not be involved in the Claim Evaluation, Claim Auditing, and Claim Resolution stages of the *Attestation* mechanism as this creates a conflict of interest. 
 
 ### Agent Class 2: Claim & Dispute Issuers
 - Claim & Dispute Issuers can execute the Claim Submission and Dispute Submission functions of the *Attestations* mechanism.
@@ -37,7 +37,7 @@ An agent which is able to execute the *Bond-to-Mint* or *Burn-to-Withdraw* mecha
 ##### Operational Requirement 3
 Claim & Dispute Issuers call the SubmitClaim Action or SubmitDispute Action
 ##### Operational Requirement 4
-Claim & Dispute Issuers are explicity excluded from having the ability to call EvaluateClaim Action, AuditClaim Action, or ResolveClaim Action. 
+Claim & Dispute Issuers are explicity excluded from having the ability to call EvaluateClaim Action, AuditClaim Action, or ResolveClaim Action. It would produce a conflict of interest if those that issue claims and disputes could also participate in evaluating, auditing, or resolving them.
  
 ### Agent Class 3: Evaluators
  - Claim Evaluators can execute the Claim Evaluation, Claim Auditing, and Claim Resolution functions of the *Attestations* mechanism.
@@ -80,7 +80,7 @@ Since a bond comes into existence upon the Bond Initialization Phase<a href="glo
 #### System Requirement 1 
 The state of all Claims issued in a bond must reflect the state of the bonding curve. If the bonding curve state is not respected, Disputes will be issued against the Claims to regain the bonding curve state. 
 
-<!-- [comment]: # (The Dispute mechanism acts as a fail-safe, therefore making the protocol more resilient. Other fail-safes tbd) --> 
+The Dispute mechanism acts as a fail-safe, therefore making the protocol more resilient.
 
 #### System Requirement 2 
 The economic incentive layer of the system, which contains all the bonding curve mechanisms, must incentivize behaviour that achieves system goals. 
@@ -93,7 +93,7 @@ All agent roles have restrictions over their action space, which are defined in 
 #### Definition 2
 The **timestep** or period ![img](https://latex.codecogs.com/svg.latex?t) defined for the system is one block. A block contains an ordered list of transactions, also referred to as agent actions ![img](https://latex.codecogs.com/svg.latex?u_t). Therefore, in each timestep, an agent ![img](https://latex.codecogs.com/svg.latex?a) can perform multiple actions chosen from the set of all legal actions ![img](https://latex.codecogs.com/svg.latex?U).
 
-<!--[comment]: # (Some tests or simualtions may call for a finer timestep granularity, in which case 1 timestep = 1 transaction. At this granularity, only one agent action can be performed at a single timestep.) -->
+Note that some tests or simulations may call for a finer timestep granularity, for example 1 timestep = 1 transaction. At this granularity, only one agent action could be performed at a single timestep.
 
 #### Definition 3
 The **agent-level state** represents all agent states at a given time ![img](https://latex.codecogs.com/svg.latex?t). The agent state is a vector ![img](https://latex.codecogs.com/svg.latex?%5Chat%7Bx%7D_%7Ba%2Ct%7D) making the agent state space <img src="https://render.githubusercontent.com/render/math?math=\hat{X}_{a} \in R^k"> such that ![img](https://latex.codecogs.com/svg.latex?%5Cforall%20a%2C%20%5Cforall%20t%2C%20%5Chat%7Bx%7D_%7Ba%2Ct%7D%20%5Cin%20%5Chat%7BX%7D_a). Since the agent's state transition reflects an agent action, the agent-level state summarizes the flow of information in the system indexed by time. The agent-level state is given by <br/>
@@ -149,14 +149,14 @@ At initialization, ![img](https://latex.codecogs.com/svg.latex?p_%7Blim%7D) is s
 #### Definition 13
 The **ClaimsSubmitted threshold** ![img](https://latex.codecogs.com/svg.latex?c_%7Blim%7D) describes the minimum number of claims required to be collected during the project's Execution phase. 
 
-At initialization, ![img](https://latex.codecogs.com/svg.latex?c_%7Blim%7D) is set to a positive finite integer 
+At initialization, ![img](https://latex.codecogs.com/svg.latex?c_%7Blim%7D) is set to a positive finite integer. 
 
 <p align="center">
  <img src="https://latex.codecogs.com/svg.latex?c_%7Blim%7D%20%5Cin%20%5Cmathbb%7BZ%7D_%7B&plus;%7D%24%24%20%24%24c%20%5Coverset%7Bset%7D%7B%3D%7D%200">
 </p>
 
 #### Definition 14
-The **Alpha threshold** is ![img](https://latex.codecogs.com/svg.latex?%5Calpha_%7Blim%7D) describes the minimum alpha value required for the settlement to be successful. ![img](https://latex.codecogs.com/svg.latex?%5Calpha_%7Blim%7D) is set to a positive finite integer during project initialization.
+The **Alpha threshold** is ![img](https://latex.codecogs.com/svg.latex?%5Calpha_%7Blim%7D) describes the minimum alpha value required for the settlement to be successful.
 
 At initialization, ![img](https://latex.codecogs.com/svg.latex?%5Calpha_%7Blim%7D) is set to a real value between 0 and 1 
 
@@ -277,7 +277,7 @@ The **attestation** mechanism involves the lifecylce of claims. Claims undergo t
 ![](https://i.imgur.com/vamnLGV.png)
 
 #### Functional Requirement 4
-A lack of trading activity on the bonding curve does not indicate a degradation of the Bond Alpha, Project Alpha,  or the bonding curve itself. 
+A lack of trading activity on the bonding curve does not indicate a degradation of the Bond Alpha, Project Alpha, or the bonding curve itself. 
 
 <!-- [comment]: # (Sustainability: Consider temporal effects on investor sentiment, i.e passage of time correlates with decaying excitement about project, thus lesser activity. However, sunk cost bias simultaneously is in contention with this.) -->
     
