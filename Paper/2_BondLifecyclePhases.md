@@ -73,9 +73,11 @@ The bond is launched. As long as funds are placed in the appropriate accounts as
 The execution phase is the phase where active bond trading occurs.
 
 ### Transitions into Execution Phase
-1. Initialization Threshold Triggering Event from Initialization Phase resulting in an ouput set of initial conditions: 
+1. Initialization Threshold Triggering Event from Initialization Phase 
+2. Dispute Resolution Return Event to Execution from Dispute Pause Phase
+3. A Not Complete Event from the Settlement Consideration Pause Phase
 
-Initial State
+### Initial State
 All values are at time t = 0:
 1. ProjectTime
 2. Claims Submitted
@@ -85,9 +87,6 @@ All values are at time t = 0:
 6. Alpha
 7. Reserve Ratio
 8. Price
-
-2. Dispute Resolution Return Event to Execution from Dispute Pause Phase
-3. A Not Complete Event from the Settlement Consideration Pause Phase
 
 ### Inputs
 1. Reserve Funds<a href="glossary.md#note34" id="note34ref"><sup>34</sup></a>  to be Deposited
