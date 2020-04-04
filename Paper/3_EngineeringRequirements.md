@@ -239,7 +239,7 @@ Agent-level state, ![img](https://latex.codecogs.com/svg.latex?%5Chat%20x_%7Bt&p
 </p>
 
 #### Functional Requirement 2
-Upon the execution the Bond Action, Bond tokens are added to the bonding curve. 
+Upon the execution the Bond Action, bond tokens are added to the bonding curve. 
 
 #### Mechanism 2 
 The **burn-to-withdraw** mechanism removes bond tokens to redeem external currency through an agent’s action ![img](https://latex.codecogs.com/svg.latex?u_%7Ba%2C%20t%7D). The agent’s action represents a transaction to remove ![img](https://latex.codecogs.com/svg.latex?%5CDelta%20S_t%20%3A%3D%20s_%7Ba%2C%20t%7D%20-%20s_%7Ba%2C%20t&plus;1%7D%20%5Cleq%200) quantity of bond tokens from the bonding curve system. Quantity ![img](https://latex.codecogs.com/svg.latex?%5CDelta%20S_t) of bond tokens are removed from the bonding curve, resulting in:
