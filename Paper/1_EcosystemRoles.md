@@ -1,59 +1,61 @@
 # Ecosystem Roles
 
-Defining all of the possible roles one can take in an ecosystem is a crucial first step in understanding the overall requirements of the system. Roles as outlined in this document represent roles of agents in the broader impact bond ecosystem. These roles may further have relations to specific steps in the lifecycle of the bond and in some cases, specific on-chain mechanisms. Roles are distinct from *entities* which may, in some cases, occupy multiple roles. We will take the case of a development impact project improving the quality of primary school education in India to provide real-world examples for each role.
+Defining all of the possible roles one can take in an ecosystem is a crucial first step in understanding the overall requirements of the system. Roles as outlined in this document represent roles of agents in the broader impact bond ecosystem. General descriptions of the roles are provided in order to provide the full context of the overall role in the ecosystem, however the Mechanism Action Space is only intended to define the specific on-chain mechanisms available within the bonding curve implementation (i.e. once it is launched until it is closed). Roles are distinct from *entities* which may, in some cases, occupy multiple roles. 
+
+Note that in the context of a generalized design pattern, ecosystem roles and their respective rights are unique to the use case and must always be determined prior to launch in the pre-initialization phase (lifecycle phases described in the next chapter). For our purposes here, we will define roles in the impact bond ecoysystem and we will take the case of a development impact project improving the quality of primary school education in India to provide real-world examples for each role.
 
 ## Roles
 
 ### Role 1: Investment Agent
-**Investment Agents** are individuals, institutions, or funding mechanisms that commit capital to a bond in return for financial and non-financial returns on the capital. Investors tend to seek returns that are above the market average (Alpha) and are rewarded for their investments if a project funded by the bond is successful in achieving its targets. Investors must therefore analyse the financial risks associated with the bond, as well as the operational risks associated with the projects which are funded by the bond.
+**Investment Agents** are individuals, institutions, or funding mechanisms that commit capital, to a bond in return for financial and non-financial returns on the capital. Investors tend to seek returns that are above the market average (Alpha) and are rewarded for their investments if a project funded by the bond is successful in achieving its targets. Investors must therefore analyse the financial risks associated with the bond, as well as the operational risks associated with the projects which are funded by the bond.
 
 An **InvestmentAgent** role is characterized by the ability to buy and redeem bond tokens<a href="glossary.md#note21" id="note21ref"><sup>21</sup></a> to compose a portfolio<a href="glossary.md#note10" id="note10ref"><sup>10</sup></a>  of bonds. The Investment Agent has a private valuation of a given project, which they employ to make buy and sell decisions and ultimately  manage their portfolio’s risk to return ratio.
 
 An **InvestmentAgent** may employ two modes of investing:
-1. Invest working capital into the project
-2. Give up collateral for providing liquidity to the bonding curve trading pool
+1. Invest working capital into the project (Example: Providing capital to the project that is required prior to and in order for the bonding curve to be launched.)
+2. Give up collateral for providing liquidity to the bonding curve trading pool (Example: As a trader, purchasing bond tokens once the bonding curve is live.)
 
 #### **InvestmentAgent** Mechanism Action Space:
 1. Bond-to-mint<a href="glossary.md#note11" id="note11ref"><sup>11</sup></a> 
 2. Burn-to-withdraw<a href="glossary.md#note12" id="note12ref"><sup>12</sup></a> 
-3. Attestation - Claim Submission<a href="glossary.md#note13" id="note13ref"><sup>13</sup></a> 
+3. Attestation<a href="glossary.md#note13" id="note13ref"><sup>13</sup></a> 
 
 #### Example:
 A high net worth investor willing to take on the risk of investment for the social benefit to childhood education in India, as well as the potential above market average return.
 
 ### Role 2: Service Agent
-**Service Agents** can be organisations, individuals, or machines that provide goods and services to the project, to produce a change in state for the project's beneficiaries.  
+**Service Agents** can be organisations, individuals, or machines that provide goods and services to the project, in order to make progress towards achieving the predetermined outcomes. 
 
-A **ServiceAgent** role is characterized by issuing claims, submitting disputes, receiving impact and bond tokens, and the ability to stake a performance deposit.
+A **ServiceAgent** role is characterized by issuing claims and submitting disputes. 
 
-The ServiceAgent receives a portion of bond tokens from the ProjectOwner's founder's share during the project's initialization phase.<a href="glossary.md#note15" id="note15ref"><sup>15</sup></a> 
+ServiceAgents are compensated in fee payments for providing goods and services.
 
 #### **ServiceAgent** Mechanism Action Space:
-1. Attestation - Claim Submission
+1. Attestation<a href="glossary.md#note13" id="note13ref"><sup>13</sup></a> 
 
 #### Example:
 Chimple - a non-profit education technology provider that will aim to utilize their technology to improve childhood learning in India. 
 
 ### Role 3: Verification Agent
-**Verification Agents** evaluate the claims made by Service Agents, to opinionate on the probability of a claim being both factually true and positively correlated with an outcome state. In this process, a Verification Agent may further enrich the claims data with additional information, such as statistical predictions, data transformations, and external data. The result of the claim evaluation is cryptographically verified, with the Verification Agent's digital identity credentials and signature. This process may issue an impact token.<a href="glossary.md#note20" id="note20ref"><sup>20</sup></a>
+**Verification Agents** evaluate the claims made by Service Agents, to opinionate on the probability of a claim being both factually true and positively correlated with an outcome state. In this process, a Verification Agent may further enrich the claims data with additional information, such as statistical predictions, data transformations, and external data. The result of the claim evaluation is cryptographically verified with the Verification Agent's digital identity credentials and signature. This process may issue an impact token.<a href="glossary.md#note20" id="note20ref"><sup>20</sup></a>
 
-A **VerificationAgent** role is characterized by providing project verification services, evaluating claims and esponding to disputes for Service Agents, and the ability to stake a performance deposit.
+A **VerificationAgent** role is characterized by providing project verification services, evaluating claims and responding to disputes for Service Agents.
 
 VerificationAgents are explicitly excluded from participating in the *Bond-to-Mint* and *Burn-to-Withdraw* mechanisms, as well as holding tokens due to reasons detailed in Operational Requirement 1 and 2.<a href="glossary.md#note22" id="note22ref"><sup>22,23</sup></a>
 
 #### **VerificationAgent** Mechanism Action Space:
-1. Attestation - Claim Submission
+1. Attestation<a href="glossary.md#note13" id="note13ref"><sup>13</sup></a> 
 
 #### Example:
 Gray Matters India - an independent evaluator that will measure growth in learning outcomes of school-going children in India.
 
 ### Role 4: Arbitrator
-**Arbitrators** are independent agents employed to facilitate dispute resolution when disputes are raised by any of the participants in a project or bond. The Arbitrator evaluates claims made by counterparties and recommends resolutions.
+**Arbitrators** are independent agents employed to facilitate dispute resolution when disputes are raised by any of the participants in a project or bond. The Arbitrator evaluates disputes between counterparties and recommends resolutions.
 
-An **Arbitrator** role is characterized by providing artibitration services, evaluating disputes, and the ability to stake a performance deposit.
+An **Arbitrator** role is characterized by providing arbitration services evaluating disputes.
 
 #### **Arbitrator** Mechanism Action Space:
-1. Attestation - Claim Resolution, Dispute Evaluation
+1. Attestation<a href="glossary.md#note13" id="note13ref"><sup>13</sup></a>
 
 #### Example:
 Jur - a blockchain-based ecosystem for creating smart legal contracts and providing a platform for conflict resolution. This platform will be used to resolve disputes online, with agreed upon arbitrators that have expertise in particular topics. 
@@ -64,18 +66,18 @@ Jur - a blockchain-based ecosystem for creating smart legal contracts and provid
 An **Auditor** role is characterized by providing auditing services, auditing claims, auditing financial transactions, and submitting disputes.
 
 #### **Auditor** Mechanism Action Space:
-1. Attestation - Claim Auditing
+1. Attestation<a href="glossary.md#note13" id="note13ref"><sup>13</sup></a>
 
 #### Example:
 KPMG - one of the "big four" accounting organizations.
 
 ### Role 6: Bond Issuer
-The **Bond Issuer** raises capital for a project through an impact bond debt instrument. They are responsible for ensuring regulatory compliance and for establishing the legal constructs of the fund. The Bond Issuer is liable to investors for the capital raised and liable to project owners for making payments for goods and services to be delivered through the project.  The Bond Issuer authorises agents to participate in the bond and interact with the bond mechanisms within the scopes of capabilities allowed by their respective roles. Note that a Bond Issuer should be a positively identified legal entity and/or person.
+The **Bond Issuer** raises capital for a project through an impact bond debt instrument. They are responsible for ensuring regulatory compliance and for establishing the legal constructs of the fund. The Bond Issuer is liable to investors for the capital raised and liable to Project Owners for making payments for goods and services to be delivered through the project.  The Bond Issuer authorises agents to participate in the bond and interact with the bond mechanisms within the scopes of capabilities allowed by their respective roles. 
 
-A **BondIssuer** role is characterized by the ability to issue bonds, receive impact tokens and bond tokens, distribute tokens to the bond’s stakeholders, change bond parameters or terminate bond life, and submit disputes. 
+A **BondIssuer** role is characterized by the ability to issue bonds, receive bond tokens, distribute bond tokens to the bond’s stakeholders, change bond parameters or terminate bond life, and submit disputes. 
 
 ####  **BondIssuer** Mechanism Action Space:
-1. Attestation - Dispute Submission
+1. Attestation<a href="glossary.md#note13" id="note13ref"><sup>13</sup></a>
 
 #### Example:
 UBS Optimus Foundation - a foundation linked to a global wealth manager staffed with philanthropy experts.
@@ -88,33 +90,33 @@ These two roles can be generalized under the **Administrator** role which is cha
 Administrators are explicitly excluded from participating in the *Bond-to-Mint* mechanism, *Burn-to-Withdraw* mechanism, and holding tokens due to reasons detailed in Operational Requirement 1.<a href="glossary.md#note22" id="note22ref"><sup>22</sup></a>  
 
 #### **Adminstrator** Mechanism Action Space:
-1. Attestation - Claim Evaluation
+1. Attestation<a href="glossary.md#note13" id="note13ref"><sup>13</sup></a>
 
 #### Example:
 Dalberg Capital - an experienced advisor on impact investing. 
 
 ### Role 8: Project Owner
-The **Project Owner** is the initiator and controller of a project on an impact bond blockchain network. This stakeholder creates the project and defines its parameters. Once a project's parameters have been set up, the Project Owner deploys the project on an impact bond blockchain network, using their cryptographic keys to instantiate the project by signing a message payload that records the genesis of the project in a blockchain record.
+The **Project Owner** is the founder and controller of the overall project. This stakeholder initiates the project and defines its parameters. Once a project's parameters have been set up, the Project Owner deploys the project on an impact bond blockchain network, using their cryptographic keys to instantiate the project by signing a message payload that records the genesis of the project in a blockchain record.
 
 A **ProjectOwner** role is characterized by the ability to create projects, receive bond and impact tokens, distribute tokens to project stakeholders, change project parameters or terminate project life, and submit disputes.  
 
-ProjectOwners can purchase the first tranche of bond tokens during project initialization at an entry price close to 0. They then distribute these tokens to various project stakeholders to incentivize them to participate in roles in the project.
+ProjectOwners can purchase the first tranche of bond tokens prior to launch of the bond at an entry price close to 0. They then can distribute these tokens to various project stakeholders to incentivize them to participate in roles in the project in order to secure the required resources and funding to launch.
 
 #### **ProjectOwner** Mechanism Action Space:
-1. Attestation - Dispute Submission
+1. Attestation<a href="glossary.md#note13" id="note13ref"><sup>13</sup></a>
 
 #### Example:
 Quality Education India - the creator of the development impact bond.
 
 ### Role 9: Outcomes Payer
-The **Outcomes Payer** purchases the outcomes of a Project for a promised future value. This purchase is made typically from Investment Agents who provide the working capital for outcomes to be delivered. Payments are usually conditioned on the project achieving predetermined performance milestones.
+The **Outcomes Payer** purchases the outcomes of a Project for a promised future value. In other words, the Outcomes payer commits to providing predetermined payment(s) if the project meets predetermined outcome(s). 
 
-An **OutcomesPayer** role is characterized by the ability to make final payments to bond token holders such as InvestmentAgents and ProjectOwners, and submit disputes. 
+An **OutcomesPayer** role is characterized by the ability to make final payments to bond token holders, and submit disputes. 
 
 #### **OutcomesPayer** Mechanism Action Space:
-1. Attestation - Dispute Submission
+1. Attestation<a href="glossary.md#note13" id="note13ref"><sup>13</sup></a>
 
 #### Example:
-Michael and Susan Dell Foundation - a non-profit foundation dedicated to transforming the lives of children living in urban poverty through improving their education, health, and family economic stability.
+Michael and Susan Dell Foundation - a non-profit foundation dedicated to transforming the lives of children living in urban poverty through improving their education, health, and family economic stability. Note that Government Agencies may also typically fulfill this role.
 
 Continue reading Chapter 2: [Bond Lifecycle Phases](2_BondLifecyclePhases.md)
