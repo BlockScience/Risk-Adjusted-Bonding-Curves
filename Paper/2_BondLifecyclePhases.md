@@ -37,7 +37,7 @@ N/A
 All planning and setup completed and with the bond Ready to Launch will move the system from the Pre-initialization Phase into the Initialization Phase.
 
 ## Phase 1: Initialization
-During the Initialization Phase, the bond is launched. All of the parameters, roles and rights, thresholds, conditions, etc. are set. All funds as agreed upon are deposited in appropriate accounts. Initialization is essentially the instantiation of everything that was agreed upon in pre-initialization.
+During the Initialization Phase, the bond is launched. All of the parameters, roles and rights, thresholds, conditions, etc. are set. All funds as agreed upon are deposited into appropriate accounts. Funds are divided with a portion of funds going into the Project Operating Funds for use on the project and a portion going into the Reserve Funds to provide liquidity to the bonding curve. Initialization is essentially the instantiation of everything that was agreed upon in pre-initialization.
 
 ### Transitions into Initialization Phase
 All planning and setup completed and with the bond Ready to Launch will move the system from the Pre-initialization Phase into the Initialization Phase.
