@@ -137,7 +137,7 @@ The **alpha** signal ![img](https://latex.codecogs.com/svg.latex?%5Calpha_b%20%5
    This conservation function imposed over the bonding curve ensures that the price of the token reflects the amount invested into projects in the platform, thus preventing imbalances through incentive design. </p>
 
 <a id="note44" href="#note44ref">44</a> **Project Operating Funds** <br/>
-<p>     Funds that are available to the execute the project. These funds would be used for example to pay for goods and services.
+<p>     Funds that are available to execute the project. These funds would be used for example to pay for goods and services. Upon launch of the bond, a portion of funds raised from investors goes towards the Project Operating Funds and a portion goes to the Reserve Funds<a href="glossary.md#note34" id="note34ref"><sup>34</sup></a> to provide liquidity to the bonding curve.
     
  <a id="note45" href="#note45ref">45</a> **Fund Fee** <br/>
 <p>     A fee charged that goes directly into the Project Operating Funds<a href="glossary.md#note44" id="note44ref"><sup>44</sup></a>. 
