@@ -7,13 +7,9 @@ Note that in the context of a generalized design pattern, ecosystem roles and th
 ## Roles
 
 ### Role 1: Investment Agent
-**Investment Agents** are individuals, institutions, or funding mechanisms that commit capital, to a bond in return for financial and non-financial returns on the capital. Investors tend to seek returns that are above the market average (Alpha) and are rewarded for their investments if a project funded by the bond is successful in achieving its targets. Investors must therefore analyse the financial risks associated with the bond, as well as the operational risks associated with the projects which are funded by the bond.
+**Investment Agents** are individuals, institutions, or funding mechanisms that commit capital to a bond in return for financial and non-financial returns on the capital. Investors tend to seek returns that are above the market average (Alpha) and are rewarded for their investments if a project funded by the bond is successful in achieving its targets. Investors must therefore analyse the financial risks associated with the bond, as well as the operational risks associated with the projects which are funded by the bond.
 
 An **InvestmentAgent** role is characterized by the ability to buy and redeem bond tokens<a href="glossary.md#note21" id="note21ref"><sup>21</sup></a> to compose a portfolio<a href="glossary.md#note10" id="note10ref"><sup>10</sup></a>  of bonds. The Investment Agent has a private valuation of a given project, which they employ to make buy and sell decisions and ultimately  manage their portfolio’s risk to return ratio.
-
-An **InvestmentAgent** may employ two modes of investing:
-1. Invest working capital into the project (Example: Providing capital to the project that is required prior to and in order for the bonding curve to be launched.)
-2. Give up collateral for providing liquidity to the bonding curve trading pool (Example: As a trader, purchasing bond tokens once the bonding curve is live.)
 
 #### **InvestmentAgent** Mechanism Action Space:
 1. Bond-to-mint<a href="glossary.md#note11" id="note11ref"><sup>11</sup></a> 
