@@ -59,7 +59,7 @@ The **alpha** signal ![img](https://latex.codecogs.com/svg.latex?%5Calpha_b%20%5
 <p>     During the Settlement Phase, Bond Tokens are converted into a compatible form and are distributed to the participants in the bond. </p>
 
 <a id="note20" href="#note20ref">20</a> **Impact Token** <br/><br/>
-    Impact tokens are community tokens in the ixo ecosystem. They represent social impact achievements and may be awarded at various point to various stakeholders especially at a project's completion. These tokens are considered external to the bonding curve implementation and are intentionally excluded from mention as much as possible to avoid confusion.  
+    Impact tokens are community tokens in the ixo ecosystem. They represent social impact achievements and may be awarded at various points to various stakeholders especially at a project's completion. These tokens are considered external to the bonding curve implementation and are intentionally excluded from mention as much as possible to avoid confusion.  
 
 <a id="note21" href="#note21ref">21</a> **Bond Token** <br/><br/>
     Bond tokens are the the supply tokens<a href="glossary.md#note35" id="note35ref"><sup>35</sup></a>. At time ![img](https://latex.codecogs.com/svg.latex?t), the local state of agent ![img](https://latex.codecogs.com/svg.latex?a) comprises of the individual holding of bond tokens, ![img](https://latex.codecogs.com/svg.latex?s_%7Ba%2Ct%7D).
