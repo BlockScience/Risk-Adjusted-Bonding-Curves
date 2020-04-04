@@ -212,7 +212,7 @@ The bonding curve mechanism should be robust enough to account for large or cata
 [comment]: # (Define a cut off point for asymptotic portion of the curve)
 
 #### Mechanism 1 
-The **bond-to-mint** mechanism mints impact tokens in exchange of bond tokens through an agent’s action ![img](https://latex.codecogs.com/svg.latex?u_%7Ba%2C%20t%7D). The agent’s action represents a transaction to transfer ![img](https://latex.codecogs.com/svg.latex?%5CDelta%20R_t%20%3A%3D%20r_%7Ba%2Ct%7D%20-%20r_%7Ba%2C%20t&plus;1%7D%20%5Cgeq%200) quantity of bond tokens into the bonding curve system. Quantity ![img](https://latex.codecogs.com/svg.latex?%5CDelta%20R_t) of bond tokens are transferred into the bonding curve, resulting in
+The **bond-to-mint** mechanism mints bond tokens in exchange of external currency through an agent’s action ![img](https://latex.codecogs.com/svg.latex?u_%7Ba%2C%20t%7D). The agent’s action represents a transaction to transfer ![img](https://latex.codecogs.com/svg.latex?%5CDelta%20R_t%20%3A%3D%20r_%7Ba%2Ct%7D%20-%20r_%7Ba%2C%20t&plus;1%7D%20%5Cgeq%200) quantity of external currency into the bonding curve system. Quantity ![img](https://latex.codecogs.com/svg.latex?%5CDelta%20R_t) of external currency are transferred into the bonding curve, resulting in
 
 System state, ![img](https://latex.codecogs.com/svg.latex?x_%7Bt&plus;1%7D)
 
@@ -242,7 +242,7 @@ Agent-level state, ![img](https://latex.codecogs.com/svg.latex?%5Chat%20x_%7Bt&p
 Upon the execution the Bond Action, Bond tokens are added to the bonding curve. 
 
 #### Mechanism 2 
-The **burn-to-withdraw** mechanism removes impact tokens to redeem bond tokens through an agent’s action ![img](https://latex.codecogs.com/svg.latex?u_%7Ba%2C%20t%7D). The agent’s action represents a transaction to remove ![img](https://latex.codecogs.com/svg.latex?%5CDelta%20S_t%20%3A%3D%20s_%7Ba%2C%20t%7D%20-%20s_%7Ba%2C%20t&plus;1%7D%20%5Cleq%200) quantity of impact tokens from the bonding curve system. Quantity ![img](https://latex.codecogs.com/svg.latex?%5CDelta%20S_t) of impact tokens are removed from the bonding curve, resulting in:
+The **burn-to-withdraw** mechanism removes bond tokens to redeem external currency through an agent’s action ![img](https://latex.codecogs.com/svg.latex?u_%7Ba%2C%20t%7D). The agent’s action represents a transaction to remove ![img](https://latex.codecogs.com/svg.latex?%5CDelta%20S_t%20%3A%3D%20s_%7Ba%2C%20t%7D%20-%20s_%7Ba%2C%20t&plus;1%7D%20%5Cleq%200) quantity of bond tokens from the bonding curve system. Quantity ![img](https://latex.codecogs.com/svg.latex?%5CDelta%20S_t) of bond tokens are removed from the bonding curve, resulting in:
 
 System state, ![img](https://latex.codecogs.com/svg.latex?x_%7Bt&plus;1%7D)
 
@@ -269,7 +269,7 @@ Agent-level state, ![img](https://latex.codecogs.com/svg.latex?%5Chat%20x_%7Bt&p
 </p>
 
 #### Functional Requirement 3
-Upon the execution of the Burn Action, Impact tokens are removed from the bonding curve.
+Upon the execution of the Burn Action, bond tokens are removed from the bonding curve.
 
 #### Mechanism 3
 The **attestation** mechanism involves the lifecylce of claims. Claims undergo the stages of submission, evaluation, and resolution. During resolution, if a claim does not reflect the state of the bonding curve, a dispute is issued against it to regain the bonding curve state.
