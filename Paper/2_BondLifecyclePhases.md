@@ -148,7 +148,7 @@ In this phase, the bond is evaluated against the Settlement Conditions<a href="g
 2. A Not Complete event moves the system from the Settlement Consideration Pause Phase back into the Execution Phase.
 
 ## Phase 5: Settlement
-During the Settlement Phase, Bond Tokens are converted into a compatible form and are distributed to the participants in the bond.
+During the Settlement Phase, bond tokens are converted into a compatible form and are distributed to the participants in the bond.
 
 ### Transitions into Settlement Phase
 1. A Completion event moves the system from the Settlement Consideration Pause Phase to the Settlement Phase
