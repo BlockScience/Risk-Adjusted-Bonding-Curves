@@ -31,7 +31,7 @@ The **alpha** signal ![img](https://latex.codecogs.com/svg.latex?%5Calpha_b%20%5
 <p>   Similar to an investment portfolio, a bond consists of multiple bonds picked by an investor, based on their preferences, evaluated on their risk/return ratio.  </p>
     
 <a id="note11" href="#note11ref">11</a> **Bond-to-mint** <br/><br/>
-    The bond-to-mint mechanism mints bond tokens in exchange of external currency through an agent’s action ![img](https://latex.codecogs.com/svg.latex?u_%7Ba%2C%20t%7D). The agent’s action represents a transaction to transfer ![img](https://latex.codecogs.com/svg.latex?%5CDelta%20R_t%20%3A%3D%20r_%7Ba%2Ct%7D%20-%20r_%7Ba%2C%20t&plus;1%7D%20%5Cgeq%200) quantity of bond tokens into the bonding curve system. 
+    The bond-to-mint mechanism mints bond tokens in exchange of external currency through an agent’s action ![img](https://latex.codecogs.com/svg.latex?u_%7Ba%2C%20t%7D). The agent’s action represents a transaction to transfer ![img](https://latex.codecogs.com/svg.latex?%5CDelta%20R_t%20%3A%3D%20r_%7Ba%2Ct%7D%20-%20r_%7Ba%2C%20t&plus;1%7D%20%5Cgeq%200) quantity of external currency into the bonding curve system. 
 
 <a id="note12" href="#note12ref">12</a> **Burn-to-withdraw** <br/><br/>
     The burn-to-withdraw mechanism removes bond tokens to redeem external currency through an agent’s action ![img](https://latex.codecogs.com/svg.latex?u_%7Ba%2C%20t%7D). The agent’s action represents a transaction to remove ![img](https://latex.codecogs.com/svg.latex?%5CDelta%20S_t%20%3A%3D%20s_%7Ba%2C%20t%7D%20-%20s_%7Ba%2C%20t&plus;1%7D%20%5Cleq%200) quantity of bond tokens from the bonding curve system. 
