@@ -62,7 +62,7 @@ The **alpha** signal ![img](https://latex.codecogs.com/svg.latex?%5Calpha_b%20%5
     Impact tokens are community tokens in the ixo ecosystem. They represent social impact achievements and may be awarded at various point to various stakeholders especially at a project's completion. These tokens are considered external to the bonding curve implementation and are intentionally excluded from mention as much as possible to avoid confusion.  
 
 <a id="note21" href="#note21ref">21</a> **Bond Token** <br/><br/>
-    Bond tokens are the the supply tokens. At time ![img](https://latex.codecogs.com/svg.latex?t), the local state of agent ![img](https://latex.codecogs.com/svg.latex?a) comprises of the individual holding of Impact Tokens, ![img](https://latex.codecogs.com/svg.latex?s_%7Ba%2Ct%7D).
+    Bond tokens are the the supply tokens<a href="glossary.md#note35" id="note35ref"><sup>35</sup></a>. At time ![img](https://latex.codecogs.com/svg.latex?t), the local state of agent ![img](https://latex.codecogs.com/svg.latex?a) comprises of the individual holding of bond tokens, ![img](https://latex.codecogs.com/svg.latex?s_%7Ba%2Ct%7D).
 
 <a id="note22" href="#note22ref">22</a> **Operational Requirement 1** <br/>
  <p>   Trader Agents can call the Bond Action and the Burn Action. </p>
@@ -106,7 +106,7 @@ The **alpha** signal ![img](https://latex.codecogs.com/svg.latex?%5Calpha_b%20%5
    At time ![img](https://latex.codecogs.com/svg.latex?t), each agent ![img](https://latex.codecogs.com/svg.latex?a) possess their holding of reserve currency, denoted by ![img](https://latex.codecogs.com/svg.latex?r_%7Ba%2Ct%7D%3E0).
 
 <a id="note35" href="#note35ref">35</a> **Supply Tokens** <br/><br/>
-    The supply ![img](https://latex.codecogs.com/svg.latex?S_t%20%5Cin%20%5Cmathbb%7BR%7D_%7B&plus;&plus;%7D) at time ![img](https://latex.codecogs.com/svg.latex?t) is the total quantity of bond tokens issued by the bonding curve contract. <br/>
+    The supply ![img](https://latex.codecogs.com/svg.latex?S_t%20%5Cin%20%5Cmathbb%7BR%7D_%7B&plus;&plus;%7D) at time ![img](https://latex.codecogs.com/svg.latex?t) is the total quantity of bond tokens<a href="glossary.md#note21" id="note21ref"><sup>21</sup></a> issued by the bonding curve contract. <br/>
 
    At time ![img](https://latex.codecogs.com/svg.latex?t), the local state of agent ![img](https://latex.codecogs.com/svg.latex?a) comprises of the individual holding of bond tokens, ![img](https://latex.codecogs.com/svg.latex?s_%7Ba%2Ct%7D).
     
