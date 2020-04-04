@@ -135,3 +135,10 @@ The **alpha** signal ![img](https://latex.codecogs.com/svg.latex?%5Calpha_b%20%5
 <p>     The bonding curve conservation function describes a conserved quantity, which is a functional relationship between the reserve and supply tokens. <br/>
     
    This conservation function imposed over the bonding curve ensures that the price of the token reflects the amount invested into projects in the platform, thus preventing imbalances through incentive design. </p>
+
+<a id="note44" href="#note44ref">44</a> **Project Operating Funds** <br/>
+<p>     Funds that are available to the execute the project. These funds would be used for example to pay for goods and services.
+    
+ <a id="note45" href="#note45ref">45</a> **Fund Fee** <br/>
+<p>     A fee charged that goes directly into the Project Operating Funds<a href="glossary.md#note44" id="note44ref"><sup>44</sup></a>. 
+    
