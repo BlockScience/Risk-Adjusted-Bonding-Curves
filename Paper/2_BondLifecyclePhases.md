@@ -22,13 +22,13 @@ Since this is the first state of the bond lifecycle, there are no state transiti
 N/A
 
 ### Next State Outputs
-1. Agreed upon ProjectTime Threshold
-2. Agreed upon Claims Submitted Threshold
-3. Agreed upon Alpha Threshold
-4. Agreed upon Reserve Funds Raised
+1. Agreed upon ProjectTime Threshold<a href="glossary.md#note29" id="note29ref"><sup>29</sup></a>
+2. Agreed upon Claims Submitted Threshold<a href="glossary.md#note31" id="note31ref"><sup>31</sup></a>
+3. Agreed upon Alpha Threshold<a href="glossary.md#note33" id="note33ref"><sup>33</sup></a>
+4. Agreed upon Reserve Funds<a href="glossary.md#note34" id="note34ref"><sup>34</sup></a> Raised
 5. Agreed upon Project Operating Funds Raised
-6. Agreed upon Supply of Bond Tokens to Mint
-7. Agreed upon Maximum Reserve Ratio
+6. Agreed upon Supply Tokens<a href="glossary.md#note35" id="note35ref"><sup>35</sup></a> to Mint
+7. Agreed upon Maximum Reserve Ratio<a href="glossary.md#note38" id="note38ref"><sup>38</sup></a>
 8. Agreed upon Minimum Reserve Ratio
 9. Agreed upon Fund Fee
 10. Agreed upon Impact Payers Commitment<a href="glossary.md#note40" id="note40ref"><sup>40</sup></a>
@@ -79,31 +79,31 @@ The execution phase is the phase where active bond trading occurs.
 
 ### Initial State
 All values are at time t = 0:
-1. ProjectTime
-2. Claims Submitted
-3. Reserve Funds raised
-4. Project Operating Funds Raised
-5. Supply of Bond Tokens Minted
-6. Alpha
-7. Reserve Ratio
-8. Price
+1. Claims Submitted
+2. Reserve Funds raised
+3. Project Operating Funds Raised
+4. Supply of Bond Tokens Minted
+5. Alpha
+6. Reserve Ratio
+7. Price
 
 ### Inputs
 1. Reserve Funds<a href="glossary.md#note34" id="note34ref"><sup>34</sup></a>  to be Deposited
-1. Supply Tokens<a href="glossary.md#note35" id="note35ref"><sup>35</sup></a>  to be Burned
-1. Project Success Attestation Supply Tokens<a href="glossary.md#note36" id="note36ref"><sup>36</sup></a> 
-1. Project Failure Attestation Supply Tokens<a href="glossary.md#note37" id="note37ref"><sup>37</sup></a> 
-1. Dispute Claim
-1. Settlement Consideration Claim
+2. Supply Tokens<a href="glossary.md#note35" id="note35ref"><sup>35</sup></a>  to be Burned
+3. Project Success Attestation Supply Tokens<a href="glossary.md#note36" id="note36ref"><sup>36</sup></a> 
+4. Project Failure Attestation Supply Tokens<a href="glossary.md#note37" id="note37ref"><sup>37</sup></a> 
+5. Claim Submission
+6. Dispute Submission
+7. Settlement Consideration Claim
 
 ### Next State Outputs
 1. Amount of Supply Tokens Minted
 2. Amount of Reserve Funds Withdrawn
-2. Amount of Funds to Project
-2. Price Update
-3. Alpha Update
-1. Reserve Ratio<a href="glossary.md#note38" id="note38ref"><sup>38</sup></a> Update
-1. Project Attestion Token Ratio
+3. Amount of Funds to Project
+4. Price Update
+5. Alpha Update
+6. Reserve Ratio<a href="glossary.md#note38" id="note38ref"><sup>38</sup></a> Update
+7. Project Attestion Token Ratio
 
 ### Transitions out of Execution Phase
 1. A Dispute Triggering Event will move from the Execution Phase into the Dispute Pause Phase
@@ -116,13 +116,12 @@ In the Dispute Pause Phase, disputes issued against the bond will undergo extern
 1. A Dispute Triggering event moves the system from the Execution Phase to the Dispute Pause Phase
 
 ### Inputs
-1. Dispute Issued 
+1. Dispute Submission 
 2. Funding Threshold
 3. Dispute External Resolution
 
 ### Next State Outputs
-1. Dispute Issued 
-2. Dispute Verdict
+1. Dispute Verdict
 
 ### Transitions out of Dispute Pause Phase
 If Dispute Verdict results in a Return to Execution, the system will move from the Dispute Pause Phase back to the Execution Phase.
