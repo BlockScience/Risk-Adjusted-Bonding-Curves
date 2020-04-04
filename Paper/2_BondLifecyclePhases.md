@@ -26,11 +26,11 @@ N/A
 2. Agreed upon Claims Submitted Threshold<a href="glossary.md#note31" id="note31ref"><sup>31</sup></a>
 3. Agreed upon Alpha Threshold<a href="glossary.md#note33" id="note33ref"><sup>33</sup></a>
 4. Agreed upon Reserve Funds<a href="glossary.md#note34" id="note34ref"><sup>34</sup></a> Raised
-5. Agreed upon Project Operating Funds Raised
+5. Agreed upon Project Operating Funds Raised<a href="glossary.md#note44" id="note44ref"><sup>44</sup></a>
 6. Agreed upon Supply Tokens<a href="glossary.md#note35" id="note35ref"><sup>35</sup></a> to Mint
 7. Agreed upon Maximum Reserve Ratio<a href="glossary.md#note38" id="note38ref"><sup>38</sup></a>
 8. Agreed upon Minimum Reserve Ratio
-9. Agreed upon Fund Fee
+9. Agreed upon Fund Fee<a href="glossary.md#note45" id="note45ref"><sup>45</sup></a>
 10. Agreed upon Outcomes Payer's Commitment<a href="glossary.md#note40" id="note40ref"><sup>40</sup></a>
 
 ### Transitions out of Pre-initialization Phase
