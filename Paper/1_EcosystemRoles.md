@@ -37,7 +37,7 @@ ServiceAgents are compensated in fee payments for providing goods and services.
 Chimple - a non-profit education technology provider that will aim to utilize their technology to improve childhood learning in India. 
 
 ### Role 3: Verification Agent
-**Verification Agents** evaluate the claims made by Service Agents, to opinionate on the probability of a claim being both factually true and positively correlated with an outcome state. In this process, a Verification Agent may further enrich the claims data with additional information, such as statistical predictions, data transformations, and external data. The result of the claim evaluation is cryptographically verified with the Verification Agent's digital identity credentials and signature. This process may issue an impact token.<a href="glossary.md#note20" id="note20ref"><sup>20</sup></a>
+**Verification Agents** evaluate the claims made by Service Agents, to opinionate on the probability of a claim being both factually true and positively correlated with an outcome state. In this process, a Verification Agent may further enrich the claims data with additional information, such as statistical predictions, data transformations, and external data. The result of the claim evaluation is cryptographically verified with the Verification Agent's digital identity credentials and signature. 
 
 A **VerificationAgent** role is characterized by providing project verification services, evaluating claims and responding to disputes for Service Agents.
 
@@ -98,7 +98,7 @@ Dalberg Capital - an experienced advisor on impact investing.
 ### Role 8: Project Owner
 The **Project Owner** is the founder and controller of the overall project. This stakeholder initiates the project and defines its parameters. Once a project's parameters have been set up, the Project Owner deploys the project on an impact bond blockchain network, using their cryptographic keys to instantiate the project by signing a message payload that records the genesis of the project in a blockchain record.
 
-A **ProjectOwner** role is characterized by the ability to create projects, receive bond and impact tokens, distribute tokens to project stakeholders, change project parameters or terminate project life, and submit disputes.  
+A **ProjectOwner** role is characterized by the ability to create projects, receive bond tokens, distribute tokens to project stakeholders, change project parameters or terminate project life, and submit disputes.  
 
 ProjectOwners can purchase the first tranche of bond tokens prior to launch of the bond at an entry price close to 0. They then can distribute these tokens to various project stakeholders to incentivize them to participate in roles in the project in order to secure the required resources and funding to launch.
 
