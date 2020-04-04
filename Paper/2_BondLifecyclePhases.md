@@ -48,7 +48,7 @@ All planning and setup completed and with the bond Ready to Launch will move the
 3. Agreed upon Alpha Threshold
 4. Agreed upon Reserve Funds Raised
 5. Agreed upon Project Operating Funds Raised
-6. Agreed upon Supply of Bond Tokens to Mint
+6. Agreed upon Supply Tokens to Mint
 7. Agreed upon Maximum Reserve Ratio
 8. Agreed upon Minimum Reserve Ratio
 9. Agreed upon Fund Fee
@@ -60,7 +60,7 @@ All planning and setup completed and with the bond Ready to Launch will move the
 3. Alpha Threshold
 4. Reserve Funds Raised
 5. Project Operating Funds Raised
-6. Supply of Bond Tokens to Mint
+6. Supply Tokens to Mint
 7. Maximum Reserve Ratio
 8. Minimum Reserve Ratio
 9. Fund Fee
@@ -82,7 +82,7 @@ All values are at time t = 0:
 1. Claims Submitted
 2. Reserve Funds raised
 3. Project Operating Funds Raised
-4. Supply of Bond Tokens Minted
+4. Supply Tokens Minted
 5. Alpha
 6. Reserve Ratio
 7. Price
