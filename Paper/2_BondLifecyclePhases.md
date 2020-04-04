@@ -34,13 +34,13 @@ N/A
 10. Agreed upon Impact Payers Commitment<a href="glossary.md#note40" id="note40ref"><sup>40</sup></a>
 
 ### Transitions out of Pre-initialization Phase
-All planning and setup completed and with the bond "ready to launch" will move the system from the Pre-initialization Phase into the Initialization Phase.
+All planning and setup completed and with the bond Ready to Launch will move the system from the Pre-initialization Phase into the Initialization Phase.
 
 ## Phase 1: Initialization
 During the Initialization Phase, the bond is launched. All of the parameters, roles and rights, thresholds, conditions, etc. are set. All funds as agreed upon are deposited in appropriate accounts. Initialization is essentially the instantiation of everything that was agreed upon in pre-initialization.
 
 ### Transitions into Initialization Phase
-A Funding Secured Event will move the system from the Pre-initialization Phase into the Initialization Phase.
+All planning and setup completed and with the bond Ready to Launch will move the system from the Pre-initialization Phase into the Initialization Phase.
 
 ### Inputs
 1. Agreed upon ProjectTime Threshold
@@ -67,7 +67,7 @@ A Funding Secured Event will move the system from the Pre-initialization Phase i
 10. Impact Payers Commitment<a href="glossary.md#note40" id="note40ref"><sup>40</sup></a>
 
 ### Transitions out of Initilization Phase
-The bond is launched. As long as funds are placed in the appropriate accounts as agreed upon, the funding threshold is met and the system will move from the Initialization Phase to the Execution Phase. If the funding threshold is not met, the system will move from the Initialization Phase to the Settlement Phase.
+Initialization Threshold Triggering Event: The bond is launched and as long as funds are placed in the appropriate accounts as agreed upon, the funding threshold is met and the system will move from the Initialization Phase to the Execution Phase. If the funding threshold is not met, the system will move from the Initialization Phase to the Settlement Phase.
 
 ## Phase 2: Execution
 The execution phase is the phase where active bond trading occurs.
@@ -151,7 +151,8 @@ In this phase, the bond is evaluated against the Settlement Conditions<a href="g
 During the Settlement Phase, Bond Tokens are converted into a compatible form and are distributed to the participants in the bond.
 
 ### Transitions into Settlement Phase
-A Completion event moves the system from the Settlement Consideration Pause Phase to the Settlement Phase
+1. A Completion event moves the system from the Settlement Consideration Pause Phase to the Settlement Phase
+2. If the funding threshold is not met, the system will move from the Initialization Phase to the Settlement Phase.
 
 ### Inputs
 1. Bond to Token Conversion
