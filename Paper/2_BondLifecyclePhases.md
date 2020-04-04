@@ -31,7 +31,7 @@ N/A
 7. Agreed upon Maximum Reserve Ratio<a href="glossary.md#note38" id="note38ref"><sup>38</sup></a>
 8. Agreed upon Minimum Reserve Ratio
 9. Agreed upon Fund Fee
-10. Agreed upon Impact Payers Commitment<a href="glossary.md#note40" id="note40ref"><sup>40</sup></a>
+10. Agreed upon Outcome Payer's Commitment<a href="glossary.md#note40" id="note40ref"><sup>40</sup></a>
 
 ### Transitions out of Pre-initialization Phase
 All planning and setup completed and with the bond Ready to Launch will move the system from the Pre-initialization Phase into the Initialization Phase.
@@ -52,7 +52,7 @@ All planning and setup completed and with the bond Ready to Launch will move the
 7. Agreed upon Maximum Reserve Ratio
 8. Agreed upon Minimum Reserve Ratio
 9. Agreed upon Fund Fee
-10. Agreed upon Impact Payers Commitment<a href="glossary.md#note40" id="note40ref"><sup>40</sup></a>
+10. Agreed upon Outcome Payer's Commitment<a href="glossary.md#note40" id="note40ref"><sup>40</sup></a>
 
 ### Next State Outputs
 1. ProjectTime Threshold
@@ -64,7 +64,7 @@ All planning and setup completed and with the bond Ready to Launch will move the
 7. Maximum Reserve Ratio
 8. Minimum Reserve Ratio
 9. Fund Fee
-10. Impact Payers Commitment<a href="glossary.md#note40" id="note40ref"><sup>40</sup></a>
+10. Outcome Payer's Commitment<a href="glossary.md#note40" id="note40ref"><sup>40</sup></a>
 
 ### Transitions out of Initilization Phase
 Initialization Threshold Triggering Event: The bond is launched and as long as funds are placed in the appropriate accounts as agreed upon, the funding threshold is met and the system will move from the Initialization Phase to the Execution Phase. If the funding threshold is not met, the system will move from the Initialization Phase to the Settlement Phase.
