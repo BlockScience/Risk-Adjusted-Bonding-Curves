@@ -19,7 +19,7 @@ The address ![img](https://latex.codecogs.com/svg.latex?a%20%5Csubset%20%5Clambd
  - Constitutes of roles:
 1. InvestmentAgent
  
-##### Operational Requirement 1
+##### Operational Requirement<a href="glossary.md#note48" id="note48ref"><sup>48</sup></a> 1
 Trader Agents can call the Bond Action and the Burn Action. 
 ##### Operational Requirement 2
 An agent which is able to execute the *Bond-to-Mint* or *Burn-to-Withdraw* mechanisms - such as Trader Agents - must not be involved in the Claim Evaluation, Claim Auditing, and Claim Resolution stages of the *Attestation* mechanism as this creates a conflict of interest. 
@@ -75,7 +75,7 @@ Since a bond comes into existence upon the Bond Initialization Phase<a href="glo
 
 ![](https://i.imgur.com/qYIDv36.png)
 
-## System Requirements
+## System Requirements<a href="glossary.md#note46" id="note46ref"><sup>46</sup></a>
 
 #### System Requirement 1 
 The state of all Claims issued in a bond must reflect the state of the bonding curve. If the bonding curve state is not respected, Disputes will be issued against the Claims to regain the bonding curve state. 
@@ -206,7 +206,7 @@ The set of **mechanisms** is ![img](https://latex.codecogs.com/svg.latex?F) such
 
 where ![img](https://latex.codecogs.com/svg.latex?%5Cmathcal%7BX%7D) is the space of all possible states ![img](https://latex.codecogs.com/svg.latex?X), and ![img](https://latex.codecogs.com/svg.latex?U) is the space of all legal actions associated with the mechanism ![img](https://latex.codecogs.com/svg.latex?f).
 
-#### Functional Requirement 1
+#### Functional Requirement<a href="glossary.md#note47" id="note47ref"><sup>47</sup></a> 1
 The bonding curve mechanism should be robust enough to account for large or catastropic risks that occur at either extremes of the curve. 
 
 [comment]: # (Define a cut off point for asymptotic portion of the curve)
