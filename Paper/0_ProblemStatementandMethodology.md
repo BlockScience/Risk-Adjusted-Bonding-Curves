@@ -21,7 +21,7 @@ A social impact bond is a type of bond where repayment to investors is contingen
 
 ixo is intending to overcome many of the flaws with traditional impact bonds by designing an adaptive impact financing mechanism called an alpha-bond, which will utilize a risk adjusted bonding curve. 
 
-The bonding curve will issue and burn tokens according to the investor's buy and sell decisions. The token price will be governed by the bonding curve which is influenced by aggregated investor decisions. Since the system will employ a risk adjusted bonding curve, there exists a parameter, alpha, which will predict the bond's likelihood of success based on internal and external inputs. Alpha will change as the bond participants issue claims or disputes towards the bond or its constituent projects. The bonding curve thus will act as an estimator of market price and the bond's likelihood of success.
+The bonding curve will issue and burn tokens according to the investor's buy and sell decisions. The token price will be governed by the bonding curve which is influenced by aggregated investor decisions. Since the system will employ a risk adjusted bonding curve, there exists a parameter, alpha, which will predict the bond's likelihood of success based on internal and external inputs. Alpha will change as the bond participants issue claims, demonstrating progress towards the impact objectives, or disputes, disputing those claims. The bonding curve thus will act as an estimator of market price and the bond's likelihood of success.
 
 alpha-Bonds are currently being implemented for high-profile development projects for improving the quality of primary school education in India. 
 
