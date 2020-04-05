@@ -7,7 +7,7 @@ Note that in the context of a generalized design pattern, ecosystem roles and th
 ## Roles
 
 ### Role 1: Investment Agent
-**Investment Agents** are individuals, institutions, or funding mechanisms that commit capital to a bond in return for financial and non-financial returns on the capital. Investors tend to seek returns that are above the market average (Alpha) and are rewarded for their investments if a project funded by the bond is successful in achieving its targets. Investors must therefore analyse the financial risks associated with the bond, as well as the operational risks associated with the projects which are funded by the bond.
+**Investment Agents** are individuals, institutions, or funding mechanisms that commit capital to a bond in return for financial and non-financial returns on the capital. Investors tend to seek returns that are above the market average and are rewarded for their investments if a project funded by the bond is successful in achieving its targets. Investors must therefore analyse the financial risks associated with the bond, as well as the operational risks associated with the projects which are funded by the bond.
 
 An **InvestmentAgent** role is characterized by the ability to buy and redeem bond tokens<a href="glossary.md#note21" id="note21ref"><sup>21</sup></a> to compose a portfolio<a href="glossary.md#note10" id="note10ref"><sup>10</sup></a>  of bonds. The Investment Agent has a private valuation of a given project, which they employ to make buy and sell decisions and ultimately  manage their portfolio’s risk to return ratio.
 
@@ -36,8 +36,6 @@ Chimple - a non-profit education technology provider that will aim to utilize th
 **Verification Agents** evaluate the claims made by Service Agents, to opinionate on the probability of a claim being both factually true and positively correlated with an outcome state. In this process, a Verification Agent may further enrich the claims data with additional information, such as statistical predictions, data transformations, and external data. The result of the claim evaluation is cryptographically verified with the Verification Agent's digital identity credentials and signature. 
 
 A **VerificationAgent** role is characterized by providing project verification services, evaluating claims and responding to disputes for Service Agents.
-
-VerificationAgents are explicitly excluded from participating in the *Bond-to-Mint* and *Burn-to-Withdraw* mechanisms, as well as holding tokens due to reasons detailed in Operational Requirement 1 and 2.<a href="glossary.md#note22" id="note22ref"><sup>22,23</sup></a>
 
 #### **VerificationAgent** Mechanism Action Space:
 1. Attestation<a href="glossary.md#note13" id="note13ref"><sup>13</sup></a> 
@@ -82,8 +80,6 @@ UBS Optimus Foundation - a foundation linked to a global wealth manager staffed 
 **Project Administrator** can be assigned by the Project Owner to act on their behalf and run the project. In this role the Project Administrator is also responsible for the approval of milestones and settlements of payments. A **Bond Administrator** on the other hand is equivalent to the traditional finance role of a fund administrator. This agent may be one or more entities or persons, or a system like a governance DAO. The role is assigned by the Bond Issuer. The Bond Administrator is responsible for authorizing projects for funding, fund disbursements and facilitating settlements. They facilitate the governance of the bond. 
 
 These two roles can be generalized under the **Administrator** role which is characterized by performing bond or project administration, reporting on bond or project performance against milestones, evaluating claims, and the ability to change bond or project parameters or terminate bond or project life.
-
-Administrators are explicitly excluded from participating in the *Bond-to-Mint* mechanism, *Burn-to-Withdraw* mechanism, and holding tokens due to reasons detailed in Operational Requirement 1.<a href="glossary.md#note22" id="note22ref"><sup>22</sup></a>  
 
 #### **Adminstrator** Mechanism Action Space:
 1. Attestation<a href="glossary.md#note13" id="note13ref"><sup>13</sup></a>
