@@ -141,4 +141,13 @@ The **alpha** signal ![img](https://latex.codecogs.com/svg.latex?%5Calpha_b%20%5
     
  <a id="note45" href="#note45ref">45</a> **Fund Fee** <br/>
 <p>     A fee charged that goes directly into the Project Operating Funds<a href="glossary.md#note44" id="note44ref"><sup>44</sup></a>. 
-    
+
+
+ <a id="note46" href="#note46ref">46</a> **System Requirement** <br/>
+<p>     System requirements are all of the requirements at the system level that describe the functions which the system as a whole should fulfill to satisfy the stakeholder needs and requirements, and is expressed in an appropriate combination of textual statements, views, and non-functional requirements; the latter expressing the levels of safety, security, reliability, etc., that will be necessary.
+
+ <a id="note47" href="#note47ref">47</a> **Functional Requirement** <br/>
+<p>     Functional requirements describe qualitatively the system functions or tasks to be performed in operation. Generally, Functional Requirements can be thought of as requirements more from the perspective of the "system plant" itself and how it functions.
+
+ <a id="note48" href="#note48ref">48</a> **Operational Requirement** <br/>
+<p>     Operational requirements define the operational conditions or properties that are required for the system to operate or exist. This type of requirement includes: human factors, ergonomics, availability, maintainability, reliability, and security. Generally, Operational Requirements can be thought of as requirements more from the perspective of the (agent) operation of the system.
