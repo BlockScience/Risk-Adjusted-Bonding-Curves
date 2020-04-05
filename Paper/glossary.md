@@ -151,3 +151,6 @@ The **alpha** signal ![img](https://latex.codecogs.com/svg.latex?%5Calpha_b%20%5
 
  <a id="note48" href="#note48ref">48</a> **Operational Requirement** <br/>
 <p>     Operational requirements define the operational conditions or properties that are required for the system to operate or exist. This type of requirement includes: human factors, ergonomics, availability, maintainability, reliability, and security. Generally, Operational Requirements can be thought of as requirements more from the perspective of the (agent) operation of the system.
+
+<a id="note49" href="#note49ref">49</a> **System Boundary** <br/>
+<p>     The system boundary is a conceptual line that divides the system that you want to study from 'everything else'.
