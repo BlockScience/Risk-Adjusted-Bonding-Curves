@@ -123,21 +123,18 @@ At time ![img](https://latex.codecogs.com/svg.latex?t), the local state of agent
 The **price** signal ![img](https://latex.codecogs.com/svg.latex?P_t%20%5Cin%20%5Cmathbb%7BR%7D_%7B&plus;&plus;%7D) at time ![img](https://latex.codecogs.com/svg.latex?t) is an estimate of the value of the bond token, in units of ![img](https://latex.codecogs.com/svg.latex?R) per units of ![img](https://latex.codecogs.com/svg.latex?S).
 
 #### Definition 8
-The **alpha** signal ![img](https://latex.codecogs.com/svg.latex?%5Calpha_b%20%5Cin%20%5B0%2C1%5D) at time ![img](https://latex.codecogs.com/svg.latex?t) is an estimate of the likelihood of success of the bond, represented normalized such that ![img](https://latex.codecogs.com/svg.latex?%5Calpha_b%20%3D%200) indicates that the project is estimated to fail, and ![img](https://latex.codecogs.com/svg.latex?%5Calpha_b%20%3D%201) indicates the highest likelhood of success.
+The **Alpha** state variable ![img](https://latex.codecogs.com/svg.latex?%5Calpha%20%5Cin%20%5B0%2C1%5D) is an estimate of the probability of project success. It is represented normalized such that ![img](https://latex.codecogs.com/svg.latex?%5Calpha%20%3D%200) indicates that the project is estimated to fail, and ![img](https://latex.codecogs.com/svg.latex?%5Calpha%20%3D%201) indicates the highest likelhood of success.
 
-#### Definition 9
-The **Alpha** state variable ![img](https://latex.codecogs.com/svg.latex?%5Calpha%20%5Cin%20%5B0%2C1%5D) is an estimate of the probability of project success, as evaluated by the Alpha Oracle. It is represented normalized such that ![img](https://latex.codecogs.com/svg.latex?%5Calpha%20%3D%200) indicates that the project is estimated to fail, and ![img](https://latex.codecogs.com/svg.latex?%5Calpha%20%3D%201) indicates the highest likelhood of success.
-
-#### Defintion 10
+#### Defintion 9
 The **ProjectTime** state variable ![img](https://latex.codecogs.com/svg.latex?p%20%5Cin%20%5Cmathbb%7BZ%7D_%7B&plus;&plus;%7D) describes the duration for which the project has been in the Execution phase. 
 
-#### Defintion 11
+#### Defintion 10
 The **ClaimsSubmitted** state variable ![img](https://latex.codecogs.com/svg.latex?c%20%5Cin%20%5Cmathbb%7BZ%7D_%7B&plus;%7D) describes the number of claims submitted towards the project during its Execution phase.
 
 ## Initialization Conditions
 The ProjectTime, Alpha, ClaimsSubmitted state variables need to meet a pre-specified criteria for the state to transition into the Execution phase. In the bonding curve use case, the initialization conditions are also referred to as launch conditions.
 
-#### Definition 12
+#### Definition 11
 The **ProjectTime threshold** ![img](https://latex.codecogs.com/svg.latex?p_%7Blim%7D) describes the maximum allowable duration for a project's Execution phase. 
 
 At initialization, ![img](https://latex.codecogs.com/svg.latex?p_%7Blim%7D) is set to a strictly positive finite integer. 
@@ -146,7 +143,7 @@ At initialization, ![img](https://latex.codecogs.com/svg.latex?p_%7Blim%7D) is s
  <img src="https://latex.codecogs.com/svg.latex?p_%7Blim%7D%20%5Cin%20%5Cmathbb%7BZ%7D_%7B&plus;&plus;%7D%24%24%20%24%24p%20%5Coverset%7Bset%7D%7B%3D%7D%200">
 </p>
 
-#### Definition 13
+#### Definition 12
 The **ClaimsSubmitted threshold** ![img](https://latex.codecogs.com/svg.latex?c_%7Blim%7D) describes the minimum number of claims required to be collected during the project's Execution phase. 
 
 At initialization, ![img](https://latex.codecogs.com/svg.latex?c_%7Blim%7D) is set to a positive finite integer. 
@@ -155,7 +152,7 @@ At initialization, ![img](https://latex.codecogs.com/svg.latex?c_%7Blim%7D) is s
  <img src="https://latex.codecogs.com/svg.latex?c_%7Blim%7D%20%5Cin%20%5Cmathbb%7BZ%7D_%7B&plus;%7D%24%24%20%24%24c%20%5Coverset%7Bset%7D%7B%3D%7D%200">
 </p>
 
-#### Definition 14
+#### Definition 13
 The **Alpha threshold** is ![img](https://latex.codecogs.com/svg.latex?%5Calpha_%7Blim%7D) describes the minimum alpha value required for the settlement to be successful.
 
 At initialization, ![img](https://latex.codecogs.com/svg.latex?%5Calpha_%7Blim%7D) is set to a real value between 0 and 1 
@@ -197,7 +194,7 @@ For successful settlement,
 
 ## Mechanisms 
 
-#### Definition 15
+#### Definition 14
 The set of **mechanisms** is ![img](https://latex.codecogs.com/svg.latex?F) such that any ![img](https://latex.codecogs.com/svg.latex?f%20%5Cin%20F) is an operator 
 
 <p align="center">
@@ -281,7 +278,7 @@ A lack of trading activity on the bonding curve does not indicate a degradation 
 
 <!-- [comment]: # (Sustainability: Consider temporal effects on investor sentiment, i.e passage of time correlates with decaying excitement about project, thus lesser activity. However, sunk cost bias simultaneously is in contention with this.) -->
     
-#### Definition 16
+#### Definition 15
 The bonding curve **conservation function** describes a conserved quantity, which is a functional relationship between the reserve and supply tokens, and is given by 
 
 <p align="center">
