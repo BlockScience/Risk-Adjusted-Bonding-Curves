@@ -3,7 +3,7 @@ Now that we've defined the roles and bond lifecycle phases, we can create formal
 
 ## Assumptions
 #### Assumption 1
-The Bond Alpha Oracle is assumed to be pre-trained at system start. 
+The initial value for Alpha is pre-calculated externally and then set upon initialization of the bond.
 
 ## Agents
 
