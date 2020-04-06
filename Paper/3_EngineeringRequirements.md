@@ -269,7 +269,7 @@ Agent-level state, ![img](https://latex.codecogs.com/svg.latex?%5Chat%20x_%7Bt&p
 Upon the execution of the Burn Action, bond tokens are removed from the bonding curve.
 
 #### Mechanism 3
-The **attestation** mechanism involves the lifecylce of claims. Claims undergo the stages of submission, evaluation, and resolution. During resolution, if a claim does not reflect the state of the bonding curve, a dispute is issued against it to regain the bonding curve state.
+The **attestation** mechanism involves the lifecycle of claims. Claims undergo the stages of submission, evaluation, audit, and resolution. Claims Submission: claims are submitted to prove impact or progress towards achieving the predetermined outcomes. Claim Evaluation: submitted claims go through a process of evaluation to verify their validity. Claim Auditing: submitted claims may be audited. Claim Resolution: claims are resolved and completed. During resolution, a dispute could be submitted which would result in subsequent dispute evaluation and resolution.
 
 ![](https://i.imgur.com/vamnLGV.png)
 
