@@ -13,7 +13,7 @@
 <p>   Claims are submitted to prove impact or progress towards achieving the project's predetermined outcomes.
     
 <a id="note5" href="#note5ref">5</a>  **Dispute** <br/>
-<p>   Disputes are submitted to dispute the resolution of a claim.
+<p>   Disputes are submitted to dispute the resolution of a claim<a href="glossary.md#note4" id="note4ref"><sup>4</sup></a>.
     
 <a id="note6" href="#note6ref">6</a> **State space** <br/>
 <p>   Set of all possible configurations of a system. It is a useful abstraction for reasoning about the behavior of a given system and is widely used in the fields of artificial intelligence and game theory. May be interpreted as that collection of variables which serve to define the system at any point in time. </p>
@@ -52,17 +52,17 @@
 <a id="note17" href="#note17ref">17</a> **Dispute Pause Phase** <br/>
 <p>     In the Dispute Pause Phase, disputes issued against the bond will undergo external resolution. During this state, all system activity except those directly involved in dispute resolution is paused. </p>
 
-<a id="note18" href="#note18ref">18</a> **Settlement Consideration Pause Phase** <br/><br/>
+<a id="note18" href="#note18ref">18</a> **Settlement Consideration Pause Phase** <br/>
   In this phase, the bond is evaluated against the Settlement Conditions for success or failure. Similar to the Dispute Pause Phase, all system activity other than settlement consideration activity is paused during this phase. A detailed view of the Settlement process is shown [here](artifacts/SettlementConsiderationPhase.png). 
 
 <a id="note19" href="#note19ref">19</a> **Settlement Phase** <br/>
-<p>     During the Settlement Phase, Bond Tokens are converted into a compatible form and are distributed to the participants in the bond. </p>
+<p>     During the Settlement Phase, bond tokens are converted into a compatible form and are distributed to the participants in the bond along with any outcomes payments based on the project's success. </p>
 
-<a id="note20" href="#note20ref">20</a> **Impact Token** <br/><br/>
+<a id="note20" href="#note20ref">20</a> **Impact Token** <br/>
     Impact tokens are community tokens in the ixo ecosystem. They represent social impact achievements and may be awarded at various points to various stakeholders especially at a project's completion. These tokens are considered external to the bonding curve implementation and are intentionally excluded from mention as much as possible to avoid confusion.  
 
-<a id="note21" href="#note21ref">21</a> **Bond Token** <br/><br/>
-    Bond tokens are the the supply tokens<a href="glossary.md#note35" id="note35ref"><sup>35</sup></a>. At time ![img](https://latex.codecogs.com/svg.latex?t), the local state of agent ![img](https://latex.codecogs.com/svg.latex?a) comprises of the individual holding of bond tokens, ![img](https://latex.codecogs.com/svg.latex?s_%7Ba%2Ct%7D).
+<a id="note21" href="#note21ref">21</a> **Bond Token** <br/>
+    Bond tokens are the supply tokens<a href="glossary.md#note35" id="note35ref"><sup>35</sup></a>. At time ![img](https://latex.codecogs.com/svg.latex?t), the local state of agent ![img](https://latex.codecogs.com/svg.latex?a) comprises of the individual holding of bond tokens, ![img](https://latex.codecogs.com/svg.latex?s_%7Ba%2Ct%7D).
 
 <a id="note22" href="#note22ref">22</a> **Operational Requirement 1** <br/>
  <p>   Trader Agents can call the Bond Action and the Burn Action. </p>
@@ -85,20 +85,20 @@
 <a id="note28" href="#note28ref">28</a> **ProjectTime** <br/><br/>
     The ProjectTime state variable ![img](https://latex.codecogs.com/svg.latex?p%20%5Cin%20%5Cmathbb%7BZ%7D_%7B&plus;&plus;%7D) describes the duration for which the project has been in the Execution phase.
 
-<a id="note29" href="#note29ref">29</a> **ProjectTime threshold** <br/><br/>
-    The ProjectTime threshold ![img](https://latex.codecogs.com/svg.latex?p_%7Blim%7D) describes the maximum allowable duration for a project's Execution phase. 
+<a id="note29" href="#note29ref">29</a> **ProjectTime Threshold** <br/><br/>
+    The ProjectTime Threshold ![img](https://latex.codecogs.com/svg.latex?p_%7Blim%7D) describes the maximum allowable duration for a project's Execution phase. 
 
 <a id="note30" href="#note30ref">30</a> **ClaimsSubmitted** <br/><br/>
     The ClaimsSubmitted state variable ![img](https://latex.codecogs.com/svg.latex?c%20%5Cin%20%5Cmathbb%7BZ%7D_%7B&plus;%7D) describes the number of claims submitted towards the project during its Execution phase. Claims submitted demonstrate the project's progress towards achieving the predetermined outcomes.
 
-<a id="note31" href="#note31ref">31</a> **ClaimsSubmitted threshold** <br/>  
-    The ClaimsSubmitted threshold ![img](https://latex.codecogs.com/svg.latex?c_%7Blim%7D) describes the minimum number of claims required to be collected during the project's Execution phase. 
+<a id="note31" href="#note31ref">31</a> **ClaimsSubmitted Threshold** <br/>  
+    The ClaimsSubmitted Threshold ![img](https://latex.codecogs.com/svg.latex?c_%7Blim%7D) describes the minimum number of claims required to be collected during the project's Execution phase. 
 
 <a id="note32" href="#note32ref">32</a> **Alpha (state variable)** <br/><br/>
     The Alpha state variable ![img](https://latex.codecogs.com/svg.latex?%5Calpha%20%5Cin%20%5B0%2C1%5D) is an estimate of the probability of project success. It is represented normalized such that ![img](https://latex.codecogs.com/svg.latex?%5Calpha%20%3D%200) indicates that the project is estimated to fail, and ![img](https://latex.codecogs.com/svg.latex?%5Calpha%20%3D%201) indicates the highest likelhood of success. <br/>
 
-<a id="note33" href="#note33ref">33</a> **Alpha threshold** <br/><br/> 
-    The Alpha threshold is ![img](https://latex.codecogs.com/svg.latex?%5Calpha_%7Blim%7D) describes the minimum alpha value required for the settlement to be successful. At initialization, ![img](https://latex.codecogs.com/svg.latex?%5Calpha_%7Blim%7D) is set to a real value between 0 and 1 
+<a id="note33" href="#note33ref">33</a> **Alpha Threshold** <br/><br/> 
+    The Alpha Threshold is ![img](https://latex.codecogs.com/svg.latex?%5Calpha_%7Blim%7D) describes the minimum alpha value required for the settlement to be successful. At initialization, ![img](https://latex.codecogs.com/svg.latex?%5Calpha_%7Blim%7D) is set to a real value between 0 and 1 
 
 <a id="note34" href="#note34ref">34</a> **Reserve Funds** <br/><br/>
     The reserve ![img](https://latex.codecogs.com/svg.latex?R_t%20%5Cin%20%5Cmathbb%7BR%7D_%7B&plus;&plus;%7D). at time ![img](https://latex.codecogs.com/svg.latex?t) is the total quantity of external currency bonded to the bonding curve contract. <br/>
@@ -131,7 +131,7 @@
 <a id="note42" href="#note42ref">42</a> **Settlement Conditions** <br/>
 <p>     Conditions that need to be achieved by the bond during the Execution Phase for a bond to be considered successful. </p>
 
-<a id="note43" href="#note43ref">43</a> **Conservation function** <br/>
+<a id="note43" href="#note43ref">43</a> **Conservation Function** <br/>
 <p>     The bonding curve conservation function describes a conserved quantity, which is a functional relationship between the reserve and supply tokens. <br/>
     
    This conservation function imposed over the bonding curve ensures that the price of the token reflects the amount invested into projects in the platform, thus preventing imbalances through incentive design. </p>
