@@ -28,11 +28,11 @@ An agent which is able to execute the *Bond-to-Mint* or *Burn-to-Withdraw* mecha
 - Claim & Dispute Issuers can execute the Claim Submission and Dispute Submission functions of the *Attestations* mechanism.
 
 - Constitutes of roles:
-1. InvestmentAgent
-2. ServiceAgent
-3. BondIssuer
-4. ProjectOwner
-5. OutcomesPayer
+1. InvestmentAgent 
+2. ServiceAgent 
+3. BondIssuer 
+4. ProjectOwner 
+5. OutcomesPayer 
  
 ##### Operational Requirement 3
 Claim & Dispute Issuers call the SubmitClaim Action or SubmitDispute Action
