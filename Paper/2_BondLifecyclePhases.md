@@ -7,10 +7,7 @@ From a technical perspective, the bonding curve system can be described as a fin
 
 > Note: For simplicity and consistency with modelling and simulation explainers, this document adopts a pseudo-code or protocol-like language.
 
-<div align="center">
-	<img width="900" height="744" src="img/phases.png" alt="bondlifecyclephases">
-	<br>
-</div>
+![bond lifecycle phases diagram](artifacts/BondLifecyclePhasesV1.png)
 
 ## Phase 0: Pre-initialization 
 The pre-initialization phase is meant to represent all of the activities that occur prior to launch of the bond. This includes all of the prior planning and setup. It includes agreements, expectations, obligations, decisions around bond parameters, initial conditions, payment conditions, roles and rights of stakeholders, et al. During the pre-initialization phase, the bond is set up with an associated wallet and repository and all bond participants are identified with digital IDs, public keys, and credentials. All investments including funding as well as resources, materials, and equipment are agreed upon. At the end of this phase, the bond should be for all intents and purposes ready to launch.
@@ -70,7 +67,7 @@ All planning and setup completed and with the bond Ready to Launch will move the
 Initialization Threshold Triggering Event: The bond is launched and as long as funds are placed in the appropriate accounts as agreed upon, the funding threshold is met and the system will move from the Initialization Phase to the Execution Phase. If the funding threshold is not met, the system will move from the Initialization Phase to the Settlement Phase.
 
 ## Phase 2: Execution
-The execution phase is the phase where active bond trading occurs.
+The execution phase is the phase where active bond trading occurs resulting in updates to the reserve, supply, available project operating funds, and price. Claims and disputes are submitted as the project progresses. Alpha is continually updated to reflect the project's likelihood of success.
 
 ### Transitions into Execution Phase
 1. Initialization Threshold Triggering Event from Initialization Phase (sets the initial state)
@@ -148,20 +145,20 @@ In this phase, the bond is evaluated against the Settlement Conditions<a href="g
 2. A Not Complete event moves the system from the Settlement Consideration Pause Phase back into the Execution Phase.
 
 ## Phase 5: Settlement
-During the Settlement Phase, bond tokens are converted into a compatible form and are distributed to the participants in the bond.
+During the Settlement Phase, bond tokens are converted into a compatible form and are distributed to the participants in the bond along with any outcomes payments based on the project's success.
 
 ### Transitions into Settlement Phase
 1. A Completion event moves the system from the Settlement Consideration Pause Phase to the Settlement Phase
 2. If the funding threshold is not met, the system will move from the Initialization Phase to the Settlement Phase.
 
 ### Inputs
-1. Bond to Token Conversion
-2. Payments to be redeeemed
+1. Bond to External Currency Conversion
+2. Payments to be Redeeemed
 3. Outcomes Payees
 4. Outcomes Payments 
 
 ### Next State Outputs
-1. Fee Distribution
+1. Bond Payment Distribution
 2. Outcomes Payment Distribution
 
 ### Transitions out of Settlement Phase
