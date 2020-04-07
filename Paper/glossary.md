@@ -9,12 +9,12 @@
 <a id="note3" href="#note3ref">3</a> **Bonding curve** <br/>
 <p> Token Bonding Curves are continuous liquidity mechanisms which are used in market design for cryptographically-supported token economies whereby tokens are automatically issued using buy and sell functions. Academic literature increasingly refers to bonding curves as "configuration spaces" as Bonding Curves are part of a larger theory of scalar functions that remain invariant under legal changes in state. </p>
 
-<a id="note4" href="#note4ref">4</a>  **Alpha** <br/> <br/>
-The **alpha** signal ![img](https://latex.codecogs.com/svg.latex?%5Calpha_b%20%5Cin%20%5B0%2C1%5D) at time ![img](https://latex.codecogs.com/svg.latex?t) is an estimate of the likelihood of success of the bond, represented normalized such that ![img](https://latex.codecogs.com/svg.latex?%5Calpha_b%20%3D%200) indicates that the project is estimated to fail, and ![img](https://latex.codecogs.com/svg.latex?%5Calpha_b%20%3D%201) indicates the highest likelhood of success.
+<a id="note4" href="#note4ref">4</a>  **Claim** <br/>
+<p>   Claims are submitted to prove impact or progress towards achieving the project's predetermined outcomes.
     
-<a id="note5" href="#note5ref">5</a>  **Economic engineering** <br/>
-<p>	The professional discipline around the design, modelling, analysis, implementation and steering of economic systems, rooted in and drawing from the well-established scientific body of knowledge of System Theory, Control Systems Engineering, Operations Research, Mathematics, and several other relevant fields. </p>
-
+<a id="note5" href="#note5ref">5</a>  **Dispute** <br/>
+<p>   Disputes are submitted to dispute the resolution of a claim.
+    
 <a id="note6" href="#note6ref">6</a> **State space** <br/>
 <p>   Set of all possible configurations of a system. It is a useful abstraction for reasoning about the behavior of a given system and is widely used in the fields of artificial intelligence and game theory. May be interpreted as that collection of variables which serve to define the system at any point in time. </p>
 
@@ -37,7 +37,7 @@ The **alpha** signal ![img](https://latex.codecogs.com/svg.latex?%5Calpha_b%20%5
     The burn-to-withdraw mechanism removes bond tokens to redeem external currency through an agent’s action ![img](https://latex.codecogs.com/svg.latex?u_%7Ba%2C%20t%7D). The agent’s action represents a transaction to remove ![img](https://latex.codecogs.com/svg.latex?%5CDelta%20S_t%20%3A%3D%20s_%7Ba%2C%20t%7D%20-%20s_%7Ba%2C%20t&plus;1%7D%20%5Cleq%200) quantity of bond tokens from the bonding curve system. 
 
 <a id="note13" href="#note13ref">13</a> **Attestation** <br/><br/>
-    The **attestation** mechanism involves the lifecycle of claims. Claims undergo the stages of submission, evaluation, auditing, dispute, and resolution. Claims Submission: claims are submitted to prove impact or progress towards achieving the predetermined outcomes. Claim Evaluation: submitted claims go through a process of evaluation to verify their validity. Claim Auditing: submitted claims may be audited. Dispute Submission: claims may be disputed. Claim Resolution: claims are resolved and completed.
+    The **attestation** mechanism involves the lifecycle of claims. Claims undergo the stages of submission, evaluation, audit, and resolution. Claims Submission: claims are submitted to prove impact or progress towards achieving the project's predetermined outcomes. Claim Evaluation: submitted claims go through a process of evaluation to verify their validity. Claim Auditing: submitted claims may be audited. Claim Resolution: claims are resolved and completed. During resolution, a dispute could be submitted which would result in subsequent dispute evaluation and resolution. 
     
     
 <a id="note14" href="#note14ref">14</a> **Pre-initialization Phase** <br/>
@@ -95,7 +95,7 @@ The **alpha** signal ![img](https://latex.codecogs.com/svg.latex?%5Calpha_b%20%5
     The ClaimsSubmitted threshold ![img](https://latex.codecogs.com/svg.latex?c_%7Blim%7D) describes the minimum number of claims required to be collected during the project's Execution phase. 
 
 <a id="note32" href="#note32ref">32</a> **Alpha (state variable)** <br/><br/>
-    The Alpha state variable ![img](https://latex.codecogs.com/svg.latex?%5Calpha%20%5Cin%20%5B0%2C1%5D) is an estimate of the probability of project success, as evaluated by the Alpha Oracle. It is represented normalized such that ![img](https://latex.codecogs.com/svg.latex?%5Calpha%20%3D%200) indicates that the project is estimated to fail, and ![img](https://latex.codecogs.com/svg.latex?%5Calpha%20%3D%201) indicates the highest likelhood of success. <br/>
+    The Alpha state variable ![img](https://latex.codecogs.com/svg.latex?%5Calpha%20%5Cin%20%5B0%2C1%5D) is an estimate of the probability of project success. It is represented normalized such that ![img](https://latex.codecogs.com/svg.latex?%5Calpha%20%3D%200) indicates that the project is estimated to fail, and ![img](https://latex.codecogs.com/svg.latex?%5Calpha%20%3D%201) indicates the highest likelhood of success. <br/>
 
 <a id="note33" href="#note33ref">33</a> **Alpha threshold** <br/><br/> 
     The Alpha threshold is ![img](https://latex.codecogs.com/svg.latex?%5Calpha_%7Blim%7D) describes the minimum alpha value required for the settlement to be successful. At initialization, ![img](https://latex.codecogs.com/svg.latex?%5Calpha_%7Blim%7D) is set to a real value between 0 and 1 
