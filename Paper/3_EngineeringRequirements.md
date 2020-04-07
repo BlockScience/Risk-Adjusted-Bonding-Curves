@@ -71,7 +71,7 @@ Since an OutcomesPayer makes the final decision evaluating if the bond or projec
 ## System Boundary<a href="glossary.md#note49" id="note49ref"><sup>49</sup></a>
 The system under consideration is at the bond system level. The level above the bond system consists of the project system, which accounts for all of the activities that take place on the project. Although the focus of this design is specifically on the bond system, the interface at the boundary and the flows of information and funds between project and bond must be considered. One more level out there is again the notion of a bond portfolio, which is comprised of multiple bonds. 
 
-![system boundary diagram](artifacts/SystemBoundary.png)
+![system boundary diagram](artifacts/SystemBoundaryV1.png)
 
 ## System Requirements<a href="glossary.md#note46" id="note46ref"><sup>46</sup></a>
 
