@@ -73,7 +73,7 @@ Initialization Threshold Triggering Event: The bond is launched and as long as f
 The execution phase is the phase where active bond trading occurs.
 
 ### Transitions into Execution Phase
-1. Initialization Threshold Triggering Event from Initialization Phase 
+1. Initialization Threshold Triggering Event from Initialization Phase (sets the initial state)
 2. Dispute Resolution Return Event to Execution from Dispute Pause Phase
 3. A Not Complete Event from the Settlement Consideration Pause Phase
 
@@ -124,9 +124,9 @@ In the Dispute Pause Phase, disputes issued against the bond will undergo extern
 1. Dispute Verdict
 
 ### Transitions out of Dispute Pause Phase
-If Dispute Verdict results in a Return to Execution, the system will move from the Dispute Pause Phase back to the Execution Phase.
+If Dispute Verdict results in a Return to Execution, the system will move from the Dispute Pause Phase back to the Execution Phase. (Example: This is the most typical case where a dispute gets issued, Execution is paused, dispute gets resolved and then returns to Execution.)
 
-If Dispute Verdict results in a Resolved to Completion, the system will move from the Dispute Pause Phase to the Settlement Consideration Pause Phase.
+If Dispute Verdict results in a Resolved to Completion, the system will move from the Dispute Pause Phase to the Settlement Consideration Pause Phase. (Example: Massive fraud, attack, etc. is discovered, the bond state is unrecoverable and thus cannot not return to Execution.)
 
 ## Phase 4: Settlement Consideration Pause 
 In this phase, the bond is evaluated against the Settlement Conditions<a href="glossary.md#note42" id="note42ref"><sup>42</sup></a> for success or failure. Similar to the Dispute Pause Phase, all system activity other than settlement consideration activity is paused during this phase. A detailed view of the Settlement process is shown [here](artifacts/SettlementConsiderationPhase.png).
