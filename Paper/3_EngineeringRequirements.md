@@ -69,11 +69,9 @@ OutcomesPayers are disincentivized from holding bond tokens.
 Since an OutcomesPayer makes the final decision evaluating if the bond or project terms satisfy the conditions for payout to InvestmentAgents and ProjectOwners, holding bond tokens presents a conflict of interest.
 
 ## System Boundary<a href="glossary.md#note49" id="note49ref"><sup>49</sup></a>
-The system under consideration is at the bond system level. The level above the bond system consists of the bond portfolio, which is comprised of multiple bonds. The level below the bond system is the project system, where each bond can be a composition of many projects. 
+The system under consideration is at the bond system level. The level above the bond system consists of the project system, which accounts for all of the activities that take place on the project. Although the focus of this design is specifically on the bond system, the interface at the boundary and the flows of information and funds between project and bond must be considered. One more level out there is again the notion of a bond portfolio, which is comprised of multiple bonds. 
 
-Since a bond comes into existence upon the Bond Initialization Phase<a href="glossary.md#note15" id="note15ref"><sup>15</sup></a>, and this phase corresponds with the Bond Alpha Initialization Phase in the external Alpha Oracle Lifecycle, the temporal system boundary starts at the Bond Initialization and Bond Alpha Initialization phase. 
-
-![](https://i.imgur.com/qYIDv36.png)
+![system boundary diagram](artifacts/SystemBoundary.png)
 
 ## System Requirements<a href="glossary.md#note46" id="note46ref"><sup>46</sup></a>
 
@@ -269,7 +267,7 @@ Agent-level state, ![img](https://latex.codecogs.com/svg.latex?%5Chat%20x_%7Bt&p
 Upon the execution of the Burn Action, bond tokens are removed from the bonding curve.
 
 #### Mechanism 3
-The **attestation** mechanism involves the lifecycle of claims. Claims undergo the stages of submission, evaluation, audit, and resolution. Claims Submission: claims are submitted to prove impact or progress towards achieving the predetermined outcomes. Claim Evaluation: submitted claims go through a process of evaluation to verify their validity. Claim Auditing: submitted claims may be audited. Claim Resolution: claims are resolved and completed. During resolution, a dispute could be submitted which would result in subsequent dispute evaluation and resolution.
+The **attestation** mechanism involves the lifecycle of claims. Claims undergo the stages of submission, evaluation, audit, and resolution. Claims Submission: claims are submitted to prove impact or progress towards achieving the project's predetermined outcomes. Claim Evaluation: submitted claims go through a process of evaluation to verify their validity. Claim Auditing: submitted claims may be audited. Claim Resolution: claims are resolved and completed. During resolution, a dispute could be submitted which would result in subsequent dispute evaluation and resolution.
 
 ![](https://i.imgur.com/vamnLGV.png)
 
