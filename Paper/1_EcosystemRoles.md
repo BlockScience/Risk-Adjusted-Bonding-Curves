@@ -35,7 +35,7 @@ Chimple - a non-profit education technology provider that will aim to utilize th
 ### Role 3: Verification Agent
 **Verification Agents** evaluate the claims made by Service Agents, to opinionate on the probability of a claim being both factually true and positively correlated with an outcome state. In this process, a Verification Agent may further enrich the claims data with additional information, such as statistical predictions, data transformations, and external data. The result of the claim evaluation is cryptographically verified with the Verification Agent's digital identity credentials and signature. 
 
-A **VerificationAgent** role is characterized by providing project verification services, evaluating claims and responding to disputes for Service Agents.
+A **VerificationAgent** role is characterized by providing project verification services, evaluating claims and responding to disputes for Service Agents. They are also capable of issuing their own disputes.
 
 #### **VerificationAgent** Mechanism Action Space:
 1. Attestation<a href="glossary.md#note13" id="note13ref"><sup>13</sup></a> 
@@ -85,7 +85,8 @@ These two roles can be generalized under the **Administrator** role which is cha
 1. Attestation<a href="glossary.md#note13" id="note13ref"><sup>13</sup></a>
 
 #### Example:
-Dalberg Capital - an experienced advisor on impact investing. 
+Project Administrator: Dalberg Capital - an experienced advisor on impact investing. 
+Bond Administrator: DAO
 
 ### Role 8: Project Owner
 The **Project Owner** is the founder and controller of the overall project. This stakeholder initiates the project and defines its parameters. Once a project's parameters have been set up, the Project Owner deploys the project on an impact bond blockchain network, using their cryptographic keys to instantiate the project by signing a message payload that records the genesis of the project in a blockchain record.
@@ -98,7 +99,7 @@ ProjectOwners can purchase the first tranche of bond tokens prior to launch of t
 1. Attestation<a href="glossary.md#note13" id="note13ref"><sup>13</sup></a>
 
 #### Example:
-Quality Education India - the creator of the development impact bond.
+Educational Agency - a formal education agency or department that has educational authority to initiate the project. Most likely the technical duties of actually deploying the project would be delegated to another organization to do so on behalf of the Educational Agency.
 
 ### Role 9: Outcomes Payer
 The **Outcomes Payer** purchases the outcomes of a Project for a promised future value. In other words, the Outcomes payer commits to providing predetermined payment(s) if the project meets predetermined outcome(s). 
