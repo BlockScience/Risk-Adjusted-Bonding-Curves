@@ -164,4 +164,4 @@ During the Settlement Phase, bond tokens are converted into a compatible form an
 ### Transitions out of Settlement Phase
 This is the last phase of the system, thus there are no outward state transitions. 
 
-Continue reading Chapter 3: [Engineering Requirements](3_EngineeringRequirements.md)
+Continue reading Chapter 3: [Engineering Requirements](3_EngineeringRequirements.ipynb)
