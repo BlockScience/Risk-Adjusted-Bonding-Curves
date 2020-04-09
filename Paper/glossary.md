@@ -117,7 +117,7 @@
 <p>     Supply (bond tokens) that are bonded to attest that the project will fail. </p>
     
 <a id="note38" href="#note38ref">38</a> **Reserve Ratio** <br/><br/>
-    The Reserve Ratio ![img](https://latex.codecogs.com/svg.latex?\rho&space;\in&space;[0,&space;1]) is determined by the curvature of the bonding curve ![img](https://latex.codecogs.com/svg.latex?$\kappa$), and is given by ![img](https://latex.codecogs.com/svg.latex?$$&space;\rho&space;=&space;1/\kappa$$)
+    The Reserve Ratio of a bond is the ratio of the value that is bonded to the bonding curve reserve to the total value of bond tokens issued (price * value of one bond token). The Reserve Ratio ![img](https://latex.codecogs.com/svg.latex?\rho&space;\in&space;[0,&space;1]) is determined by the curvature of the bonding curve ![img](https://latex.codecogs.com/svg.latex?$\kappa$), and is given by ![img](https://latex.codecogs.com/svg.latex?$$&space;\rho&space;=&space;1/\kappa$$)
 
 <a id="note39" href="#note39ref">39</a> **Price** <br/><br/>
     The price signal ![img](https://latex.codecogs.com/svg.latex?P_t%20%5Cin%20%5Cmathbb%7BR%7D_%7B&plus;&plus;%7D) at time ![img](https://latex.codecogs.com/svg.latex?t) is an estimate of the value of the bond token, in units of ![img](https://latex.codecogs.com/svg.latex?R) per units of ![img](https://latex.codecogs.com/svg.latex?S).
@@ -137,20 +137,20 @@
    This conservation function imposed over the bonding curve ensures that the price of the token reflects the amount invested into projects in the platform, thus preventing imbalances through incentive design. </p>
 
 <a id="note44" href="#note44ref">44</a> **Project Operating Funds** <br/>
-<p>     Funds that are available to execute the project. These funds would be used for example to pay for goods and services. Upon launch of the bond, a portion of funds raised from investors goes towards the Project Operating Funds and a portion goes to the Reserve Funds<a href="glossary.md#note34" id="note34ref"><sup>34</sup></a> to provide liquidity to the bonding curve.
+<p>     Funds that are available to execute the project. These funds would be used for example to pay for goods and services. Upon launch of the bond, a portion of funds raised from investors goes towards the Project Operating Funds and a portion goes to the Reserve Funds<a href="glossary.md#note34" id="note34ref"><sup>34</sup></a> to provide liquidity to the bonding curve.  </p>
     
  <a id="note45" href="#note45ref">45</a> **Fund Fee** <br/>
-<p>     A fee charged that goes directly into the Project Operating Funds<a href="glossary.md#note44" id="note44ref"><sup>44</sup></a>. 
+<p>     A fee charged that goes directly into the Project Operating Funds<a href="glossary.md#note44" id="note44ref"><sup>44</sup></a>.  </p>
 
 
  <a id="note46" href="#note46ref">46</a> **System Requirement** <br/>
-<p>     System requirements are all of the requirements at the system level that describe the functions which the system as a whole should fulfill to satisfy the stakeholder needs and requirements, and is expressed in an appropriate combination of textual statements, views, and non-functional requirements; the latter expressing the levels of safety, security, reliability, etc., that will be necessary.
+<p>     System requirements are all of the requirements at the system level that describe the functions which the system as a whole should fulfill to satisfy the stakeholder needs and requirements, and is expressed in an appropriate combination of textual statements, views, and non-functional requirements; the latter expressing the levels of safety, security, reliability, etc., that will be necessary.  </p>
 
  <a id="note47" href="#note47ref">47</a> **Functional Requirement** <br/>
-<p>     Functional requirements describe qualitatively the system functions or tasks to be performed in operation. Generally, Functional Requirements can be thought of as requirements more from the perspective of the "system plant" itself and how it functions.
+<p>     Functional requirements describe qualitatively the system functions or tasks to be performed in operation. Generally, Functional Requirements can be thought of as requirements more from the perspective of the "system plant" itself and how it functions.  </p>
 
  <a id="note48" href="#note48ref">48</a> **Operational Requirement** <br/>
-<p>     Operational requirements define the operational conditions or properties that are required for the system to operate or exist. This type of requirement includes: human factors, ergonomics, availability, maintainability, reliability, and security. Generally, Operational Requirements can be thought of as requirements more from the perspective of the (agent) operation of the system.
+<p>     Operational requirements define the operational conditions or properties that are required for the system to operate or exist. This type of requirement includes: human factors, ergonomics, availability, maintainability, reliability, and security. Generally, Operational Requirements can be thought of as requirements more from the perspective of the (agent) operation of the system.  </p>
 
 <a id="note49" href="#note49ref">49</a> **System Boundary** <br/>
-<p>     The system boundary is a conceptual line that divides the system that you want to study from 'everything else'.
+<p>     The system boundary is a conceptual line that divides the system that you want to study from 'everything else'.  </p>
