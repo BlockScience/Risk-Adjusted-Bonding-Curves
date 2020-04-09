@@ -9,6 +9,8 @@ Note that in the context of a generalized design pattern, ecosystem roles and th
 ### Role 1: Investment Agent
 **Investment Agents** are individuals, institutions, or funding mechanisms that commit capital to a bond in return for financial and non-financial returns on the capital. Investors tend to seek returns that are above the market average and are rewarded for their investments if a project funded by the bond is successful in achieving its targets. Investors must therefore analyse the financial risks associated with the bond, as well as the operational risks associated with the project that is funded by the bond. In the the broader context, Investment Agents may choose to buy bond tokens for multiple projects composing a portfolio<a href="glossary.md#note10" id="note10ref"><sup>10</sup></a> of bonds. In this case, they would have their own private valuation of a given project, which they would employ to make buy and sell decisions and ultimately manage their portfolio’s risk to return ratio.
 
+The Investment Agent has a private valuation of a given project, which they employ to make buy and sell decisions and ultimately  manage their portfolio’s risk to return ratio.
+
 An **InvestmentAgent** role is characterized by the ability to buy and redeem bond tokens<a href="glossary.md#note21" id="note21ref"><sup>21</sup></a>. The Investment Agent is also capable of submitting disputes<a href="glossary.md#note5" id="note5ref"><sup>5</sup></a>.
 
 #### **InvestmentAgent** Mechanism Action Space:
