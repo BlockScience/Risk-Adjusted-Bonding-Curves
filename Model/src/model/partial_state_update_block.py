@@ -15,7 +15,8 @@ partial_state_update_blocks = [
             'price': capture_Pin,
             'spot_alpha': update_alpha,
             'output_alpha': update_alphabar,
-            'alpha': capture_alpha          
+            'alpha': capture_alpha,  
+            'kappa': update_kappa
         }
     }
 ]

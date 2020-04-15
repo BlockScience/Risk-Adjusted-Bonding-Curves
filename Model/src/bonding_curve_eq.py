@@ -82,7 +82,7 @@ def attest_pos(deltaS1, S1, C, I0, kappa):
         realized_alpha = spot_alpha(S1 + deltaS1, I0, kappa, C)
     else:
         realized_alpha = deltaS1/deltaQ1
-    return deltaS1, realized_alpha
+    return deltaQ1, realized_alpha
 
 ########### REVISIT ##############
 #for a given state (kappa)
@@ -95,7 +95,7 @@ def attest_neg(deltaS0, S0, C, I0, kappa):
         realized_alpha = spot_alpha(S0 + deltaS0, I0, kappa, C)
     else:
         realized_alpha = deltaS0/deltaQ0
-    return deltaS0, realized_alpha
+    return deltaQ0, realized_alpha
 
 def withdraw_with_tax(deltaS, R,S, V0, exit_tax = default_exit_tax, kappa=default_kappa):
     deltaR = R-((S-deltaS)**kappa)/V0
