@@ -1,6 +1,6 @@
 import numpy as np
 
-default_kappa = 2 ## Can we have default set kappa? Curvature and reserve ratio change as bonding curve is adjusted for risk
+default_kappa = kappa(R, S, V0) #### CHECK ####
 default_exit_tax = .02
 
 #value function for a given state (R,S)
@@ -24,17 +24,25 @@ def reserve(S, V0, kappa=default_kappa):
 def supply(R, V0, kappa=default_kappa):
     return (V0*R)**(1/kappa)
 
+########### REVISIT (variable name. kappa -> spot_kappa?) ##########
+#given a state (R,S)
+#and an invariant constant V0
+#return kappa as a function of R, S, and V0
+def kappa(R, S, V0):
+    return (numpy.log(V0*R))/(numpy.log(S))
+
 #given a value function (parameterized by kappa)
 #and an invariant coeficient V0
 #return a spot price P as a function of reserve R
 def spot_price(R, V0, kappa=default_kappa):
     return kappa*R**((kappa-1)/kappa)/V0**(1/kappa)
 
-########### REVISIT ##############
+########### REVISIT 
+#####(since deltaS is not used to calculate alpha, alpha does not change when more tokens are bonded. ##############
 #given a value function (parameterized by kappa)
 #and an invariant coeficient I0
 #return a spot alpha as a function of reserve R
-def spot_alpha(C, I0, kappa=default_kappa):
+def spot_alpha(S, I0, kappa=default_kappa, C):
     return (I0*(kappa-1))/(C*kappa)
 
 #for a given state (R,S)
@@ -64,11 +72,30 @@ def withdraw(deltaS, R,S, V0, kappa=default_kappa):
     return deltaR, realized_price
 
 ########### REVISIT ##############
-#given a value function 
+#for a given state (kappa)
 #and an invariant coefficient I0
 #bond deltaS_1 to obtain deltaQ_1
-#with realized alpha ????
-def attest_pos
+#with realized alpha as a function of I0, C, and kappa
+def attest_pos(deltaS1, S1, C, I0, kappa):
+    deltaQ1 = (I0*(S1 + deltaS1))**(1/kappa)-Q1
+    if deltasQ1 == 0:
+        realized_alpha = spot_alpha(S1 + deltaS1, I0, kappa, C)
+    else:
+        realized_alpha = deltaS1/deltaQ1
+    return deltaS1, realized_alpha
+
+########### REVISIT ##############
+#for a given state (kappa)
+#and an invariant coefficient I0
+#bond deltaS_0 to obtain deltaQ_0
+#with realized alpha as a function of I0, C, and kappa
+def attest_neg(deltaS0, S0, C, I0, kappa):
+    deltaQ0 = (I0*(S0 + deltaS0))**(1/kappa)-Q0
+    if deltasQ0 == 0:
+        realized_alpha = spot_alpha(S0 + deltaS0, I0, kappa, C)
+    else:
+        realized_alpha = deltaS0/deltaQ0
+    return deltaS0, realized_alpha
 
 def withdraw_with_tax(deltaS, R,S, V0, exit_tax = default_exit_tax, kappa=default_kappa):
     deltaR = R-((S-deltaS)**kappa)/V0
