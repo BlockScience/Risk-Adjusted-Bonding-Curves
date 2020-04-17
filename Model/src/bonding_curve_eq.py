@@ -1,13 +1,13 @@
 import numpy as np
 
-default_kappa = kappa(R, S, V0) #### CHECK ####
+default_kappa = kappa(R, S, V0) 
 default_exit_tax = .02
 
 #value function for a given state (R,S)
 def invariant_V0(R,S,kappa=default_kappa):    
     return (S**kappa)/R
 
-########### REVISIT (replace alpha -> omega?) ##############
+########### (replace alpha -> omega?) ##############
 #value function for a given state (C, alpha)
 def invariant_I0(C, alpha, kappa=default_kappa):
     return (C*alpha*kappa)/(kappa-1)
@@ -24,7 +24,7 @@ def reserve(S, V0, kappa=default_kappa):
 def supply(R, V0, kappa=default_kappa):
     return (V0*R)**(1/kappa)
 
-########### REVISIT (variable name. kappa -> spot_kappa?) ##########
+######### (variable name. kappa -> spot_kappa?) ##########
 #given a state (R,S)
 #and an invariant constant V0
 #return kappa as a function of R, S, and V0
@@ -37,8 +37,7 @@ def kappa(R, S, V0):
 def spot_price(R, V0, kappa=default_kappa):
     return kappa*R**((kappa-1)/kappa)/V0**(1/kappa)
 
-########### REVISIT 
-#####(since deltaS is not used to calculate alpha, alpha does not change when more tokens are bonded. ##############
+#####(since deltaS is not used to calculate alpha, alpha does not change when more tokens are bonded. #######
 #given a value function (parameterized by kappa)
 #and an invariant coeficient I0
 #return a spot alpha as a function of reserve R
@@ -71,7 +70,6 @@ def withdraw(deltaS, R,S, V0, kappa=default_kappa):
         realized_price = deltaR/deltaS
     return deltaR, realized_price
 
-########### REVISIT ##############
 #for a given state (kappa)
 #and an invariant coefficient I0
 #bond deltaS_1 to obtain deltaQ_1
@@ -84,7 +82,6 @@ def attest_pos(deltaS1, S1, C, I0, kappa):
         realized_alpha = deltaS1/deltaQ1
     return deltaQ1, realized_alpha
 
-########### REVISIT ##############
 #for a given state (kappa)
 #and an invariant coefficient I0
 #bond deltaS_0 to obtain deltaQ_0
