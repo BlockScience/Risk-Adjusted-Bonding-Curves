@@ -75,8 +75,8 @@ def withdraw(deltaS, R,S, V0, kappa=default_kappa):
 #bond deltaS_1 to obtain deltaQ_1
 #with realized alpha as a function of I0, C, and kappa
 def attest_pos(deltaS1, S1, C, I0, kappa):
-    deltaQ1 = (I0*(S1 + deltaS1))**(1/kappa)-Q1
-    if deltasQ1 == 0:
+    deltaQ1 = (I0*(S1 + deltaS1))**(1/alpha)-Q1
+    if deltaQ1 == 0:
         realized_alpha = spot_alpha(S1 + deltaS1, I0, kappa, C)
     else:
         realized_alpha = deltaS1/deltaQ1
@@ -87,8 +87,8 @@ def attest_pos(deltaS1, S1, C, I0, kappa):
 #bond deltaS_0 to obtain deltaQ_0
 #with realized alpha as a function of I0, C, and kappa
 def attest_neg(deltaS0, S0, C, I0, kappa):
-    deltaQ0 = (I0*(S0 + deltaS0))**(1/kappa)-Q0
-    if deltasQ0 == 0:
+    deltaQ0 = (I0*(S0 + deltaS0))**(1/alpha)-Q0
+    if deltaQ0 == 0:
         realized_alpha = spot_alpha(S0 + deltaS0, I0, kappa, C)
     else:
         realized_alpha = deltaS0/deltaQ0
