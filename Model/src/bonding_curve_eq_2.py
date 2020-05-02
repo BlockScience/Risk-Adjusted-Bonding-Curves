@@ -21,5 +21,8 @@ def reserve(S, V, kappa):
 def supply(R, V, kappa):
     return (V*R)**(1/kappa)
 
+def spot_price(R, V, kappa):
+    return kappa*(R**(kappa-1/kappa))/V**(1/kappa)
+
 def spot_alpha(I, C, kappa):
     return I*(kappa-1)/(C*kappa)
