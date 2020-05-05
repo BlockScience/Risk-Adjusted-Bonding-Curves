@@ -49,7 +49,7 @@ def spot_alpha(S, I0, kappa=default_kappa, C):
 #and an invariant coeficient V0
 #deposit deltaR to Mint deltaS
 #with realized price deltaR/deltaS
-def mint(deltaR, R,S, V0, kappa=default_kappa):
+def mint(deltaR, R, S, V0, kappa=default_kappa):
     deltaS = (V0*(R+deltaR))**(1/kappa)-S
     if deltaS == 0:
         realized_price = spot_price(R+deltaR, V0, kappa)
@@ -62,7 +62,7 @@ def mint(deltaR, R,S, V0, kappa=default_kappa):
 #and an invariant coefficient V0
 #burn deltaS to Withdraw deltaR
 #with realized price deltaR/deltaS
-def withdraw(deltaS, R,S, V0, kappa=default_kappa):
+def withdraw(deltaS, R, S, V0, kappa=default_kappa):
     deltaR = R-((S-deltaS)**kappa)/V0
     if deltaS == 0:
         realized_price = spot_price(R+deltaR, V0, kappa)
