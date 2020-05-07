@@ -45,7 +45,7 @@ def reserve(deltaR, S, V, I, alpha, kappa):
     #if only attest or no action
     else:
         R = I - (C*alpha)
-        ### check if (I - c*alpha) == (S**kappa)/V
+        ### check if (I - C*alpha) == (S**kappa)/V
     return R
 
 def supply(R, V, kappa):
