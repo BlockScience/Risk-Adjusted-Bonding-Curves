@@ -1,3 +1,5 @@
+### Everything below is currently in config.py
+
 params = {
     'kappa': [2], #initial kappa
     'alpha': [0.5, 1], #initial alpha

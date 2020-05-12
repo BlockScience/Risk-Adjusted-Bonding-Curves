@@ -6,7 +6,7 @@ def update_kappa(params, step, sL, s, _input):
 # elif if action['mech'] == 'bond' or action['mech'] == 'burn'
 
     action = _input['action']
-    P = action['posterior']['kappa']
+    kappa = action['posterior']['kappa']
     
     key = 'spot_kappa'
     value = kappa

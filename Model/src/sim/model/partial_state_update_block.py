@@ -9,6 +9,8 @@ from .parts.kappa import *
 from .parts.alpha import *
 from .parts.attestations import *
 
+from .parts.private_beliefs import *
+
 partial_state_update_blocks = [
     {
         'policies': {
@@ -26,9 +28,9 @@ partial_state_update_blocks = [
         'variables': {
              # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
              # Agent signaling
-             # Any private signals eg. sine wave 
-            'private_price': capture_private_price,
-            'private_alpha':
+             # Capture any private signals eg. sine wave 
+            'private_price': update_private_price,
+            'private_alpha': update_private_alpha
         }
     },
         {
@@ -54,6 +56,7 @@ partial_state_update_blocks = [
             'attestations_1': update_Q1,
             'attestations_0': update_Q0,
             'spot_alpha': update_alpha,
+            'kappa': update_kappa,
             'spot_price': update_P,
             'V': update_V           
         }

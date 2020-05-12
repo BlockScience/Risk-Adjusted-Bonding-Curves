@@ -1,3 +1,4 @@
+### Everything below is currently in config.py
 ### initial conditions are sometimes referred to as genesis state
 
 from .sys_params import params
