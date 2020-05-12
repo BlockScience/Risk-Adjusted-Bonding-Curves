@@ -1,9 +1,12 @@
-### Everything below is currently in config.py
+# Everything below is currently in config.py
 
 params = {
-    'kappa': [2], #initial kappa
-    'alpha': [0.5, 1], #initial alpha
-    'money_raised': [1000] # R+C
+    'starting_kappa': KAPPA,  # initial kappa
+    'starting_alpha': ALPHA,  # initial alpha
+    # 'starting_price': price,
+    'money_raised': MONEY_RAISED,  # R+C
+    'C': C,
+    'period': ['N/A', 2000, 2000, 2000]
 }
 
 ''' params = {

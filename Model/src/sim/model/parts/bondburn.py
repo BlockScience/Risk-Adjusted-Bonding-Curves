@@ -1,4 +1,4 @@
-from action import *
+from .choose_action import *
 
 # Include this function as another part so as to account for all mechansims (?)
 # don't require this because handling with amounts (0 vs +ve) instead of action performed

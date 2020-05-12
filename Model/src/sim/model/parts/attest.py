@@ -1,4 +1,4 @@
-from action import *
+from .choose_action import *
 
 # Include this function as another part so as to account for all mechansims (?)
 # don't require this because handling with amounts (0 vs +ve) instead of action performed
@@ -9,7 +9,7 @@ from action import *
         dQ1, alpha_belief = attest_pos(amt_pos, S1, C, I, params['kappa'])
     elif action['mech'] == 'attest_neg':       
         dQ0, alpha_belief = attest_neg(amt_neg, S0, C, I, params['kappa'])
-    return #?????? ''''
+    return '''
         
 def update_S1(_params, substep, state_history, current_state, _input):
     #action = _input['action']

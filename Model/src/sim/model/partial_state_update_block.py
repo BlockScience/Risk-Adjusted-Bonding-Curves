@@ -2,14 +2,10 @@
 # At the end of each PSUB (called a substep), cadCAD returns the state of the system
 
 from .parts.initialization import *
-from .parts.supply import *
-from .parts.reserve import *
-from .parts.price import *
-from .parts.kappa import *
-from .parts.alpha import *
-from .parts.attestations import *
-
 from .parts.private_beliefs import *
+from .parts.choose_action import *
+from .parts.bondburn import *
+from .parts.attest import *
 
 partial_state_update_blocks = [
     {
@@ -42,7 +38,7 @@ partial_state_update_blocks = [
             'reserve': update_R, 
             'supply': update_S,
             'spot_price': update_P,
-            'I': update_I
+            'invariant_I': update_I
         }
     },
         {
@@ -58,7 +54,7 @@ partial_state_update_blocks = [
             'spot_alpha': update_alpha,
             'kappa': update_kappa,
             'spot_price': update_P,
-            'V': update_V           
+            'invariant_V': update_V           
         }
     },
     {

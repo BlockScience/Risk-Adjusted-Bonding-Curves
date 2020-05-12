@@ -1,31 +1,34 @@
-### TODO: imports
+# TODO: imports
+
+from .private_beliefs import *
+
 
 def set_action(params, step, sL, s):
-    
+
     R = s['reserve']
     S = s['supply']
-    V = params['invariant_V']
-    I = params['invariant_I']
+    V = s['invariant_V']
+    I = s['invariant_I']
     P = s['spot_price']
+    private_price = s['private_price']
+    private_alpha = s['private_alpha']
+    start_kappa = params['starting_kappa']
+    start_alpha = params['starting_alpha']
     alpha = s['spot_alpha']
-    kappa = params['kappa']
+    kappa = s['kappa']
     period = params['period']
-    
-    if params['rule'] == 'sin':
-        new_price = P0 + params['dP']*np.sin(2*np.pi*s['timestep']/period)
-        print("new_price = ", new_price)
-        
-    if P > price_belief_a:
+
+# new_private_price is obtained from update_private_price() function in private_beliefs
+    if P > new_private_price:
         mech = 'burn'
         amt_reserve = 0
-    elif P < price_belief_a:
+    elif P < new_private_price:
         mech = 'bond'
         amt_supply = 0
-    else: 
-        # don't trade 
+    else:
+        # don't trade
         print("No trade")
-        
-    
+
     if alpha > alpha_belief_a:
         mech = 'attest_neg'
         amt_Q1 = 0
@@ -37,23 +40,28 @@ def set_action(params, step, sL, s):
     else:
         # don't attest
         print("No attestation")
-    
+
     action = {
-                'mech':mech, 
-                'amt_reserve':amt_b,
-                'amt_supply':amt_supply,
-                'amt_Q1': amt_Q1,
-                'amt_Q0': amt_Q0,
-                'amt_pos':amt_pos,
-                'amt_neg':amt_neg,
-                'p_in':new_price,
-                'price_belief':price_belief(amt_b),
-                'alpha_in': new_alpha,
-                'alpha_belief': alpha_belief(amt_a),
-                'posterior':{}
+        'mech': mech,
+        'amt_reserve': amt_b,
+        'amt_supply': amt_supply,
+        'amt_Q1': amt_Q1,
+        'amt_Q0': amt_Q0,
+        'amt_pos': amt_pos,
+        'amt_neg': amt_neg,
+        'p_in': new_price,
+        'price_belief': price_belief(amt_b),
+        'alpha_in': new_alpha,
+        'alpha_belief': alpha_belief(amt_a),
+        'posterior': {}
     }
-    
-    
+
+    action['posterior'] = {'S': S, 'R': R, 'P': P, 'S1': S0, 'S1': S1,
+                           'Q0': Q0, 'Q1': Q1, 'kappa': kappa, 'alpha': alpha, 'I': I, 'V': V}
+
+    return {'action': action}
+
+
 '''
     
     if action['mech'] == 'bond':
@@ -91,7 +99,3 @@ def set_action(params, step, sL, s):
         P = spot_price()
         invariant_V(R, S, kappa)
 '''
-
-action['posterior'] = {'S':S, 'R':R, 'P':P, 'S1':S0, 'S1':S1, 'Q0':Q0, 'Q1':Q1, 'kappa':kappa, 'alpha':alpha, 'I':I, 'V':V}
-    
-    return {'action': action}
