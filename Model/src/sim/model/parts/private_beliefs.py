@@ -1,6 +1,6 @@
 # from .choose_action import *
 
-# current_state (called s in documentation) is a dict. Captures the current state of the system
+# prev_state (called s in documentation) is a dict. Captures the current state of the system
 import numpy as np
 
 P0 = [1]
@@ -13,18 +13,18 @@ signal = {
 }
 
 
-def update_private_price(_params, substep, state_history, current_state, _input):
+def update_private_price(params, substep, state_history, prev_state, policy_input):
     # Private price belief signal is a sine wave
     print("signal['dP'] = ", signal['dP'])
-    print("current_state['timestep'] = ", current_state['timestep'])
+    print("prev_state['timestep'] = ", prev_state['timestep'])
     print("signal['period'] = ", signal['period'])
     new_private_price = P0[0] + signal['dP'] * \
-        np.sin(2*np.pi*current_state['timestep']/signal['period'])
+        np.sin(2*np.pi*prev_state['timestep']/signal['period'])
     return 'private_price', new_private_price
 
 
-def update_private_alpha(_params, substep, state_history, current_state, _input):
+def update_private_alpha(params, substep, state_history, prev_state, policy_input):
     # Private alpha belief signal is a ramp
-    sign = (-1)**int((2*current_state['timestep']/signal['period']))
-    new_private_alpha = current_state['alpha'] + signal['dP']*sign
+    sign = (-1)**int((2*prev_state['timestep']/signal['period']))
+    new_private_alpha = prev_state['alpha'] + signal['dP']*sign
     return 'private alpha', new_private_alpha

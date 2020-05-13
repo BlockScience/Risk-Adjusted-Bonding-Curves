@@ -10,43 +10,45 @@ from .parts.attest import *
 partial_state_update_blocks = [
     {
         'policies': {
-         },
+        },
         'variables': {
-             # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-             # Initialization and exogenous processes # skip for now
+            # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+            # Initialization and exogenous processes # skip for now
 
         }
     },
-        {
+    {
         'policies': {
             'act': set_action
-         },
+        },
         'variables': {
-             # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-             # Agent signaling
-             # Capture any private signals eg. sine wave 
+            # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+            # Agent signaling
+            # Capture any private signals eg. sine wave
             'private_price': update_private_price,
             'private_alpha': update_private_alpha
         }
     },
-        {
+    {
         'policies': {
-         },
+            'act': set_action
+        },
         'variables': {
-             # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-             # Bond-to-mint or burn-to-withdraw
-            'reserve': update_R, 
+            # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+            # Bond-to-mint or burn-to-withdraw
+            'reserve': update_R,
             'supply': update_S,
             'spot_price': update_P,
             'invariant_I': update_I
         }
     },
-        {
+    {
         'policies': {
-         },
+            'act': set_action
+        },
         'variables': {
-             # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-             # Attest positive or attest negative 
+            # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+            # Attest positive or attest negative
             'supply_1': update_S1,
             'supply_0': update_S0,
             'attestations_1': update_Q1,
@@ -54,24 +56,24 @@ partial_state_update_blocks = [
             'spot_alpha': update_alpha,
             'kappa': update_kappa,
             'spot_price': update_P,
-            'invariant_V': update_V           
+            'invariant_V': update_V
         }
     },
     {
         'policies': {
-         },
+        },
         'variables': {
-             # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-             # Resolve metrics
+            # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+            # Resolve metrics
 
         }
     },
     {
         'policies': {
-         },
+        },
         'variables': {
-             # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-             # Close out
+            # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+            # Close out
 
         }
     }

@@ -11,12 +11,19 @@ from cadCAD import configs
 time_periods_per_run = 4000
 monte_carlo_runs = 1
 
-KAPPA = [2, 1]
+""" KAPPA = [2, 1]
 PRICE = [1]
 C = [700]
 ALPHA = [0.5, 1]
 MONEY_RAISED = [1000]
-PERIOD = ['N/A', 2000, 2000, 2000]
+PERIOD = ['N/A', 2000, 2000, 2000] """
+
+KAPPA = [2]
+PRICE = [1]
+C = [700]
+ALPHA = [0.5]
+MONEY_RAISED = [1000]
+PERIOD = [2000]
 
 reserve = MONEY_RAISED[0] - C[0]
 supply = KAPPA[0]*(reserve/PRICE[0])

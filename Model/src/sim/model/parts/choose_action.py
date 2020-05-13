@@ -3,40 +3,39 @@
 from .private_beliefs import *
 
 
-def set_action(params, step, sL, s):
+def set_action(params, substep, state_history, prev_state):
 
-    R = s['reserve']
-    S = s['supply']
-    V = s['invariant_V']
-    I = s['invariant_I']
-    P = s['spot_price']
+    R = prev_state['reserve']
+    S = prev_state['supply']
+    V = prev_state['invariant_V']
+    I = prev_state['invariant_I']
+    P = prev_state['spot_price'][substep-2]
     print("SPOT PRICE P =", P)
-    print("STEP =", step)
-    print("P[step-2] =", P[step-2])
-    private_price = s['private_price']
+    print("SUBSTEP =", substep)
+    private_price = prev_state['private_price']
     print("private_price =", private_price)
-    private_alpha = s['private_alpha']
+    private_alpha = prev_state['private_alpha']
     print("private_alpha =", private_alpha)
-    S1 = s['supply_1']
-    S0 = s['supply_0']
-    Q1 = s['attestations_1']
-    Q0 = s['attestations_0']
+    S1 = prev_state['supply_1']
+    S0 = prev_state['supply_0']
+    Q1 = prev_state['attestations_1']
+    Q0 = prev_state['attestations_0']
     start_kappa = params['starting_kappa']
     start_alpha = params['starting_alpha']
-    alpha = s['spot_alpha']
+    alpha = prev_state['spot_alpha']
     print("alpha = ", alpha)
-    kappa = s['kappa']
+    kappa = prev_state['kappa']
     period = params['period']
 
-# new_private_price is obtained from update_private_price() function in private_beliefs
-    if P[step-2] > private_price:
+    # new_private_price is obtained from update_private_price() function in private_beliefs
+    if P > private_price:
         mech = 'burn'
         amt_reserve = 0
-        amt_supply = P[step-2] - private_price
+        amt_supply = P - private_price
 
-    elif P[step-2] < private_price:
+    elif P < private_price:
         mech = 'bond'
-        amt_reserve = priavte_price - P[step-2]
+        amt_reserve = priavte_price - P
         amt_supply = 0
 
     else:
@@ -69,7 +68,26 @@ def set_action(params, step, sL, s):
         amt_neg = 0
         print("No attestation")
 
-    action = {
+        # action['posterior'] = {'S': S, 'R': R, 'P': P, 'S1': S0, 'S1': S1,
+        #               'Q0': Q0, 'Q1': Q1, 'kappa': kappa, 'alpha': alpha, 'I': I, 'V': V}
+
+    return {
+        'mech': mech,
+        'amt_reserve': amt_reserve,
+        'amt_supply': amt_supply,
+        'amt_Q1': amt_Q1,
+        'amt_Q0': amt_Q0,
+        'amt_pos': amt_pos,
+        'amt_neg': amt_neg,
+        # 'p_in': new_price,
+        # 'price_belief': price_belief(amt_b),
+        # 'alpha_in': new_alpha,
+        # 'alpha_belief': alpha_belief(amt_a),
+        # 'posterior': {}
+    }
+
+
+"""     action = {
         'mech': mech,
         'amt_reserve': amt_reserve,
         'amt_supply': amt_supply,
@@ -82,13 +100,7 @@ def set_action(params, step, sL, s):
         # 'alpha_in': new_alpha,
         # 'alpha_belief': alpha_belief(amt_a),
         'posterior': {}
-    }
-
-    action['posterior'] = {'S': S, 'R': R, 'P': P, 'S1': S0, 'S1': S1,
-                           'Q0': Q0, 'Q1': Q1, 'kappa': kappa, 'alpha': alpha, 'I': I, 'V': V}
-
-    return {'action': action}
-
+    } """
 
 '''
     
