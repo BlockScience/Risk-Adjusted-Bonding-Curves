@@ -51,7 +51,6 @@ initial_conditions = {
     'private_alpha': 0,
     'kappa': 0,  # direct to initial kappa in params?
     'supply': supply,
-    # 'price': kappa*(reserve/supply), ### kappa*(reserve/supply)
     'alpha': 0,  # direct to initial alpha in params?
     'spot_alpha': 0,
     'supply_0': 0,
@@ -61,7 +60,12 @@ initial_conditions = {
     'attestations_1': 0,
     'invariant_V': invariant_V,  # (supply**kappa)/reserve
     # (reserve + C*alpha) if alpha is directed to the initial alpha in params, this will change
-    'invariant_I': invariant_I
+    'invariant_I': invariant_I,
+    'agent_attestations_1': 0,
+    'agent_attestations_0': 0,
+    'agent_supply': 0,
+    'agent_supply_1': 0,
+    'agent_supply_0': 0
 }
 
 print(initial_conditions)
