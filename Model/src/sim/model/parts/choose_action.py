@@ -30,13 +30,13 @@ def set_action(params, substep, state_history, prev_state):
     # new_private_price is obtained from update_private_price() function in private_beliefs
     if P > private_price:
         mech = 'burn'
-        amt_reserve = 0
-        amt_supply = P - private_price
+        amt_to_bond = 0
+        amt_to_burn = P - private_price
 
     elif P < private_price:
         mech = 'bond'
-        amt_reserve = priavte_price - P
-        amt_supply = 0
+        amt_to_bond = priavte_price - P
+        amt_to_burn = 0
 
     else:
         # don't trade
@@ -73,8 +73,8 @@ def set_action(params, substep, state_history, prev_state):
 
     return {
         'mech': mech,
-        'amt_reserve': amt_reserve,
-        'amt_supply': amt_supply,
+        'amt_to_bond': amt_to_bond,
+        'amt_to_burn': amt_to_burn,
         'amt_Q1': amt_Q1,
         'amt_Q0': amt_Q0,
         'amt_pos': amt_pos,
@@ -89,8 +89,8 @@ def set_action(params, substep, state_history, prev_state):
 
 """     action = {
         'mech': mech,
-        'amt_reserve': amt_reserve,
-        'amt_supply': amt_supply,
+        'amt_to_bond': amt_to_bond,
+        'amt_to_burn': amt_to_burn,
         'amt_Q1': amt_Q1,
         'amt_Q0': amt_Q0,
         'amt_pos': amt_pos,
