@@ -54,9 +54,9 @@ def update_alpha(params, substep, state_history, prev_state, policy_input):
     # kappa = prev_state['kappa']
     alpha = prev_state['alpha']
     R = prev_state['reserve']
-    C = _params['C']
-    S1 = prev_state['suppy_1']
-    S0 = prev_state['suppy_0']
+    C = params['C']
+    S1 = prev_state['supply_1']
+    S0 = prev_state['supply_0']
 
     deltas = policy_input['amt_pos'] + policy_input['amt_neg']
     deltaq1 = policy_input['amt_Q1']
@@ -75,19 +75,19 @@ def update_alpha(params, substep, state_history, prev_state, policy_input):
         new_alpha = E*(alpha) + (1-E)*(alpha)*((S1+S0)/(S1+S0+deltas)) + \
             (alpha_bar)*(deltas/(S1+S0+deltas))
 
-        elif deltaq0 > 0:
-            Q0 = prev_state['attestations_0']
-            # deltas = policy_input['amt_neg']
-            A = (1/(Q0*(Q0+deltaq0))) * \
-                ((q0*(Q0*deltas) - (deltaq0*s)) + deltaq0*((Q0*s0) + (Q0*deltas)))
+    elif deltaq0 > 0:
+        Q0 = prev_state['attestations_0']
+        # deltas = policy_input['amt_neg']
+        A = (1/(Q0*(Q0+deltaq0))) * \
+            ((q0*(Q0*deltas) - (deltaq0*s)) + deltaq0*((Q0*s0) + (Q0*deltas)))
 
-            alpha_bar = (deltas*R)/(A*(C+R) - (deltas*C))
+        alpha_bar = (deltas*R)/(A*(C+R) - (deltas*C))
 
-            new_alpha = E*(alpha) + (1-E)*(alpha)*((S1+S0)/(S1+S0+deltas)) + \
-                (alpha_bar)*(deltas/(S1+S0+deltas))
+        new_alpha = E*(alpha) + (1-E)*(alpha)*((S1+S0)/(S1+S0+deltas)) + \
+            (alpha_bar)*(deltas/(S1+S0+deltas))
 
-        else:
-            new_alpha = alpha
+    else:
+        new_alpha = alpha
 
     # alpha = spot_alpha(S, I, kappa, C)
     return 'alpha', new_alpha
@@ -96,9 +96,9 @@ def update_alpha(params, substep, state_history, prev_state, policy_input):
 def update_I(params, substep, state_history, prev_state, policy_input):
     alpha = prev_state['alpha']
     R = prev_state['reserve']
-    C = _params['C']
-    S1 = prev_state['suppy_1']
-    S0 = prev_state['suppy_0']
+    C = params['C']
+    S1 = prev_state['supply_1']
+    S0 = prev_state['supply_0']
 
     deltas = policy_input['amt_pos'] + policy_input['amt_neg']
     deltaq1 = policy_input['amt_Q1']
@@ -117,19 +117,19 @@ def update_I(params, substep, state_history, prev_state, policy_input):
         new_alpha = E*(alpha) + (1-E)*(alpha)*((S1+S0)/(S1+S0+deltas)) + \
             (alpha_bar)*(deltas/(S1+S0+deltas))
 
-        elif deltaq0 > 0:
-            Q0 = prev_state['attestations_0']
-            # deltas = policy_input['amt_neg']
-            A = (1/(Q0*(Q0+deltaq0))) * \
-                ((q0*(Q0*deltas) - (deltaq0*s)) + deltaq0*((Q0*s0) + (Q0*deltas)))
+    elif deltaq0 > 0:
+        Q0 = prev_state['attestations_0']
+        # deltas = policy_input['amt_neg']
+        A = (1/(Q0*(Q0+deltaq0))) * \
+            ((q0*(Q0*deltas) - (deltaq0*s)) + deltaq0*((Q0*s0) + (Q0*deltas)))
 
-            alpha_bar = (deltas*R)/(A*(C+R) - (deltas*C))
+        alpha_bar = (deltas*R)/(A*(C+R) - (deltas*C))
 
-            new_alpha = E*(alpha) + (1-E)*(alpha)*((S1+S0)/(S1+S0+deltas)) + \
-                (alpha_bar)*(deltas/(S1+S0+deltas))
+        new_alpha = E*(alpha) + (1-E)*(alpha)*((S1+S0)/(S1+S0+deltas)) + \
+            (alpha_bar)*(deltas/(S1+S0+deltas))
 
-        else:
-            new_alpha = alpha
+    else:
+        new_alpha = alpha
 
     I = R + (C*new_alpha)
 
@@ -139,9 +139,9 @@ def update_I(params, substep, state_history, prev_state, policy_input):
 def update_kappa(params, substep, state_history, prev_state, policy_input):
     alpha = prev_state['alpha']
     R = prev_state['reserve']
-    C = _params['C']
-    S1 = prev_state['suppy_1']
-    S0 = prev_state['suppy_0']
+    C = params['C']
+    S1 = prev_state['supply_1']
+    S0 = prev_state['supply_0']
 
     deltas = policy_input['amt_pos'] + policy_input['amt_neg']
     deltaq1 = policy_input['amt_Q1']
@@ -160,19 +160,19 @@ def update_kappa(params, substep, state_history, prev_state, policy_input):
         new_alpha = E*(alpha) + (1-E)*(alpha)*((S1+S0)/(S1+S0+deltas)) + \
             (alpha_bar)*(deltas/(S1+S0+deltas))
 
-        elif deltaq0 > 0:
-            Q0 = prev_state['attestations_0']
-            # deltas = policy_input['amt_neg']
-            A = (1/(Q0*(Q0+deltaq0))) * \
-                ((q0*(Q0*deltas) - (deltaq0*s)) + deltaq0*((Q0*s0) + (Q0*deltas)))
+    elif deltaq0 > 0:
+        Q0 = prev_state['attestations_0']
+        # deltas = policy_input['amt_neg']
+        A = (1/(Q0*(Q0+deltaq0))) * \
+            ((q0*(Q0*deltas) - (deltaq0*s)) + deltaq0*((Q0*s0) + (Q0*deltas)))
 
-            alpha_bar = (deltas*R)/(A*(C+R) - (deltas*C))
+        alpha_bar = (deltas*R)/(A*(C+R) - (deltas*C))
 
-            new_alpha = E*(alpha) + (1-E)*(alpha)*((S1+S0)/(S1+S0+deltas)) + \
-                (alpha_bar)*(deltas/(S1+S0+deltas))
+        new_alpha = E*(alpha) + (1-E)*(alpha)*((S1+S0)/(S1+S0+deltas)) + \
+            (alpha_bar)*(deltas/(S1+S0+deltas))
 
-        else:
-            new_alpha = alpha
+    else:
+        new_alpha = alpha
 
     I = R + (C*new_alpha)
 
@@ -187,9 +187,9 @@ def update_P(params, substep, state_history, prev_state, policy_input):
     alpha = prev_state['alpha']
     R = prev_state['reserve']
     S = prev_state['supply']
-    C = _params['C']
-    S1 = prev_state['suppy_1']
-    S0 = prev_state['suppy_0']
+    C = params['C']
+    S1 = prev_state['supply_1']
+    S0 = prev_state['supply_0']
 
     deltas = policy_input['amt_pos'] + policy_input['amt_neg']
     deltaq1 = policy_input['amt_Q1']
@@ -208,19 +208,19 @@ def update_P(params, substep, state_history, prev_state, policy_input):
         new_alpha = E*(alpha) + (1-E)*(alpha)*((S1+S0)/(S1+S0+deltas)) + \
             (alpha_bar)*(deltas/(S1+S0+deltas))
 
-        elif deltaq0 > 0:
-            Q0 = prev_state['attestations_0']
-            # deltas = policy_input['amt_neg']
-            A = (1/(Q0*(Q0+deltaq0))) * \
-                ((q0*(Q0*deltas) - (deltaq0*s)) + deltaq0*((Q0*s0) + (Q0*deltas)))
+    elif deltaq0 > 0:
+        Q0 = prev_state['attestations_0']
+        # deltas = policy_input['amt_neg']
+        A = (1/(Q0*(Q0+deltaq0))) * \
+            ((q0*(Q0*deltas) - (deltaq0*s)) + deltaq0*((Q0*s0) + (Q0*deltas)))
 
-            alpha_bar = (deltas*R)/(A*(C+R) - (deltas*C))
+        alpha_bar = (deltas*R)/(A*(C+R) - (deltas*C))
 
-            new_alpha = E*(alpha) + (1-E)*(alpha)*((S1+S0)/(S1+S0+deltas)) + \
-                (alpha_bar)*(deltas/(S1+S0+deltas))
+        new_alpha = E*(alpha) + (1-E)*(alpha)*((S1+S0)/(S1+S0+deltas)) + \
+            (alpha_bar)*(deltas/(S1+S0+deltas))
 
-        else:
-            new_alpha = alpha
+    else:
+        new_alpha = alpha
 
     I = R + (C*new_alpha)
 
@@ -237,9 +237,9 @@ def update_V(params, substep, state_history, prev_state, policy_input):
     alpha = prev_state['alpha']
     R = prev_state['reserve']
     S = prev_state['supply']
-    C = _params['C']
-    S1 = prev_state['suppy_1']
-    S0 = prev_state['suppy_0']
+    C = params['C']
+    S1 = prev_state['supply_1']
+    S0 = prev_state['supply_0']
 
     deltas = policy_input['amt_pos'] + policy_input['amt_neg']
     deltaq1 = policy_input['amt_Q1']
@@ -258,19 +258,19 @@ def update_V(params, substep, state_history, prev_state, policy_input):
         new_alpha = E*(alpha) + (1-E)*(alpha)*((S1+S0)/(S1+S0+deltas)) + \
             (alpha_bar)*(deltas/(S1+S0+deltas))
 
-        elif deltaq0 > 0:
-            Q0 = prev_state['attestations_0']
-            # deltas = policy_input['amt_neg']
-            A = (1/(Q0*(Q0+deltaq0))) * \
-                ((q0*(Q0*deltas) - (deltaq0*s)) + deltaq0*((Q0*s0) + (Q0*deltas)))
+    elif deltaq0 > 0:
+        Q0 = prev_state['attestations_0']
+        # deltas = policy_input['amt_neg']
+        A = (1/(Q0*(Q0+deltaq0))) * \
+            ((q0*(Q0*deltas) - (deltaq0*s)) + deltaq0*((Q0*s0) + (Q0*deltas)))
 
-            alpha_bar = (deltas*R)/(A*(C+R) - (deltas*C))
+        alpha_bar = (deltas*R)/(A*(C+R) - (deltas*C))
 
-            new_alpha = E*(alpha) + (1-E)*(alpha)*((S1+S0)/(S1+S0+deltas)) + \
-                (alpha_bar)*(deltas/(S1+S0+deltas))
+        new_alpha = E*(alpha) + (1-E)*(alpha)*((S1+S0)/(S1+S0+deltas)) + \
+            (alpha_bar)*(deltas/(S1+S0+deltas))
 
-        else:
-            new_alpha = alpha
+    else:
+        new_alpha = alpha
 
     I = R + (C*new_alpha)
 
@@ -278,13 +278,13 @@ def update_V(params, substep, state_history, prev_state, policy_input):
 
     V = (S**(kappa))/R
 
- """    R = prev_state['reserve']
-    S = prev_state['supply']
-    kappa = prev_state['kappa']
-
-    V = invariant_V(R, S, kappa) """
-    
     return 'invariant_V', V
+
+#    R = prev_state['reserve']
+#    S = prev_state['supply']
+#    kappa = prev_state['kappa']
+
+#    V = invariant_V(R, S, kappa) """
 
 
 '''

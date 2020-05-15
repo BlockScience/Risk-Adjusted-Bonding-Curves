@@ -9,7 +9,7 @@ def set_action(params, substep, state_history, prev_state):
     S = prev_state['supply']
     V = prev_state['invariant_V']
     I = prev_state['invariant_I']
-    P = prev_state['spot_price'][substep-2]
+    P = prev_state['spot_price'][0]
     print("SPOT PRICE P =", P)
     print("SUBSTEP =", substep)
     private_price = prev_state['private_price']
@@ -35,11 +35,14 @@ def set_action(params, substep, state_history, prev_state):
 
     elif P < private_price:
         mech = 'bond'
-        amt_to_bond = priavte_price - P
+        amt_to_bond = private_price - P
         amt_to_burn = 0
 
     else:
         # don't trade
+        mech = None
+        amt_to_bond = 0
+        amt_to_burn = 0
         print("No trade")
 
     if alpha > private_alpha:
@@ -62,10 +65,15 @@ def set_action(params, substep, state_history, prev_state):
 
     else:
         # don't attest
+        mech = None
         amt_Q1 = 0
         amt_Q0 = 0
         amt_pos = 0
         amt_neg = 0
+        S1 = S1 + amt_pos
+        S0 = S0 + amt_neg
+        Q1 = Q1 + amt_Q1
+        Q0 = Q0 + amt_Q0
         print("No attestation")
 
         # action['posterior'] = {'S': S, 'R': R, 'P': P, 'S1': S0, 'S1': S1,

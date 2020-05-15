@@ -1,5 +1,5 @@
 from .choose_action import *
-from ..import bonding_curve_eq
+#from ..import bonding_curve_eq
 
 # Include this function as another part so as to account for all mechansims (?)
 # don't require this because handling with amounts (0 vs +ve) instead of action performed
@@ -17,11 +17,14 @@ def update_R(params, substep, state_history, prev_state, policy_input):
     #action = _input['action']
     #deltaS = _input['amt_to_burn']
     # access amt_to_burn using _input['action']['amt_to_burn'] because it's a dict of dicts
-    print("policy_input = ", policy_input)
-    print("policy_input['action'] = ", policy_input['action'])
+    R = prev_state['reserve']
+    S = prev_state['supply']
+    V = prev_state['invariant_V']
+    kappa = prev_state['kappa']
     deltaS = policy_input['amt_to_burn']
+    print("policy_input = ", policy_input)
 
-    deltaR = R-((S-deltaS)**kappa)/V0
+    deltaR = R-((S-deltaS)**kappa)/V
     R = R + policy_input['amt_to_bond'] - deltaR
     print("RESERVE = ", R)
 
@@ -31,10 +34,15 @@ def update_R(params, substep, state_history, prev_state, policy_input):
 def update_S(params, substep, state_history, prev_state, policy_input):
     #action = _input['action']
     #deltaR = _input['amt_to_bond']
+    R = prev_state['reserve']
+    S = prev_state['supply']
+    V = prev_state['invariant_V']
+    kappa = prev_state['kappa']
     deltaR = policy_input['amt_to_bond']
 
-    deltaS = (V0*(R+deltaR))**(1/kappa)-S
+    deltaS = (V*(R+deltaR))**(1/kappa)-S
     S = S + deltaS - policy_input['amt_to_burn']
+    print("SUPPLY = ", S)
 
     return 'supply', S
 
@@ -59,7 +67,8 @@ def update_price(params, substep, state_history, prev_state, policy_input):
     else:
         P = deltaR/deltaS
 
-    return 'price', P
+    print("SPOT PRICE P (from update) =", P)
+    return 'spot_price', P
 
 
 """     R = prev_state['reserve']
@@ -72,7 +81,8 @@ def update_price(params, substep, state_history, prev_state, policy_input):
 def update_pbar(params, substep, state_history, prev_state, policy_input):
     R = prev_state['reserve']
     S = prev_state['supply']
-    V = prev_state['V']
+    V = prev_state['invariant_V']
+    kappa = prev_state['kappa']
     deltaS = policy_input['amt_to_burn']
     deltaR = policy_input['amt_to_bond']
 
@@ -83,16 +93,18 @@ def update_pbar(params, substep, state_history, prev_state, policy_input):
 
     realized_price = deltaR/deltaS
     pbar = realized_price
-    return 'realized_price', pbar
+    print("PRICE pbar (from update) =", pbar)
+    return 'price', pbar
 
 
 def update_I(params, substep, state_history, prev_state, policy_input):
     R = prev_state['reserve']
-    C = _params['C']
+    C = params['C']
     alpha = prev_state['alpha']
     delta_R = policy_input['amt_to_burn']
 
     I = (R + deltaR) + (C*alpha)
+    print("INVARIANT I (from update) =", I)
     return 'invariant_I', I
 
 # kappa does not change
