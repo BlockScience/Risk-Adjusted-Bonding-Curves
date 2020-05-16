@@ -70,10 +70,6 @@ def set_action(params, substep, state_history, prev_state):
         amt_Q0 = 0
         amt_pos = 0
         amt_neg = 0
-        S1 = S1 + amt_pos
-        S0 = S0 + amt_neg
-        Q1 = Q1 + amt_Q1
-        Q0 = Q0 + amt_Q0
         print("No attestation")
 
         # action['posterior'] = {'S': S, 'R': R, 'P': P, 'S1': S0, 'S1': S1,

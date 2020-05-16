@@ -101,7 +101,7 @@ def update_I(params, substep, state_history, prev_state, policy_input):
     R = prev_state['reserve']
     C = params['C']
     alpha = prev_state['alpha']
-    delta_R = policy_input['amt_to_burn']
+    deltaR = policy_input['amt_to_burn']
 
     I = (R + deltaR) + (C*alpha)
     print("INVARIANT I (from update) =", I)
