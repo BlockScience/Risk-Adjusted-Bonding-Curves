@@ -10,6 +10,7 @@ from cadCAD import configs
 
 time_periods_per_run = 4000
 monte_carlo_runs = 1
+E = 0.45  # TO BE REVIEWED, see attest.py
 
 """ KAPPA = [2, 1]
 PRICE = [1]
@@ -19,14 +20,16 @@ MONEY_RAISED = [1000]
 PERIOD = ['N/A', 2000, 2000, 2000] """
 
 KAPPA = [2]
-PRICE = [1]
+PRICE = 1
 C = [700]
 ALPHA = [0.5]
 MONEY_RAISED = [1000]
 PERIOD = [2000]
+Q1 = 1
+Q0 = 1
 
 reserve = MONEY_RAISED[0] - C[0]
-supply = KAPPA[0]*(reserve/PRICE[0])
+supply = KAPPA[0]*(reserve/PRICE)
 supply_free = supply
 invariant_V = (supply**KAPPA[0])/reserve
 invariant_I = reserve + (C[0]*ALPHA[0])
@@ -56,8 +59,8 @@ initial_conditions = {
     'supply_0': 0,
     'supply_1': 0,
     'supply_free': supply_free,
-    'attestations_0': 0,
-    'attestations_1': 0,
+    'attestations_0': Q0,
+    'attestations_1': Q1,
     'invariant_V': invariant_V,  # (supply**kappa)/reserve
     # (reserve + C*alpha) if alpha is directed to the initial alpha in params, this will change
     'invariant_I': invariant_I,

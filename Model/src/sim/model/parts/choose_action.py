@@ -9,7 +9,7 @@ def set_action(params, substep, state_history, prev_state):
     S = prev_state['supply']
     V = prev_state['invariant_V']
     I = prev_state['invariant_I']
-    P = prev_state['spot_price'][0]
+    P = prev_state['spot_price']
     print("SPOT PRICE P =", P)
     print("SUBSTEP =", substep)
     private_price = prev_state['private_price']

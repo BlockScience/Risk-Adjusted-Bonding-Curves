@@ -27,4 +27,4 @@ def update_private_alpha(params, substep, state_history, prev_state, policy_inpu
     # Private alpha belief signal is a ramp
     sign = (-1)**int((2*prev_state['timestep']/signal['period']))
     new_private_alpha = prev_state['alpha'] + signal['dP']*sign
-    return 'private alpha', new_private_alpha
+    return 'private_alpha', new_private_alpha

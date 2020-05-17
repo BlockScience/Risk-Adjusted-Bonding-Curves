@@ -38,7 +38,7 @@ partial_state_update_blocks = [
             # Bond-to-mint or burn-to-withdraw
             'reserve': update_R,
             'supply': update_S,
-            'spot_price': update_P,  # verify
+            'spot_price': update_P_bondburn,  # verify
             'price': update_pbar,  # verify
             'invariant_I': update_I
         }
@@ -56,7 +56,7 @@ partial_state_update_blocks = [
             'attestations_0': update_Q0,
             'spot_alpha': update_alpha,
             'kappa': update_kappa,
-            'spot_price': update_P,
+            'spot_price': update_P_attest,
             'invariant_V': update_V
         }
     },

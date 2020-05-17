@@ -1,5 +1,7 @@
 from .choose_action import *
 
+E = 0.45  # TO BE REVIEWED
+
 # Include this function as another part so as to account for all mechansims (?)
 # don't require this because handling with amounts (0 vs +ve) instead of action performed
 '''def action_taken():
@@ -65,6 +67,7 @@ def update_alpha(params, substep, state_history, prev_state, policy_input):
     if deltaq1 > 0:
         Q1 = prev_state['attestations_1']
         q1 = prev_state['agent_attestations_1']
+        s = prev_state['agent_supply']
         s1 = prev_state['agent_supply_1']
         #  deltas = policy_input['amt_pos']
         A = (1/(Q1*(Q1+deltaq1))) * \
@@ -77,6 +80,9 @@ def update_alpha(params, substep, state_history, prev_state, policy_input):
 
     elif deltaq0 > 0:
         Q0 = prev_state['attestations_0']
+        q0 = prev_state['agent_attestations_0']
+        s = prev_state['agent_supply']
+        s0 = prev_state['agent_supply_0']
         # deltas = policy_input['amt_neg']
         A = (1/(Q0*(Q0+deltaq0))) * \
             ((q0*(Q0*deltas) - (deltaq0*s)) + deltaq0*((Q0*s0) + (Q0*deltas)))
@@ -93,7 +99,8 @@ def update_alpha(params, substep, state_history, prev_state, policy_input):
     return 'alpha', new_alpha
 
 
-def update_I(params, substep, state_history, prev_state, policy_input):
+# DELETE THIS
+""" def update_I(params, substep, state_history, prev_state, policy_input):
     alpha = prev_state['alpha']
     R = prev_state['reserve']
     C = params['C']
@@ -133,7 +140,7 @@ def update_I(params, substep, state_history, prev_state, policy_input):
 
     I = R + (C*new_alpha)
 
-    return 'invariant_I', I
+    return 'invariant_I', I """
 
 
 def update_kappa(params, substep, state_history, prev_state, policy_input):
@@ -150,6 +157,7 @@ def update_kappa(params, substep, state_history, prev_state, policy_input):
     if deltaq1 > 0:
         Q1 = prev_state['attestations_1']
         q1 = prev_state['agent_attestations_1']
+        s = prev_state['agent_supply']
         s1 = prev_state['agent_supply_1']
         #  deltas = policy_input['amt_pos']
         A = (1/(Q1*(Q1+deltaq1))) * \
@@ -162,6 +170,9 @@ def update_kappa(params, substep, state_history, prev_state, policy_input):
 
     elif deltaq0 > 0:
         Q0 = prev_state['attestations_0']
+        q0 = prev_state['agent_attestations_0']
+        s = prev_state['agent_supply']
+        s0 = prev_state['agent_supply_0']
         # deltas = policy_input['amt_neg']
         A = (1/(Q0*(Q0+deltaq0))) * \
             ((q0*(Q0*deltas) - (deltaq0*s)) + deltaq0*((Q0*s0) + (Q0*deltas)))
@@ -182,7 +193,7 @@ def update_kappa(params, substep, state_history, prev_state, policy_input):
     return 'kappa', kappa
 
 
-def update_P(params, substep, state_history, prev_state, policy_input):
+def update_P_attest(params, substep, state_history, prev_state, policy_input):
 
     alpha = prev_state['alpha']
     R = prev_state['reserve']
@@ -198,7 +209,10 @@ def update_P(params, substep, state_history, prev_state, policy_input):
     if deltaq1 > 0:
         Q1 = prev_state['attestations_1']
         q1 = prev_state['agent_attestations_1']
+        s = prev_state['agent_supply']
         s1 = prev_state['agent_supply_1']
+        print("Q1 =", Q1)
+        print("deltaq1 =", deltaq1)
         #  deltas = policy_input['amt_pos']
         A = (1/(Q1*(Q1+deltaq1))) * \
             ((q1*(Q1*deltas) - (deltaq1*s)) + deltaq1*((Q1*s1) + (Q1*deltas)))
@@ -210,6 +224,11 @@ def update_P(params, substep, state_history, prev_state, policy_input):
 
     elif deltaq0 > 0:
         Q0 = prev_state['attestations_0']
+        q0 = prev_state['agent_attestations_0']
+        s = prev_state['agent_supply']
+        s0 = prev_state['agent_supply_0']
+        print("Q0 =", Q0)
+        print("deltaq0 =", deltaq0)
         # deltas = policy_input['amt_neg']
         A = (1/(Q0*(Q0+deltaq0))) * \
             ((q0*(Q0*deltas) - (deltaq0*s)) + deltaq0*((Q0*s0) + (Q0*deltas)))
@@ -248,7 +267,10 @@ def update_V(params, substep, state_history, prev_state, policy_input):
     if deltaq1 > 0:
         Q1 = prev_state['attestations_1']
         q1 = prev_state['agent_attestations_1']
+        s = prev_state['agent_supply']
         s1 = prev_state['agent_supply_1']
+        print("Q1 =", Q1)
+        print("deltaq1 =", deltaq1)
         #  deltas = policy_input['amt_pos']
         A = (1/(Q1*(Q1+deltaq1))) * \
             ((q1*(Q1*deltas) - (deltaq1*s)) + deltaq1*((Q1*s1) + (Q1*deltas)))
@@ -260,6 +282,9 @@ def update_V(params, substep, state_history, prev_state, policy_input):
 
     elif deltaq0 > 0:
         Q0 = prev_state['attestations_0']
+        q0 = prev_state['agent_attestations_0']
+        s = prev_state['agent_supply']
+        s0 = prev_state['agent_supply_0']
         # deltas = policy_input['amt_neg']
         A = (1/(Q0*(Q0+deltaq0))) * \
             ((q0*(Q0*deltas) - (deltaq0*s)) + deltaq0*((Q0*s0) + (Q0*deltas)))

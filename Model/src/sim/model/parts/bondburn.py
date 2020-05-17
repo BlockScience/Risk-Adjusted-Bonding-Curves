@@ -20,13 +20,17 @@ def update_R(params, substep, state_history, prev_state, policy_input):
     R = prev_state['reserve']
     S = prev_state['supply']
     V = prev_state['invariant_V']
+    print("V = ", V)
     kappa = prev_state['kappa']
     deltaS = policy_input['amt_to_burn']
     print("policy_input = ", policy_input)
 
-    deltaR = R-((S-deltaS)**kappa)/V
-    R = R + policy_input['amt_to_bond'] - deltaR
-    print("RESERVE = ", R)
+    if V == 0:
+        print("V IS ZERO")
+    else:
+        deltaR = R-((S-deltaS)**kappa)/V
+        R = R + policy_input['amt_to_bond'] - deltaR
+        print("RESERVE = ", R)
 
     return 'reserve', R
 
@@ -47,23 +51,24 @@ def update_S(params, substep, state_history, prev_state, policy_input):
     return 'supply', S
 
 
-def update_price(params, substep, state_history, prev_state, policy_input):
+def update_P_bondburn(params, substep, state_history, prev_state, policy_input):
     amt_to_bond = policy_input['amt_to_bond']
     amt_to_burn = policy_input['amt_to_burn']
     kappa = prev_state['kappa']
     R = prev_state['reserve']
     S = prev_state['supply']
-    V = prev_state['V']
+    V = prev_state['invariant_V']
+    print("V from update_P_bondburn = ", V)
 
     if amt_to_bond > 0:  # bond
         deltaR = amt_to_bond
-        deltaS = (V0*(R+deltaR))**(1/kappa)-S
+        deltaS = (V*(R+deltaR))**(1/kappa)-S
     elif amt_to_burn > 0:  # burn
         deltaS = amt_to_burn
-        deltaR = deltaR = R-((S-deltaS)**kappa)/V0
+        deltaR = deltaR = R-((S-deltaS)**kappa)/V
 
     if deltaS == 0:
-        P = kappa*(R**((kappa-1)/kappa)/V0**(1/kappa))
+        P = kappa*(R**((kappa-1)/kappa)/V**(1/kappa))
     else:
         P = deltaR/deltaS
 
