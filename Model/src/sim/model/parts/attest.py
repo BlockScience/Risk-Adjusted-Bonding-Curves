@@ -50,6 +50,46 @@ def update_Q0(params, substep, state_history, prev_state, policy_input):
     return 'attestations_0', Q0
 
 
+def update_q0(params, substep, state_history, prev_state, policy_input):
+    q0 = prev_state['agent_attestations_0']
+    deltaq0 = policy_input['amt_Q0']
+
+    q0 = q0 + deltaq0
+    return 'agent_attestations_0', q0
+
+
+def update_q1(params, substep, state_history, prev_state, policy_input):
+    q1 = prev_state['agent_attestations_1']
+    deltaq1 = policy_input['amt_Q1']
+
+    q1 = q1 + deltaq1
+    return 'agent_attestations_1', q1
+
+
+def update_s(params, substep, state_history, prev_state, policy_input):
+    s = prev_state['agent_supply']
+    deltas = policy_input['amt_pos'] + policy_input['amt_neg']
+
+    s = s - deltas
+    return 'agent_supply', s
+
+
+def update_s0(params, substep, state_history, prev_state, policy_input):
+    s0 = prev_state['agent_supply_0']
+    deltas = policy_input['amt_pos'] + policy_input['amt_neg']
+
+    s0 = s0 + deltas
+    return 'agent_supply_0', s0
+
+
+def update_s1(params, substep, state_history, prev_state, policy_input):
+    s1 = prev_state['agent_supply_1']
+    deltas = policy_input['amt_pos'] + policy_input['amt_neg']
+
+    s1 = s1 + deltas
+    return 'agent_supply_1', s1
+
+
 def update_alpha(params, substep, state_history, prev_state, policy_input):
     # S = prev_state['supply']
     # I = prev_state['invariant_I']
@@ -60,6 +100,7 @@ def update_alpha(params, substep, state_history, prev_state, policy_input):
     S1 = prev_state['supply_1']
     S0 = prev_state['supply_0']
 
+    s = prev_state['agent_supply']
     deltas = policy_input['amt_pos'] + policy_input['amt_neg']
     deltaq1 = policy_input['amt_Q1']
     deltaq0 = policy_input['amt_Q0']
@@ -67,7 +108,6 @@ def update_alpha(params, substep, state_history, prev_state, policy_input):
     if deltaq1 > 0:
         Q1 = prev_state['attestations_1']
         q1 = prev_state['agent_attestations_1']
-        s = prev_state['agent_supply']
         s1 = prev_state['agent_supply_1']
         #  deltas = policy_input['amt_pos']
         A = (1/(Q1*(Q1+deltaq1))) * \
@@ -81,7 +121,6 @@ def update_alpha(params, substep, state_history, prev_state, policy_input):
     elif deltaq0 > 0:
         Q0 = prev_state['attestations_0']
         q0 = prev_state['agent_attestations_0']
-        s = prev_state['agent_supply']
         s0 = prev_state['agent_supply_0']
         # deltas = policy_input['amt_neg']
         A = (1/(Q0*(Q0+deltaq0))) * \
@@ -96,9 +135,13 @@ def update_alpha(params, substep, state_history, prev_state, policy_input):
         new_alpha = alpha
 
     # alpha = spot_alpha(S, I, kappa, C)
-    print("A = ", A)
-    print("alpha_bar = ", alpha_bar)
-    print("new_alpha = ", new_alpha)
+    print("Q0 = ", prev_state['attestations_0'], "| Q1 = ", prev_state['attestations_1'],
+          "| q0 = ", prev_state['agent_attestations_0'], "| q1 = ", prev_state['agent_attestations_1'])
+    print("deltaq0 = ", deltaq0, "deltaq1 = ", deltaq1)
+    print("s = ", s, "| deltas = ", deltas)
+    #print("A = ", A)
+    #print("alpha_bar = ", alpha_bar)
+    #print("new_alpha = ", new_alpha)
     return 'alpha', new_alpha
 
 
