@@ -10,31 +10,29 @@ def set_action(params, substep, state_history, prev_state):
     V = prev_state['invariant_V']
     I = prev_state['invariant_I']
     P = prev_state['spot_price']
-    print("SPOT PRICE P =", P)
-    print("SUBSTEP =", substep)
     private_price = prev_state['private_price']
-    print("private_price =", private_price)
     private_alpha = prev_state['private_alpha']
-    print("private_alpha =", private_alpha)
     S1 = prev_state['supply_1']
     S0 = prev_state['supply_0']
     Q1 = prev_state['attestations_1']
     Q0 = prev_state['attestations_0']
     start_kappa = params['starting_kappa']
     start_alpha = params['starting_alpha']
-    alpha = prev_state['spot_alpha']
-    print("alpha = ", alpha)
+    alpha = prev_state['alpha']
     kappa = prev_state['kappa']
+    print("kappa")
     period = params['period']
 
     # new_private_price is obtained from update_private_price() function in private_beliefs
     if P > private_price:
         mech = 'burn'
+        print("Agent burns. P = ", P, "private_price = ", private_price)
         amt_to_bond = 0
         amt_to_burn = P - private_price
 
     elif P < private_price:
         mech = 'bond'
+        print("Agent bonds. P = ", P, "private_price = ", private_price)
         amt_to_bond = private_price - P
         amt_to_burn = 0
 
@@ -43,10 +41,12 @@ def set_action(params, substep, state_history, prev_state):
         mech = None
         amt_to_bond = 0
         amt_to_burn = 0
-        print("No trade")
+        print("No trade. P = ", P, "private_price = ", private_price)
 
     if alpha > private_alpha:
         mech = 'attest_neg'
+        print("Agent attests negative. alpha = ",
+              alpha, "private_alpha = ", private_alpha)
         amt_Q1 = 0
         amt_Q0 = alpha - private_alpha
         amt_neg = amt_Q0  # VERIFY THIS
@@ -56,6 +56,8 @@ def set_action(params, substep, state_history, prev_state):
 
     elif alpha < private_alpha:
         mech = 'attest_pos'
+        print("Agent attests positive. alpha = ",
+              alpha, "private_alpha = ", private_alpha)
         amt_Q1 = private_alpha - alpha
         amt_Q0 = 0
         amt_neg = 0
@@ -70,7 +72,8 @@ def set_action(params, substep, state_history, prev_state):
         amt_Q0 = 0
         amt_pos = 0
         amt_neg = 0
-        print("No attestation")
+        print("No attestation. alpha = ", alpha,
+              "private_alpha = ", private_alpha)
 
         # action['posterior'] = {'S': S, 'R': R, 'P': P, 'S1': S0, 'S1': S1,
         #               'Q0': Q0, 'Q1': Q1, 'kappa': kappa, 'alpha': alpha, 'I': I, 'V': V}

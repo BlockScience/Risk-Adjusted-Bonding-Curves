@@ -96,6 +96,9 @@ def update_alpha(params, substep, state_history, prev_state, policy_input):
         new_alpha = alpha
 
     # alpha = spot_alpha(S, I, kappa, C)
+    print("A = ", A)
+    print("alpha_bar = ", alpha_bar)
+    print("new_alpha = ", new_alpha)
     return 'alpha', new_alpha
 
 
@@ -211,9 +214,7 @@ def update_P_attest(params, substep, state_history, prev_state, policy_input):
         q1 = prev_state['agent_attestations_1']
         s = prev_state['agent_supply']
         s1 = prev_state['agent_supply_1']
-        print("Q1 =", Q1)
-        print("deltaq1 =", deltaq1)
-        #  deltas = policy_input['amt_pos']
+
         A = (1/(Q1*(Q1+deltaq1))) * \
             ((q1*(Q1*deltas) - (deltaq1*s)) + deltaq1*((Q1*s1) + (Q1*deltas)))
 
@@ -227,9 +228,7 @@ def update_P_attest(params, substep, state_history, prev_state, policy_input):
         q0 = prev_state['agent_attestations_0']
         s = prev_state['agent_supply']
         s0 = prev_state['agent_supply_0']
-        print("Q0 =", Q0)
-        print("deltaq0 =", deltaq0)
-        # deltas = policy_input['amt_neg']
+
         A = (1/(Q0*(Q0+deltaq0))) * \
             ((q0*(Q0*deltas) - (deltaq0*s)) + deltaq0*((Q0*s0) + (Q0*deltas)))
 
@@ -248,7 +247,8 @@ def update_P_attest(params, substep, state_history, prev_state, policy_input):
     P = kappa * (R/S)
     # VERIFY how this is different from dR/dS and their applicability
     # P = kappa*(R/S)
-    return 'price', P
+    print("SPOT PRICE P (from attest update = ", P)
+    return 'spot_price', P
 
 
 def update_V(params, substep, state_history, prev_state, policy_input):
@@ -269,9 +269,7 @@ def update_V(params, substep, state_history, prev_state, policy_input):
         q1 = prev_state['agent_attestations_1']
         s = prev_state['agent_supply']
         s1 = prev_state['agent_supply_1']
-        print("Q1 =", Q1)
-        print("deltaq1 =", deltaq1)
-        #  deltas = policy_input['amt_pos']
+
         A = (1/(Q1*(Q1+deltaq1))) * \
             ((q1*(Q1*deltas) - (deltaq1*s)) + deltaq1*((Q1*s1) + (Q1*deltas)))
 

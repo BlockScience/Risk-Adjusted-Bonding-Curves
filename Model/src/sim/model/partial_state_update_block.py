@@ -54,7 +54,7 @@ partial_state_update_blocks = [
             'supply_0': update_S0,
             'attestations_1': update_Q1,
             'attestations_0': update_Q0,
-            'spot_alpha': update_alpha,
+            'alpha': update_alpha,
             'kappa': update_kappa,
             'spot_price': update_P_attest,
             'invariant_V': update_V

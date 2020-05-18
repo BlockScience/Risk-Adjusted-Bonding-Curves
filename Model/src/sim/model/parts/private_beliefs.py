@@ -17,7 +17,6 @@ def update_private_price(params, substep, state_history, prev_state, policy_inpu
     # Private price belief signal is a sine wave
     print("signal['dP'] = ", signal['dP'])
     print("prev_state['timestep'] = ", prev_state['timestep'])
-    print("signal['period'] = ", signal['period'])
     new_private_price = P0[0] + signal['dP'] * \
         np.sin(2*np.pi*prev_state['timestep']/signal['period'])
     return 'private_price', new_private_price

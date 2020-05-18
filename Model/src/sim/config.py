@@ -3,7 +3,7 @@ from cadCAD.configuration.utils import config_sim
 
 #from model.sys_params import params
 #from model.state_variables import initial_conditions
-from model.partial_state_update_block import partial_state_update_blocks
+from .model.partial_state_update_block import partial_state_update_blocks
 
 from copy import deepcopy
 from cadCAD import configs
@@ -54,8 +54,8 @@ initial_conditions = {
     'private_alpha': 0,
     'kappa': 0,  # direct to initial kappa in params?
     'supply': supply,
-    'alpha': 0,  # direct to initial alpha in params?
-    'spot_alpha': 0,
+    'alpha': ALPHA,  # direct to initial alpha in params?
+    # 'spot_alpha': 0,
     'supply_0': 0,
     'supply_1': 0,
     'supply_free': supply_free,
@@ -71,7 +71,7 @@ initial_conditions = {
     'agent_supply_0': 0
 }
 
-print(initial_conditions)
+print("Initial Conditions (config.py) : ", initial_conditions)
 
 sim_config = config_sim({
     'T': range(time_periods_per_run),
@@ -92,8 +92,7 @@ append_configs(
 for c in configs:
     c.initial_state = deepcopy(c.initial_state)
 
-    print("PARAMS DICT")
-    print(c.sim_config['M'])
+    print("Params (config.py) : ", c.sim_config['M'])
 
     c.initial_state['kappa'] = c.sim_config['M']['starting_kappa']
     c.initial_state['alpha'] = c.sim_config['M']['starting_alpha']

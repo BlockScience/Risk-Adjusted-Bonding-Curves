@@ -20,10 +20,10 @@ def update_R(params, substep, state_history, prev_state, policy_input):
     R = prev_state['reserve']
     S = prev_state['supply']
     V = prev_state['invariant_V']
-    print("V = ", V)
+    print("invariant_V = ", V)
     kappa = prev_state['kappa']
+    print("kappa = ", kappa)
     deltaS = policy_input['amt_to_burn']
-    print("policy_input = ", policy_input)
 
     if V == 0:
         print("V IS ZERO")
@@ -58,7 +58,6 @@ def update_P_bondburn(params, substep, state_history, prev_state, policy_input):
     R = prev_state['reserve']
     S = prev_state['supply']
     V = prev_state['invariant_V']
-    print("V from update_P_bondburn = ", V)
 
     if amt_to_bond > 0:  # bond
         deltaR = amt_to_bond
@@ -67,12 +66,13 @@ def update_P_bondburn(params, substep, state_history, prev_state, policy_input):
         deltaS = amt_to_burn
         deltaR = deltaR = R-((S-deltaS)**kappa)/V
 
-    if deltaS == 0:
-        P = kappa*(R**((kappa-1)/kappa)/V**(1/kappa))
+    if amt_to_burn == 0:
+        P = kappa*(R**((kappa-1.0)/kappa)/(float(V) **
+                                           (1.0/float(kappa))))  # Zero handling
     else:
-        P = deltaR/deltaS
+        P = amt_to_bond/amt_to_burn  # deltaR/deltaS
 
-    print("SPOT PRICE P (from update) =", P)
+    print("SPOT PRICE P (from bondburn update) = ", P)
     return 'spot_price', P
 
 
@@ -106,9 +106,10 @@ def update_I(params, substep, state_history, prev_state, policy_input):
     R = prev_state['reserve']
     C = params['C']
     alpha = prev_state['alpha']
-    deltaR = policy_input['amt_to_burn']
+    deltaR = policy_input['amt_to_bond']
 
     I = (R + deltaR) + (C*alpha)
+    print("C =", C, "alpha = ", alpha, "R = ", R, "deltaR = ", deltaR)
     print("INVARIANT I (from update) =", I)
     return 'invariant_I', I
 

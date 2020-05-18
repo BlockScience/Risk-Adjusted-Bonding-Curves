@@ -1,3 +1,4 @@
+# NOT USING THIS ATM
 import numpy as np
 
 E =  # epsilon for convex combination
