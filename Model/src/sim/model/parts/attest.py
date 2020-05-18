@@ -66,7 +66,7 @@ def update_q1(params, substep, state_history, prev_state, policy_input):
     return 'agent_attestations_1', q1
 
 
-def update_s(params, substep, state_history, prev_state, policy_input):
+def update_s_attest(params, substep, state_history, prev_state, policy_input):
     s = prev_state['agent_supply']
     deltas = policy_input['amt_pos'] + policy_input['amt_neg']
 

@@ -14,6 +14,7 @@ def set_action(params, substep, state_history, prev_state):
     private_alpha = prev_state['private_alpha']
     S1 = prev_state['supply_1']
     S0 = prev_state['supply_0']
+    s = prev_state['agent_supply']
     Q1 = prev_state['attestations_1']
     Q0 = prev_state['attestations_0']
     start_kappa = params['starting_kappa']
@@ -25,13 +26,13 @@ def set_action(params, substep, state_history, prev_state):
 
     # new_private_price is obtained from update_private_price() function in private_beliefs
     if P > private_price:
-        mech = 'burn'
+        mech = 'burn'  # burn deltaS to get deltaR.
         print("Agent burns. P = ", P, "private_price = ", private_price)
         amt_to_bond = 0
         amt_to_burn = P - private_price
 
     elif P < private_price:
-        mech = 'bond'
+        mech = 'bond'  # bond deltaR to get deltaS
         print("Agent bonds. P = ", P, "private_price = ", private_price)
         amt_to_bond = private_price - P
         amt_to_burn = 0
@@ -43,7 +44,7 @@ def set_action(params, substep, state_history, prev_state):
         amt_to_burn = 0
         print("No trade. P = ", P, "private_price = ", private_price)
 
-    if alpha > private_alpha:
+    if alpha > private_alpha and s > 0:
         mech = 'attest_neg'
         print("Agent attests negative. alpha = ",
               alpha, "private_alpha = ", private_alpha)
@@ -54,7 +55,7 @@ def set_action(params, substep, state_history, prev_state):
         S0 = S0 + amt_neg
         Q0 = Q0 + amt_Q0
 
-    elif alpha < private_alpha:
+    elif alpha < private_alpha and s > 0:
         mech = 'attest_pos'
         print("Agent attests positive. alpha = ",
               alpha, "private_alpha = ", private_alpha)

@@ -66,6 +66,7 @@ initial_conditions = {
     'invariant_I': invariant_I,
     'agent_attestations_1': 0,
     'agent_attestations_0': 0,
+    'agent_reserve': 0,
     'agent_supply': 0,
     'agent_supply_1': 0,
     'agent_supply_0': 0

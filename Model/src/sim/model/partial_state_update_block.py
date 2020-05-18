@@ -38,6 +38,8 @@ partial_state_update_blocks = [
             # Bond-to-mint or burn-to-withdraw
             'reserve': update_R,
             'supply': update_S,
+            'agent_reserve': update_r,
+            'agent_supply': update_s_bondburn,
             'spot_price': update_P_bondburn,  # verify
             'price': update_pbar,  # verify
             'invariant_I': update_I
@@ -52,7 +54,7 @@ partial_state_update_blocks = [
             # Attest positive or attest negative
             'supply_1': update_S1,
             'supply_0': update_S0,
-            'agent_supply': update_s,
+            'agent_supply': update_s_attest,
             'agent_supply_1': update_s1,
             'agent_supply_0': update_s0,
             'attestations_1': update_Q1,
