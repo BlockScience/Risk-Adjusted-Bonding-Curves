@@ -21,7 +21,6 @@ def set_action(params, substep, state_history, prev_state):
     start_alpha = params['starting_alpha']
     alpha = prev_state['alpha']
     kappa = prev_state['kappa']
-    print("kappa")
     period = params['period']
 
     # new_private_price is obtained from update_private_price() function in private_beliefs

@@ -22,7 +22,6 @@ def update_R(params, substep, state_history, prev_state, policy_input):
     V = prev_state['invariant_V']
     print("invariant_V = ", V)
     kappa = prev_state['kappa']
-    print("kappa = ", kappa)
     deltaS = policy_input['amt_to_burn']
 
     if V == 0:

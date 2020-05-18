@@ -231,11 +231,13 @@ def update_kappa(params, substep, state_history, prev_state, policy_input):
     else:
         new_alpha = alpha
 
+    new_alpha = 0.5
     I = R + (C*new_alpha)
 
     kappa = I / (I - (C*new_alpha))
 
     # kappa = kappa(dR, R, S, V, I, alpha)
+    print("kappa  = ", kappa)
     return 'kappa', kappa
 
 
@@ -283,6 +285,7 @@ def update_P_attest(params, substep, state_history, prev_state, policy_input):
     else:
         new_alpha = alpha
 
+    new_alpha = 0.5
     I = R + (C*new_alpha)
 
     kappa = I / (I - (C*new_alpha))
@@ -338,6 +341,7 @@ def update_V(params, substep, state_history, prev_state, policy_input):
     else:
         new_alpha = alpha
 
+    new_alpha = 0.5
     I = R + (C*new_alpha)
 
     kappa = I / (I - (C*new_alpha))

@@ -2,7 +2,7 @@ from tabulate import tabulate
 
 # The following imports NEED to be in this exact order
 from cadCAD.engine import ExecutionMode, ExecutionContext, Executor
-import config
+from . import config
 from cadCAD import configs
 import pandas as pd
 
