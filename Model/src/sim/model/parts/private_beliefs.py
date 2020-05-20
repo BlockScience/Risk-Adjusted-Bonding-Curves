@@ -25,10 +25,10 @@ def update_private_price(params, substep, state_history, prev_state, policy_inpu
 
 def update_private_alpha(params, substep, state_history, prev_state, policy_input):
     # Private alpha belief signal is a ramp
-    #sign = (-1)**int((2*prev_state['timestep']/signal['period']))
-    #new_private_alpha = prev_state['alpha'] + signal['dP']*sign
-    new_private_alpha = P0[0] + signal['dP'] * \
-        np.sin(2*np.pi*prev_state['timestep']/signal['period']
+    sign = (-1)**int((2*prev_state['timestep']/signal['period']))
+    new_private_alpha = prev_state['alpha'] + signal['dP']*sign
+    # new_private_alpha = P0[0] + signal['dP'] * \
+    #    np.sin(2*np.pi*prev_state['timestep']/signal['period']
                )  # plt.plot(new_private_alpha, substep)
     # plt.show()
     return 'private_alpha', new_private_alpha

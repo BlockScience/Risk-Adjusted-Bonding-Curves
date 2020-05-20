@@ -25,7 +25,7 @@ def update_R(params, substep, state_history, prev_state, policy_input):
     deltaS = policy_input['amt_to_burn']
 
     if V == 0:
-        print("V IS ZERO")
+        print("V IS ZERO")  # degenerate
     else:
         deltaR = R-((S-deltaS)**kappa)/V
         R = R + policy_input['amt_to_bond'] - deltaR
@@ -149,6 +149,9 @@ def update_I(params, substep, state_history, prev_state, policy_input):
 #    return 'kappa', kappa
 
 
+""" def log(self, parameter_list):
+    if(degub)
+ """
 '''
 if action['mech'] == 'bond':
         dS, pbar = bond(amt_b, R, S, V, params['kappa'])
