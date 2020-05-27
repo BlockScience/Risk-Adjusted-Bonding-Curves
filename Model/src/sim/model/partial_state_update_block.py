@@ -42,7 +42,7 @@ partial_state_update_blocks = [
             'agent_supply': update_s_bondburn,
             'spot_price': update_P_bondburn,  # verify
             'price': update_pbar,  # verify
-            'invariant_I': update_I
+            'invariant_I': update_I_bondburn
         }
     },
     {
@@ -61,6 +61,7 @@ partial_state_update_blocks = [
             'attestations_0': update_Q0,
             'agent_attestations_1': update_q1,
             'agent_attestations_0': update_q0,
+            'invariant_I': update_I_attest,
             'alpha': update_alpha,
             'kappa': update_kappa,
             'spot_price': update_P_attest,

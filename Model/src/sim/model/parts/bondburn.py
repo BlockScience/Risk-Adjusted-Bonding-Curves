@@ -78,6 +78,8 @@ def update_s_bondburn(params, substep, state_history, prev_state, policy_input):
     deltas = (V*(R+deltar))**(1/kappa)-S
 
     s = s + deltas - policy_input['amt_to_burn']
+    print("AGENT SUPPLY =", s, "deltas = ", deltas,
+          "policy_input['amt_to_burn'] = ", policy_input['amt_to_burn'])
     return 'agent_supply', s
 
 
@@ -132,7 +134,7 @@ def update_pbar(params, substep, state_history, prev_state, policy_input):
     return 'price', pbar
 
 
-def update_I(params, substep, state_history, prev_state, policy_input):
+def update_I_bondburn(params, substep, state_history, prev_state, policy_input):
     R = prev_state['reserve']
     C = params['C']
     alpha = prev_state['alpha']
@@ -140,7 +142,7 @@ def update_I(params, substep, state_history, prev_state, policy_input):
 
     I = (R + deltaR) + (C*alpha)
     print("C =", C, "alpha = ", alpha, "R = ", R, "deltaR = ", deltaR)
-    print("INVARIANT I (from update) =", I)
+    print("I (from bondburn) =", I)
     return 'invariant_I', I
 
 # kappa does not change

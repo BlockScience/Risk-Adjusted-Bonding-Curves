@@ -28,12 +28,13 @@ def set_action(params, substep, state_history, prev_state):
         mech = 'burn'  # burn deltaS to get deltaR.
         print("Agent burns. P = ", P, "private_price = ", private_price)
         amt_to_bond = 0
-        amt_to_burn = P - private_price # amt reqd for next state P = current state price belief
+        # amt reqd for next state P = current state price belief
+        amt_to_burn = P - private_price
 
     elif P < private_price:
         mech = 'bond'  # bond deltaR to get deltaS
         print("Agent bonds. P = ", P, "private_price = ", private_price)
-        amt_to_bond = private_price - P # units
+        amt_to_bond = private_price - P  # units
         amt_to_burn = 0
 
     else:
@@ -48,7 +49,7 @@ def set_action(params, substep, state_history, prev_state):
         print("Agent attests negative. alpha = ",
               alpha, "private_alpha = ", private_alpha)
         amt_Q1 = 0
-        amt_Q0 = alpha - private_alpha # units
+        amt_Q0 = alpha - private_alpha  # units
         amt_neg = amt_Q0  # VERIFY THIS # units
         amt_pos = 0
         S0 = S0 + amt_neg
@@ -58,7 +59,7 @@ def set_action(params, substep, state_history, prev_state):
         mech = 'attest_pos'
         print("Agent attests positive. alpha = ",
               alpha, "private_alpha = ", private_alpha)
-        amt_Q1 = private_alpha - alpha # units
+        amt_Q1 = private_alpha - alpha  # units
         amt_Q0 = 0
         amt_neg = 0
         amt_pos = amt_Q1  # VERIFY THIS
@@ -73,7 +74,8 @@ def set_action(params, substep, state_history, prev_state):
         amt_pos = 0
         amt_neg = 0
         print("No attestation. alpha = ", alpha,
-              "private_alpha = ", private_alpha)
+              "private_alpha = ", private_alpha,
+              "s = ", s)
 
         # action['posterior'] = {'S': S, 'R': R, 'P': P, 'S1': S0, 'S1': S1,
         #               'Q0': Q0, 'Q1': Q1, 'kappa': kappa, 'alpha': alpha, 'I': I, 'V': V}
