@@ -44,6 +44,7 @@ def set_action(params, substep, state_history, prev_state):
         amt_to_burn = 0
         print("No trade. P = ", P, "private_price = ", private_price)
 
+    if exp_payout_after > exp_payout_current and s > 0:
     if alpha > private_alpha and s > 0:
         mech = 'attest_neg'
         print("Agent attests negative. alpha = ",
