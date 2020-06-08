@@ -29,7 +29,7 @@ def update_R(params, substep, state_history, prev_state, policy_input):
     else:
         deltaR = R-((S-deltaS)**kappa)/V
         R = R + policy_input['amt_to_bond'] - deltaR
-        print("RESERVE = ", R)
+        print("RESERVE = ", R, " | deltaR = ", deltaR, " | deltaS = ", deltaS)
 
     return 'reserve', R
 
@@ -45,7 +45,7 @@ def update_S(params, substep, state_history, prev_state, policy_input):
 
     deltaS = (V*(R+deltaR))**(1/kappa)-S
     S = S - deltaS + policy_input['amt_to_burn']
-    print("SUPPLY = ", S)
+    print("SUPPLY = ", S, " | deltaR = ", deltaR, " | deltaS = ", deltaS)
 
     return 'supply', S
 
@@ -124,7 +124,6 @@ def update_pbar(params, substep, state_history, prev_state, policy_input):
     kappa = prev_state['kappa']
     deltaS = policy_input['amt_to_burn']
     deltaR = policy_input['amt_to_bond']
-
     if deltaS == 0:
         deltaS = (V*(R+deltaR))**(1/kappa)-S
     elif deltaR == 0:
@@ -132,7 +131,7 @@ def update_pbar(params, substep, state_history, prev_state, policy_input):
 
     realized_price = deltaR/deltaS
     pbar = realized_price
-    print("PRICE pbar (from update) =", pbar)
+    print("PRICE pbar (from bondburn update) =", pbar)
     return 'price', pbar
 
 
