@@ -30,12 +30,12 @@ def set_action(params, substep, state_history, prev_state):
         print("Agent burns. P = ", P, "| private_price = ", private_price)
         amt_to_bond = 0
         # amt reqd for next state P = current state price belief
-        amt_to_burn = P - private_price
+        amt_to_burn = (P - private_price) * 0.5 * s
 
     elif P < private_price and r > 0 and S > 0:
         mech_bc = 'bond'  # bond deltaR to get deltaS
         print("Agent bonds. P = ", P, "| private_price = ", private_price)
-        amt_to_bond = private_price - P  # units
+        amt_to_bond = (private_price - P) * 0.5 * r  # units
         amt_to_burn = 0
 
     elif s <= 0:
@@ -72,35 +72,35 @@ def set_action(params, substep, state_history, prev_state):
     if alpha > private_alpha and s > 0:
         mech_pm = 'attest_neg'
         # print("Agent attests negative. alpha = ",
-              alpha, "private_alpha = ", private_alpha)
-        amt_Q1=0
-        amt_Q0=alpha - private_alpha  # units
-        amt_neg=amt_Q0  # VERIFY THIS # units
-        amt_pos=0
-        S0=S0 + amt_neg
-        Q0=Q0 + amt_Q0
+        # alpha, "private_alpha = ", private_alpha)
+        amt_Q1 = 0
+        amt_Q0 = alpha - private_alpha  # units
+        amt_neg = amt_Q0  # VERIFY THIS # units
+        amt_pos = 0
+        S0 = S0 + amt_neg
+        Q0 = Q0 + amt_Q0
 
     elif alpha < private_alpha and s > 0:
-        mech_pm='attest_pos'
+        mech_pm = 'attest_pos'
         # print("Agent attests positive. alpha = ",
-              alpha, "private_alpha = ", private_alpha)
-        amt_Q1=private_alpha - alpha  # units
-        amt_Q0=0
-        amt_neg=0
-        amt_pos=amt_Q1  # VERIFY THIS
-        S1=S1 + amt_pos
-        Q1=Q1 + amt_Q1
+        # alpha, "private_alpha = ", private_alpha)
+        amt_Q1 = private_alpha - alpha  # units
+        amt_Q0 = 0
+        amt_neg = 0
+        amt_pos = amt_Q1  # VERIFY THIS
+        S1 = S1 + amt_pos
+        Q1 = Q1 + amt_Q1
 
     else:
         # don't attest
-        mech_pm=None
-        amt_Q1=0
-        amt_Q0=0
-        amt_pos=0
-        amt_neg=0
-        print("No attestation. alpha = ", alpha,
-              "private_alpha = ", private_alpha,
-              "s = ", s)
+        mech_pm = None
+        amt_Q1 = 0
+        amt_Q0 = 0
+        amt_pos = 0
+        amt_neg = 0
+       # print("No attestation. alpha = ", alpha,
+        #      "private_alpha = ", private_alpha,
+        #      "s = ", s)
 
         # action['posterior'] = {'S': S, 'R': R, 'P': P, 'S1': S0, 'S1': S1,
         #               'Q0': Q0, 'Q1': Q1, 'kappa': kappa, 'alpha': alpha, 'I': I, 'V': V}
