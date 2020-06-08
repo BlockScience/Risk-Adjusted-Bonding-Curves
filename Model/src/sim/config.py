@@ -27,6 +27,7 @@ MONEY_RAISED = [1000]
 PERIOD = [2000]
 Q1 = 1
 Q0 = 1
+r = 50  # Agent reserve, the amount of fiat tokens an agent starts with
 
 reserve = MONEY_RAISED[0] - C[0]
 supply = KAPPA[0]*(reserve/PRICE)
@@ -66,7 +67,7 @@ initial_conditions = {
     'invariant_I': invariant_I,
     'agent_attestations_1': 0,
     'agent_attestations_0': 0,
-    'agent_reserve': 0,
+    'agent_reserve': r,
     'agent_supply': 0,
     'agent_supply_1': 0,
     'agent_supply_0': 0
