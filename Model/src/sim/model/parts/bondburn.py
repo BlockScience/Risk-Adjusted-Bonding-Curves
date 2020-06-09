@@ -27,7 +27,7 @@ def update_R(params, substep, state_history, prev_state, policy_input):
     if V == 0:
         print("V IS ZERO")  # degenerate
     else:
-        deltaR = R-((S-deltaS)**kappa)/V
+        deltaR = (((S-deltaS)**kappa)/V) - R
         R = R + policy_input['amt_to_bond'] - deltaR
         print("RESERVE = ", R, " | deltaR = ", deltaR, " | deltaS = ", deltaS)
 
@@ -43,7 +43,7 @@ def update_S(params, substep, state_history, prev_state, policy_input):
     kappa = prev_state['kappa']
     deltaR = policy_input['amt_to_bond']
 
-    deltaS = (V*(R+deltaR))**(1/kappa)-S
+    deltaS = S - (V*(R+deltaR))**(1/kappa)
     S = S - deltaS + policy_input['amt_to_burn']
     print("SUPPLY = ", S, " | deltaR = ", deltaR, " | deltaS = ", deltaS)
 
