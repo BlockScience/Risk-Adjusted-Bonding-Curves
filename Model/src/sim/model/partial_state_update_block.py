@@ -13,7 +13,7 @@ partial_state_update_blocks = [
         },
         'variables': {
             # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-            # Initialization and exogenous processes # skip for now
+            # Initialization and exogenous processes
 
         }
     },

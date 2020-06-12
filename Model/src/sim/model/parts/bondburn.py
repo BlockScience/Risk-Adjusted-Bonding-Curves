@@ -3,14 +3,6 @@ from .choose_action import *
 
 # Include this function as another part so as to account for all mechansims (?)
 # don't require this because handling with amounts (0 vs +ve) instead of action performed
-'''def action_taken():
-    if action['mech'] == 'bond':
-        dS, pbar = bond(amt_to_bond, R, S, V, params['kappa'])
-    elif action['mech'] == 'burn': 
-        dR, pbar = withdraw(amt_to_burn, R, S, V, params['kappa'])
-    else:
-        print("No bond or burn made")
-    return #?????? '''
 
 
 def update_R(params, substep, state_history, prev_state, policy_input):
@@ -124,6 +116,7 @@ def update_pbar(params, substep, state_history, prev_state, policy_input):
     kappa = prev_state['kappa']
     deltaS = policy_input['amt_to_burn']
     deltaR = policy_input['amt_to_bond']
+
     if deltaS == 0:
         deltaS = (V*(R+deltaR))**(1/kappa)-S
     elif deltaR == 0:
@@ -146,31 +139,3 @@ def update_I_bondburn(params, substep, state_history, prev_state, policy_input):
     print("I (from bondburn) =", I)
     print("--------------------------------------")
     return 'invariant_I', I
-
-# kappa does not change
-# def update_kappa(_params, substep, state_history, prev_state, _input):
-#    kappa = kappa(deltaR, R, S, V, I, alpha)
-#    return 'kappa', kappa
-
-
-""" def log(self, parameter_list):
-    if(degub)
- """
-'''
-if action['mech'] == 'bond':
-        dS, pbar = bond(amt_b, R, S, V, params['kappa'])
-        R = R + amt_b
-        S = S + dS
-        I = R + (C*alpha)
-        kappa = kappa(deltaR, R, S, V, I, alpha)
-        P = spot_price(R, V, kappa)
-        
-
-elif action['mech'] == 'burn':
-        dR, pbar = withdraw(amt_b, R, S, V, params['kappa'])
-        R = R - dR
-        S = S - amt_b
-        I = R + (C*alpha)
-        kappa = kappa(dR, R, S, V, I, alpha)
-        P = spot_price(R, V, kappa)
-'''

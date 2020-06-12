@@ -10,14 +10,8 @@ from cadCAD import configs
 
 time_periods_per_run = 400
 monte_carlo_runs = 1
-E = 0.45  # TO BE REVIEWED, see attest.py
+E = 0.45  # to be reviewed
 
-""" KAPPA = [2, 1]
-PRICE = [1]
-C = [700]
-ALPHA = [0.5, 1]
-MONEY_RAISED = [1000]
-PERIOD = ['N/A', 2000, 2000, 2000] """
 
 KAPPA = [2]
 PRICE = 1
@@ -88,7 +82,8 @@ append_configs(
     initial_state=initial_conditions,
     # dict containing state update functions
     partial_state_update_blocks=partial_state_update_blocks,
-    sim_configs=sim_config  # dict containing simulation parameters
+    # dict containing simulation parameters
+    sim_configs=sim_config
 )
 
 for c in configs:

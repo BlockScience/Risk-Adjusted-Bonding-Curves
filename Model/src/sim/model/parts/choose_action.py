@@ -75,7 +75,7 @@ def set_action(params, substep, state_history, prev_state):
         # alpha, "private_alpha = ", private_alpha)
         amt_Q1 = 0
         amt_Q0 = alpha - private_alpha  # units
-        amt_neg = amt_Q0  # VERIFY THIS # units
+        amt_neg = amt_Q0  # units
         amt_pos = 0
         S0 = S0 + amt_neg
         Q0 = Q0 + amt_Q0
@@ -87,7 +87,7 @@ def set_action(params, substep, state_history, prev_state):
         amt_Q1 = private_alpha - alpha  # units
         amt_Q0 = 0
         amt_neg = 0
-        amt_pos = amt_Q1  # VERIFY THIS
+        amt_pos = amt_Q1
         S1 = S1 + amt_pos
         Q1 = Q1 + amt_Q1
 
