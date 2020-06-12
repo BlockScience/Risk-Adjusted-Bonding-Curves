@@ -20,7 +20,7 @@ def update_private_price(params, substep, state_history, prev_state, policy_inpu
     #print("prev_state['timestep'] = ", prev_state['timestep'])
     new_private_price = P0[0] + signal['dP'] * \
         np.sin(2*np.pi*prev_state['timestep']/signal['period'])
-    print("--------------------------------------2")
+    print("--------------------------------------")
     return 'private_price', new_private_price
 
 
