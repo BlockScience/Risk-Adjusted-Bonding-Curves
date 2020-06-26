@@ -3,7 +3,7 @@ from cadCAD.configuration.utils import config_sim
 
 #from model.sys_params import params
 #from model.state_variables import initial_conditions
-from .model.partial_state_update_block import partial_state_update_blocks
+from model.partial_state_update_block import partial_state_update_blocks
 
 from copy import deepcopy
 from cadCAD import configs

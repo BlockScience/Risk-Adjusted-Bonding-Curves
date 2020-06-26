@@ -1,7 +1,6 @@
 
 # The following imports NEED to be in the exact order
 from cadCAD.engine import ExecutionMode, ExecutionContext, Executor
-from . import config
 from cadCAD import configs
 import pandas as pd
 
