@@ -1,6 +1,3 @@
-from Model.src.sim.model.parts.choose_action import *
-
-
 def update_S1(params, substep, state_history, prev_state, policy_input):
     # action = _input['action']
     S1 = prev_state['supply_1']
