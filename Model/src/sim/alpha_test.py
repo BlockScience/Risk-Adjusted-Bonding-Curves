@@ -5,7 +5,7 @@ from copy import deepcopy
 from cadCAD.configuration.utils import config_sim
 from cadCAD.configuration import append_configs
 from cadCAD.engine import ExecutionMode, ExecutionContext, Executor
-import config
+# import config
 from cadCAD import configs
 import pandas as pd
 

@@ -1,9 +1,11 @@
+from pprint import pprint
+
 from cadCAD.configuration import append_configs
 from cadCAD.configuration.utils import config_sim
 
-#from model.sys_params import params
-#from model.state_variables import initial_conditions
-from model.partial_state_update_block import partial_state_update_blocks
+# from model.sys_params import params
+# from model.state_variables import initial_conditions
+from Model.src.sim.model.partial_state_update_block import partial_state_update_blocks
 
 from copy import deepcopy
 from cadCAD import configs
@@ -29,6 +31,10 @@ supply_free = supply
 invariant_V = (supply**KAPPA[0])/reserve
 invariant_I = reserve + (C[0]*ALPHA[0])
 
+print()
+print(type(MONEY_RAISED))
+print(MONEY_RAISED)
+print()
 # Put this in sys_params.py
 params = {
     'starting_kappa': KAPPA,  # initial kappa
@@ -86,6 +92,8 @@ append_configs(
     sim_configs=sim_config
 )
 
+# pprint(configs)
+#
 for c in configs:
     c.initial_state = deepcopy(c.initial_state)
 
