@@ -1,4 +1,4 @@
-from .choose_action import *
+from Model.src.sim.model.parts.choose_action import *
 
 
 def update_S1(params, substep, state_history, prev_state, policy_input):
