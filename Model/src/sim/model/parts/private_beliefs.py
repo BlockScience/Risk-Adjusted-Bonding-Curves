@@ -1,4 +1,4 @@
-# from .choose_action import *
+# from Model.src.sim.model.parts.choose_action import *
 
 # prev_state (called s in documentation) is a dict. Captures the current state of the system
 import numpy as np

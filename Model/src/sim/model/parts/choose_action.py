@@ -1,9 +1,12 @@
 # TODO: imports
+from pprint import pprint
 
-from .private_beliefs import *
+from Model.src.sim.model.parts.private_beliefs import *
 
 
 def set_action(params, substep, state_history, prev_state):
+    params = params[0]
+    # pprint(params)
 
     R = prev_state['reserve']
     S = prev_state['supply']

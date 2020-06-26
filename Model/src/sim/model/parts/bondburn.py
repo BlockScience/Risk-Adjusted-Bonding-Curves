@@ -1,4 +1,4 @@
-from .choose_action import *
+from Model.src.sim.model.parts.choose_action import *
 #from ..import bonding_curve_eq
 
 # Include this function as another part so as to account for all mechansims (?)
@@ -129,6 +129,7 @@ def update_pbar(params, substep, state_history, prev_state, policy_input):
 
 
 def update_I_bondburn(params, substep, state_history, prev_state, policy_input):
+    params = params[0]
     R = prev_state['reserve']
     C = params['C']
     alpha = prev_state['alpha']

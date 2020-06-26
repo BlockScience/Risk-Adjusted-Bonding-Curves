@@ -1,11 +1,11 @@
 # One Timestep can contain multiple PSUBs
 # At the end of each PSUB (called a substep), cadCAD returns the state of the system
 
-from .parts.initialization import *
-from .parts.private_beliefs import *
-from .parts.choose_action import *
-from .parts.bondburn import *
-from .parts.attest import *
+from Model.src.sim.model.parts.initialization import *
+from Model.src.sim.model.parts.private_beliefs import *
+from Model.src.sim.model.parts.choose_action import *
+from Model.src.sim.model.parts.bondburn import *
+from Model.src.sim.model.parts.attest import *
 
 partial_state_update_blocks = [
     {

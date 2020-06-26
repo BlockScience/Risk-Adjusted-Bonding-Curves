@@ -1,0 +1,5 @@
+.idea
+Model/src/__pycache__
+Model/src/sim/__pycache__
+Model/src/sim/model/__pycache__
+Model/src/sim/model/parts/__pycache__
