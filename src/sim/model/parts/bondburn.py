@@ -1,4 +1,3 @@
-from Model.src.sim.model.parts.choose_action import *
 #from ..import bonding_curve_eq
 
 # Include this function as another part so as to account for all mechansims (?)

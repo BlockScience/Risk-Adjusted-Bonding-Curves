@@ -1,15 +1,13 @@
 # The following imports NEED to be in the exact order
-from pprint import pprint
-from Model.src.sim import config as sys_model
 
 from cadCAD.engine import ExecutionMode, ExecutionContext, Executor
+from src.sim import config as sys_model
 from cadCAD import configs
 import pandas as pd
 pd.set_option('display.max_rows', None)
 pd.set_option('display.max_columns', None)
 pd.set_option('display.width', None)
 pd.set_option('display.max_colwidth', -1)
-import tabulate
 
 exec_mode = ExecutionMode()
 local_mode_ctx = ExecutionContext(context=exec_mode.local_mode)

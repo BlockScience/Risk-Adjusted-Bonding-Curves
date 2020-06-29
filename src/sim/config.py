@@ -1,11 +1,9 @@
-from pprint import pprint
-
 from cadCAD.configuration import append_configs
 from cadCAD.configuration.utils import config_sim
 
 # from model.sys_params import params
 # from model.state_variables import initial_conditions
-from Model.src.sim.model.partial_state_update_block import partial_state_update_blocks
+from src.sim.model.partial_state_update_block import partial_state_update_blocks
 
 from copy import deepcopy
 from cadCAD import configs
