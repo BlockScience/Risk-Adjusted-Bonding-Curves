@@ -1,19 +1,12 @@
-def update_S1(params, substep, state_history, prev_state, policy_input):
-    # action = _input['action']
-    S1 = prev_state['supply_1']
-    # amt_pos is a key in a dict of dicts
-    amt_pos = policy_input['amt_pos']
-
-    S1 = S1 + amt_pos
-    return 'supply_1', S1
+E = 0.2
 
 
-def update_S0(params, substep, state_history, prev_state, policy_input):
-    S0 = prev_state['supply_0']
-    amt_neg = policy_input['amt_neg']
+def update_Q(params, substep, state_history, prev_state, policy_input):
+    Q = prev_state['attestations']
+    dQ = policy_input['amt_Q1'] + policy_input['amt_Q0']
 
-    S0 = S0 + amt_neg
-    return 'supply_0', S0
+    Q = Q + dQ
+    return 'attestations', Q
 
 
 def update_Q1(params, substep, state_history, prev_state, policy_input):
@@ -34,12 +27,22 @@ def update_Q0(params, substep, state_history, prev_state, policy_input):
     return 'attestations_0', Q0
 
 
-def update_q0(params, substep, state_history, prev_state, policy_input):
-    q0 = prev_state['agent_attestations_0']
-    deltaq0 = policy_input['amt_Q0']
+def update_S1(params, substep, state_history, prev_state, policy_input):
+    # action = _input['action']
+    S1 = prev_state['supply_1']
+    # amt_pos is a key in a dict of dicts
+    amt_pos = policy_input['amt_pos']
 
-    q0 = q0 + deltaq0
-    return 'agent_attestations_0', q0
+    S1 = S1 + amt_pos
+    return 'supply_1', S1
+
+
+def update_S0(params, substep, state_history, prev_state, policy_input):
+    S0 = prev_state['supply_0']
+    amt_neg = policy_input['amt_neg']
+
+    S0 = S0 + amt_neg
+    return 'supply_0', S0
 
 
 def update_q1(params, substep, state_history, prev_state, policy_input):
@@ -50,20 +53,20 @@ def update_q1(params, substep, state_history, prev_state, policy_input):
     return 'agent_attestations_1', q1
 
 
+def update_q0(params, substep, state_history, prev_state, policy_input):
+    q0 = prev_state['agent_attestations_0']
+    deltaq0 = policy_input['amt_Q0']
+
+    q0 = q0 + deltaq0
+    return 'agent_attestations_0', q0
+
+
 def update_s_attest(params, substep, state_history, prev_state, policy_input):
     s = prev_state['agent_supply']
     deltas = policy_input['amt_pos'] + policy_input['amt_neg']
 
     s = s - deltas
     return 'agent_supply', s
-
-
-def update_s0(params, substep, state_history, prev_state, policy_input):
-    s0 = prev_state['agent_supply_0']
-    deltas = policy_input['amt_pos'] + policy_input['amt_neg']
-
-    s0 = s0 + deltas
-    return 'agent_supply_0', s0
 
 
 def update_s1(params, substep, state_history, prev_state, policy_input):
@@ -74,13 +77,21 @@ def update_s1(params, substep, state_history, prev_state, policy_input):
     return 'agent_supply_1', s1
 
 
+def update_s0(params, substep, state_history, prev_state, policy_input):
+    s0 = prev_state['agent_supply_0']
+    deltas = policy_input['amt_pos'] + policy_input['amt_neg']
+
+    s0 = s0 + deltas
+    return 'agent_supply_0', s0
+
+
 def update_alpha(params, substep, state_history, prev_state, policy_input):
     # S = prev_state['supply']
     # I = prev_state['invariant_I']
     # kappa = prev_state['kappa']
     alpha = prev_state['alpha']
     R = prev_state['reserve']
-    C = params['C']
+    C = params[0]['C']
     S1 = prev_state['supply_1']
     S0 = prev_state['supply_0']
 
@@ -131,7 +142,7 @@ def update_alpha(params, substep, state_history, prev_state, policy_input):
     print("s = ", s, "| deltas = ", deltas)
     #print("A = ", A)
     #print("alpha_bar = ", alpha_bar)
-    #print("new_alpha = ", new_alpha)
+    print("new_alpha = ", new_alpha)
     #new_alpha = -1*new_alpha
     return 'alpha', new_alpha
 
@@ -139,7 +150,7 @@ def update_alpha(params, substep, state_history, prev_state, policy_input):
 def update_kappa(params, substep, state_history, prev_state, policy_input):
     alpha = prev_state['alpha']
     R = prev_state['reserve']
-    C = params['C']
+    C = params[0]['C']
     S1 = prev_state['supply_1']
     S0 = prev_state['supply_0']
 
@@ -192,7 +203,7 @@ def update_kappa(params, substep, state_history, prev_state, policy_input):
 def update_I_attest(params, substep, state_history, prev_state, policy_input):
     alpha = prev_state['alpha']
     R = prev_state['reserve']
-    C = params['C']
+    C = params[0]['C']
     S1 = prev_state['supply_1']
     S0 = prev_state['supply_0']
 
@@ -244,7 +255,7 @@ def update_P_attest(params, substep, state_history, prev_state, policy_input):
     alpha = prev_state['alpha']
     R = prev_state['reserve']
     S = prev_state['supply']
-    C = params['C']
+    C = params[0]['C']
     S1 = prev_state['supply_1']
     S0 = prev_state['supply_0']
 
@@ -301,7 +312,7 @@ def update_V(params, substep, state_history, prev_state, policy_input):
     alpha = prev_state['alpha']
     R = prev_state['reserve']
     S = prev_state['supply']
-    C = params['C']
+    C = params[0]['C']
     S1 = prev_state['supply_1']
     S0 = prev_state['supply_0']
 
