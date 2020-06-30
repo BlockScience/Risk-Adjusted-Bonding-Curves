@@ -1,4 +1,6 @@
 # TODO: imports
+import random
+import math
 
 
 def set_action(params, substep, state_history, prev_state):
@@ -27,14 +29,14 @@ def set_action(params, substep, state_history, prev_state):
     # new_private_price is obtained from update_private_price() function in private_beliefs
     if P > private_price and s > 0 and R > 0:
         mech_bc = 'burn'  # burn deltaS to get deltaR.
-        print("Agent burns. P = ", P, "| private_price = ", private_price)
+        # print("Agent burns. P = ", P, "| private_price = ", private_price)
         amt_to_bond = 0
         # amt reqd for next state P = current state price belief
         amt_to_burn = (P - private_price) * 0.5 * s
 
     elif P < private_price and r > 0 and S > 0:
         mech_bc = 'bond'  # bond deltaR to get deltaS
-        print("Agent bonds. P = ", P, "| private_price = ", private_price)
+        # print("Agent bonds. P = ", P, "| private_price = ", private_price)
         amt_to_bond = (private_price - P) * 0.5 * r  # units
         amt_to_burn = 0
 
@@ -42,54 +44,85 @@ def set_action(params, substep, state_history, prev_state):
         mech_bc = None
         amt_to_bond = 0
         amt_to_burn = 0
-        print("----Agent supply too low----", "| s = ", s)
+        # print("----Agent supply too low----", "| s = ", s)
 
     elif r <= 0:
         mech_bc = None
         amt_to_bond = 0
         amt_to_burn = 0
-        print("----Agent reserve too low----", "| r = ", r)
+        # print("----Agent reserve too low----", "| r = ", r)
 
     elif S <= 0:
         mech_bc = None
         amt_to_bond = 0
         amt_to_burn = 0
-        print("----System supply too low----", "| S = ", S)
+        # print("----System supply too low----", "| S = ", S)
 
     elif R <= 0:
         mech_bc = None
         amt_to_bond = 0
         amt_to_burn = 0
-        print("----System reserve too low----", "| R = ", R)
+        # print("----System reserve too low----", "| R = ", R)
 
     else:
         # don't trade
         mech_bc = None
         amt_to_bond = 0
         amt_to_burn = 0
-        print("No trade. P = ", P, "private_price = ", private_price)
+        # print("No trade. P = ", P, "private_price = ", private_price)
 
     if alpha > private_alpha and s > 0:
         mech_pm = 'attest_neg'
-        # print("Agent attests negative. alpha = ",
-        # alpha, "private_alpha = ", private_alpha)
-        amt_Q1 = 0
-        amt_Q0 = alpha - private_alpha  # units
-        amt_neg = amt_Q0  # units
+        print("Negative attestation. | alpha = ",
+              alpha, "private_alpha = ", private_alpha)
+
+        # Agent's choice of delta s
         amt_pos = 0
-        S0 = S0 + amt_neg
-        Q0 = Q0 + amt_Q0
+        amt_neg = (random.randint(0, 50)/100)*s
+        print("amt_neg = ", amt_neg)
+
+        # Compute number of claims
+        A = math.sqrt(1+((amt_pos+amt_neg)/S))
+        amt_Q1 = 0
+        amt_Q0 = Q0*(A-1)
+        print("amt_Q0 = ", amt_Q0)
+
+        # amt_Q0 = alpha - private_alpha  # units
+        # amt_neg = amt_Q0  # delta_s to S0
+        # amt_pos = 0 # delta_s to S1
+        #S0 = S0 + amt_neg
+        #Q0 = Q0 + amt_Q0
 
     elif alpha < private_alpha and s > 0:
         mech_pm = 'attest_pos'
-        # print("Agent attests positive. alpha = ",
-        # alpha, "private_alpha = ", private_alpha)
-        amt_Q1 = private_alpha - alpha  # units
-        amt_Q0 = 0
+        print("Positive attestation. | alpha = ",
+              alpha, "private_alpha = ", private_alpha)
+
+        # Agent's choice of delta s
+        amt_pos = (random.randint(0, 50)/100)*s
         amt_neg = 0
-        amt_pos = amt_Q1
-        S1 = S1 + amt_pos
-        Q1 = Q1 + amt_Q1
+        print("amt_pos = ", amt_pos)
+
+        # Compute number of claims
+        A = math.sqrt(1+((amt_pos+amt_neg)/S))
+        amt_Q1 = Q0*(A-1)
+        amt_Q0 = 0
+        print("amt_Q1 = ", amt_Q1)
+
+        # amt_Q1 = private_alpha - alpha  # units
+        #amt_Q0 = 0
+        # amt_neg = 0 # delta_s to S0
+        # amt_pos = amt_Q1 # delta_s to S1
+        #S1 = S1 + amt_pos
+        #Q1 = Q1 + amt_Q1
+
+    elif s <= 0:
+        mech_pm = 'None'
+        amt_pos = 0
+        amt_neg = 0
+        amt_Q1 = 0
+        amt_Q0 = 0
+        print("Agent supply too low. Cannot attest")
 
     else:
         # don't attest
@@ -98,9 +131,8 @@ def set_action(params, substep, state_history, prev_state):
         amt_Q0 = 0
         amt_pos = 0
         amt_neg = 0
-       # print("No attestation. alpha = ", alpha,
-        #      "private_alpha = ", private_alpha,
-        #      "s = ", s)
+        print("No attestation. alpha = ", alpha,
+              "private_alpha = ", private_alpha, "s = ", s)
 
         # action['posterior'] = {'S': S, 'R': R, 'P': P, 'S1': S0, 'S1': S1,
         #               'Q0': Q0, 'Q1': Q1, 'kappa': kappa, 'alpha': alpha, 'I': I, 'V': V}

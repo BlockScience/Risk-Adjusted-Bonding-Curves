@@ -2,6 +2,7 @@
 
 # prev_state (called s in documentation) is a dict. Captures the current state of the system
 import numpy as np
+import random
 import matplotlib.pyplot as plt
 
 P0 = [1]
@@ -28,8 +29,11 @@ def update_private_alpha(params, substep, state_history, prev_state, policy_inpu
     # Private alpha belief signal is a ramp
     # sign = (-1)**int((2*prev_state['timestep']/signal['period']))
     # new_private_alpha = prev_state['alpha'] + signal['dP']*sign
-    new_private_alpha = P0[0] + signal['dP'] * \
-        np.sin(2*np.pi*prev_state['timestep']/signal['period'])
+
+    # new_private_alpha = P0[0] + signal['dP'] * \
+    #  np.sin(2*np.pi*prev_state['timestep']/signal['period'])
+
+    new_private_alpha = (random.randint(0, 100))/100
     # plt.plot(new_private_alpha, substep)
     # plt.show()
     # print("new_private_alpha = ", new_private_alpha)
