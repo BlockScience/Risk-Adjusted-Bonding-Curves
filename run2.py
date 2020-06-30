@@ -7,19 +7,23 @@ import pandas as pd
 pd.set_option('display.max_rows', None)
 pd.set_option('display.max_columns', None)
 pd.set_option('display.width', None)
-pd.set_option('display.max_colwidth', -1)
+pd.set_option('display.max_colwidth', None)
 
-exec_mode = ExecutionMode()
-local_mode_ctx = ExecutionContext(context=exec_mode.local_mode)
-run = Executor(exec_context=local_mode_ctx, configs=configs)
 
-# pprint(configs)
+def run(drop_midsteps=True):
+    exec_mode = ExecutionMode()
+    local_mode_ctx = ExecutionContext(context=exec_mode.local_mode)
+    run = Executor(exec_context=local_mode_ctx, configs=configs)
+    #results = pd.DataFrame()
 
-raw_system_events, tensor_field, sessions = run.execute()
-simulation_result = pd.DataFrame(raw_system_events)
-print(type(simulation_result))
-print(tensor_field)
-print()
+    # pprint(configs)
+
+    raw_system_events, tensor_field, sessions = run.execute()
+    simulation_result = pd.DataFrame(raw_system_events)
+    print(type(simulation_result))
+    print(tensor_field)
+    print()
+    return simulation_result.reset_index()
 
 # print(simulation_result)
 # print(f"Tensor Field: {type(tensor_field)}")

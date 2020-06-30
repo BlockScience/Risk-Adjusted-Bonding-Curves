@@ -12,7 +12,6 @@ time_periods_per_run = 400
 monte_carlo_runs = 1
 E = 0.45  # to be reviewed
 
-
 KAPPA = [2]
 PRICE = 1
 C = [700]
