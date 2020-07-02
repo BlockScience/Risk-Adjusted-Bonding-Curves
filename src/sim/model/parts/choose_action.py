@@ -18,6 +18,7 @@ def set_action(params, substep, state_history, prev_state):
     S0 = prev_state['supply_0']
     r = prev_state['agent_reserve']
     s = prev_state['agent_supply']
+    s_free = prev_state['agent_supply_free']
     Q1 = prev_state['attestations_1']
     Q0 = prev_state['attestations_0']
     start_kappa = params['starting_kappa']
@@ -71,7 +72,7 @@ def set_action(params, substep, state_history, prev_state):
         amt_to_burn = 0
         # print("No trade. P = ", P, "private_price = ", private_price)
 
-    if alpha > private_alpha and s > 0:
+    if alpha > private_alpha and s_free > 0:
         mech_pm = 'attest_neg'
         print("Negative attestation. | alpha = ",
               alpha, "private_alpha = ", private_alpha)
@@ -93,7 +94,7 @@ def set_action(params, substep, state_history, prev_state):
         #S0 = S0 + amt_neg
         #Q0 = Q0 + amt_Q0
 
-    elif alpha < private_alpha and s > 0:
+    elif alpha < private_alpha and s_free > 0:
         mech_pm = 'attest_pos'
         print("Positive attestation. | alpha = ",
               alpha, "private_alpha = ", private_alpha)
@@ -116,7 +117,7 @@ def set_action(params, substep, state_history, prev_state):
         #S1 = S1 + amt_pos
         #Q1 = Q1 + amt_Q1
 
-    elif s <= 0:
+    elif s_free <= 0:
         mech_pm = 'None'
         amt_pos = 0
         amt_neg = 0
@@ -145,7 +146,7 @@ def set_action(params, substep, state_history, prev_state):
         'amt_Q1': amt_Q1,
         'amt_Q0': amt_Q0,
         'amt_pos': amt_pos,
-        'amt_neg': amt_neg,
+        'amt_neg': amt_neg
         # 'p_in': new_price,
         # 'price_belief': price_belief(amt_b),
         # 'alpha_in': new_alpha,

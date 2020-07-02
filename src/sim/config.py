@@ -8,7 +8,7 @@ from src.sim.model.partial_state_update_block import partial_state_update_blocks
 from copy import deepcopy
 from cadCAD import configs
 
-time_periods_per_run = 400
+time_periods_per_run = 5
 monte_carlo_runs = 1
 E = 0.45  # to be reviewed
 
@@ -18,11 +18,18 @@ C = [700]
 ALPHA = [0.5]
 MONEY_RAISED = [1000]
 PERIOD = [2000]
+r = 50  # Agent reserve, the amount of fiat tokens an agent starts with
+
+# Set initialization state variables for Attestations
 Q = 40
 Q1 = 20
 Q0 = 20
-r = 50  # Agent reserve, the amount of fiat tokens an agent starts with
+S1 = 200  # Considering S = 600 and S_free = 200
+S0 = 200  # Considering S = 600 and S_free = 200
 s = 50
+s1 = 10  # Considering s = 50 and s_free = 30
+s0 = 10  # Considering s = 50 and s_free = 30
+s_free = s - (s1+s0)
 
 reserve = MONEY_RAISED[0] - C[0]
 supply = KAPPA[0]*(reserve/PRICE)
@@ -56,8 +63,8 @@ initial_conditions = {
     'supply': supply,
     'alpha': ALPHA,  # direct to initial alpha in params?
     # 'spot_alpha': 0,
-    'supply_0': 0,
-    'supply_1': 0,
+    'supply_0': S0,
+    'supply_1': S1,
     'supply_free': supply_free,
     'attestations': Q,
     'attestations_0': Q0,
@@ -69,8 +76,9 @@ initial_conditions = {
     'agent_attestations_0': 0,
     'agent_reserve': r,
     'agent_supply': s,
-    'agent_supply_1': 0,
-    'agent_supply_0': 0
+    'agent_supply_1': s1,
+    'agent_supply_0': s0,
+    'agent_supply_free': s_free
 }
 
 print("Initial Conditions (config.py) : ", initial_conditions)
