@@ -58,7 +58,7 @@ partial_state_update_blocks = [
             'supply_0': update_S0,
             'agent_attestations_1': update_q1,
             'agent_attestations_0': update_q0,
-            'agent_supply': update_s_attest,
+            'agent_supply_free': update_s_free,
             'agent_supply_1': update_s1,
             'agent_supply_0': update_s0,
             'invariant_I': update_I_attest,

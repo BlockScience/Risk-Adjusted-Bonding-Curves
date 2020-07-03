@@ -55,12 +55,12 @@ def update_q0(params, substep, state_history, prev_state, policy_input):
     return 'agent_attestations_0', q0
 
 
-def update_s_attest(params, substep, state_history, prev_state, policy_input):
-    s = prev_state['agent_supply']
-    deltas = policy_input['amt_pos'] + policy_input['amt_neg']
+def update_s_free(params, substep, state_history, prev_state, policy_input):
+    s_free = prev_state['agent_supply_free']
+    delta_s_free = policy_input['amt_pos'] + policy_input['amt_neg']
 
-    s = s - deltas
-    return 'agent_supply', s
+    s_free = s_free - delta_s_free
+    return 'agent_supply_free', s_free
 
 
 def update_s1(params, substep, state_history, prev_state, policy_input):
@@ -98,12 +98,11 @@ def update_alpha(params, substep, state_history, prev_state, policy_input):
     s0 = prev_state['agent_supply_0']
 
     attest_action = policy_input['mech_pm']
-    print("attest action  = ", attest_action)
     delta_q1 = policy_input['amt_Q1']
     delta_q0 = policy_input['amt_Q0']
     delta_s = policy_input['amt_pos'] + policy_input['amt_neg']
 
-    if attest_action == 'attest_neg':  # positive attestation
+    if attest_action == 'attest_pos':  # positive attestation
 
         # Calculate pre for mu_1
         pre1 = (q1+delta_q1)/(Q1+delta_q1)
@@ -142,12 +141,13 @@ def update_alpha(params, substep, state_history, prev_state, policy_input):
 
         print("Positive attestation")
 
-    elif attest_action == 'attest_pos':  # negative attestation
+    elif attest_action == 'attest_neg':  # negative attestation
 
         # Calculate pre for B
         pre1 = (q0+delta_q0)/(Q0+delta_q0)
         pre2 = (S0+delta_s)/S
         pre3 = (q0/Q0)*(S0/S)
+        print("pre_1 = ", pre1, " | pre_2 = ", pre2, " | pre_3 = ", pre3)
 
         # Calculate B
         B = (pre1 * pre2) - pre3
