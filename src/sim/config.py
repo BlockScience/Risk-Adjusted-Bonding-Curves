@@ -8,7 +8,7 @@ from src.sim.model.partial_state_update_block import partial_state_update_blocks
 from copy import deepcopy
 from cadCAD import configs
 
-time_periods_per_run = 5
+time_periods_per_run = 400
 monte_carlo_runs = 1
 E = 0.45  # to be reviewed
 
