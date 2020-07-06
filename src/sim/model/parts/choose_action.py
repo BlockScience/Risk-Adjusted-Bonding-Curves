@@ -2,6 +2,9 @@
 import random
 import math
 
+# f = 0.03  # param to control certainty of alpha at extremes
+# m = 0.15  # param to modulate curvature of alpha threshold band
+
 
 def set_action(params, substep, state_history, prev_state):
     params = params[0]
@@ -25,6 +28,8 @@ def set_action(params, substep, state_history, prev_state):
     start_alpha = params['starting_alpha']
     alpha = prev_state['alpha']
     kappa = prev_state['kappa']
+    f = params['f']
+    m = params['m']
     period = params['period']
 
     # new_private_price is obtained from update_private_price() function in private_beliefs
@@ -79,7 +84,16 @@ def set_action(params, substep, state_history, prev_state):
 
         # Agent's choice of delta s
         amt_pos = 0
-        amt_neg = (random.randint(0, 50)/100)*s
+
+        # Heuristic 1: Random choice between 0-50% of agent supply
+        #amt_neg = (random.randint(0, 50)/100)*s
+
+        # Heuristic 2: Variable bandwidth threshold on alpha - private_alpha
+        a = abs(alpha - private_alpha)
+        d = 4*m*(1-a)*(a)
+        g1 = d + (1-d-f)*a + f
+        g0 = (1-d-f)*a
+        amt_neg = random.uniform(g0, g1)*s
         print("amt_neg = ", amt_neg)
 
         # Compute number of claims
@@ -100,7 +114,16 @@ def set_action(params, substep, state_history, prev_state):
               alpha, "private_alpha = ", private_alpha)
 
         # Agent's choice of delta s
-        amt_pos = (random.randint(0, 50)/100)*s
+        # Heuristic 1: Random choice between 0-50% of agent supply
+        #amt_pos = (random.randint(0, 50)/100)*s
+
+        # Heuristic 2: Variable bandwidth threshold on alpha - private_alpha
+        a = abs(alpha - private_alpha)
+        d = 4*m*(1-a)*(a)
+        g1 = d + (1-d-f)*a + f
+        g0 = (1-d-f)*a
+        amt_pos = random.uniform(g0, g1)*s
+
         amt_neg = 0
         print("amt_pos = ", amt_pos)
 

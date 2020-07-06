@@ -41,13 +41,16 @@ print()
 print(type(MONEY_RAISED))
 print(MONEY_RAISED)
 print()
+
 # Put this in sys_params.py
 params = {
     'starting_kappa': KAPPA,  # initial kappa
     'starting_alpha': ALPHA,  # initial alpha
     # 'starting_price': price,
-    'money_raised': MONEY_RAISED,  # R+C
-    'C': C,
+    'money_raised': MONEY_RAISED,  # reserve + C
+    'C': C,  # Commited outcome payout
+    'f': [0.03],  # param to control certainty of alpha at extremes
+    'm': [0.15],  # param to modulate curvature of alpha threshold band
     'period': PERIOD
 }
 
