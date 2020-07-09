@@ -60,20 +60,20 @@ def update_r(params, substep, state_history, prev_state, policy_input):
     return 'agent_reserve', r
 
 
-def update_s_bondburn(params, substep, state_history, prev_state, policy_input):
+def update_s_free_bondburn(params, substep, state_history, prev_state, policy_input):
     R = prev_state['reserve']
     S = prev_state['supply']
     V = prev_state['invariant_V']
     kappa = prev_state['kappa']
-    s = prev_state['agent_supply']
+    s_free = prev_state['agent_supply_free']
     deltaR = policy_input['amt_to_bond']
 
     deltas = (V*(R+deltaR))**(1/kappa)-S
 
-    s = s + deltas - policy_input['amt_to_burn']
+    s_free = s_free + deltas - policy_input['amt_to_burn']
     print("AGENT SUPPLY =", s, "deltas = ", deltas,
           "policy_input['amt_to_burn'] = ", policy_input['amt_to_burn'])
-    return 'agent_supply', s
+    return 'agent_supply_free', s_free
 
 
 def update_P_bondburn(params, substep, state_history, prev_state, policy_input):

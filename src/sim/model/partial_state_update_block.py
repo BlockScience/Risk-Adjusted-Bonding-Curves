@@ -38,7 +38,7 @@ partial_state_update_blocks = [
             'reserve': update_R,
             'supply': update_S,
             'agent_reserve': update_r,
-            'agent_supply': update_s_bondburn,
+            'agent_supply': update_s_free_bondburn,
             'spot_price': update_P_bondburn,  # verify
             'price': update_pbar,  # verify
             'invariant_I': update_I_bondburn
