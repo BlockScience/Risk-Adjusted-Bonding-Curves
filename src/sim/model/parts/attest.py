@@ -1,5 +1,5 @@
+import random
 E = 0.2
-
 # Remove update_Q (?) since total number of attestations Q = Q1 + Q0
 
 
@@ -59,7 +59,15 @@ def update_s_free(params, substep, state_history, prev_state, policy_input):
     s_free = prev_state['agent_supply_free']
     delta_s_free = policy_input['amt_pos'] + policy_input['amt_neg']
 
-    s_free = s_free - delta_s_free
+    print("------timestep-----", prev_state['timestep'] % 50)
+    if prev_state['timestep'] % 50 == 0:
+        random_drop = 10
+    else:
+        random_drop = 0
+
+    print("------RANDOM DROP------", random_drop)
+    s_free = s_free - delta_s_free + random_drop
+    print("-----s_free-----", s_free)
     return 'agent_supply_free', s_free
 
 

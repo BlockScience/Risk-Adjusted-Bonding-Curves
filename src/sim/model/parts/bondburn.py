@@ -71,7 +71,7 @@ def update_s_free_bondburn(params, substep, state_history, prev_state, policy_in
     deltas = (V*(R+deltaR))**(1/kappa)-S
 
     s_free = s_free + deltas - policy_input['amt_to_burn']
-    print("AGENT SUPPLY =", s, "deltas = ", deltas,
+    print("AGENT SUPPLY =", s_free, "deltas = ", deltas,
           "policy_input['amt_to_burn'] = ", policy_input['amt_to_burn'])
     return 'agent_supply_free', s_free
 
