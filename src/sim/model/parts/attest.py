@@ -42,7 +42,7 @@ def update_S0(params, substep, state_history, prev_state, policy_input):
 
 
 def update_q1(params, substep, state_history, prev_state, policy_input):
-    q1 = prev_state['agent_attestations_1']
+    q1 = prev_state['agents_df'].sample(n=1)
 
     q1 = q1 + policy_input['amt_Q1']
     return 'agent_attestations_1', q1

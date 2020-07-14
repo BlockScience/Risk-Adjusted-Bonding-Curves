@@ -8,6 +8,8 @@ from src.sim.model.partial_state_update_block import partial_state_update_blocks
 from copy import deepcopy
 from cadCAD import configs
 
+import pandas as pd
+
 time_periods_per_run = 400
 monte_carlo_runs = 1
 E = 0.45  # to be reviewed
@@ -19,6 +21,9 @@ ALPHA = [0.5]
 MONEY_RAISED = [1000]
 PERIOD = [2000]
 r = 50  # Agent reserve, the amount of fiat tokens an agent starts with
+
+# New price singal : Determines signal shape for agent's behaviour heuristic on price
+rules_price = ["martin", "step", "ramp", "sin"]
 
 # Set initialization state variables for Attestations
 Q = 40
@@ -51,8 +56,18 @@ params = {
     'C': C,  # Commited outcome payout
     'f': [0.03],  # param to control certainty of alpha at extremes
     'm': [0.15],  # param to modulate curvature of alpha threshold band
-    'period': PERIOD
+    'period': PERIOD,
+    'rules_price': rules_price
 }
+
+# Configure agents for agent-based model
+agents_df = pd.DataFrame({'agent_attestations_1': 0,
+                          'agent_attestations_0': 0,
+                          'agent_reserve': 0,
+                          'agent_supply': 0,
+                          'agent_supply_1': 0,
+                          'agent_supply_0': 0,
+                          'agent_supply_free': 0}, index=[0])
 
 # Put this in state_vars.py
 initial_conditions = {
@@ -81,10 +96,13 @@ initial_conditions = {
     'agent_supply': s,
     'agent_supply_1': s1,
     'agent_supply_0': s0,
-    'agent_supply_free': s_free
+    'agent_supply_free': s_free,
+    'agents': agents_df,
+    'chosen_agent': 0
 }
 
 print("Initial Conditions (config.py) : ", initial_conditions)
+
 
 sim_config = config_sim({
     'T': range(time_periods_per_run),
@@ -114,3 +132,17 @@ for c in configs:
     c.initial_state['alpha'] = c.sim_config['M']['starting_alpha']
     #c.initial_state['money_raised'] = c.sim_config['M']['starting_alpha']
     #c.initial_state['C'] = c.sim_config['M']['C']
+
+
+""" state_variables = {}
+agents = {}
+for i in range(50):
+    agent['agent_'+str(i)] = {
+        'attestations_1': 0,
+        'attestations_0': 0,
+        'reserve': r,
+        'supply': s,
+        'supply_1': s1,
+        'supply_0': s0,
+        'supply_free': s_free
+    } """

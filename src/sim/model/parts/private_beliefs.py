@@ -11,20 +11,44 @@ signal = {
     # 'dP': ['N/A', P0[0]/4, P0[0]/1000, P0[0]/2],
     # 'period': ['N/A', 2000, 2000, 2000]
     'dP': P0[0]/4,
-    'period': 2000
+    'period': 2000,
+    'sigma': [.005, 'N/A', 'N/A', 'N/A']
 }
 
 
 def update_private_price(params, substep, state_history, prev_state, policy_input):
+    #params = params[0]
+    rules_price = params['rules_price']
+    period = params['period']
+    timestep = prev_state['timestep']
+    price = prev_state['price']
+
+    if rules_price == 'step':
+        bump = int((timestep % int(period/2) == 0))*int(timestep > 0)
+        sign = -(-1)**int((2*timestep/period))
+        new_private_price = price + signal['dP']*bump*sign
+    elif rules_price == 'ramp':
+        sign = (-1)**int((2*timestep/period))
+        new_private_price = price + signal['dP']*sign
+    elif rules_price == 'sin':
+        new_private_price = P0 + signal['dP'] * \
+            np.sin(2*np.pi*timestep/period)
+    elif rules_price == 'martin':
+        rv = np.random.normal(0, signal['sigma'])
+        new_private_price = price+price*rv
+    else:
+        new_private_price = price
+
     # Private price belief signal is a sine wave
     # print("signal['dP'] = ", signal['dP'])
     # print("prev_state['timestep'] = ", prev_state['timestep'])
 
     #new_private_price = (random.randint(0, 100))/100
 
-    new_private_price = P0[0] + signal['dP'] * \
-        np.sin(2*np.pi*prev_state['timestep']/signal['period'])
+    # new_private_price = P0[0] + signal['dP'] * \
+    #    np.sin(2*np.pi*prev_state['timestep']/signal['period'])
     print("--------------------------------------")
+
     return 'private_price', new_private_price
 
 

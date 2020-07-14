@@ -13,12 +13,12 @@ pd.set_option('display.max_colwidth', None)
 def run(drop_midsteps=True):
     exec_mode = ExecutionMode()
     local_mode_ctx = ExecutionContext(context=exec_mode.local_mode)
-    run = Executor(exec_context=local_mode_ctx, configs=configs)
+    runner = Executor(exec_context=local_mode_ctx, configs=configs)
     #results = pd.DataFrame()
 
     # pprint(configs)
 
-    raw_system_events, tensor_field, sessions = run.execute()
+    raw_system_events, tensor_field, sessions = runner.execute()
     simulation_result = pd.DataFrame(raw_system_events)
     print(type(simulation_result))
     print(tensor_field)

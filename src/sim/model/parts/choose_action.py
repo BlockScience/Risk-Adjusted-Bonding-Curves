@@ -7,7 +7,7 @@ import math
 
 
 def set_action(params, substep, state_history, prev_state):
-    params = params[0]
+    #params = params[0]
     # pprint(params)
 
     R = prev_state['reserve']
@@ -19,9 +19,14 @@ def set_action(params, substep, state_history, prev_state):
     private_alpha = prev_state['private_alpha']
     S1 = prev_state['supply_1']
     S0 = prev_state['supply_0']
+    r = prev_state['chosen_agent']['agent_reserve']
+    s = prev_state['chosen_agent']['agent_supply']
+    s_free = prev_state['chosen_agent']['agent_supply_free']
+    """
     r = prev_state['agent_reserve']
     s = prev_state['agent_supply']
     s_free = prev_state['agent_supply_free']
+    """
     Q1 = prev_state['attestations_1']
     Q0 = prev_state['attestations_0']
     start_kappa = params['starting_kappa']
