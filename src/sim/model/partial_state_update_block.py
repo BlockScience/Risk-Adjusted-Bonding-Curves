@@ -5,15 +5,18 @@ from src.sim.model.parts.private_beliefs import *
 from src.sim.model.parts.bondburn import *
 from src.sim.model.parts.attest import *
 from src.sim.model.parts.choose_action import set_action
+from src.sim.model.parts.choose_agent import choose_agent
+from src.sim.model.parts.putting_the_updated_agent_back_to_its_god_given_home_in_the_dataframe import putting_the_updated_agent_back_to_its_god_given_home_in_the_dataframe
 
 partial_state_update_blocks = [
     {
         'policies': {
+            'agent': choose_agent
         },
         'variables': {
             # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
             # Initialization and exogenous processes
-
+            'chosen_agent': choose_agent
         }
     },
     {
@@ -80,11 +83,12 @@ partial_state_update_blocks = [
     },
     {
         'policies': {
+
         },
         'variables': {
             # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
             # Close out
-
+            'agents': putting_the_updated_agent_back_to_its_god_given_home_in_the_dataframe
         }
     }
 ]
