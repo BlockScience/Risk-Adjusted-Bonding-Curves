@@ -11,7 +11,7 @@ from src.sim.model.parts.putting_the_updated_agent_back_to_its_god_given_home_in
 partial_state_update_blocks = [
     {
         'policies': {
-            'agent': choose_agent
+            # 'agent': choose_agent
         },
         'variables': {
             # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -72,15 +72,15 @@ partial_state_update_blocks = [
 
         }
     },
-    {
-        'policies': {
-        },
-        'variables': {
-            # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-            # Resolve metrics
+    # {
+    #     'policies': {
+    #     },
+    #     'variables': {
+    #         # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #         # Resolve metrics
 
-        }
-    },
+    #     }
+    # },
     {
         'policies': {
 

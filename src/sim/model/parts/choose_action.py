@@ -9,7 +9,7 @@ import math
 def set_action(params, substep, state_history, prev_state):
     #params = params[0]
     # pprint(params)
-
+    print('Choose Action')
     R = prev_state['reserve']
     S = prev_state['supply']
     V = prev_state['invariant_V']
@@ -19,9 +19,9 @@ def set_action(params, substep, state_history, prev_state):
     private_alpha = prev_state['private_alpha']
     S1 = prev_state['supply_1']
     S0 = prev_state['supply_0']
-    r = prev_state['chosen_agent']['agent_reserve']
-    s = prev_state['chosen_agent']['agent_supply']
-    s_free = prev_state['chosen_agent']['agent_supply_free']
+    r = prev_state['chosen_agent']['agent_reserve'][0]
+    s = prev_state['chosen_agent']['agent_supply'][0]
+    s_free = prev_state['chosen_agent']['agent_supply_free'][0]
     """
     r = prev_state['agent_reserve']
     s = prev_state['agent_supply']
@@ -36,6 +36,12 @@ def set_action(params, substep, state_history, prev_state):
     f = params['f']
     m = params['m']
     period = params['period']
+    print('s', s)
+    print('r', r)
+
+    print('P', P)
+    print('R', R)
+    print('private_price', private_price)
 
     # new_private_price is obtained from update_private_price() function in private_beliefs
     if P > private_price and s > 0 and R > 0:

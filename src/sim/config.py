@@ -9,6 +9,7 @@ from copy import deepcopy
 from cadCAD import configs
 
 import pandas as pd
+import itertools
 
 time_periods_per_run = 400
 monte_carlo_runs = 1
@@ -23,7 +24,7 @@ PERIOD = [2000]
 r = 50  # Agent reserve, the amount of fiat tokens an agent starts with
 
 # New price singal : Determines signal shape for agent's behaviour heuristic on price
-rules_price = ["martin", "step", "ramp", "sin"]
+rules_price = ["martin", "step"] #, "ramp", "sin"]
 
 # Set initialization state variables for Attestations
 Q = 40
@@ -36,6 +37,12 @@ s1 = 10  # Considering s = 50 and s_free = 30
 s0 = 10  # Considering s = 50 and s_free = 30
 s_free = s - (s1+s0)
 
+# reserve = 300 # MONEY_RAISED[0] - C[0]
+# supply = 600 #KAPPA[0]*(reserve/PRICE)
+# supply_free = supply
+# invariant_V = 1200 #(supply**KAPPA[0])/reserve
+# invariant_I = 650 #reserve + (C[0]*ALPHA[0])
+
 reserve = MONEY_RAISED[0] - C[0]
 supply = KAPPA[0]*(reserve/PRICE)
 supply_free = supply
@@ -46,6 +53,12 @@ print()
 print(type(MONEY_RAISED))
 print(MONEY_RAISED)
 print()
+
+factors = [rules_price, KAPPA]
+product = list(itertools.product(*factors))
+rules_price, KAPPA = zip(*product)
+rules_price = list(rules_price)
+KAPPA = list(KAPPA)
 
 # Put this in sys_params.py
 params = {
@@ -98,6 +111,7 @@ initial_conditions = {
     'agent_supply_0': s0,
     'agent_supply_free': s_free,
     'agents': agents_df,
+
     'chosen_agent': 0
 }
 

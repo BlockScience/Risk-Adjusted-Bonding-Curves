@@ -11,8 +11,9 @@ pd.set_option('display.max_colwidth', None)
 
 
 def run(drop_midsteps=True):
+    print()
     exec_mode = ExecutionMode()
-    local_mode_ctx = ExecutionContext(context=exec_mode.local_mode)
+    local_mode_ctx = ExecutionContext(context=exec_mode.multi_proc)
     runner = Executor(exec_context=local_mode_ctx, configs=configs)
     #results = pd.DataFrame()
 
@@ -25,6 +26,12 @@ def run(drop_midsteps=True):
     print()
     return simulation_result.reset_index()
 
+
+# exec_mode = ExecutionMode()
+# exec_ctx = ExecutionContext(context=exec_mode.multi_proc)
+# simulation = Executor(exec_context=exec_ctx, configs=configs)
+# raw_system_events, tensor_field, session = simulation.execute()
+# df = pd.DataFrame(raw_system_events)
 # print(simulation_result)
 # print(f"Tensor Field: {type(tensor_field)}")
 # print(tabulate(tensor_field, headers='keys', tablefmt='psql'))
