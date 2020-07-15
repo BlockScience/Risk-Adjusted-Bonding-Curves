@@ -9,6 +9,7 @@ from copy import deepcopy
 from cadCAD import configs
 
 import pandas as pd
+import itertools
 
 time_periods_per_run = 400
 monte_carlo_runs = 1
@@ -23,7 +24,7 @@ PERIOD = [2000]
 r = 50  # Agent reserve, the amount of fiat tokens an agent starts with
 
 # New price singal : Determines signal shape for agent's behaviour heuristic on price
-rules_price = ["martin", "step", "ramp", "sin"]
+rules_price = ["martin", "step"] #, "ramp", "sin"]
 
 # Set initialization state variables for Attestations
 Q = 40
@@ -52,6 +53,12 @@ print()
 print(type(MONEY_RAISED))
 print(MONEY_RAISED)
 print()
+
+factors = [rules_price, KAPPA]
+product = list(itertools.product(*factors))
+rules_price, KAPPA = zip(*product)
+rules_price = list(rules_price)
+KAPPA = list(KAPPA)
 
 # Put this in sys_params.py
 params = {

@@ -1,4 +1,7 @@
+import pandas as pd
+
 def putting_the_updated_agent_back_to_its_god_given_home_in_the_dataframe(params, substep, state_history, prev_state, policy_input):
+    print('Works1')
     chosen_agent = prev_state['chosen_agent']
     agents_df = prev_state['agents']
     agents_as_array = agents_df.to_numpy()
@@ -16,5 +19,7 @@ def putting_the_updated_agent_back_to_its_god_given_home_in_the_dataframe(params
                           'agent_supply_1',
                           'agent_supply_0',
                           'agent_supply_free'],data=agents_as_array)
+    
+    print('Works2')
 
     return "agents", agents_df

@@ -42,9 +42,13 @@ def update_S0(params, substep, state_history, prev_state, policy_input):
 
 
 def update_q1(params, substep, state_history, prev_state, policy_input):
-    q1 = prev_state['agents_df'].sample(n=1)
+    ### was agents_df #########################
+    ### shoud be agents
+    ### either the state agent_attestations_1
+    ### OR state agent_df with choosing series
+    q1 = prev_state['agents'].sample(n=1)
 
-    q1 = q1 + policy_input['amt_Q1']
+    q1 = q1['agent_attestations_1'][0] + policy_input['amt_Q1']
     return 'agent_attestations_1', q1
 
 
@@ -88,7 +92,7 @@ def update_s0(params, substep, state_history, prev_state, policy_input):
 def update_alpha(params, substep, state_history, prev_state, policy_input):
 
     R = prev_state['reserve']
-    C = params[0]['C']
+    C = params['C']
 
     alpha = prev_state['alpha']
 
@@ -203,7 +207,7 @@ def update_alpha(params, substep, state_history, prev_state, policy_input):
 def update_kappa(params, substep, state_history, prev_state, policy_input):
 
     R = prev_state['reserve']
-    C = params[0]['C']
+    C = params['C']
 
     alpha = prev_state['alpha']
 
@@ -291,7 +295,7 @@ def update_kappa(params, substep, state_history, prev_state, policy_input):
 
 def update_I_attest(params, substep, state_history, prev_state, policy_input):
     R = prev_state['reserve']
-    C = params[0]['C']
+    C = params['C']
 
     alpha = prev_state['alpha']
 
@@ -379,7 +383,7 @@ def update_I_attest(params, substep, state_history, prev_state, policy_input):
 def update_P_attest(params, substep, state_history, prev_state, policy_input):
 
     R = prev_state['reserve']
-    C = params[0]['C']
+    C = params['C']
 
     alpha = prev_state['alpha']
 
@@ -471,7 +475,7 @@ def update_P_attest(params, substep, state_history, prev_state, policy_input):
 def update_V(params, substep, state_history, prev_state, policy_input):
 
     R = prev_state['reserve']
-    C = params[0]['C']
+    C = params['C']
 
     alpha = prev_state['alpha']
 

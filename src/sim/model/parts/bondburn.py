@@ -118,6 +118,10 @@ def update_pbar(params, substep, state_history, prev_state, policy_input):
 
     if deltaS == 0:
         deltaS = (V*(R+deltaR))**(1/kappa)-S
+   ############ STILL DIVISION by ZERO #######################
+        if deltaS == 0:
+            deltaS = 0.00001
+        ############ STILL DIVISION by ZERO #######################
     elif deltaR == 0:
         deltaR = R-((S-deltaS)**kappa)/V
 
@@ -128,7 +132,7 @@ def update_pbar(params, substep, state_history, prev_state, policy_input):
 
 
 def update_I_bondburn(params, substep, state_history, prev_state, policy_input):
-    params = params[0]
+    # params = params[0]
     R = prev_state['reserve']
     C = params['C']
     alpha = prev_state['alpha']
