@@ -72,15 +72,15 @@ partial_state_update_blocks = [
 
         }
     },
-    {
-        'policies': {
-        },
-        'variables': {
-            # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-            # Resolve metrics
+    # {
+    #     'policies': {
+    #     },
+    #     'variables': {
+    #         # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #         # Resolve metrics
 
-        }
-    },
+    #     }
+    # },
     {
         'policies': {
 

@@ -36,6 +36,12 @@ s1 = 10  # Considering s = 50 and s_free = 30
 s0 = 10  # Considering s = 50 and s_free = 30
 s_free = s - (s1+s0)
 
+# reserve = 300 # MONEY_RAISED[0] - C[0]
+# supply = 600 #KAPPA[0]*(reserve/PRICE)
+# supply_free = supply
+# invariant_V = 1200 #(supply**KAPPA[0])/reserve
+# invariant_I = 650 #reserve + (C[0]*ALPHA[0])
+
 reserve = MONEY_RAISED[0] - C[0]
 supply = KAPPA[0]*(reserve/PRICE)
 supply_free = supply
@@ -98,6 +104,7 @@ initial_conditions = {
     'agent_supply_0': s0,
     'agent_supply_free': s_free,
     'agents': agents_df,
+
     'chosen_agent': 0
 }
 
