@@ -19,9 +19,11 @@ def set_action(params, substep, state_history, prev_state):
     private_alpha = prev_state['private_alpha']
     S1 = prev_state['supply_1']
     S0 = prev_state['supply_0']
-    r = prev_state['chosen_agent']['agent_reserve'][0]
-    s = prev_state['chosen_agent']['agent_supply'][0]
-    s_free = prev_state['chosen_agent']['agent_supply_free'][0]
+    r = prev_state['chosen_agent']['agent_reserve']
+    print("AGENT RESERVE = ", r)
+    # s = prev_state['chosen_agent']['agent_supply']
+    # this model contains only the notion of s_free. Agent supply is implicit
+    s_free = prev_state['chosen_agent']['agent_supply_free']
     """
     r = prev_state['agent_reserve']
     s = prev_state['agent_supply']
@@ -36,7 +38,7 @@ def set_action(params, substep, state_history, prev_state):
     f = params['f']
     m = params['m']
     period = params['period']
-    print('s', s)
+    print('s_free', s_free)
     print('r', r)
 
     print('P', P)
@@ -44,12 +46,12 @@ def set_action(params, substep, state_history, prev_state):
     print('private_price', private_price)
 
     # new_private_price is obtained from update_private_price() function in private_beliefs
-    if P > private_price and s > 0 and R > 0:
+    if P > private_price and s_free > 0 and R > 0:
         mech_bc = 'burn'  # burn deltaS to get deltaR.
         # print("Agent burns. P = ", P, "| private_price = ", private_price)
         amt_to_bond = 0
         # amt reqd for next state P = current state price belief
-        amt_to_burn = (P - private_price) * 0.5 * s
+        amt_to_burn = (P - private_price) * 0.5 * s_free
 
     elif P < private_price and r > 0 and S > 0:
         mech_bc = 'bond'  # bond deltaR to get deltaS
@@ -57,7 +59,7 @@ def set_action(params, substep, state_history, prev_state):
         amt_to_bond = (private_price - P) * 0.5 * r  # units
         amt_to_burn = 0
 
-    elif s <= 0:
+    elif s_free <= 0:
         mech_bc = None
         amt_to_bond = 0
         amt_to_burn = 0
@@ -97,14 +99,14 @@ def set_action(params, substep, state_history, prev_state):
         amt_pos = 0
 
         # Heuristic 1: Random choice between 0-50% of agent supply
-        #amt_neg = (random.randint(0, 50)/100)*s
+        #amt_neg = (random.randint(0, 50)/100)*s_free
 
         # Heuristic 2: Variable bandwidth threshold on alpha - private_alpha
         a = abs(alpha - private_alpha)
         d = 4*m*(1-a)*(a)
         g1 = d + (1-d-f)*a + f
         g0 = (1-d-f)*a
-        amt_neg = random.uniform(g0, g1)*s
+        amt_neg = random.uniform(g0, g1)*s_free
         print("amt_neg = ", amt_neg)
 
         # Compute number of claims
@@ -126,14 +128,14 @@ def set_action(params, substep, state_history, prev_state):
 
         # Agent's choice of delta s
         # Heuristic 1: Random choice between 0-50% of agent supply
-        #amt_pos = (random.randint(0, 50)/100)*s
+        #amt_pos = (random.randint(0, 50)/100)*s_free
 
         # Heuristic 2: Variable bandwidth threshold on alpha - private_alpha
         a = abs(alpha - private_alpha)
         d = 4*m*(1-a)*(a)
         g1 = d + (1-d-f)*a + f
         g0 = (1-d-f)*a
-        amt_pos = random.uniform(g0, g1)*s
+        amt_pos = random.uniform(g0, g1)*s_free
 
         amt_neg = 0
         print("amt_pos = ", amt_pos)
@@ -167,7 +169,7 @@ def set_action(params, substep, state_history, prev_state):
         amt_pos = 0
         amt_neg = 0
         print("No attestation. alpha = ", alpha,
-              "private_alpha = ", private_alpha, "s = ", s)
+              "private_alpha = ", private_alpha, "s_free = ", s_free)
 
         # action['posterior'] = {'S': S, 'R': R, 'P': P, 'S1': S0, 'S1': S1,
         #               'Q0': Q0, 'Q1': Q1, 'kappa': kappa, 'alpha': alpha, 'I': I, 'V': V}

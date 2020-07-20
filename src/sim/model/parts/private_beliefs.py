@@ -21,11 +21,11 @@ def update_private_price(params, substep, state_history, prev_state, policy_inpu
     P0 = [1]
 
     signal = {
-    # 'dP': ['N/A', P0[0]/4, P0[0]/1000, P0[0]/2],
-    # 'period': ['N/A', 2000, 2000, 2000]
-    'dP': P0[0]/4,
-    'period': 2000,
-    'sigma': [.005], # , 'N/A', 'N/A', 'N/A']
+        # 'dP': ['N/A', P0[0]/4, P0[0]/1000, P0[0]/2],
+        # 'period': ['N/A', 2000, 2000, 2000]
+        'dP': P0[0]/4,
+        'period': 2000,
+        'sigma': [.005],  # , 'N/A', 'N/A', 'N/A']
     }
 
     #params = params[0]
@@ -58,6 +58,19 @@ def update_private_price(params, substep, state_history, prev_state, policy_inpu
 
     # new_private_price = P0[0] + signal['dP'] * \
     #    np.sin(2*np.pi*prev_state['timestep']/signal['period'])
+
+    # use martingale
+
+    # Private price is a noisy reserve/supply <-- not using
+    #r = prev_state['reserve']
+    #s = prev_state['supply']
+    #noise_r = (random.randint(-50, 50)/100)
+    #noise_s = (random.randint(-50, 50)/100)
+
+    #print("noise r = ", noise_r)
+    #print("noise s = ", noise_s)
+
+    #new_private_price = (r + (noise_r * r)) / (s + (noise_s * s))
     print("--------------------------------------")
 
     return 'private_price', new_private_price

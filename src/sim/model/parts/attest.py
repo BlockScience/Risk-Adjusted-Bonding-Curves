@@ -41,22 +41,99 @@ def update_S0(params, substep, state_history, prev_state, policy_input):
     return 'supply_0', S0
 
 
-def update_q1(params, substep, state_history, prev_state, policy_input):
-    ### was agents_df #########################
-    ### shoud be agents
-    ### either the state agent_attestations_1
-    ### OR state agent_df with choosing series
-    q1 = prev_state['agents'].sample(n=1)
+def compute_q1(q1, amt_Q1):
 
-    q1 = q1['agent_attestations_1'][0] + policy_input['amt_Q1']
-    return 'agent_attestations_1', q1
+    q1 = q1 + amt_Q1
+
+    #print("amt_Q1 from compute_q1: ", amt_Q1)
+
+    return q1
+
+
+def compute_q0(q0, amt_Q0):
+
+    q0 = q0 + amt_Q0
+
+    return q0
+
+
+def compute_s1(s1, amt_pos):
+
+    s1 = s1 + amt_pos
+
+    return 9
+
+
+def compute_s0(s0, amt_neg):
+
+    s0 = s0 + amt_neg
+
+    return s0
+
+
+def compute_s_free(s_free, delta_s_free):
+
+    s_free = s_free - delta_s_free
+
+    return s_free
+
+
+def update_agent_PM(params, substep, state_history, prev_state, policy_input):
+    agent = prev_state['chosen_agent']
+    q1 = agent['agent_attestations_1']
+    q0 = agent['agent_attestations_0']
+    s1 = agent['agent_supply_1']
+    s0 = agent['agent_supply_0']
+    s_free = agent['agent_supply_free']
+
+    amt_Q1 = policy_input['amt_Q1']
+    amt_Q0 = policy_input['amt_Q0']
+    amt_pos = policy_input['amt_pos']
+    amt_neg = policy_input['amt_neg']
+    delta_s_free = policy_input['amt_pos'] + policy_input['amt_neg']
+
+    #print("amt_Q1 from update_agent: ", amt_Q1)
+
+    agent['agent_attestations_1'] = compute_q1(q1, amt_Q1)
+    agent['agent_attestations_0'] = compute_q0(q0, amt_Q0)
+    agent['agent_supply_1'] = compute_s1(s1, amt_pos)
+    agent['agent_supply_0'] = compute_s0(s0, amt_neg)
+    agent['agent_supply_free'] = compute_s_free(s_free, delta_s_free)
+
+    return 'chosen_agent', agent
+
+
+""" def update_q1(params, substep, state_history, prev_state, policy_input):
+    ### was agents_df #########################
+    # shoud be agents
+    # either the state agent_attestations_1
+    # OR state agent_df with choosing series
+
+    agent = prev_state['chosen_agent']
+
+    print('q1 before' + agent.to_string())
+
+    q1 = agent['q1']
+    q1 = q1 + policy_input['amt_Q1']
+    agent['q1'] = q1
+
+    print('q1 after' + agent.to_string())
+
+    return 'chosen_agent', agent
 
 
 def update_q0(params, substep, state_history, prev_state, policy_input):
-    q0 = prev_state['agent_attestations_0']
+    agent = prev_state['chosen_agent']
+    print('q0 before' + agent.to_string())
 
+    q0 = calculate_q0(agent q0, )
+    agent['q0']
     q0 = q0 + policy_input['amt_Q0']
-    return 'agent_attestations_0', q0
+    agent['q0'] = q0
+
+    print('q0 after' + agent.to_string())
+
+    return 'chosen_agent', agent
 
 
 def update_s_free(params, substep, state_history, prev_state, policy_input):
@@ -87,6 +164,7 @@ def update_s0(params, substep, state_history, prev_state, policy_input):
 
     s0 = s0 + policy_input['amt_neg']
     return 'agent_supply_0', s0
+ """
 
 
 def update_alpha(params, substep, state_history, prev_state, policy_input):
@@ -103,11 +181,13 @@ def update_alpha(params, substep, state_history, prev_state, policy_input):
     S1 = prev_state['supply_1']
     S0 = prev_state['supply_0']
 
-    q1 = prev_state['agent_attestations_1']
-    q0 = prev_state['agent_attestations_0']
-    s = prev_state['agent_supply']
-    s1 = prev_state['agent_supply_1']
-    s0 = prev_state['agent_supply_0']
+    q1 = prev_state['chosen_agent']['agent_attestations_1']
+    q0 = prev_state['chosen_agent']['agent_attestations_0']
+    s_free = prev_state['chosen_agent']['agent_supply_free']
+    s1 = prev_state['chosen_agent']['agent_supply_1']
+    s0 = prev_state['chosen_agent']['agent_supply_0']
+
+    s = s_free + s1 + s0
 
     attest_action = policy_input['mech_pm']
     delta_q1 = policy_input['amt_Q1']
@@ -120,7 +200,7 @@ def update_alpha(params, substep, state_history, prev_state, policy_input):
         pre1 = (q1+delta_q1)/(Q1+delta_q1)
         pre2 = (S1+delta_s)/S
         pre3 = (q1*S1)/(Q1*S)
-        #print("pre_1 = ", pre1, " | pre_2 = ", pre2, " | pre_3 = ", pre3)
+        # print("pre_1 = ", pre1, " | pre_2 = ", pre2, " | pre_3 = ", pre3)
 
         # Compute mu_1
         mu_1 = (pre1 * pre2) - pre3
@@ -130,7 +210,7 @@ def update_alpha(params, substep, state_history, prev_state, policy_input):
         pre4 = (R)*(delta_s/S)
         pre5 = (C+R)*mu_1
         pre6 = (C)*(delta_s/S)
-        #print("pre_4 = ", pre4, " | pre_5 = ", pre5, " | pre_6 = ", pre6)
+        # print("pre_4 = ", pre4, " | pre_5 = ", pre5, " | pre_6 = ", pre6)
 
         if pre6 - pre5 == 0:
             print("EQUALIZED")
@@ -194,13 +274,13 @@ def update_alpha(params, substep, state_history, prev_state, policy_input):
 
     # alpha = spot_alpha(S, I, kappa, C)
     print("Q0 = ", prev_state['attestations_0'], "| Q1 = ", prev_state['attestations_1'],
-          "| q0 = ", prev_state['agent_attestations_0'], "| q1 = ", prev_state['agent_attestations_1'])
+          "| q0 = ", prev_state['chosen_agent']['agent_attestations_0'], "| q1 = ", prev_state['chosen_agent']['agent_attestations_1'])
     print("deltaq0 = ", delta_q0, "deltaq1 = ", delta_q1)
     print("s = ", s, "| delta_s = ", delta_s)
-    #print("A = ", A)
-    #print("alpha_bar = ", alpha_bar)
+    # print("A = ", A)
+    # print("alpha_bar = ", alpha_bar)
     print("new_alpha = ", new_alpha)
-    #new_alpha = -1*new_alpha
+    # new_alpha = -1*new_alpha
     return 'alpha', new_alpha
 
 
@@ -218,11 +298,13 @@ def update_kappa(params, substep, state_history, prev_state, policy_input):
     S1 = prev_state['supply_1']
     S0 = prev_state['supply_0']
 
-    q1 = prev_state['agent_attestations_1']
-    q0 = prev_state['agent_attestations_0']
-    s = prev_state['agent_supply']
-    s1 = prev_state['agent_supply_1']
-    s0 = prev_state['agent_supply_0']
+    q1 = prev_state['chosen_agent']['agent_attestations_1']
+    q0 = prev_state['chosen_agent']['agent_attestations_0']
+    s_free = prev_state['chosen_agent']['agent_supply_free']
+    s1 = prev_state['chosen_agent']['agent_supply_1']
+    s0 = prev_state['chosen_agent']['agent_supply_0']
+
+    s = s_free + s1 + s0
 
     delta_q1 = policy_input['amt_Q1']
     delta_q0 = policy_input['amt_Q0']
@@ -306,11 +388,13 @@ def update_I_attest(params, substep, state_history, prev_state, policy_input):
     S1 = prev_state['supply_1']
     S0 = prev_state['supply_0']
 
-    q1 = prev_state['agent_attestations_1']
-    q0 = prev_state['agent_attestations_0']
-    s = prev_state['agent_supply']
-    s1 = prev_state['agent_supply_1']
-    s0 = prev_state['agent_supply_0']
+    q1 = prev_state['chosen_agent']['agent_attestations_1']
+    q0 = prev_state['chosen_agent']['agent_attestations_0']
+    s_free = prev_state['chosen_agent']['agent_supply_free']
+    s1 = prev_state['chosen_agent']['agent_supply_1']
+    s0 = prev_state['chosen_agent']['agent_supply_0']
+
+    s = s_free + s1 + s0
 
     delta_q1 = policy_input['amt_Q1']
     delta_q0 = policy_input['amt_Q0']
@@ -394,11 +478,13 @@ def update_P_attest(params, substep, state_history, prev_state, policy_input):
     S1 = prev_state['supply_1']
     S0 = prev_state['supply_0']
 
-    q1 = prev_state['agent_attestations_1']
-    q0 = prev_state['agent_attestations_0']
-    s = prev_state['agent_supply']
-    s1 = prev_state['agent_supply_1']
-    s0 = prev_state['agent_supply_0']
+    q1 = prev_state['chosen_agent']['agent_attestations_1']
+    q0 = prev_state['chosen_agent']['agent_attestations_0']
+    s_free = prev_state['chosen_agent']['agent_supply_free']
+    s1 = prev_state['chosen_agent']['agent_supply_1']
+    s0 = prev_state['chosen_agent']['agent_supply_0']
+
+    s = s_free + s1 + s0
 
     delta_q1 = policy_input['amt_Q1']
     delta_q0 = policy_input['amt_Q0']
@@ -486,11 +572,13 @@ def update_V(params, substep, state_history, prev_state, policy_input):
     S1 = prev_state['supply_1']
     S0 = prev_state['supply_0']
 
-    q1 = prev_state['agent_attestations_1']
-    q0 = prev_state['agent_attestations_0']
-    s = prev_state['agent_supply']
-    s1 = prev_state['agent_supply_1']
-    s0 = prev_state['agent_supply_0']
+    q1 = prev_state['chosen_agent']['agent_attestations_1']
+    q0 = prev_state['chosen_agent']['agent_attestations_0']
+    s_free = prev_state['chosen_agent']['agent_supply_free']
+    s1 = prev_state['chosen_agent']['agent_supply_1']
+    s0 = prev_state['chosen_agent']['agent_supply_0']
+
+    s = s_free + s1 + s0
 
     delta_q1 = policy_input['amt_Q1']
     delta_q0 = policy_input['amt_Q0']

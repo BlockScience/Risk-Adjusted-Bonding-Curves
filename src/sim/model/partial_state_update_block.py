@@ -6,7 +6,7 @@ from src.sim.model.parts.bondburn import *
 from src.sim.model.parts.attest import *
 from src.sim.model.parts.choose_action import set_action
 from src.sim.model.parts.choose_agent import choose_agent
-from src.sim.model.parts.putting_the_updated_agent_back_to_its_god_given_home_in_the_dataframe import putting_the_updated_agent_back_to_its_god_given_home_in_the_dataframe
+from src.sim.model.parts.put_agent_back_to_df import put_agent_back_to_df
 
 partial_state_update_blocks = [
     {
@@ -40,11 +40,12 @@ partial_state_update_blocks = [
             # Bond-to-mint or burn-to-withdraw
             'reserve': update_R,
             'supply': update_S,
-            'agent_reserve': update_r,
-            'agent_supply': update_s_free_bondburn,
+            # 'agent_reserve': update_r,
+            # 'agent_supply': update_s_free_bondburn,
             'spot_price': update_P_bondburn,  # verify
             'price': update_pbar,  # verify
-            'invariant_I': update_I_bondburn
+            'invariant_I': update_I_bondburn,
+            'chosen_agent': update_agent_BC
         }
     },
     {
@@ -59,17 +60,17 @@ partial_state_update_blocks = [
             'attestations_0': update_Q0,
             'supply_1': update_S1,
             'supply_0': update_S0,
-            'agent_attestations_1': update_q1,
-            'agent_attestations_0': update_q0,
-            'agent_supply_free': update_s_free,
-            'agent_supply_1': update_s1,
-            'agent_supply_0': update_s0,
+            # 'agent_attestations_1': update_q1,
+            # 'agent_attestations_0': update_q0,
+            # 'agent_supply_free': update_s_free,
+            # 'agent_supply_1': update_s1,
+            # 'agent_supply_0': update_s0, """
+            'chosen_agent': update_agent_PM,
             'invariant_I': update_I_attest,
             'alpha': update_alpha,
             'kappa': update_kappa,
             'spot_price': update_P_attest,
             'invariant_V': update_V
-
         }
     },
     # {
@@ -88,7 +89,7 @@ partial_state_update_blocks = [
         'variables': {
             # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
             # Close out
-            'agents': putting_the_updated_agent_back_to_its_god_given_home_in_the_dataframe
+            'agents': put_agent_back_to_df
         }
     }
 ]
