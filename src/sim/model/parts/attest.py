@@ -61,7 +61,7 @@ def compute_s1(s1, amt_pos):
 
     s1 = s1 + amt_pos
 
-    return 9
+    return s1
 
 
 def compute_s0(s0, amt_neg):
