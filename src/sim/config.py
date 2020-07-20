@@ -11,7 +11,7 @@ from cadCAD import configs
 import pandas as pd
 import itertools
 
-time_periods_per_run = 400
+time_periods_per_run = 10
 monte_carlo_runs = 1
 E = 0.45  # to be reviewed
 
@@ -21,10 +21,9 @@ C = [700]
 ALPHA = [0.5]
 MONEY_RAISED = [1000]
 PERIOD = [2000]
-r = 50  # Agent reserve, the amount of fiat tokens an agent starts with
 
 # New price singal : Determines signal shape for agent's behaviour heuristic on price
-rules_price = ["martin", "step"] #, "ramp", "sin"]
+rules_price = ["martin", "step"]  # , "ramp", "sin"]
 
 # Set initialization state variables for Attestations
 Q = 40
@@ -32,6 +31,7 @@ Q1 = 20
 Q0 = 20
 S1 = 200  # Considering S = 600 and S_free = 200
 S0 = 200  # Considering S = 600 and S_free = 200
+r = 50    # Agent reserve, the amount of fiat tokens an agent starts with
 s = 50
 s1 = 10  # Considering s = 50 and s_free = 30
 s0 = 10  # Considering s = 50 and s_free = 30
@@ -73,14 +73,21 @@ params = {
     'rules_price': rules_price
 }
 
+number_of_agents = 5
+
+print("CHECKPOINT 1")
+
 # Configure agents for agent-based model
 agents_df = pd.DataFrame({'agent_attestations_1': 0,
                           'agent_attestations_0': 0,
-                          'agent_reserve': 0,
-                          'agent_supply': 0,
-                          'agent_supply_1': 0,
-                          'agent_supply_0': 0,
-                          'agent_supply_free': 0}, index=[0])
+                          'agent_reserve': r,
+                          # 'agent_supply': s,
+                          'agent_supply_1': s1,
+                          'agent_supply_0': s0,
+                          'agent_supply_free': s_free}, index=[0])
+agents_df = pd.concat([agents_df]*number_of_agents, ignore_index=True)
+
+print("CHECKPOINT 2")
 
 # Put this in state_vars.py
 initial_conditions = {
@@ -103,15 +110,14 @@ initial_conditions = {
     'invariant_V': invariant_V,  # (supply**kappa)/reserve
     # (reserve + C*alpha) if alpha is directed to the initial alpha in params, this will change
     'invariant_I': invariant_I,
-    'agent_attestations_1': 0,
-    'agent_attestations_0': 0,
-    'agent_reserve': r,
-    'agent_supply': s,
-    'agent_supply_1': s1,
-    'agent_supply_0': s0,
-    'agent_supply_free': s_free,
+    # 'agent_attestations_1': 0,
+    # 'agent_attestations_0': 0,
+    # 'agent_reserve': r,
+    # 'agent_supply': s,
+    # 'agent_supply_1': s1,
+    # 'agent_supply_0': s0,
+    # 'agent_supply_free': s_free,
     'agents': agents_df,
-
     'chosen_agent': 0
 }
 

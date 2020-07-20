@@ -46,7 +46,7 @@ def update_r(params, substep, state_history, prev_state, policy_input):
     S = prev_state['supply']
     V = prev_state['invariant_V']
     kappa = prev_state['kappa']
-    r = prev_state['agent_reserve']
+    r = prev_state['chosen_agent']['agent_reserve']
     deltaS = policy_input['amt_to_burn']
 
     if V == 0:
@@ -74,6 +74,43 @@ def update_s_free_bondburn(params, substep, state_history, prev_state, policy_in
     print("AGENT SUPPLY =", s_free, "deltas = ", deltas,
           "policy_input['amt_to_burn'] = ", policy_input['amt_to_burn'])
     return 'agent_supply_free', s_free
+
+
+def compute_r(R, S, V, kappa, r, deltaS, policy_input):
+    if V == 0:
+        print("V IS ZERO")
+    else:
+        deltar = R-((S-deltaS)**kappa)/V
+
+    r = r - policy_input['amt_to_bond'] + deltar
+    return r
+
+
+def compute_s_free(R, S, V, kappa, s_free, deltaR, policy_input):
+    deltas = (V*(R+deltaR))**(1/kappa)-S
+
+    s_free = s_free + deltas - policy_input['amt_to_burn']
+    return s_free
+
+
+def update_agent_BC(params, substep, state_history, prev_state, policy_input):
+    R = prev_state['reserve']
+    S = prev_state['supply']
+    V = prev_state['invariant_V']
+    kappa = prev_state['kappa']
+
+    agent = prev_state['chosen_agent']
+    r = agent['agent_reserve']
+    s_free = agent['agent_supply_free']
+
+    deltaS = policy_input['amt_to_burn']
+    deltaR = policy_input['amt_to_bond']
+
+    agent['agent_reserve'] = compute_r(R, S, V, kappa, r, deltaS, policy_input)
+    agent['agent_supply_free'] = compute_s_free(
+        R, S, V, kappa, s_free, deltaR, policy_input)
+
+    return 'chosen_agent', agent
 
 
 def update_P_bondburn(params, substep, state_history, prev_state, policy_input):
