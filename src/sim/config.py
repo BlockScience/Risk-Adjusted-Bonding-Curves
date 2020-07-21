@@ -11,8 +11,8 @@ from cadCAD import configs
 import pandas as pd
 import itertools
 
-time_periods_per_run = 100
-monte_carlo_runs = 3
+time_periods_per_run = 200
+monte_carlo_runs = 2
 E = 0.45  # to be reviewed
 
 KAPPA = [2]
@@ -75,6 +75,8 @@ params = {
 
 number_of_agents = 5
 
+PRIVATE_ALPHA = 0.6
+
 print("CHECKPOINT 1")
 
 # Configure agents for agent-based model
@@ -84,9 +86,11 @@ agents_df = pd.DataFrame({'agent_attestations_1': 0,
                           # 'agent_supply': s,
                           'agent_supply_1': s1,
                           'agent_supply_0': s0,
-                          'agent_supply_free': s_free}, index=[0])
+                          'agent_supply_free': s_free,
+                          'agent_private_alpha': PRIVATE_ALPHA}, index=[0])
 agents_df = pd.concat([agents_df]*number_of_agents, ignore_index=True)
 
+agents_df['agent_private_alpha'] = 0.5 , 0.6, 0.7, 0.8, 0.9
 print("CHECKPOINT 2")
 
 # Put this in state_vars.py

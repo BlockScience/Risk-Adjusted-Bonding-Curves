@@ -87,8 +87,10 @@ def update_private_alpha(params, substep, state_history, prev_state, policy_inpu
     # new_private_alpha = P0[0] + signal['dP'] * \
     #  np.sin(2*np.pi*prev_state['timestep']/signal['period'])
 
-    new_private_alpha = (random.randint(50, 100))/100
+    # new_private_alpha = (random.randint(50, 100))/100
 
+    new_private_alpha = prev_state['chosen_agent']['agent_private_alpha']
+ 
     # plt.plot(new_private_alpha, substep)
     # plt.show()
     # print("new_private_alpha = ", new_private_alpha)
