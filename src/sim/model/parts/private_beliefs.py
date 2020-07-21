@@ -25,7 +25,7 @@ def update_private_price(params, substep, state_history, prev_state, policy_inpu
         # 'period': ['N/A', 2000, 2000, 2000]
         'dP': P0[0]/4,
         'period': 2000,
-        'sigma': [.005],  # , 'N/A', 'N/A', 'N/A']
+        'sigma': .005,  # , 'N/A', 'N/A', 'N/A']
     }
 
     #params = params[0]
