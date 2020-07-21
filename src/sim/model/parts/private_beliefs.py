@@ -5,15 +5,18 @@ import numpy as np
 import random
 import matplotlib.pyplot as plt
 
-P0 = [1]
+# REMOVE and put in update_private_price function
+# Should be part of parameter if will be varied
 
-signal = {
-    # 'dP': ['N/A', P0[0]/4, P0[0]/1000, P0[0]/2],
-    # 'period': ['N/A', 2000, 2000, 2000]
-    'dP': P0[0]/4,
-    'period': 2000,
-    'sigma': [.005, 'N/A', 'N/A', 'N/A']
-}
+# P0 = [1]
+
+# signal = {
+#     # 'dP': ['N/A', P0[0]/4, P0[0]/1000, P0[0]/2],
+#     # 'period': ['N/A', 2000, 2000, 2000]
+#     'dP': P0[0]/4,
+#     'period': 2000,
+#     'sigma': [.005, 'N/A', 'N/A', 'N/A']
+# }
 
 
 def update_private_price(params, substep, state_history, prev_state, policy_input):
