@@ -11,7 +11,7 @@ from cadCAD import configs
 import pandas as pd
 import itertools
 
-time_periods_per_run = 200
+time_periods_per_run = 50
 monte_carlo_runs = 2
 E = 0.45  # to be reviewed
 
@@ -24,6 +24,7 @@ PERIOD = [2000]
 
 # New price singal : Determines signal shape for agent's behaviour heuristic on price
 rules_price = ["martin", "step"]  # , "ramp", "sin"]
+# rules_price = ["martin", "step", "ramp", "sin"]
 
 # Set initialization state variables for Attestations
 Q = 40
@@ -54,11 +55,15 @@ print(type(MONEY_RAISED))
 print(MONEY_RAISED)
 print()
 
-factors = [rules_price, KAPPA]
+E = [0.2]
+
+factors = [rules_price, KAPPA, E]
 product = list(itertools.product(*factors))
-rules_price, KAPPA = zip(*product)
+rules_price, KAPPA, E = zip(*product)
 rules_price = list(rules_price)
 KAPPA = list(KAPPA)
+E = list(E)
+
 
 # Put this in sys_params.py
 params = {
@@ -70,12 +75,14 @@ params = {
     'f': [0.03],  # param to control certainty of alpha at extremes
     'm': [0.15],  # param to modulate curvature of alpha threshold band
     'period': PERIOD,
-    'rules_price': rules_price
+    'rules_price': rules_price,
+    'E' : E
 }
 
 number_of_agents = 5
 
 PRIVATE_ALPHA = 0.6
+PRIVATE_PRICE = 1
 
 print("CHECKPOINT 1")
 
@@ -87,7 +94,8 @@ agents_df = pd.DataFrame({'agent_attestations_1': 0,
                           'agent_supply_1': s1,
                           'agent_supply_0': s0,
                           'agent_supply_free': s_free,
-                          'agent_private_alpha': PRIVATE_ALPHA}, index=[0])
+                          'agent_private_alpha': PRIVATE_ALPHA,
+                          'agent_private_alpha': PRIVATE_PRICE}, index=[0])
 agents_df = pd.concat([agents_df]*number_of_agents, ignore_index=True)
 
 agents_df['agent_private_alpha'] = 0.5 , 0.6, 0.7, 0.8, 0.9
@@ -104,6 +112,8 @@ initial_conditions = {
     'kappa': 0,  # direct to initial kappa in params?
     'supply': supply,
     'alpha': ALPHA,  # direct to initial alpha in params?
+    'alpha_bar': ALPHA,  # direct to initial alpha in params?
+
     # 'spot_alpha': 0,
     'supply_0': S0,
     'supply_1': S1,
