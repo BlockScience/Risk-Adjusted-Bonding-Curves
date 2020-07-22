@@ -5,15 +5,18 @@ import numpy as np
 import random
 import matplotlib.pyplot as plt
 
-P0 = [1]
+# REMOVE and put in update_private_price function
+# Should be part of parameter if will be varied
 
-signal = {
-    # 'dP': ['N/A', P0[0]/4, P0[0]/1000, P0[0]/2],
-    # 'period': ['N/A', 2000, 2000, 2000]
-    'dP': P0[0]/4,
-    'period': 2000,
-    'sigma': [.005, 'N/A', 'N/A', 'N/A']
-}
+# P0 = [1]
+
+# signal = {
+#     # 'dP': ['N/A', P0[0]/4, P0[0]/1000, P0[0]/2],
+#     # 'period': ['N/A', 2000, 2000, 2000]
+#     'dP': P0[0]/4,
+#     'period': 2000,
+#     'sigma': [.005, 'N/A', 'N/A', 'N/A']
+# }
 
 
 def update_private_price(params, substep, state_history, prev_state, policy_input):
@@ -25,7 +28,7 @@ def update_private_price(params, substep, state_history, prev_state, policy_inpu
         # 'period': ['N/A', 2000, 2000, 2000]
         'dP': P0[0]/4,
         'period': 2000,
-        'sigma': [.005],  # , 'N/A', 'N/A', 'N/A']
+        'sigma': .005,  # , 'N/A', 'N/A', 'N/A']
     }
 
     #params = params[0]
@@ -84,8 +87,10 @@ def update_private_alpha(params, substep, state_history, prev_state, policy_inpu
     # new_private_alpha = P0[0] + signal['dP'] * \
     #  np.sin(2*np.pi*prev_state['timestep']/signal['period'])
 
-    new_private_alpha = (random.randint(50, 100))/100
+    # new_private_alpha = (random.randint(50, 100))/100
 
+    new_private_alpha = prev_state['chosen_agent']['agent_private_alpha']
+ 
     # plt.plot(new_private_alpha, substep)
     # plt.show()
     # print("new_private_alpha = ", new_private_alpha)
