@@ -203,8 +203,9 @@ def attest_pos(R, C, E, alpha, Q, Q1, Q0, S, S1, S0, q0, q1, s_free, s1, s0, s, 
 
     # new_alpha = T1+T2+T3
     new_alpha = alpha_bar
-
+    S1 = S1 + delta_s
     print("Positive attestation")
+    new_alpha = S1* R / ( S1* R - S0 * R + S0*C) 
 
     return new_alpha
 
@@ -242,6 +243,8 @@ def attest_neg(R, C, E, alpha, Q, Q1, Q0, S, S1, S0, q0, q1, s_free, s1, s0, s, 
 
     # new_alpha = T1+T2+T3
     new_alpha = alpha_bar
+    S0 = S0 + delta_s
+    new_alpha = S1* R / ( S1* R - S0 * R + S0*C) 
 
     print("Negative attestation.")
 
@@ -314,6 +317,7 @@ def update_kappa(params, substep, state_history, prev_state, policy_input):
     S = prev_state['supply']
     S1 = prev_state['supply_1']
     S0 = prev_state['supply_0']
+    I = prev_state['invariant_I']
 
     q1 = prev_state['chosen_agent']['agent_attestations_1']
     q0 = prev_state['chosen_agent']['agent_attestations_0']
@@ -337,6 +341,8 @@ def update_kappa(params, substep, state_history, prev_state, policy_input):
     else:
         new_alpha = alpha
 
+#######   REWRITE INVARIANT I, DO NOT UPDATE I for updated kappa (f of updated alpha)
+#  Use Note that in HackMD #
     I = R + (C*new_alpha)
     kappa = I / (I - (C*new_alpha))
 
@@ -425,9 +431,7 @@ def update_P_attest(params, substep, state_history, prev_state, policy_input):
     I = R + (C*new_alpha)
     kappa = I / (I - (C*new_alpha))
 
-    ##### WHY DIVIDE by 5? ###########
     P = kappa * (R/S)
-    ##### WHY DIVIDE by 5? ###########
 
     # VERIFY how this is different from dR/dS and their applicability
     # P = kappa*(R/S)
