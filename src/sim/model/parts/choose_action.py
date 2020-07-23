@@ -38,13 +38,15 @@ def set_action(params, substep, state_history, prev_state):
     f = params['f']
     m = params['m']
     period = params['period']
-    print('s_free', s_free)
+
     print('r', r)
 
-    print('P', P)
-    print('R', R)
-    print('private_price', private_price)
-
+    print('P', P, type(P))
+    print('R', R, type(R))
+    print('private_price', private_price, type(private_price))
+    print('s_free', s_free, type(s_free))
+    print('private_alpha', private_alpha, type(private_alpha))
+    print('alpha', alpha, type(alpha))
     # new_private_price is obtained from update_private_price() function in private_beliefs
     if P > private_price and s_free > 0 and R > 0:
         mech_bc = 'burn'  # burn deltaS to get deltaR.

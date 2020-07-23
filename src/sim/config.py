@@ -11,8 +11,8 @@ from cadCAD import configs
 import pandas as pd
 import itertools
 
-time_periods_per_run = 50
-monte_carlo_runs = 2
+time_periods_per_run = 500
+monte_carlo_runs = 3
 E = 0.45  # to be reviewed
 
 KAPPA = [2]
