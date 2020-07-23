@@ -20,7 +20,7 @@ def update_R(params, substep, state_history, prev_state, policy_input):
     else:
         deltaR = (((S-deltaS)**kappa)/V) - R
         R = R + policy_input['amt_to_bond'] - deltaR
-        print("RESERVE = ", R, " | deltaR = ", deltaR, " | deltaS = ", deltaS)
+        # print("RESERVE = ", R, " | deltaR = ", deltaR, " | deltaS = ", deltaS)
 
     return 'reserve', R
 
@@ -36,7 +36,7 @@ def update_S(params, substep, state_history, prev_state, policy_input):
 
     deltaS = S - (V*(R+deltaR))**(1/kappa)
     S = S - deltaS + policy_input['amt_to_burn']
-    print("SUPPLY = ", S, " | deltaR = ", deltaR, " | deltaS = ", deltaS)
+    # print("SUPPLY = ", S, " | deltaR = ", deltaR, " | deltaS = ", deltaS)
 
     return 'supply', S
 
@@ -55,8 +55,9 @@ def update_r(params, substep, state_history, prev_state, policy_input):
         deltar = R-((S-deltaS)**kappa)/V
 
     r = r - policy_input['amt_to_bond'] + deltar
-    print("AGENT RESERVE =", r, "deltar = ", deltar,
-          "policy_input['amt_to_bond'] = ", policy_input['amt_to_bond'])
+
+    # print("AGENT RESERVE =", r, "deltar = ", deltar,
+    # "policy_input['amt_to_bond'] = ", policy_input['amt_to_bond'])
     return 'agent_reserve', r
 
 
@@ -71,8 +72,9 @@ def update_s_free_bondburn(params, substep, state_history, prev_state, policy_in
     deltas = (V*(R+deltaR))**(1/kappa)-S
 
     s_free = s_free + deltas - policy_input['amt_to_burn']
-    print("AGENT SUPPLY =", s_free, "deltas = ", deltas,
-          "policy_input['amt_to_burn'] = ", policy_input['amt_to_burn'])
+
+    # print("AGENT SUPPLY =", s_free, "deltas = ", deltas,
+    # "policy_input['amt_to_burn'] = ", policy_input['amt_to_burn'])
     return 'agent_supply_free', s_free
 
 
@@ -134,7 +136,7 @@ def update_P_bondburn(params, substep, state_history, prev_state, policy_input):
     else:
         P = amt_to_bond/amt_to_burn  # deltaR/deltaS
 
-    print("SPOT PRICE P (from bondburn update) = ", P)
+    # print("SPOT PRICE P (from bondburn update) = ", P)
     return 'spot_price', P
 
 
@@ -176,7 +178,7 @@ def update_I_bondburn(params, substep, state_history, prev_state, policy_input):
     deltaR = policy_input['amt_to_bond']
 
     I = (R + deltaR) + (C*alpha)
-    print("C =", C, "alpha = ", alpha, "R = ", R, "deltaR = ", deltaR)
-    print("I (from bondburn) =", I)
-    print("--------------------------------------")
+    #print("C =", C, "alpha = ", alpha, "R = ", R, "deltaR = ", deltaR)
+    #print("I (from bondburn) =", I)
+    # print("--------------------------------------")
     return 'invariant_I', I

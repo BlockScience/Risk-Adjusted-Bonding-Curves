@@ -204,7 +204,7 @@ def update_alpha(params, substep, state_history, prev_state, policy_input):
 
         # Compute mu_1
         mu_1 = (pre1 * pre2) - pre3
-        print("mu_1 = ", mu_1)
+        #print("mu_1 = ", mu_1)
 
         # Calculate pre for alpha_bar
         pre4 = (R)*(delta_s/S)
@@ -213,7 +213,7 @@ def update_alpha(params, substep, state_history, prev_state, policy_input):
         # print("pre_4 = ", pre4, " | pre_5 = ", pre5, " | pre_6 = ", pre6)
 
         if pre6 - pre5 == 0:
-            print("EQUALIZED")
+            # print("EQUALIZED")
             new_alpha = alpha
             return 'alpha', new_alpha
 
@@ -247,7 +247,7 @@ def update_alpha(params, substep, state_history, prev_state, policy_input):
 
         if B == 0:
             new_alpha = alpha
-            print("EQUALIZED")
+            # print("EQUALIZED")
             return 'alpha', new_alpha
 
         # Compute dynamic weight D
@@ -279,7 +279,7 @@ def update_alpha(params, substep, state_history, prev_state, policy_input):
     print("s = ", s, "| delta_s = ", delta_s)
     # print("A = ", A)
     # print("alpha_bar = ", alpha_bar)
-    print("new_alpha = ", new_alpha)
+    #print("new_alpha = ", new_alpha)
     # new_alpha = -1*new_alpha
     return 'alpha', new_alpha
 
@@ -371,7 +371,7 @@ def update_kappa(params, substep, state_history, prev_state, policy_input):
     I = R + (C*new_alpha)
     kappa = I / (I - (C*new_alpha))
 
-    print("kappa  = ", kappa)
+    #print("kappa  = ", kappa)
     return 'kappa', kappa
 
 
@@ -460,7 +460,7 @@ def update_I_attest(params, substep, state_history, prev_state, policy_input):
 
     I = R + (C*new_alpha)
 
-    print("I (attest) = ", I)
+    #print("I (attest) = ", I)
     return "invariant_I", I
 
 
@@ -554,7 +554,7 @@ def update_P_attest(params, substep, state_history, prev_state, policy_input):
 
     # VERIFY how this is different from dR/dS and their applicability
     # P = kappa*(R/S)
-    print("Spot Price P (attest) = ", P)
+    #print("Spot Price P (attest) = ", P)
     return 'spot_price', P
 
 
