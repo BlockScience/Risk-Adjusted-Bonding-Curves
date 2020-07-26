@@ -1,5 +1,5 @@
 import random
-E = 0.2
+# E = 0.2
 # Remove update_Q (?) since total number of attestations Q = Q1 + Q0
 
 
@@ -166,12 +166,27 @@ def update_s0(params, substep, state_history, prev_state, policy_input):
     return 'agent_supply_0', s0
  """
 
+def attest_pos(R, C, E, alpha, Q, Q1, Q0, S, S1, S0, q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s ):
+
+    print("Positive attestation")
+    new_alpha = S1* R / ( S1* R - S0 * R + S0*C) 
+
+    return new_alpha
+
+def attest_neg(R, C, E, alpha, Q, Q1, Q0, S, S1, S0, q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s  ):
+
+
+    new_alpha = S1* R / ( S1* R - S0 * R + S0*C) 
+
+    print("Negative attestation.")
+
+    return new_alpha
 
 def update_alpha(params, substep, state_history, prev_state, policy_input):
 
     R = prev_state['reserve']
     C = params['C']
-
+    E = params['E']
     alpha = prev_state['alpha']
 
     Q = prev_state['attestations_1'] + prev_state['attestations_0']
@@ -195,78 +210,11 @@ def update_alpha(params, substep, state_history, prev_state, policy_input):
     delta_s = policy_input['amt_pos'] + policy_input['amt_neg']
 
     if attest_action == 'attest_pos':  # positive attestation
-
-        # Calculate pre for mu_1
-        pre1 = (q1+delta_q1)/(Q1+delta_q1)
-        pre2 = (S1+delta_s)/S
-        pre3 = (q1*S1)/(Q1*S)
-        # print("pre_1 = ", pre1, " | pre_2 = ", pre2, " | pre_3 = ", pre3)
-
-        # Compute mu_1
-        mu_1 = (pre1 * pre2) - pre3
-        #print("mu_1 = ", mu_1)
-
-        # Calculate pre for alpha_bar
-        pre4 = (R)*(delta_s/S)
-        pre5 = (C+R)*mu_1
-        pre6 = (C)*(delta_s/S)
-        # print("pre_4 = ", pre4, " | pre_5 = ", pre5, " | pre_6 = ", pre6)
-
-        if pre6 - pre5 == 0:
-            # print("EQUALIZED")
-            new_alpha = alpha
-            return 'alpha', new_alpha
-
-        # Compute alpha_bar
-        alpha_bar = pre4/(pre6 - pre5)
-        print("alpha_bar = ", alpha_bar)
-
-        # Compute dynamic weight D
-        D = delta_s/(S0+S1+delta_s)
-
-        # Compute alpha
-        T1 = E*alpha
-        T2 = (1-E)*(1-D)*alpha
-        T3 = (1-E)*(D)*alpha_bar
-
-        new_alpha = T1+T2+T3
-
+        new_alpha = attest_pos(R, C, E, alpha, Q, Q1, Q0, S, S1, S0, q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s )
         print("Positive attestation")
 
     elif attest_action == 'attest_neg':  # negative attestation
-
-        # Calculate pre for B
-        pre1 = (q0+delta_q0)/(Q0+delta_q0)
-        pre2 = (S0+delta_s)/S
-        pre3 = (q0/Q0)*(S0/S)
-        print("pre_1 = ", pre1, " | pre_2 = ", pre2, " | pre_3 = ", pre3)
-
-        # Calculate B
-        B = (pre1 * pre2) - pre3
-        print("B = ", B)
-
-        if B == 0:
-            new_alpha = alpha
-            # print("EQUALIZED")
-            return 'alpha', new_alpha
-
-        # Compute dynamic weight D
-        D = delta_s/(S1+S0+delta_s)
-
-        # Calculate pre for alpha_bar
-        pre4 = B-delta_s/S
-        pre5 = ((delta_s/S)*C)
-
-        # Compute alpha_bar
-        alpha_bar = (R*(pre4))/((pre5*C)+(B*R))
-
-        # Compute alpha
-        T1 = E*alpha
-        T2 = (1-E)*(1-D)*alpha
-        T3 = (1-E)*(D)*alpha_bar
-
-        new_alpha = T1+T2+T3
-
+        new_alpha = attest_neg(R, C, E, alpha, Q, Q1, Q0, S, S1, S0, q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s )
         print("Negative attestation.")
 
     else:
@@ -288,6 +236,7 @@ def update_kappa(params, substep, state_history, prev_state, policy_input):
 
     R = prev_state['reserve']
     C = params['C']
+    E = params['E']
 
     alpha = prev_state['alpha']
 
@@ -297,6 +246,7 @@ def update_kappa(params, substep, state_history, prev_state, policy_input):
     S = prev_state['supply']
     S1 = prev_state['supply_1']
     S0 = prev_state['supply_0']
+    I = prev_state['invariant_I']
 
     q1 = prev_state['chosen_agent']['agent_attestations_1']
     q0 = prev_state['chosen_agent']['agent_attestations_0']
@@ -311,64 +261,20 @@ def update_kappa(params, substep, state_history, prev_state, policy_input):
     delta_s = policy_input['amt_pos'] + policy_input['amt_neg']
 
     if delta_q1 > 0:  # positive attestation
-
-        # Calculate pre for mu_1
-        pre1 = (q1+delta_q1)/(Q1+delta_q1)
-        pre2 = (S1+delta_s)/S
-        pre3 = (q1*S1)/(Q1*S)
-
-        # Compute mu_1
-        mu_1 = (pre1 * pre2) - pre3
-
-        # Calculate pre for alpha_bar
-        pre4 = (R)*(delta_s/S)
-        pre5 = (C+R)*mu_1
-        pre6 = (C)*(delta_s/S)
-
-        # Compute alpha_bar
-        alpha_bar = pre4/(pre6 - pre5)
-
-        # Compute dynamic weight D
-        D = delta_s/(S0+S1+delta_s)
-
-        # Compute alpha
-        T1 = E*alpha
-        T2 = (1-E)*(1-D)*alpha
-        T3 = (1-E)*(D)*alpha_bar
-
-        new_alpha = T1+T2+T3
+        new_alpha = attest_pos(R, C, E, alpha, Q, Q1, Q0, S, S1, S0, q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s )
 
     elif delta_q0 > 0:  # negative attestation
 
-        # Calculate pre for B
-        pre1 = (q0+delta_q0)/(Q0+delta_q0)
-        pre2 = (S0+delta_s)/S
-        pre3 = (q0/Q0)*(S0/S)
-
-        # Calculate B
-        B = (pre1 * pre2) - pre3
-
-        # Compute dynamic weight D
-        D = delta_s/(S1+S0+delta_s)
-
-        # Calculate pre for alpha_bar
-        pre4 = B-delta_s/S
-        pre5 = ((delta_s/S)*C)
-
-        # Compute alpha_bar
-        alpha_bar = (R*(pre4))/((pre5*C)+(B*R))
-
-        # Compute alpha
-        T1 = E*alpha
-        T2 = (1-E)*(1-D)*alpha
-        T3 = (1-E)*(D)*alpha_bar
-
-        new_alpha = T1+T2+T3
+        new_alpha = attest_neg(R, C, E, alpha, Q, Q1, Q0, S, S1, S0, q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s )
 
     else:
         new_alpha = alpha
 
-    I = R + (C*new_alpha)
+#######   REWRITE INVARIANT I, DO NOT UPDATE I for updated kappa (f of updated alpha)
+#  Use Note that in HackMD #
+    # I = R + (C*new_alpha)
+# if not used, price and s_free go very negative at the outset    
+########################################################
     kappa = I / (I - (C*new_alpha))
 
     #print("kappa  = ", kappa)
@@ -378,6 +284,7 @@ def update_kappa(params, substep, state_history, prev_state, policy_input):
 def update_I_attest(params, substep, state_history, prev_state, policy_input):
     R = prev_state['reserve']
     C = params['C']
+    E = params['E']
 
     alpha = prev_state['alpha']
 
@@ -401,59 +308,11 @@ def update_I_attest(params, substep, state_history, prev_state, policy_input):
     delta_s = policy_input['amt_pos'] + policy_input['amt_neg']
 
     if delta_q1 > 0:  # positive attestation
-
-        # Calculate pre for mu_1
-        pre1 = (q1+delta_q1)/(Q1+delta_q1)
-        pre2 = (S1+delta_s)/S
-        pre3 = (q1*S1)/(Q1*S)
-
-        # Compute mu_1
-        mu_1 = (pre1 * pre2) - pre3
-
-        # Calculate pre for alpha_bar
-        pre4 = (R)*(delta_s/S)
-        pre5 = (C+R)*mu_1
-        pre6 = (C)*(delta_s/S)
-
-        # Compute alpha_bar
-        alpha_bar = pre4/(pre6 - pre5)
-
-        # Compute dynamic weight D
-        D = delta_s/(S0+S1+delta_s)
-
-        # Compute alpha
-        T1 = E*alpha
-        T2 = (1-E)*(1-D)*alpha
-        T3 = (1-E)*(D)*alpha_bar
-
-        new_alpha = T1+T2+T3
+        new_alpha = attest_pos(R, C, E, alpha, Q, Q1, Q0, S, S1, S0, q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s )
 
     elif delta_q0 > 0:  # negative attestation
 
-        # Calculate pre for B
-        pre1 = (q0+delta_q0)/(Q0+delta_q0)
-        pre2 = (S0+delta_s)/S
-        pre3 = (q0/Q0)*(S0/S)
-
-        # Calculate B
-        B = (pre1 * pre2) - pre3
-
-        # Compute dynamic weight D
-        D = delta_s/(S1+S0+delta_s)
-
-        # Calculate pre for alpha_bar
-        pre4 = B-delta_s/S
-        pre5 = ((delta_s/S)*C)
-
-        # Compute alpha_bar
-        alpha_bar = (R*(pre4))/((pre5*C)+(B*R))
-
-        # Compute alpha
-        T1 = E*alpha
-        T2 = (1-E)*(1-D)*alpha
-        T3 = (1-E)*(D)*alpha_bar
-
-        new_alpha = T1+T2+T3
+        new_alpha = attest_neg(R, C, E, alpha, Q, Q1, Q0, S, S1, S0, q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s )
 
     else:
         new_alpha = alpha
@@ -468,7 +327,8 @@ def update_P_attest(params, substep, state_history, prev_state, policy_input):
 
     R = prev_state['reserve']
     C = params['C']
-
+    E = params['E']
+    I = prev_state['invariant_I']
     alpha = prev_state['alpha']
 
     Q = prev_state['attestations_1'] + prev_state['attestations_0']
@@ -491,65 +351,17 @@ def update_P_attest(params, substep, state_history, prev_state, policy_input):
     delta_s = policy_input['amt_pos'] + policy_input['amt_neg']
 
     if delta_q1 > 0:  # positive attestation
-
-        # Calculate pre for mu_1
-        pre1 = (q1+delta_q1)/(Q1+delta_q1)
-        pre2 = (S1+delta_s)/S
-        pre3 = (q1*S1)/(Q1*S)
-
-        # Compute mu_1
-        mu_1 = (pre1 * pre2) - pre3
-
-        # Calculate pre for alpha_bar
-        pre4 = (R)*(delta_s/S)
-        pre5 = (C+R)*mu_1
-        pre6 = (C)*(delta_s/S)
-
-        # Compute alpha_bar
-        alpha_bar = pre4/(pre6 - pre5)
-
-        # Compute dynamic weight D
-        D = delta_s/(S0+S1+delta_s)
-
-        # Compute alpha
-        T1 = E*alpha
-        T2 = (1-E)*(1-D)*alpha
-        T3 = (1-E)*(D)*alpha_bar
-
-        new_alpha = T1+T2+T3
+        new_alpha = attest_pos(R, C, E, alpha, Q, Q1, Q0, S, S1, S0, q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s )
 
     elif delta_q0 > 0:  # negative attestation
 
-        # Calculate pre for B
-        pre1 = (q0+delta_q0)/(Q0+delta_q0)
-        pre2 = (S0+delta_s)/S
-        pre3 = (q0/Q0)*(S0/S)
-
-        # Calculate B
-        B = (pre1 * pre2) - pre3
-
-        # Compute dynamic weight D
-        D = delta_s/(S1+S0+delta_s)
-
-        # Calculate pre for alpha_bar
-        pre4 = B-delta_s/S
-        pre5 = ((delta_s/S)*C)
-
-        # Compute alpha_bar
-        alpha_bar = (R*(pre4))/((pre5*C)+(B*R))
-
-        # Compute alpha
-        T1 = E*alpha
-        T2 = (1-E)*(1-D)*alpha
-        T3 = (1-E)*(D)*alpha_bar
-
-        new_alpha = T1+T2+T3
-
+        new_alpha = attest_neg(R, C, E, alpha, Q, Q1, Q0, S, S1, S0, q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s )
     else:
         new_alpha = alpha
 
-    I = R + (C*new_alpha)
+    # I = R + (C*new_alpha)
     kappa = I / (I - (C*new_alpha))
+
     P = kappa * (R/S)
 
     # VERIFY how this is different from dR/dS and their applicability
@@ -562,7 +374,8 @@ def update_V(params, substep, state_history, prev_state, policy_input):
 
     R = prev_state['reserve']
     C = params['C']
-
+    E = params['E']
+    I = prev_state['invariant_I']
     alpha = prev_state['alpha']
 
     Q = prev_state['attestations_1'] + prev_state['attestations_0']
@@ -585,64 +398,16 @@ def update_V(params, substep, state_history, prev_state, policy_input):
     delta_s = policy_input['amt_pos'] + policy_input['amt_neg']
 
     if delta_q1 > 0:  # positive attestation
-
-        # Calculate pre for mu_1
-        pre1 = (q1+delta_q1)/(Q1+delta_q1)
-        pre2 = (S1+delta_s)/S
-        pre3 = (q1*S1)/(Q1*S)
-
-        # Compute mu_1
-        mu_1 = (pre1 * pre2) - pre3
-
-        # Calculate pre for alpha_bar
-        pre4 = (R)*(delta_s/S)
-        pre5 = (C+R)*mu_1
-        pre6 = (C)*(delta_s/S)
-
-        # Compute alpha_bar
-        alpha_bar = pre4/(pre6 - pre5)
-
-        # Compute dynamic weight D
-        D = delta_s/(S0+S1+delta_s)
-
-        # Compute alpha
-        T1 = E*alpha
-        T2 = (1-E)*(1-D)*alpha
-        T3 = (1-E)*(D)*alpha_bar
-
-        new_alpha = T1+T2+T3
+        new_alpha = attest_pos(R, C, E, alpha, Q, Q1, Q0, S, S1, S0, q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s )
 
     elif delta_q0 > 0:  # negative attestation
 
-        # Calculate pre for B
-        pre1 = (q0+delta_q0)/(Q0+delta_q0)
-        pre2 = (S0+delta_s)/S
-        pre3 = (q0/Q0)*(S0/S)
-
-        # Calculate B
-        B = (pre1 * pre2) - pre3
-
-        # Compute dynamic weight D
-        D = delta_s/(S1+S0+delta_s)
-
-        # Calculate pre for alpha_bar
-        pre4 = B-delta_s/S
-        pre5 = ((delta_s/S)*C)
-
-        # Compute alpha_bar
-        alpha_bar = (R*(pre4))/((pre5*C)+(B*R))
-
-        # Compute alpha
-        T1 = E*alpha
-        T2 = (1-E)*(1-D)*alpha
-        T3 = (1-E)*(D)*alpha_bar
-
-        new_alpha = T1+T2+T3
+        new_alpha = attest_neg(R, C, E, alpha, Q, Q1, Q0, S, S1, S0, q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s )
 
     else:
         new_alpha = alpha
 
-    I = R + (C*new_alpha)
+    # I = R + (C*new_alpha)
     kappa = I / (I - (C*new_alpha))
     V = (S**(kappa))/R
 
