@@ -28,9 +28,10 @@ def update_private_price(params, substep, state_history, prev_state, policy_inpu
         # 'period': ['N/A', 2000, 2000, 2000]
         'dP': P0[0]/4,
         'period': 2000,
-        'sigma': .005,  # , 'N/A', 'N/A', 'N/A']
+        'sigma': .005  # , 'N/A', 'N/A', 'N/A']
     }
 
+    print("UPDATE PRIVATE PRICE")
     #params = params[0]
     rules_price = params['rules_price']
     period = params['period']
@@ -90,7 +91,7 @@ def update_private_alpha(params, substep, state_history, prev_state, policy_inpu
     # new_private_alpha = (random.randint(50, 100))/100
 
     new_private_alpha = prev_state['chosen_agent']['agent_private_alpha']
- 
+
     # plt.plot(new_private_alpha, substep)
     # plt.show()
     # print("new_private_alpha = ", new_private_alpha)
