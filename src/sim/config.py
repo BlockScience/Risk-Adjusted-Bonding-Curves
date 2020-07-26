@@ -11,30 +11,33 @@ from cadCAD import configs
 import pandas as pd
 import itertools
 
-time_periods_per_run = 200
-monte_carlo_runs = 2
+time_periods_per_run = 500
+monte_carlo_runs = 3
 E = 0.45  # to be reviewed
 
 KAPPA = [2]
 PRICE = 1
-C = [700]
+C = [2000]
 ALPHA = [0.5]
 MONEY_RAISED = [1000]
 PERIOD = [2000]
 
 # New price singal : Determines signal shape for agent's behaviour heuristic on price
+# rules_price = ["martin"] #, "step"]  # , "ramp", "sin"]
+
 rules_price = ["martin", "step"]  # , "ramp", "sin"]
+# rules_price = ["martin", "step", "ramp", "sin"]
 
 # Set initialization state variables for Attestations
 Q = 40
 Q1 = 20
 Q0 = 20
-S1 = 200  # Considering S = 600 and S_free = 200
-S0 = 200  # Considering S = 600 and S_free = 200
+S1 = 30  # Considering S = 600 and S_free = 200
+S0 = 20  # Considering S = 600 and S_free = 200
 r = 50    # Agent reserve, the amount of fiat tokens an agent starts with
 s = 50
-s1 = 10  # Considering s = 50 and s_free = 30
-s0 = 10  # Considering s = 50 and s_free = 30
+s1 = 3  # Considering s = 50 and s_free = 30
+s0 = 2  # Considering s = 50 and s_free = 30
 s_free = s - (s1+s0)
 
 # reserve = 300 # MONEY_RAISED[0] - C[0]
@@ -43,7 +46,7 @@ s_free = s - (s1+s0)
 # invariant_V = 1200 #(supply**KAPPA[0])/reserve
 # invariant_I = 650 #reserve + (C[0]*ALPHA[0])
 
-reserve = MONEY_RAISED[0] - C[0]
+reserve = MONEY_RAISED[0] #- C[0]
 supply = KAPPA[0]*(reserve/PRICE)
 supply_free = supply
 invariant_V = (supply**KAPPA[0])/reserve
@@ -54,11 +57,16 @@ print()
 # print(MONEY_RAISED)
 # print()
 
-factors = [rules_price, KAPPA]
+# E = [0.1, 0.2, 0.3]
+E = [0.2]
+
+factors = [rules_price, KAPPA, E]
 product = list(itertools.product(*factors))
-rules_price, KAPPA = zip(*product)
+rules_price, KAPPA, E = zip(*product)
 rules_price = list(rules_price)
 KAPPA = list(KAPPA)
+E = list(E)
+
 
 # Put this in sys_params.py
 params = {
@@ -72,12 +80,14 @@ params = {
     'beta': [0.9],
     'dust': [10**-8],
     'period': PERIOD,
-    'rules_price': rules_price
+    'rules_price': rules_price,
+    'E' : E
 }
 
-number_of_agents = 5
+number_of_agents = 2
 
 PRIVATE_ALPHA = 0.6
+PRIVATE_PRICE = 1
 
 print("CHECKPOINT 1")
 
@@ -89,10 +99,12 @@ agents_df = pd.DataFrame({'agent_attestations_1': 0,
                           'agent_supply_1': s1,
                           'agent_supply_0': s0,
                           'agent_supply_free': s_free,
-                          'agent_private_alpha': PRIVATE_ALPHA}, index=[0])
+                          'agent_private_alpha': PRIVATE_ALPHA,
+                          'agent_private_alpha': PRIVATE_PRICE}, index=[0])
 agents_df = pd.concat([agents_df]*number_of_agents, ignore_index=True)
 
-agents_df['agent_private_alpha'] = 0.5, 0.6, 0.7, 0.8, 0.9
+agents_df['agent_private_alpha'] = 0.1 , 0.9 #0.6, 0.7, 0.8, 0.9
+
 print("CHECKPOINT 2")
 
 # Put this in state_vars.py
@@ -106,6 +118,8 @@ initial_conditions = {
     'kappa': 0,  # direct to initial kappa in params?
     'supply': supply,
     'alpha': ALPHA,  # direct to initial alpha in params?
+    'alpha_bar': ALPHA,  # direct to initial alpha in params?
+
     # 'spot_alpha': 0,
     'supply_0': S0,
     'supply_1': S1,

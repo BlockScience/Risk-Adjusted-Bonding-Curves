@@ -69,7 +69,7 @@ partial_state_update_blocks = [
             # 'agent_supply_1': update_s1,
             # 'agent_supply_0': update_s0, """
             'chosen_agent': update_agent_PM,
-            'invariant_I': update_I_attest,
+            # 'invariant_I': update_I_attest,
             'alpha': update_alpha,
             'kappa': update_kappa,
             'spot_price': update_P_attest,
