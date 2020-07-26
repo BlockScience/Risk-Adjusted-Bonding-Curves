@@ -53,9 +53,9 @@ invariant_V = (supply**KAPPA[0])/reserve
 invariant_I = reserve + (C[0]*ALPHA[0])
 
 print()
-print(type(MONEY_RAISED))
-print(MONEY_RAISED)
-print()
+# print(type(MONEY_RAISED))
+# print(MONEY_RAISED)
+# print()
 
 # E = [0.1, 0.2, 0.3]
 E = [0.2]
@@ -104,6 +104,7 @@ agents_df = pd.DataFrame({'agent_attestations_1': 0,
 agents_df = pd.concat([agents_df]*number_of_agents, ignore_index=True)
 
 agents_df['agent_private_alpha'] = 0.1 , 0.9 #0.6, 0.7, 0.8, 0.9
+
 print("CHECKPOINT 2")
 
 # Put this in state_vars.py

@@ -41,6 +41,13 @@ def update_S0(params, substep, state_history, prev_state, policy_input):
     return 'supply_0', S0
 
 
+def update_S_free(params, substep, state_history, prev_state, policy_input):
+    S_free = prev_state['supply_free']
+
+    S_free = S_free - (policy_input['amt_neg'] + policy_input['amt_pos'])
+    return 'supply_free', S_free
+
+
 def compute_q1(q1, amt_Q1):
 
     q1 = q1 + amt_Q1
