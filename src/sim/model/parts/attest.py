@@ -210,14 +210,11 @@ def update_alpha(params, substep, state_history, prev_state, policy_input):
     delta_s = policy_input['amt_pos'] + policy_input['amt_neg']
 
     if attest_action == 'attest_pos':  # positive attestation
-
         new_alpha = attest_pos(R, C, E, alpha, Q, Q1, Q0, S, S1, S0, q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s )
         print("Positive attestation")
 
     elif attest_action == 'attest_neg':  # negative attestation
-
         new_alpha = attest_neg(R, C, E, alpha, Q, Q1, Q0, S, S1, S0, q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s )
-
         print("Negative attestation.")
 
     else:
@@ -230,7 +227,7 @@ def update_alpha(params, substep, state_history, prev_state, policy_input):
     print("s = ", s, "| delta_s = ", delta_s)
     # print("A = ", A)
     # print("alpha_bar = ", alpha_bar)
-    print("new_alpha = ", new_alpha)
+    #print("new_alpha = ", new_alpha)
     # new_alpha = -1*new_alpha
     return 'alpha', new_alpha
 
@@ -280,7 +277,7 @@ def update_kappa(params, substep, state_history, prev_state, policy_input):
 ########################################################
     kappa = I / (I - (C*new_alpha))
 
-    print("kappa  = ", kappa)
+    #print("kappa  = ", kappa)
     return 'kappa', kappa
 
 
@@ -322,7 +319,7 @@ def update_I_attest(params, substep, state_history, prev_state, policy_input):
 
     I = R + (C*new_alpha)
 
-    print("I (attest) = ", I)
+    #print("I (attest) = ", I)
     return "invariant_I", I
 
 
@@ -369,7 +366,7 @@ def update_P_attest(params, substep, state_history, prev_state, policy_input):
 
     # VERIFY how this is different from dR/dS and their applicability
     # P = kappa*(R/S)
-    print("Spot Price P (attest) = ", P)
+    #print("Spot Price P (attest) = ", P)
     return 'spot_price', P
 
 

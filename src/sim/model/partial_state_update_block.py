@@ -8,6 +8,8 @@ from src.sim.model.parts.choose_action import set_action
 from src.sim.model.parts.choose_agent import choose_agent
 from src.sim.model.parts.put_agent_back_to_df import put_agent_back_to_df
 
+print("-----------------PSUB---------------------")
+
 partial_state_update_blocks = [
     {
         'policies': {

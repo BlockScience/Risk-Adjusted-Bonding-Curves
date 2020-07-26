@@ -77,6 +77,8 @@ params = {
     'C': C,  # Commited outcome payout
     'f': [0.03],  # param to control certainty of alpha at extremes
     'm': [0.15],  # param to modulate curvature of alpha threshold band
+    'beta': [0.9],
+    'dust': [10**-8],
     'period': PERIOD,
     'rules_price': rules_price,
     'E' : E
