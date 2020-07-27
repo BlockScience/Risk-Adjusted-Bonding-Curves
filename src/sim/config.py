@@ -89,8 +89,6 @@ number_of_agents = 2
 PRIVATE_ALPHA = 0.1
 PRIVATE_PRICE = 0.2
 
-print("CHECKPOINT 1")
-
 # Configure agents for agent-based model
 agents_df = pd.DataFrame({
     'agent_attestations_1': 0,
@@ -108,8 +106,6 @@ agents_df.insert(0, 'id', range(0, len(agents_df)))
 
 agents_df['agent_private_alpha'] = 0.1, 0.9  # 0.6, 0.7, 0.8, 0.9
 agents_df['agent_private_price'] = 0.2, 20
-
-print("CHECKPOINT 2")
 
 # Put this in state_vars.py
 initial_conditions = {
