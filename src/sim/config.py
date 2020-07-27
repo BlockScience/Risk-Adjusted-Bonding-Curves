@@ -11,8 +11,8 @@ from cadCAD import configs
 import pandas as pd
 import itertools
 
-time_periods_per_run = 500
-monte_carlo_runs = 3
+time_periods_per_run = 5
+monte_carlo_runs = 10
 E = 0.45  # to be reviewed
 
 KAPPA = [2]
@@ -46,7 +46,7 @@ s_free = s - (s1+s0)
 # invariant_V = 1200 #(supply**KAPPA[0])/reserve
 # invariant_I = 650 #reserve + (C[0]*ALPHA[0])
 
-reserve = MONEY_RAISED[0] #- C[0]
+reserve = MONEY_RAISED[0]  # - C[0]
 supply = KAPPA[0]*(reserve/PRICE)
 supply_free = supply
 invariant_V = (supply**KAPPA[0])/reserve
@@ -81,29 +81,33 @@ params = {
     'dust': [10**-8],
     'period': PERIOD,
     'rules_price': rules_price,
-    'E' : E
+    'E': E
 }
 
 number_of_agents = 2
 
-PRIVATE_ALPHA = 0.6
-PRIVATE_PRICE = 1
+PRIVATE_ALPHA = 0.1
+PRIVATE_PRICE = 0.2
 
 print("CHECKPOINT 1")
 
 # Configure agents for agent-based model
-agents_df = pd.DataFrame({'agent_attestations_1': 0,
-                          'agent_attestations_0': 0,
-                          'agent_reserve': r,
-                          # 'agent_supply': s,
-                          'agent_supply_1': s1,
-                          'agent_supply_0': s0,
-                          'agent_supply_free': s_free,
-                          'agent_private_alpha': PRIVATE_ALPHA,
-                          'agent_private_alpha': PRIVATE_PRICE}, index=[0])
+agents_df = pd.DataFrame({
+    'agent_attestations_1': 0,
+    'agent_attestations_0': 0,
+    'agent_reserve': r,
+    # 'agent_supply': s,
+    'agent_supply_1': s1,
+    'agent_supply_0': s0,
+    'agent_supply_free': s_free,
+    'agent_private_alpha': PRIVATE_ALPHA,
+    'agent_private_price': PRIVATE_PRICE}, index=[0])
 agents_df = pd.concat([agents_df]*number_of_agents, ignore_index=True)
+# Adding IDs to agents
+agents_df.insert(0, 'id', range(0, len(agents_df)))
 
-agents_df['agent_private_alpha'] = 0.1 , 0.9 #0.6, 0.7, 0.8, 0.9
+agents_df['agent_private_alpha'] = 0.1, 0.9  # 0.6, 0.7, 0.8, 0.9
+agents_df['agent_private_price'] = 0.2, 20
 
 print("CHECKPOINT 2")
 
@@ -113,8 +117,8 @@ initial_conditions = {
     'price': PRICE,  # kappa*(reserve/supply), price is dR/dS = 1
     'realized_price': 0,
     'spot_price': PRICE,
-    'private_price': 0,
-    'private_alpha': 0,
+    # 'private_price': 0,
+    # 'private_alpha': 0,
     'kappa': 0,  # direct to initial kappa in params?
     'supply': supply,
     'alpha': ALPHA,  # direct to initial alpha in params?

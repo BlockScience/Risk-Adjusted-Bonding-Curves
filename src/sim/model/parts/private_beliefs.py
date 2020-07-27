@@ -39,7 +39,7 @@ def update_private_price(params, substep, state_history, prev_state, policy_inpu
     timestep = prev_state['timestep']
     price = prev_state['price']
 
-    if rules_price == 'step':
+    """ if rules_price == 'step':
         bump = int((timestep % int(period/2) == 0))*int(timestep > 0)
         sign = -(-1)**int((2*timestep/period))
         new_private_price = price + signal['dP']*bump*sign
@@ -53,7 +53,7 @@ def update_private_price(params, substep, state_history, prev_state, policy_inpu
         rv = np.random.normal(0, signal['sigma'])
         new_private_price = price+price*rv
     else:
-        new_private_price = price
+        new_private_price = price """
 
     # Private price belief signal is a sine wave
     # print("signal['dP'] = ", signal['dP'])
@@ -78,6 +78,8 @@ def update_private_price(params, substep, state_history, prev_state, policy_inpu
     #new_private_price = (r + (noise_r * r)) / (s + (noise_s * s))
     print("--------------------------------------")
 
+    new_private_price = prev_state['chosen_agent']['agent_private_price']
+
     return 'private_price', new_private_price
 
 
@@ -97,3 +99,16 @@ def update_private_alpha(params, substep, state_history, prev_state, policy_inpu
     # plt.show()
     # print("new_private_alpha = ", new_private_alpha)
     return 'private_alpha', new_private_alpha
+
+
+def update_agent_beliefs(params, substep, state_history, prev_state, policy_input):
+
+    agent = prev_state['chosen_agent']
+
+    new_private_price = agent['agent_private_price']
+    new_private_alpha = agent['agent_private_alpha']
+
+    agent['agent_private_price'] = new_private_price
+    agent['agent_private_alpha'] = new_private_alpha
+
+    return 'chosen_agent', agent

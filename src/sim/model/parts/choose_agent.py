@@ -18,11 +18,12 @@ def choose_agent(params, substep, state_history, prev_state, policy_input):
     chosen_agent_df = prev_state['agents'].sample(n=1)
     print("CHOSEN AGENT = ", chosen_agent_df, 'Time ', prev_state['timestep'])
 
-    chosen_agent_id = chosen_agent_df.index
     chosen_agent = chosen_agent_df.to_dict('list')
     chosen_agent = {key: get_value(value)
                     for key, value in chosen_agent.items()}
-    chosen_agent['id'] = chosen_agent_id.tolist()[0]
+
+    timestep = prev_state['timestep']
+   # chosen_agent['picked'] = True
 
     print('Chosen Agent:')
     print(chosen_agent)
