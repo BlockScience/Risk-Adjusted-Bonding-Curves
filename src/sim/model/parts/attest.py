@@ -173,21 +173,23 @@ def update_s0(params, substep, state_history, prev_state, policy_input):
     return 'agent_supply_0', s0
  """
 
-def attest_pos(R, C, E, alpha, Q, Q1, Q0, S, S1, S0, q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s ):
+
+def attest_pos(R, C, E, alpha, Q, Q1, Q0, S, S1, S0, q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s):
 
     print("Positive attestation")
-    new_alpha = S1* R / ( S1* R - S0 * R + S0*C) 
+    new_alpha = S1 * R / (S1 * R - S0 * R + S0*C)
 
     return new_alpha
 
-def attest_neg(R, C, E, alpha, Q, Q1, Q0, S, S1, S0, q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s  ):
 
+def attest_neg(R, C, E, alpha, Q, Q1, Q0, S, S1, S0, q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s):
 
-    new_alpha = S1* R / ( S1* R - S0 * R + S0*C) 
+    new_alpha = S1 * R / (S1 * R - S0 * R + S0*C)
 
     print("Negative attestation.")
 
     return new_alpha
+
 
 def update_alpha(params, substep, state_history, prev_state, policy_input):
 
@@ -217,21 +219,23 @@ def update_alpha(params, substep, state_history, prev_state, policy_input):
     delta_s = policy_input['amt_pos'] + policy_input['amt_neg']
 
     if attest_action == 'attest_pos':  # positive attestation
-        new_alpha = attest_pos(R, C, E, alpha, Q, Q1, Q0, S, S1, S0, q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s )
+        new_alpha = attest_pos(R, C, E, alpha, Q, Q1, Q0, S, S1, S0,
+                               q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s)
         print("Positive attestation")
 
     elif attest_action == 'attest_neg':  # negative attestation
-        new_alpha = attest_neg(R, C, E, alpha, Q, Q1, Q0, S, S1, S0, q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s )
+        new_alpha = attest_neg(R, C, E, alpha, Q, Q1, Q0, S, S1, S0,
+                               q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s)
         print("Negative attestation.")
 
     else:
         new_alpha = alpha
 
     # alpha = spot_alpha(S, I, kappa, C)
-    print("Q0 = ", prev_state['attestations_0'], "| Q1 = ", prev_state['attestations_1'],
-          "| q0 = ", prev_state['chosen_agent']['agent_attestations_0'], "| q1 = ", prev_state['chosen_agent']['agent_attestations_1'])
-    print("deltaq0 = ", delta_q0, "deltaq1 = ", delta_q1)
-    print("s = ", s, "| delta_s = ", delta_s)
+    # print("Q0 = ", prev_state['attestations_0'], "| Q1 = ", prev_state['attestations_1'],
+    #      "| q0 = ", prev_state['chosen_agent']['agent_attestations_0'], "| q1 = ", prev_state['chosen_agent']['agent_attestations_1'])
+    #print("deltaq0 = ", delta_q0, "deltaq1 = ", delta_q1)
+    #print("s = ", s, "| delta_s = ", delta_s)
     # print("A = ", A)
     # print("alpha_bar = ", alpha_bar)
     #print("new_alpha = ", new_alpha)
@@ -268,19 +272,21 @@ def update_kappa(params, substep, state_history, prev_state, policy_input):
     delta_s = policy_input['amt_pos'] + policy_input['amt_neg']
 
     if delta_q1 > 0:  # positive attestation
-        new_alpha = attest_pos(R, C, E, alpha, Q, Q1, Q0, S, S1, S0, q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s )
+        new_alpha = attest_pos(R, C, E, alpha, Q, Q1, Q0, S, S1, S0,
+                               q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s)
 
     elif delta_q0 > 0:  # negative attestation
 
-        new_alpha = attest_neg(R, C, E, alpha, Q, Q1, Q0, S, S1, S0, q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s )
+        new_alpha = attest_neg(R, C, E, alpha, Q, Q1, Q0, S, S1, S0,
+                               q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s)
 
     else:
         new_alpha = alpha
 
-#######   REWRITE INVARIANT I, DO NOT UPDATE I for updated kappa (f of updated alpha)
+# REWRITE INVARIANT I, DO NOT UPDATE I for updated kappa (f of updated alpha)
 #  Use Note that in HackMD #
     # I = R + (C*new_alpha)
-# if not used, price and s_free go very negative at the outset    
+# if not used, price and s_free go very negative at the outset
 ########################################################
     kappa = I / (I - (C*new_alpha))
 
@@ -315,11 +321,13 @@ def update_I_attest(params, substep, state_history, prev_state, policy_input):
     delta_s = policy_input['amt_pos'] + policy_input['amt_neg']
 
     if delta_q1 > 0:  # positive attestation
-        new_alpha = attest_pos(R, C, E, alpha, Q, Q1, Q0, S, S1, S0, q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s )
+        new_alpha = attest_pos(R, C, E, alpha, Q, Q1, Q0, S, S1, S0,
+                               q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s)
 
     elif delta_q0 > 0:  # negative attestation
 
-        new_alpha = attest_neg(R, C, E, alpha, Q, Q1, Q0, S, S1, S0, q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s )
+        new_alpha = attest_neg(R, C, E, alpha, Q, Q1, Q0, S, S1, S0,
+                               q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s)
 
     else:
         new_alpha = alpha
@@ -358,11 +366,13 @@ def update_P_attest(params, substep, state_history, prev_state, policy_input):
     delta_s = policy_input['amt_pos'] + policy_input['amt_neg']
 
     if delta_q1 > 0:  # positive attestation
-        new_alpha = attest_pos(R, C, E, alpha, Q, Q1, Q0, S, S1, S0, q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s )
+        new_alpha = attest_pos(R, C, E, alpha, Q, Q1, Q0, S, S1, S0,
+                               q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s)
 
     elif delta_q0 > 0:  # negative attestation
 
-        new_alpha = attest_neg(R, C, E, alpha, Q, Q1, Q0, S, S1, S0, q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s )
+        new_alpha = attest_neg(R, C, E, alpha, Q, Q1, Q0, S, S1, S0,
+                               q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s)
     else:
         new_alpha = alpha
 
@@ -405,11 +415,13 @@ def update_V(params, substep, state_history, prev_state, policy_input):
     delta_s = policy_input['amt_pos'] + policy_input['amt_neg']
 
     if delta_q1 > 0:  # positive attestation
-        new_alpha = attest_pos(R, C, E, alpha, Q, Q1, Q0, S, S1, S0, q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s )
+        new_alpha = attest_pos(R, C, E, alpha, Q, Q1, Q0, S, S1, S0,
+                               q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s)
 
     elif delta_q0 > 0:  # negative attestation
 
-        new_alpha = attest_neg(R, C, E, alpha, Q, Q1, Q0, S, S1, S0, q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s )
+        new_alpha = attest_neg(R, C, E, alpha, Q, Q1, Q0, S, S1, S0,
+                               q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s)
 
     else:
         new_alpha = alpha

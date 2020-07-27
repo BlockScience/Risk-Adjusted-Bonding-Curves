@@ -1,7 +1,6 @@
 # TODO: imports
 import random
 import math
-
 # f = 0.03  # param to control certainty of alpha at extremes
 # m = 0.15  # param to modulate curvature of alpha threshold band
 
@@ -15,8 +14,8 @@ def set_action(params, substep, state_history, prev_state):
     V = prev_state['invariant_V']
     I = prev_state['invariant_I']
     P = prev_state['spot_price']
-    private_price = prev_state['private_price']
-    private_alpha = prev_state['private_alpha']
+    private_price = prev_state['chosen_agent']['agent_private_price']
+    private_alpha = prev_state['chosen_agent']['agent_private_alpha']
     S1 = prev_state['supply_1']
     S0 = prev_state['supply_0']
     r = prev_state['chosen_agent']['agent_reserve']
@@ -42,12 +41,12 @@ def set_action(params, substep, state_history, prev_state):
 
     print('r', r)
 
-    print('P', P, type(P))
-    print('R', R, type(R))
-    print('private_price', private_price, type(private_price))
-    print('s_free', s_free, type(s_free))
-    print('private_alpha', private_alpha, type(private_alpha))
-    print('alpha', alpha, type(alpha))
+    # print('P', P, type(P))
+    # print('R', R, type(R))
+    # print('private_price', private_price, type(private_price))
+    # print('s_free', s_free, type(s_free))
+    # print('private_alpha', private_alpha, type(private_alpha))
+    # print('alpha', alpha, type(alpha))
     # new_private_price is obtained from update_private_price() function in private_beliefs
 
     # USING ARMIJO RULE
@@ -144,7 +143,7 @@ def set_action(params, substep, state_history, prev_state):
         amt_pos = random.uniform(g0, g1)*s_free
 
         amt_neg = 0
-        print("amt_pos = ", amt_pos)
+       # print("amt_pos = ", amt_pos)
 
         # Compute number of claims
         A = math.sqrt(1+((amt_pos+amt_neg)/S))

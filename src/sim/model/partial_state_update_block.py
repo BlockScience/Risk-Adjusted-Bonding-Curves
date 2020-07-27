@@ -29,8 +29,9 @@ partial_state_update_blocks = [
             # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
             # Agent signaling
             # Capture any private signals eg. sine wave
-            'private_price': update_private_price,
-            'private_alpha': update_private_alpha
+            # 'agent_private_price': update_private_price,
+            # 'agent_private_alpha': update_private_alpha,
+            'chosen_agent': update_agent_beliefs
         }
     },
     {
