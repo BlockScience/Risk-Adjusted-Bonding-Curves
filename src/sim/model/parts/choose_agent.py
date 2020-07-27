@@ -25,7 +25,4 @@ def choose_agent(params, substep, state_history, prev_state, policy_input):
     timestep = prev_state['timestep']
    # chosen_agent['picked'] = True
 
-    print('Chosen Agent:')
-    print(chosen_agent)
-
     return ('chosen_agent', chosen_agent)
