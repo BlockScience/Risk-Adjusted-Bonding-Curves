@@ -89,20 +89,19 @@ def compute_r(R, S, V, kappa, r, deltaS, policy_input):
 
 
 def compute_s_free(R, S, V, kappa, s_free, deltaR, policy_input, timestep):
-    
-    
+
     deltas = (V*(R+deltaR))**(1/kappa)-S
 
     s_free = s_free + deltas - policy_input['amt_to_burn']
 
-    ############ TEST RANDOM DROP
+    # TEST RANDOM DROP
     if timestep % 20 == 0:
         random_drop = 10
     else:
         random_drop = 0
 
     # random_drop = 1
-    
+
     s_free = s_free + random_drop
 
     return s_free
@@ -120,16 +119,16 @@ def update_agent_BC(params, substep, state_history, prev_state, policy_input):
 
     deltaS = policy_input['amt_to_burn']
     deltaR = policy_input['amt_to_bond']
-####### TEST RANDOM DROP
+# TEST RANDOM DROP
 
-    timestep =  prev_state['timestep']
+    timestep = prev_state['timestep']
 
     agent['agent_reserve'] = compute_r(R, S, V, kappa, r, deltaS, policy_input)
     agent['agent_supply_free'] = compute_s_free(
         R, S, V, kappa, s_free, deltaR, policy_input, timestep)
 
-####### TEST RANDOM DROP
-    timestep =  prev_state['timestep']
+# TEST RANDOM DROP
+    timestep = prev_state['timestep']
     agent['agent_supply_free'] = compute_s_free(
         R, S, V, kappa, s_free, deltaR, policy_input, timestep)
 
@@ -147,16 +146,38 @@ def update_P_bondburn(params, substep, state_history, prev_state, policy_input):
     if amt_to_bond > 0:  # bond
         deltaR = amt_to_bond
         deltaS = (V*(R+deltaR))**(1/kappa)-S
+
+        if deltaS == 0:
+            P = kappa*(R**((kappa-1.0)/kappa)/(float(V) **
+                                               (1.0/float(kappa))))  # Zero handling
+            # return 'spot_price', P
+        else:
+            P = deltaR/deltaS  # deltaR/deltaS
+            # return 'spot_price', P
+
     elif amt_to_burn > 0:  # burn
         deltaS = amt_to_burn
         deltaR = R-((S-deltaS)**kappa)/V
 
-    if amt_to_burn == 0:
-        P = kappa*(R**((kappa-1.0)/kappa)/(float(V) **
-                                           (1.0/float(kappa))))  # Zero handling
-    else:
-        P = amt_to_bond/amt_to_burn  # deltaR/deltaS
+        if deltaS == 0:
+            P = kappa*(R**((kappa-1.0)/kappa)/(float(V) **
+                                               (1.0/float(kappa))))  # Zero handling
+            # return 'spot_price', P
+        else:
+            P = deltaR/deltaS  # deltaR/deltaS
+            # return 'spot_price', P
 
+    elif amt_to_burn == 0:
+        P = P = kappa*(R**((kappa-1.0)/kappa)/(float(V) **
+                                               (1.0/float(kappa))))  # Zero handling
+
+    elif amt_to_bond == 0:
+        P = prev_state['spot_price']
+
+    else:
+        P = amt_to_bond/amt_to_burn
+
+    print("PRICE (BOND/BURN): ", P)
     # print("SPOT PRICE P (from bondburn update) = ", P)
     return 'spot_price', P
 
@@ -188,7 +209,7 @@ def update_pbar(params, substep, state_history, prev_state, policy_input):
     realized_price = deltaR/deltaS
     pbar = realized_price
     print("PRICE pbar (from bondburn update) =", pbar)
-    return 'price', pbar
+    return 'pbar', pbar
 
 
 def update_I_bondburn(params, substep, state_history, prev_state, policy_input):

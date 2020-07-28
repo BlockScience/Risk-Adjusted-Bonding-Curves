@@ -380,6 +380,7 @@ def update_P_attest(params, substep, state_history, prev_state, policy_input):
     kappa = I / (I - (C*new_alpha))
 
     P = kappa * (R/S)
+    print("PRICE (ATTEST): ", P)
 
     # VERIFY how this is different from dR/dS and their applicability
     # P = kappa*(R/S)

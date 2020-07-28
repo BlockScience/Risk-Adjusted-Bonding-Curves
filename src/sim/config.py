@@ -11,8 +11,8 @@ from cadCAD import configs
 import pandas as pd
 import itertools
 
-time_periods_per_run = 5
-monte_carlo_runs = 10
+time_periods_per_run = 80
+monte_carlo_runs = 2
 E = 0.45  # to be reviewed
 
 KAPPA = [2]
@@ -110,7 +110,7 @@ agents_df['agent_private_price'] = 0.2, 20
 # Put this in state_vars.py
 initial_conditions = {
     'reserve': reserve,
-    'price': PRICE,  # kappa*(reserve/supply), price is dR/dS = 1
+    'pbar': PRICE,  # kappa*(reserve/supply), price is dR/dS = 1
     'realized_price': 0,
     'spot_price': PRICE,
     # 'private_price': 0,

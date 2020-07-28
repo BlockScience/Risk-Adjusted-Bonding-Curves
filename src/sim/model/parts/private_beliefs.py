@@ -37,7 +37,7 @@ def update_private_price(params, substep, state_history, prev_state, policy_inpu
     rules_price = params['rules_price']
     period = params['period']
     timestep = prev_state['timestep']
-    price = prev_state['price']
+    price = prev_state['spot_price']
 
     """ if rules_price == 'step':
         bump = int((timestep % int(period/2) == 0))*int(timestep > 0)
