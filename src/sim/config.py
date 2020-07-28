@@ -11,7 +11,7 @@ from cadCAD import configs
 import pandas as pd
 import itertools
 
-time_periods_per_run = 80
+time_periods_per_run = 40
 monte_carlo_runs = 2
 E = 0.45  # to be reviewed
 
@@ -78,16 +78,16 @@ params = {
     'f': [0.03],  # param to control certainty of alpha at extremes
     'm': [0.15],  # param to modulate curvature of alpha threshold band
     'beta': [0.9],
-    'dust': [10**-8],
+    'dust': [10**(-8)],
     'period': PERIOD,
     'rules_price': rules_price,
     'E': E
 }
 
-number_of_agents = 2
+number_of_agents = 5
 
 PRIVATE_ALPHA = 0.1
-PRIVATE_PRICE = 0.2
+PRIVATE_PRICE = 1.5
 
 # Configure agents for agent-based model
 agents_df = pd.DataFrame({
@@ -104,8 +104,9 @@ agents_df = pd.concat([agents_df]*number_of_agents, ignore_index=True)
 # Adding IDs to agents
 agents_df.insert(0, 'id', range(0, len(agents_df)))
 
-agents_df['agent_private_alpha'] = 0.1, 0.9  # 0.6, 0.7, 0.8, 0.9
-agents_df['agent_private_price'] = 0.2, 20
+# 0.6, 0.7, 0.8, 0.9
+agents_df['agent_private_alpha'] = 0.1, 0.25, 0.5, 0.75, 0.9
+agents_df['agent_private_price'] = 0.2, 0.5, 0.8, 1, 1.4  # 0.2, 2, 3, 4, 6
 
 # Put this in state_vars.py
 initial_conditions = {

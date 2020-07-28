@@ -111,4 +111,7 @@ def update_agent_beliefs(params, substep, state_history, prev_state, policy_inpu
     agent['agent_private_price'] = new_private_price
     agent['agent_private_alpha'] = new_private_alpha
 
+    print("agent['agent_private_price'] = ", agent['agent_private_price'])
+    print("agent['agent_private_alpha'] = ", agent['agent_private_alpha'])
+
     return 'chosen_agent', agent
