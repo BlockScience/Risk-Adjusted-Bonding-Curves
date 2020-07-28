@@ -176,7 +176,7 @@ def update_s0(params, substep, state_history, prev_state, policy_input):
 
 def attest_pos(R, C, E, alpha, Q, Q1, Q0, S, S1, S0, q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s):
 
-    print("Positive attestation")
+    print("Positive attestation 2")
     new_alpha = S1 * R / (S1 * R - S0 * R + S0*C)
 
     return new_alpha
@@ -186,7 +186,7 @@ def attest_neg(R, C, E, alpha, Q, Q1, Q0, S, S1, S0, q0, q1, s_free, s1, s0, s, 
 
     new_alpha = S1 * R / (S1 * R - S0 * R + S0*C)
 
-    print("Negative attestation.")
+    print("Negative attestation 2")
 
     return new_alpha
 
@@ -218,18 +218,23 @@ def update_alpha(params, substep, state_history, prev_state, policy_input):
     delta_q0 = policy_input['amt_Q0']
     delta_s = policy_input['amt_pos'] + policy_input['amt_neg']
 
+    new_alpha = S1 * R / (S1 * R - S0 * R + S0*C)
+
     if attest_action == 'attest_pos':  # positive attestation
         new_alpha = attest_pos(R, C, E, alpha, Q, Q1, Q0, S, S1, S0,
                                q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s)
-        print("Positive attestation")
+        print("Positive attestation 1")
 
     elif attest_action == 'attest_neg':  # negative attestation
         new_alpha = attest_neg(R, C, E, alpha, Q, Q1, Q0, S, S1, S0,
                                q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s)
-        print("Negative attestation.")
+        print("Negative attestation 1")
 
     else:
         new_alpha = alpha
+
+    # new_alpha = compute_alpha(R, C, E, alpha, Q, Q1, Q0, S, S1, S0, q0,
+        # q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s, attest_action)
 
     # alpha = spot_alpha(S, I, kappa, C)
     # print("Q0 = ", prev_state['attestations_0'], "| Q1 = ", prev_state['attestations_1'],

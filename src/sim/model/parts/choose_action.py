@@ -8,7 +8,7 @@ import math
 def set_action(params, substep, state_history, prev_state):
     # params = params[0]
     # pprint(params)
-    #print('Choose Action')
+    # print('Choose Action')
     R = prev_state['reserve']
     S = prev_state['supply']
     V = prev_state['invariant_V']
@@ -19,7 +19,7 @@ def set_action(params, substep, state_history, prev_state):
     S1 = prev_state['supply_1']
     S0 = prev_state['supply_0']
     r = prev_state['chosen_agent']['agent_reserve']
-    #print("AGENT RESERVE = ", r)
+    # print("AGENT RESERVE = ", r)
     # s = prev_state['chosen_agent']['agent_supply']
     # this model contains only the notion of s_free. Agent supply is implicit
     s_free = prev_state['chosen_agent']['agent_supply_free']
@@ -39,6 +39,7 @@ def set_action(params, substep, state_history, prev_state):
     dust = params['dust']
     beta = params['beta']
     period = params['period']
+    tau = 1.2*private_price
 
     print('r', r)
 
@@ -50,22 +51,22 @@ def set_action(params, substep, state_history, prev_state):
     # print('alpha', alpha, type(alpha))
     # new_private_price is obtained from update_private_price() function in private_beliefs
 
-    # USING ARMIJO RULE
-    tau = 1.8*private_price
-
+   # USING ARMIJO RULE
     if P > (private_price + tau) and s_free > 0 and R > 0:
         mech_bc = 'burn'
 
         amt_to_bond = 0
-        amt_to_burn = s_free*(1-dust)
-        #amt_to_burn = amt*beta
+        #max_burn = s_free*(1-dust)
+        amt_to_burn = s_free*(random.randint(40, 90)/100)
+        # amt_to_burn = amt*beta <-- send to iteration 2 of amt_to_burn calculation
         print("Agent burns. Amt to burn = ", amt_to_burn)
 
     elif P < (private_price - tau) and r > 0 and S > 0:
         mech_bc = 'bond'
 
-        amt_to_bond = r*(1-dust)
-        #amt_to_bond = amt*beta
+        #max_bond = r*(1-dust)
+        #amt_to_burn = max_bond
+        amt_to_bond = r*(random.randint(40, 90)/100)
         amt_to_burn = 0
         print("Agent bonds. Amt to bond = ", amt_to_bond)
 
@@ -148,11 +149,11 @@ def set_action(params, substep, state_history, prev_state):
         amt_pos = random.uniform(g0, g1)*s_free
 
         amt_neg = 0
-       # print("amt_pos = ", amt_pos)
+        print("amt_pos = ", amt_pos)
 
         # Compute number of claims
         A = math.sqrt(1+((amt_pos+amt_neg)/S))
-        amt_Q1 = Q0*(A-1)
+        amt_Q1 = Q1*(A-1)
         amt_Q0 = 0
         print("amt_Q1 = ", amt_Q1)
 
@@ -199,6 +200,20 @@ def set_action(params, substep, state_history, prev_state):
         # 'alpha_belief': alpha_belief(amt_a),
         # 'posterior': {}
     }
+
+
+"""     # Compute P BAR
+    if deltaR == 0:
+        Pbar = infty
+    elif max_burn == 0 or max_bond == 0:
+        Pbar = P
+    else:
+        if deltaS == 0:
+            RP =
+        else:
+            RP = deltaR/deltaS
+
+        Pbar = RP """
 
 
 """     action = {

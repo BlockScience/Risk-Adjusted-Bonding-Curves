@@ -13,7 +13,8 @@ def get_value(value):
 
 def choose_agent(params, substep, state_history, prev_state, policy_input):
     print(prev_state['agents'].tail())
-    print('----------------------------')
+
+    print("--------------TIMESTEP", prev_state['timestep'], "--------------")
     # Randomly sample one agent from all agents
     chosen_agent_df = prev_state['agents'].sample(n=1)
     print("CHOSEN AGENT = ", chosen_agent_df, 'Time ', prev_state['timestep'])
