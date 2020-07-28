@@ -11,7 +11,7 @@ from cadCAD import configs
 import pandas as pd
 import itertools
 
-time_periods_per_run = 40
+time_periods_per_run = 100
 monte_carlo_runs = 2
 E = 0.45  # to be reviewed
 

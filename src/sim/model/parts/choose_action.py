@@ -65,7 +65,7 @@ def set_action(params, substep, state_history, prev_state):
         mech_bc = 'bond'
 
         #max_bond = r*(1-dust)
-        amt_to_burn = max_bond
+        #amt_to_burn = max_bond
         amt_to_bond = r*(random.randint(40, 90)/100)
         amt_to_burn = 0
         print("Agent bonds. Amt to bond = ", amt_to_bond)
