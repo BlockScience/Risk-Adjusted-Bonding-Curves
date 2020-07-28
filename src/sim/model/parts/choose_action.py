@@ -37,6 +37,7 @@ def set_action(params, substep, state_history, prev_state):
     f = params['f']
     m = params['m']
     dust = params['dust']
+    beta = params['beta']
     period = params['period']
 
     print('r', r)
@@ -50,17 +51,21 @@ def set_action(params, substep, state_history, prev_state):
     # new_private_price is obtained from update_private_price() function in private_beliefs
 
     # USING ARMIJO RULE
-    if P > private_price and s_free > 0 and R > 0:
+    tau = 1.8*private_price
+
+    if P > (private_price + tau) and s_free > 0 and R > 0:
         mech_bc = 'burn'
 
         amt_to_bond = 0
         amt_to_burn = s_free*(1-dust)
+        #amt_to_burn = amt*beta
         print("Agent burns. Amt to burn = ", amt_to_burn)
 
-    elif P < private_price and r > 0 and S > 0:
+    elif P < (private_price - tau) and r > 0 and S > 0:
         mech_bc = 'bond'
 
         amt_to_bond = r*(1-dust)
+        #amt_to_bond = amt*beta
         amt_to_burn = 0
         print("Agent bonds. Amt to bond = ", amt_to_bond)
 
