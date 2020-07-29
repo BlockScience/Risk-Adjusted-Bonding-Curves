@@ -23,7 +23,7 @@ Q1 = 20
 Q0 = 20
 S1 = 30  # Considering S = 600 and S_free = 200
 S0 = 20  # Considering S = 600 and S_free = 200
-r = 50    # Agent reserve, the amount of fiat tokens an agent starts with
+r = 100    # Agent reserve, the amount of fiat tokens an agent starts with
 s = 50
 s1 = 3  # Considering s = 50 and s_free = 30
 s0 = 2  # Considering s = 50 and s_free = 30
@@ -45,8 +45,8 @@ agents_df = pd.concat([agents_df]*number_of_agents, ignore_index=True)
 agents_df.insert(0, 'id', range(0, len(agents_df)))
 
 # 0.6, 0.7, 0.8, 0.9
-agents_df['agent_private_alpha'] = 0.1, 0.25, 0.5, 0.75, 0.9
-agents_df['agent_private_price'] = 0.2, 0.5, 0.8, 1, 1.4  # 0.2, 2, 3, 4, 6
+agents_df['agent_private_alpha'] = 0.3, 0.4, 0.5, 0.6, 0.7
+agents_df['agent_private_price'] = 0.5, 0.9, 1.0, 1.1, 1.5  # 0.2, 2, 3, 4, 6
 
 # Put this in state_vars.py
 initial_conditions = {

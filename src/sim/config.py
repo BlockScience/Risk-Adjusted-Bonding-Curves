@@ -38,6 +38,9 @@ for c in configs:
 
     c.initial_state['kappa'] = c.sim_config['M']['starting_kappa']
     c.initial_state['alpha'] = c.sim_config['M']['starting_alpha']
+    c.initial_state['reserve'] = c.sim_config['M']['money_raised']
+
+
     #c.initial_state['money_raised'] = c.sim_config['M']['starting_alpha']
     #c.initial_state['C'] = c.sim_config['M']['C']
 

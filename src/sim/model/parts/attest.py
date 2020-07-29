@@ -176,6 +176,8 @@ def update_s0(params, substep, state_history, prev_state, policy_input):
 
 def attest_pos(R, C, E, alpha, Q, Q1, Q0, S, S1, S0, q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s):
 
+    S1 = S1 + delta_s
+    # S0 = S0 + s0
     print("Positive attestation 2")
     new_alpha = S1 * R / (S1 * R - S0 * R + S0*C)
 
@@ -183,7 +185,8 @@ def attest_pos(R, C, E, alpha, Q, Q1, Q0, S, S1, S0, q0, q1, s_free, s1, s0, s, 
 
 
 def attest_neg(R, C, E, alpha, Q, Q1, Q0, S, S1, S0, q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s):
-
+    # S1 = S1 + s1
+    S0 = S0 + delta_s
     new_alpha = S1 * R / (S1 * R - S0 * R + S0*C)
 
     print("Negative attestation 2")
