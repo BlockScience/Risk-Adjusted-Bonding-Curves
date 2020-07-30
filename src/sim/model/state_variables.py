@@ -3,15 +3,18 @@ import pandas as pd
 from src.sim.model.sys_params import *
 
 PRICE = 1
-### NEED TO Refactor across params and configs
-reserve = MONEY_RAISED[0]  # - C[0]
-supply = KAPPA[0]*(reserve/PRICE)
+
+######## Just for initalization of variables ########################################
+####  Overwritten in configs.py for parameter sweeps with values in sys_params ######
+reserve = MONEY_RAISED[0] 
+supply = KAPPA[0]*(reserve/PRICE) 
 supply_free = supply
 invariant_V = (supply**KAPPA[0])/reserve
 invariant_I = reserve + (C[0]*ALPHA[0])
+##### Overwritten in configs.py for parameter sweeps with values in sys_params ######
 
 
-
+########## AGENT INITIALIZATION #####################################################
 number_of_agents = 5
 
 PRIVATE_ALPHA = 0.1
@@ -48,9 +51,9 @@ agents_df.insert(0, 'id', range(0, len(agents_df)))
 agents_df['agent_private_alpha'] = 0.3, 0.4, 0.5, 0.6, 0.7
 agents_df['agent_private_price'] = 0.5, 0.9, 1.0, 1.1, 1.5  # 0.2, 2, 3, 4, 6
 
-# Put this in state_vars.py
+########## AGENT INITIALIZATION #####################################################
 initial_conditions = {
-    'reserve': reserve,
+    'reserve': reserve, #  Overwritten in configs.py with sys_params value for future parameter sweeps
     'pbar': PRICE,  # kappa*(reserve/supply), price is dR/dS = 1
     'realized_price': 0,
     'spot_price': PRICE,
