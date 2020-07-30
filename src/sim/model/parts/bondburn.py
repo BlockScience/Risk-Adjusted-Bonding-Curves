@@ -37,7 +37,10 @@ def update_S(params, substep, state_history, prev_state, policy_input):
     deltaR = policy_input['amt_to_bond']
 
     deltaS = (V*(R+deltaR))**(1/kappa) - S
-    S = S - deltaS + policy_input['amt_to_burn']
+    # S = S - deltaS + policy_input['amt_to_burn']
+    # ?????????????????? Backwards ????????????????????
+   
+    S = S + deltaS - policy_input['amt_to_burn']
     print("::::delta S::::", deltaS)
     print("::::AMTBURN::::", policy_input['amt_to_burn'])
     # print("SUPPLY = ", S, " | deltaR = ", deltaR, " | deltaS = ", deltaS)

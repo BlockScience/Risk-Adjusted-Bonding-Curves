@@ -10,7 +10,7 @@ from src.sim.model.parts.put_agent_back_to_df import put_agent_back_to_df
 
 print("-----------------PSUB---------------------")
 
-partial_state_update_blocks = [
+partial_state_update_block = [
     {
         'policies': {
             # 'agent': choose_agent
@@ -21,19 +21,19 @@ partial_state_update_blocks = [
             'chosen_agent': choose_agent
         }
     },
-    {
-        'policies': {
-            # 'act': set_action
-        },
-        'variables': {
-            # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-            # Agent signaling
-            # Capture any private signals eg. sine wave
-            # 'agent_private_price': update_private_price,
-            # 'agent_private_alpha': update_private_alpha,
-            # 'chosen_agent': update_agent_beliefs
-        }
-    },
+    # {
+    #     'policies': {
+    #         # 'act': set_action
+    #     },
+    #     'variables': {
+    #         # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+    #         # Agent signaling
+    #         # Capture any private signals eg. sine wave
+    #         # 'agent_private_price': update_private_price,
+    #         # 'agent_private_alpha': update_private_alpha,
+    #         # 'chosen_agent': update_agent_beliefs
+    #     }
+    # },
     {
         'policies': {
             'act': set_action
