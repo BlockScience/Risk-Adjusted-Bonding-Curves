@@ -3,7 +3,7 @@ import pandas as pd
 from src.sim.model.sys_params import *
 
 PRICE = 1
-### NEED TO Refactor across params and configs
+# NEED TO Refactor across params and configs
 reserve = MONEY_RAISED[0]  # - C[0]
 supply = KAPPA[0]*(reserve/PRICE)
 supply_free = supply
@@ -11,11 +11,10 @@ invariant_V = (supply**KAPPA[0])/reserve
 invariant_I = reserve + (C[0]*ALPHA[0])
 
 
-
-number_of_agents = 5
+number_of_agents = 18
 
 PRIVATE_ALPHA = 0.1
-PRIVATE_PRICE = 1.5
+PRIVATE_PRICE = 1.8
 
 # Set initialization state variables for Attestations
 Q = 40
@@ -45,8 +44,8 @@ agents_df = pd.concat([agents_df]*number_of_agents, ignore_index=True)
 agents_df.insert(0, 'id', range(0, len(agents_df)))
 
 # 0.6, 0.7, 0.8, 0.9
-agents_df['agent_private_alpha'] = 0.3, 0.4, 0.5, 0.6, 0.7
-agents_df['agent_private_price'] = 0.5, 0.9, 1.0, 1.1, 1.5  # 0.2, 2, 3, 4, 6
+agents_df['agent_private_alpha'] = 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95
+# agents_df['agent_private_price'] = 0.5, 0.9, 1.0, 1.1, 1.5  # 0.2, 2, 3, 4, 6
 
 # Put this in state_vars.py
 initial_conditions = {
@@ -81,7 +80,6 @@ initial_conditions = {
     'agents': agents_df,
     'chosen_agent': 0
 }
-
 
 
 print("Initial Conditions (config.py) : ", initial_conditions)
