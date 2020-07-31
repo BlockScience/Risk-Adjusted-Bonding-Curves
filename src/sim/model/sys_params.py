@@ -34,13 +34,15 @@ print()
 # E = [0.1, 0.2, 0.3]
 E = [0.2]
 
-factors = [rules_price, KAPPA, E]
+factors = [rules_price, KAPPA, E, MONEY_RAISED, ALPHA, C]
 product = list(itertools.product(*factors))
-rules_price, KAPPA, E = zip(*product)
+rules_price, KAPPA, E, MONEY_RAISED, ALPHA, C = zip(*product)
 rules_price = list(rules_price)
 KAPPA = list(KAPPA)
 E = list(E)
-
+MONEY_RAISED = list(MONEY_RAISED)
+ALPHA = list(ALPHA)
+C = list(C)
 
 # Put this in sys_params.py
 params = {
