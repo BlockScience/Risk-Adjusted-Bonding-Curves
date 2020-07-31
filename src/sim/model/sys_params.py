@@ -13,9 +13,8 @@ PERIOD = [2000]
 # New price singal : Determines signal shape for agent's behaviour heuristic on price
 # rules_price = ["martin"] #, "step"]  # , "ramp", "sin"]
 
-rules_price = ["martin", "step"]  # , "ramp", "sin"]
+rules_price = ["martin"]  # , "ramp", "sin"]
 # rules_price = ["martin", "step", "ramp", "sin"]
-
 
 
 # reserve = 300 # MONEY_RAISED[0] - C[0]
@@ -23,7 +22,6 @@ rules_price = ["martin", "step"]  # , "ramp", "sin"]
 # supply_free = supply
 # invariant_V = 1200 #(supply**KAPPA[0])/reserve
 # invariant_I = 650 #reserve + (C[0]*ALPHA[0])
-
 
 
 print()
