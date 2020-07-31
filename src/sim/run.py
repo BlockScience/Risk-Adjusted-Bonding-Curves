@@ -1,38 +1,6 @@
-
-# # The following imports NEED to be in the exact order
-# from cadCAD.engine import ExecutionMode, ExecutionContext, Executor
-# from cadCAD import configs
-# import pandas as pd
-
-
-# def run(drop_midsteps=True):
-#     exec_mode = ExecutionMode()
-#     multi_proc_ctx = ExecutionContext(context=exec_mode.multi_proc)
-#     run = Executor(exec_context=multi_proc_ctx, configs=configs)
-#     results = pd.DataFrame()
-#     i = 0
-#     for raw_result, _ in run.execute():
-#         params = configs[i].sim_config['M']
-#         result_record = pd.DataFrame.from_records(
-#             [tuple([i for i in params.values()])], columns=list(params.keys()))
-
-#         df = pd.DataFrame(raw_result)
-#         # keep only last substep of each timestep
-#         if drop_midsteps:
-#             max_substep = max(df.substep)
-#             is_droppable = (df.substep != max_substep) & (df.substep != 0)
-#             df.drop(df[is_droppable].index, inplace=True)
-
-#         result_record['dataset'] = [df]
-#         results = results.append(result_record)
-#         i += 1
-#     return results.reset_index()
-
-
-
 # The following imports NEED to be in the exact order
 from cadCAD import configs
-######### ADD FOR PRINTING CONFIG
+# ADD FOR PRINTING CONFIG
 from cadCAD.configuration.utils import *
 from cadCAD.engine import ExecutionMode, ExecutionContext, Executor
 
@@ -44,15 +12,19 @@ simulation = Executor(exec_context=exec_ctx, configs=configs)
 raw_system_events, tensor_field, session = simulation.execute()
 df = pd.DataFrame(raw_system_events)
 
+
 def get_M(k, v):
     if k == 'sim_config':
         k, v = 'M', v['M']
     return k, v
+
+
 config_ids = [
     dict(
         get_M(k, v) for k, v in config.__dict__.items() if k in ['simulation_id', 'run_id', 'sim_config']
     ) for config in configs
 ]
+
 
 def run(drop_midsteps=True):
     print('config_ids = ', config_ids)
@@ -65,7 +37,8 @@ def run(drop_midsteps=True):
     for i, config_id in enumerate(config_ids):
         sim_id, run_id = config_id['simulation_id'], config_id['run_id']
         params = config_id['M']
-        result_record = pd.DataFrame.from_records([tuple([i for i in params.values()])], columns=list(params.keys()))
+        result_record = pd.DataFrame.from_records(
+            [tuple([i for i in params.values()])], columns=list(params.keys()))
 
         mod_record = {'sim_id': sim_id, 'meta': result_record}
         if sim_id not in sim_id_records:
@@ -75,13 +48,15 @@ def run(drop_midsteps=True):
         sim_id = config_id['simulation_id']
         # print('sim id first loop = ',sim_id)
 
-        sub_df = df[df.simulation == config_id['simulation_id']][df.run == config_id['run_id'] + 1]
+        sub_df = df[df.simulation == config_id['simulation_id']
+                    ][df.run == config_id['run_id'] + 1]
         sim_dfs[sim_id].append(sub_df)
         # print(sub_df[['simulation', 'run', 'substep', 'timestep']].tail(5))
         # print(sub_df.tail(5))
-    
+
     for sim_id in sim_ids:
-        result_record = [d for d in result_records_list if d['sim_id'] == sim_id][0]['meta']
+        result_record = [
+            d for d in result_records_list if d['sim_id'] == sim_id][0]['meta']
         sim_dfs[sim_id] = pd.concat(sim_dfs[sim_id])
         sub_df = sim_dfs[sim_id]
 
@@ -89,7 +64,8 @@ def run(drop_midsteps=True):
         # keep only last substep of each timestep
         if drop_midsteps:
             max_substep = max(sub_df.substep)
-            is_droppable = (sub_df.substep != max_substep) & (sub_df.substep != 0)
+            is_droppable = (sub_df.substep != max_substep) & (
+                sub_df.substep != 0)
             sub_df.drop(sub_df[is_droppable].index, inplace=True)
 
         # print(sub_df.head(3))
