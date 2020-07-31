@@ -23,11 +23,6 @@ def set_action(params, substep, state_history, prev_state):
     # s = prev_state['chosen_agent']['agent_supply']
     # this model contains only the notion of s_free. Agent supply is implicit
     s_free = prev_state['chosen_agent']['agent_supply_free']
-    """
-    r = prev_state['agent_reserve']
-    s = prev_state['agent_supply']
-    s_free = prev_state['agent_supply_free']
-    """
     Q1 = prev_state['attestations_1']
     Q0 = prev_state['attestations_0']
     start_kappa = params['starting_kappa']
@@ -57,7 +52,8 @@ def set_action(params, substep, state_history, prev_state):
 
         amt_to_bond = 0
         #max_burn = s_free*(1-dust)
-        amt_to_burn = s_free*(random.randint(40, 90)/100)
+        amt_to_burn = s_free*(random.randint(85, 90)/100)
+        #print("s_free = ", s_free, "| RAND = ", (random.randint(85, 90)/100))
         # amt_to_burn = amt*beta <-- send to iteration 2 of amt_to_burn calculation
         print("Agent burns. Amt to burn = ", amt_to_burn)
 
@@ -66,7 +62,8 @@ def set_action(params, substep, state_history, prev_state):
 
         #max_bond = r*(1-dust)
         #amt_to_burn = max_bond
-        amt_to_bond = r*(random.randint(40, 90)/100)
+        amt_to_bond = r*(random.randint(85, 90)/100)
+        #print("r =", r, "| RAND = ", (random.randint(85, 90)/100))
         amt_to_burn = 0
         print("Agent bonds. Amt to bond = ", amt_to_bond)
 

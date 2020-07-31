@@ -148,7 +148,7 @@ def update_P_bondburn(params, substep, state_history, prev_state, policy_input):
 
     elif amt_to_burn > 0:  # burn
         deltaS = amt_to_burn
-        deltaR = R-((S-deltaS)**kappa)/V
+        deltaR = R - (((S-deltaS)**kappa)/V)
 
         if deltaS == 0:
             P = kappa*(R**((kappa-1.0)/kappa)/(float(V) **
@@ -159,8 +159,8 @@ def update_P_bondburn(params, substep, state_history, prev_state, policy_input):
             # return 'spot_price', P
 
     elif amt_to_burn == 0:
-        P = P = kappa*(R**((kappa-1.0)/kappa)/(float(V) **
-                                               (1.0/float(kappa))))  # Zero handling
+        P = kappa*(R**((kappa-1.0)/kappa)/(float(V) **
+                                           (1.0/float(kappa))))  # Zero handling
 
     elif amt_to_bond == 0:
         P = prev_state['spot_price']
