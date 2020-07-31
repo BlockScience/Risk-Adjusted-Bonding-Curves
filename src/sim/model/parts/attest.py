@@ -1,6 +1,4 @@
 import random
-# E = 0.2
-# Remove update_Q (?) since total number of attestations Q = Q1 + Q0
 
 
 def update_Q(params, substep, state_history, prev_state, policy_input):
@@ -110,86 +108,20 @@ def update_agent_PM(params, substep, state_history, prev_state, policy_input):
     return 'chosen_agent', agent
 
 
-""" def update_q1(params, substep, state_history, prev_state, policy_input):
-    ### was agents_df #########################
-    # shoud be agents
-    # either the state agent_attestations_1
-    # OR state agent_df with choosing series
-
-    agent = prev_state['chosen_agent']
-
-    print('q1 before' + agent.to_string())
-
-    q1 = agent['q1']
-    q1 = q1 + policy_input['amt_Q1']
-    agent['q1'] = q1
-
-    print('q1 after' + agent.to_string())
-
-    return 'chosen_agent', agent
-
-
-def update_q0(params, substep, state_history, prev_state, policy_input):
-    agent = prev_state['chosen_agent']
-    print('q0 before' + agent.to_string())
-
-    q0 = calculate_q0(agent q0, )
-    agent['q0']
-    q0 = q0 + policy_input['amt_Q0']
-    agent['q0'] = q0
-
-    print('q0 after' + agent.to_string())
-
-    return 'chosen_agent', agent
-
-
-def update_s_free(params, substep, state_history, prev_state, policy_input):
-    s_free = prev_state['agent_supply_free']
-    delta_s_free = policy_input['amt_pos'] + policy_input['amt_neg']
-
-    print("------timestep-----", prev_state['timestep'] % 50)
-    if prev_state['timestep'] % 50 == 0:
-        random_drop = 10
-    else:
-        random_drop = 0
-
-    print("------RANDOM DROP------", random_drop)
-    s_free = s_free - delta_s_free + random_drop
-    print("-----s_free-----", s_free)
-    return 'agent_supply_free', s_free
-
-
-def update_s1(params, substep, state_history, prev_state, policy_input):
-    s1 = prev_state['agent_supply_1']
-
-    s1 = s1 + policy_input['amt_pos']
-    return 'agent_supply_1', s1
-
-
-def update_s0(params, substep, state_history, prev_state, policy_input):
-    s0 = prev_state['agent_supply_0']
-
-    s0 = s0 + policy_input['amt_neg']
-    return 'agent_supply_0', s0
- """
-
-
 def attest_pos(R, C, E, alpha, Q, Q1, Q0, S, S1, S0, q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s):
 
     S1 = S1 + delta_s
-    # S0 = S0 + s0
-    print("Positive attestation 2")
+
     new_alpha = S1 * R / (S1 * R - S0 * R + S0*C)
 
     return new_alpha
 
 
 def attest_neg(R, C, E, alpha, Q, Q1, Q0, S, S1, S0, q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s):
-    # S1 = S1 + s1
-    S0 = S0 + delta_s
-    new_alpha = S1 * R / (S1 * R - S0 * R + S0*C)
 
-    print("Negative attestation 2")
+    S0 = S0 + delta_s
+
+    new_alpha = S1 * R / (S1 * R - S0 * R + S0*C)
 
     return new_alpha
 
@@ -236,18 +168,7 @@ def update_alpha(params, substep, state_history, prev_state, policy_input):
     else:
         new_alpha = alpha
 
-    # new_alpha = compute_alpha(R, C, E, alpha, Q, Q1, Q0, S, S1, S0, q0,
-        # q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s, attest_action)
-
-    # alpha = spot_alpha(S, I, kappa, C)
-    # print("Q0 = ", prev_state['attestations_0'], "| Q1 = ", prev_state['attestations_1'],
-    #      "| q0 = ", prev_state['chosen_agent']['agent_attestations_0'], "| q1 = ", prev_state['chosen_agent']['agent_attestations_1'])
-    #print("deltaq0 = ", delta_q0, "deltaq1 = ", delta_q1)
-    #print("s = ", s, "| delta_s = ", delta_s)
-    # print("A = ", A)
-    # print("alpha_bar = ", alpha_bar)
     #print("new_alpha = ", new_alpha)
-    # new_alpha = -1*new_alpha
     return 'alpha', new_alpha
 
 
@@ -291,9 +212,7 @@ def update_kappa(params, substep, state_history, prev_state, policy_input):
     else:
         new_alpha = alpha
 
-# REWRITE INVARIANT I, DO NOT UPDATE I for updated kappa (f of updated alpha)
-#  Use Note that in HackMD #
-    # I = R + (C*new_alpha)
+
 # if not used, price and s_free go very negative at the outset
 ########################################################
     kappa = I / (I - (C*new_alpha))
@@ -390,8 +309,6 @@ def update_P_attest(params, substep, state_history, prev_state, policy_input):
     P = kappa * (R/S)
     print("PRICE (ATTEST): ", P)
 
-    # VERIFY how this is different from dR/dS and their applicability
-    # P = kappa*(R/S)
     #print("Spot Price P (attest) = ", P)
     return 'spot_price', P
 
@@ -440,9 +357,3 @@ def update_V(params, substep, state_history, prev_state, policy_input):
     V = (S**(kappa))/R
 
     return 'invariant_V', V
-
-#    R = prev_state['reserve']
-#    S = prev_state['supply']
-#    kappa = prev_state['kappa']
-
-#    V = invariant_V(R, S, kappa) """

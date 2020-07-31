@@ -95,8 +95,6 @@ def update_private_alpha(params, substep, state_history, prev_state, policy_inpu
 
     new_private_alpha = prev_state['chosen_agent']['agent_private_alpha']
 
-    # plt.plot(new_private_alpha, substep)
-    # plt.show()
     # print("new_private_alpha = ", new_private_alpha)
     return 'private_alpha', new_private_alpha
 

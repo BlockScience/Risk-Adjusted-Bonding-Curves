@@ -1,17 +1,11 @@
-#from ..import bonding_curve_eq
-
-# Include this function as another part so as to account for all mechansims (?)
-# don't require this because handling with amounts (0 vs +ve) instead of action performed
-
 
 def update_R(params, substep, state_history, prev_state, policy_input):
-    #action = _input['action']
-    #deltaS = _input['amt_to_burn']
+
     # access amt_to_burn using _input['action']['amt_to_burn'] because it's a dict of dicts
     R = prev_state['reserve']
     S = prev_state['supply']
     V = prev_state['invariant_V']
-    # print("invariant_V = ", V)
+
     kappa = prev_state['kappa']
     deltaS = policy_input['amt_to_burn']
 
@@ -28,8 +22,7 @@ def update_R(params, substep, state_history, prev_state, policy_input):
 
 
 def update_S(params, substep, state_history, prev_state, policy_input):
-    #action = _input['action']
-    #deltaR = _input['amt_to_bond']
+
     R = prev_state['reserve']
     S = prev_state['supply']
     V = prev_state['invariant_V']
@@ -39,10 +32,8 @@ def update_S(params, substep, state_history, prev_state, policy_input):
     deltaS = (V*(R+deltaR))**(1/kappa) - S
     # S = S - deltaS + policy_input['amt_to_burn']
     # ?????????????????? Backwards ????????????????????
-   
+
     S = S + deltaS - policy_input['amt_to_burn']
-    print("::::delta S::::", deltaS)
-    print("::::AMTBURN::::", policy_input['amt_to_burn'])
     # print("SUPPLY = ", S, " | deltaR = ", deltaR, " | deltaS = ", deltaS)
 
     return 'supply', S
@@ -107,8 +98,6 @@ def compute_s_free(R, S, V, kappa, s_free, deltaR, policy_input, timestep):
     else:
         random_drop = 0
 
-    # random_drop = 1
-
     s_free = s_free + random_drop
 
     return s_free
@@ -126,16 +115,11 @@ def update_agent_BC(params, substep, state_history, prev_state, policy_input):
 
     deltaS = policy_input['amt_to_burn']
     deltaR = policy_input['amt_to_bond']
-# TEST RANDOM DROP
 
     timestep = prev_state['timestep']
 
     agent['agent_reserve'] = compute_r(R, S, V, kappa, r, deltaS, policy_input)
-    agent['agent_supply_free'] = compute_s_free(
-        R, S, V, kappa, s_free, deltaR, policy_input, timestep)
 
-# TEST RANDOM DROP
-    timestep = prev_state['timestep']
     agent['agent_supply_free'] = compute_s_free(
         R, S, V, kappa, s_free, deltaR, policy_input, timestep)
 
@@ -189,13 +173,6 @@ def update_P_bondburn(params, substep, state_history, prev_state, policy_input):
     return 'spot_price', P
 
 
-"""     R = prev_state['reserve']
-    V = prev_state['invariant_V']
-    kappa = prev_state['kappa']
-
-    P = spot_price(R, V, kappa) """
-
-
 def update_pbar(params, substep, state_history, prev_state, policy_input):
     R = prev_state['reserve']
     S = prev_state['supply']
@@ -220,7 +197,6 @@ def update_pbar(params, substep, state_history, prev_state, policy_input):
 
 
 def update_I_bondburn(params, substep, state_history, prev_state, policy_input):
-    # params = params[0]
     R = prev_state['reserve']
     C = params['C']
     alpha = prev_state['alpha']

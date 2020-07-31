@@ -43,10 +43,8 @@ partial_state_update_block = [
             # Bond-to-mint or burn-to-withdraw
             'reserve': update_R,
             'supply': update_S,
-            # 'agent_reserve': update_r,
-            # 'agent_supply': update_s_free_bondburn,
-            'spot_price': update_P_bondburn,  # verify
-            'pbar': update_pbar,  # verify
+            'spot_price': update_P_bondburn,
+            'pbar': update_pbar,
             'invariant_I': update_I_bondburn,
             'chosen_agent': update_agent_BC
         }
@@ -64,13 +62,7 @@ partial_state_update_block = [
             'supply_1': update_S1,
             'supply_0': update_S0,
             'supply_free': update_S_free,
-            # 'agent_attestations_1': update_q1,
-            # 'agent_attestations_0': update_q0,
-            # 'agent_supply_free': update_s_free,
-            # 'agent_supply_1': update_s1,
-            # 'agent_supply_0': update_s0, """
             'chosen_agent': update_agent_PM,
-            # 'invariant_I': update_I_attest,
             'alpha': update_alpha,
             'kappa': update_kappa,
             'spot_price': update_P_attest,
@@ -97,28 +89,3 @@ partial_state_update_block = [
         }
     }
 ]
-
-
-'''
-partial_state_update_blocks = [
-    {
-      'policies': {
-          'act': set_action,
-        },
-        'variables': {
-            'reserve': update_R, 
-            'supply': update_S,
-            'supply_1': update_S1,
-            'supply_0': update_S0,
-            'attestations_1': update_Q1,
-            'attestations_0': update_Q0,
-            'spot_price': update_P,
-            'output_price': update_Pbar,
-            'price': capture_Pin,
-            'spot_alpha': update_alpha,
-            'output_alpha': update_alphabar,
-            'alpha': capture_alpha,  
-            'kappa': update_kappa
-        }
-    }
-] '''

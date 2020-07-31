@@ -4,7 +4,7 @@ from src.sim.model.sys_params import *
 
 PRICE = 1
 
-######## Just for initalization of variables ########################################
+######## Just for initalization of variables ##########
 ####  Overwritten in configs.py for parameter sweeps with values in sys_params ######
 reserve = MONEY_RAISED[0]
 supply = KAPPA[0]*(reserve/PRICE)
@@ -14,7 +14,7 @@ invariant_I = reserve + (C[0]*ALPHA[0])
 ##### Overwritten in configs.py for parameter sweeps with values in sys_params ######
 
 
-########## AGENT INITIALIZATION #####################################################
+########## AGENT INITIALIZATION ##########
 number_of_agents = 21
 
 PRIVATE_ALPHA = 0.5
@@ -24,12 +24,12 @@ PRIVATE_PRICE = 1.5
 Q = 40
 Q1 = 20
 Q0 = 20
-S1 = 30  # Considering S = 600 and S_free = 200
-S0 = 20  # Considering S = 600 and S_free = 200
-r = 100    # Agent reserve, the amount of fiat tokens an agent starts with
+S1 = 30
+S0 = 30
+r = 100  # Agent reserve, the amount of fiat tokens an agent starts with
 s = 50
-s1 = 3  # Considering s = 50 and s_free = 30
-s0 = 3  # Considering s = 50 and s_free = 30
+s1 = 3
+s0 = 3
 s_free = s - (s1+s0)
 
 # Configure agents for agent-based model
@@ -37,7 +37,6 @@ agents_df = pd.DataFrame({
     'agent_attestations_1': 0,
     'agent_attestations_0': 0,
     'agent_reserve': r,
-    # 'agent_supply': s,
     'agent_supply_1': s1,
     'agent_supply_0': s0,
     'agent_supply_free': s_free,
@@ -54,21 +53,17 @@ agents_df['agent_private_alpha'] = 0.0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0
 # 0.5, 0.9, 1.0, 1.1, 1.5  # 0.2, 2, 3, 4, 6
 #agents_df['agent_private_price'] = 0.2, 2
 
-########## AGENT INITIALIZATION #####################################################
+########## SYSTEM INITIALIZATION ##########
 initial_conditions = {
     # Overwritten in configs.py with sys_params value for future parameter sweeps
     'reserve': reserve,
     'pbar': PRICE,  # kappa*(reserve/supply), price is dR/dS = 1
     'realized_price': 0,
     'spot_price': PRICE,
-    # 'private_price': 0,
-    # 'private_alpha': 0,
-    'kappa': 0,  # direct to initial kappa in params?
+    'kappa': 0,
     'supply': supply,
-    'alpha': ALPHA,  # direct to initial alpha in params?
-    'alpha_bar': ALPHA,  # direct to initial alpha in params?
-
-    # 'spot_alpha': 0,
+    'alpha': ALPHA,
+    'alpha_bar': ALPHA,
     'supply_0': S0,
     'supply_1': S1,
     'supply_free': supply_free,
@@ -76,15 +71,7 @@ initial_conditions = {
     'attestations_0': Q0,
     'attestations_1': Q1,
     'invariant_V': invariant_V,  # (supply**kappa)/reserve
-    # (reserve + C*alpha) if alpha is directed to the initial alpha in params, this will change
     'invariant_I': invariant_I,
-    # 'agent_attestations_1': 0,
-    # 'agent_attestations_0': 0,
-    # 'agent_reserve': r,
-    # 'agent_supply': s,
-    # 'agent_supply_1': s1,
-    # 'agent_supply_0': s0,
-    # 'agent_supply_free': s_free,
     'agents': agents_df,
     'chosen_agent': 0
 }
