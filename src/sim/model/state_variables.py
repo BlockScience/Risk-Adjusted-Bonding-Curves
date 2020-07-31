@@ -6,8 +6,8 @@ PRICE = 1
 
 ######## Just for initalization of variables ########################################
 ####  Overwritten in configs.py for parameter sweeps with values in sys_params ######
-reserve = MONEY_RAISED[0] 
-supply = KAPPA[0]*(reserve/PRICE) 
+reserve = MONEY_RAISED[0]
+supply = KAPPA[0]*(reserve/PRICE)
 supply_free = supply
 invariant_V = (supply**KAPPA[0])/reserve
 invariant_I = reserve + (C[0]*ALPHA[0])
@@ -15,9 +15,9 @@ invariant_I = reserve + (C[0]*ALPHA[0])
 
 
 ########## AGENT INITIALIZATION #####################################################
-number_of_agents = 5
+number_of_agents = 21
 
-PRIVATE_ALPHA = 0.1
+PRIVATE_ALPHA = 0.5
 PRIVATE_PRICE = 1.5
 
 # Set initialization state variables for Attestations
@@ -29,7 +29,7 @@ S0 = 20  # Considering S = 600 and S_free = 200
 r = 100    # Agent reserve, the amount of fiat tokens an agent starts with
 s = 50
 s1 = 3  # Considering s = 50 and s_free = 30
-s0 = 2  # Considering s = 50 and s_free = 30
+s0 = 3  # Considering s = 50 and s_free = 30
 s_free = s - (s1+s0)
 
 # Configure agents for agent-based model
@@ -48,12 +48,16 @@ agents_df = pd.concat([agents_df]*number_of_agents, ignore_index=True)
 agents_df.insert(0, 'id', range(0, len(agents_df)))
 
 # 0.6, 0.7, 0.8, 0.9
-agents_df['agent_private_alpha'] = 0.3, 0.4, 0.5, 0.6, 0.7
-agents_df['agent_private_price'] = 0.5, 0.9, 1.0, 1.1, 1.5  # 0.2, 2, 3, 4, 6
+# 0.3, 0.4, 0.5, 0.6, 0.7
+# 0.0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1
+agents_df['agent_private_alpha'] = 0.0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1  # 0.1, 0.9
+# 0.5, 0.9, 1.0, 1.1, 1.5  # 0.2, 2, 3, 4, 6
+#agents_df['agent_private_price'] = 0.2, 2
 
 ########## AGENT INITIALIZATION #####################################################
 initial_conditions = {
-    'reserve': reserve, #  Overwritten in configs.py with sys_params value for future parameter sweeps
+    # Overwritten in configs.py with sys_params value for future parameter sweeps
+    'reserve': reserve,
     'pbar': PRICE,  # kappa*(reserve/supply), price is dR/dS = 1
     'realized_price': 0,
     'spot_price': PRICE,
@@ -84,7 +88,6 @@ initial_conditions = {
     'agents': agents_df,
     'chosen_agent': 0
 }
-
 
 
 print("Initial Conditions (config.py) : ", initial_conditions)
