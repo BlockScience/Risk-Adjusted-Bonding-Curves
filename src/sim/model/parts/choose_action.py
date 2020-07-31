@@ -157,13 +157,6 @@ def set_action(params, substep, state_history, prev_state):
         amt_Q0 = 0
         print("amt_Q1 = ", amt_Q1)
 
-        # amt_Q1 = private_alpha - alpha  # units
-        # amt_Q0 = 0
-        # amt_neg = 0 # delta_s to S0
-        # amt_pos = amt_Q1 # delta_s to S1
-        # S1 = S1 + amt_pos
-        # Q1 = Q1 + amt_Q1
-
     elif s_free <= 0:
         mech_pm = 'None'
         amt_pos = 0
@@ -194,11 +187,6 @@ def set_action(params, substep, state_history, prev_state):
         'amt_Q0': amt_Q0,
         'amt_pos': amt_pos,
         'amt_neg': amt_neg
-        # 'p_in': new_price,
-        # 'price_belief': price_belief(amt_b),
-        # 'alpha_in': new_alpha,
-        # 'alpha_belief': alpha_belief(amt_a),
-        # 'posterior': {}
     }
 
 
@@ -215,59 +203,6 @@ def set_action(params, substep, state_history, prev_state):
 
         Pbar = RP """
 
-
-"""     action = {
-        'mech': mech,
-        'amt_to_bond': amt_to_bond,
-        'amt_to_burn': amt_to_burn,
-        'amt_Q1': amt_Q1,
-        'amt_Q0': amt_Q0,
-        'amt_pos': amt_pos,
-        'amt_neg': amt_neg,
-        # 'p_in': new_price,
-        # 'price_belief': price_belief(amt_b),
-        # 'alpha_in': new_alpha,
-        # 'alpha_belief': alpha_belief(amt_a),
-        'posterior': {}
-    } """
-
-'''
-
-    if action['mech'] == 'bond':
-        dS, price_belief = bond(amt_b, R, S, V, params['kappa'])
-        R = R + amt_b
-        S = S + dS
-        I = R + (C*alpha)
-        kappa = kappa(deltaR, R, S, V, I, alpha)
-        P = spot_price(R, V, kappa)
-
-
-    elif action['mech'] == 'burn':
-        dR, price_belief = withdraw(amt_b, R, S, V, params['kappa'])
-        R = R - dR
-        S = S - amt_b
-        I = R + (C*alpha)
-        kappa = kappa(dR, R, S, V, I, alpha)
-        P = spot_price(R, V, kappa)
-
-    if action['mech'] == 'attest_pos':
-        dQ1, alpha_belief = attest_pos(amt_a, S1, C, I, params['kappa'])
-        S1 = S1 + amt_a
-        Q1 = Q1 + dQ1
-        alpha = spot_alpha(S, I, kappa, C)
-        kappa = kappa(dR, R, S, V, I, alpha)
-        P = spot_price()
-        V = invariant_V(R, S, kappa)
-
-    elif action['mech'] == 'attest_neg':
-        dQ0, alpha_belief = attest_neg(amt_a, S0, C, I, params['kappa'])
-        S0 = S0 + amt_a
-        Q0 = Q0 + dQ0
-        alpha = spot_alpha(S, I, kappa, C)
-        kappa = kappa(dR, R, S, V, I, alpha)
-        P = spot_price()
-        invariant_V(R, S, kappa)
-'''
 
 # new_private_price is obtained from update_private_price() function in private_beliefs
 """  if P > private_price and s_free > 0 and R > 0:

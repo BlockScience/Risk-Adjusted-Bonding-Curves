@@ -1,8 +1,5 @@
 import itertools
 
-
-E = 0.45  # to be reviewed
-
 KAPPA = [2]
 
 C = [2000]
@@ -23,11 +20,7 @@ rules_price = ["martin"]  # , "ramp", "sin"]
 # invariant_V = 1200 #(supply**KAPPA[0])/reserve
 # invariant_I = 650 #reserve + (C[0]*ALPHA[0])
 
-
 print()
-# print(type(MONEY_RAISED))
-# print(MONEY_RAISED)
-# print()
 
 # E = [0.1, 0.2, 0.3]
 E = [0.2]
@@ -42,17 +35,16 @@ MONEY_RAISED = list(MONEY_RAISED)
 ALPHA = list(ALPHA)
 C = list(C)
 
-# Put this in sys_params.py
+########## SYSTEM PARAMETERS ##########
 params = {
     'starting_kappa': KAPPA,  # initial kappa
     'starting_alpha': ALPHA,  # initial alpha
-    # 'starting_price': price,
     'money_raised': MONEY_RAISED,  # reserve + C
     'C': C,  # Commited outcome payout
     'f': [0.03],  # param to control certainty of alpha at extremes
     'm': [0.15],  # param to modulate curvature of alpha threshold band
-    'beta': [0.9],
-    'dust': [10**(-8)],
+    'beta': [0.9],  # param for Armijo rule
+    'dust': [10**(-8)],  # param for Armijo rule
     'period': PERIOD,
     'rules_price': rules_price,
     'E': E

@@ -2,9 +2,7 @@ import pandas as pd
 
 
 def get_value(value):
-    '''
-    if value is array, then returns the first item, else returns value
-    '''
+    # if value is array, then returns the first item, else returns value
     if isinstance(value, list):
         return value[0]
 
@@ -24,6 +22,5 @@ def choose_agent(params, substep, state_history, prev_state, policy_input):
                     for key, value in chosen_agent.items()}
 
     timestep = prev_state['timestep']
-   # chosen_agent['picked'] = True
 
     return ('chosen_agent', chosen_agent)
