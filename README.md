@@ -23,3 +23,11 @@ System Requirements and Functional Requirements will be mapped to formally frame
 
 # Implementation Partner
 BlockScience is further collaborating with ixo, to implement the impact bond primitive as part of the Cosmos SDK. We believe it will provide great value within the Sustainability Hub and beyond.
+
+# Phase 2 Deliverables
+- Model Documentation
+- cadCAD Model
+- Validation Tests
+- Preliminary Modular SDK Specification
+    - [Risk Prediction Module](https://hackmd.io/pBdH1OedQLuvhQU0ezTttA?view)
+- [Preliminary Phase 3 Test Plan](https://docs.google.com/spreadsheets/d/1xdiogvWU_NP2PGOTVK6V2rl642u56y26nMKQznGaO1o/edit#gid=0)
