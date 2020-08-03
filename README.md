@@ -10,7 +10,7 @@ Begin by reading the [Problem Statement and Methodology](Paper/0_ProblemStatemen
 
 
 # Methods and Tools
-System Requirements and Functional Requirements will be mapped to formally frame the inherently human challenge into a bounded dynamic Mechanism Design problem. The framework for Discrete Event Games as described in [Economic Games as Estimators](https://epub.wu.ac.at/7433/1/zargham_paruch_shorish.pdf) will be applied. The Impact Bonds will be more advanced variations of Bonding Curves, see [From Curved Bonding to Configuration Spaces](https://epub.wu.ac.at/7385/1/zargham_shorish_paruch.pdf). While initial designs will be analytical in nature, the computer aided design process is iterative. The [cadCAD](https://github.com/BlockScience/cadCAD/tree/master/cadCAD) modeling software will be applied to develop a computational model of the mechanisms. The model will be used for failure mode analysis, sensitivity analysis and other design validation procedures prior to implementation.
+System Requirements and Functional Requirements will be mapped to formally frame the inherently human challenge into a bounded dynamic Mechanism Design problem. The framework for Discrete Event Games as described in [Economic Games as Estimators](https://epub.wu.ac.at/7433/1/zargham_paruch_shorish.pdf) will be applied. The Impact Bonds will be more advanced variations of Bonding Curves, see [From Curved Bonding to Configuration Spaces](https://epub.wu.ac.at/7385/1/zargham_shorish_paruch.pdf). While initial designs will be analytical in nature, the computer aided design process is iterative. The [cadCAD](https://github.com/cadCAD-org/cadCAD) modeling software will be applied to develop a computational model of the mechanisms by following [cadCAD best practices](https://github.com/cadCAD-org/cadCAD/tree/master/documentation). The model will be used for failure mode analysis, sensitivity analysis and other design validation procedures prior to implementation.
 
 # Summary of Work
 - Use Case Research - Interviewing and gathering requirements from the impact investment space ~*active*
@@ -25,9 +25,10 @@ System Requirements and Functional Requirements will be mapped to formally frame
 BlockScience is further collaborating with ixo, to implement the impact bond primitive as part of the Cosmos SDK. We believe it will provide great value within the Sustainability Hub and beyond.
 
 # Phase 2 Deliverables
-- Model Documentation
-- cadCAD Model
-- Validation Tests
+- [Mathematical Documentation of the Model](Math_Specification)
+- [cadCAD Model Source Code](src) 
+- [Simulation Notebook and Explanatory Results](main.ipynb)
+- [Validation Tests](tests)
 - [Preliminary Modular SDK Specification Mapping](https://hackmd.io/nV1Dkx_BS12mNKEjL1wMJg?view)
     - [Risk Prediction Module](https://hackmd.io/pBdH1OedQLuvhQU0ezTttA?view)
 - [Preliminary Phase 3 Test Plan](https://docs.google.com/spreadsheets/d/1xdiogvWU_NP2PGOTVK6V2rl642u56y26nMKQznGaO1o/edit#gid=0)
