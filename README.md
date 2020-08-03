@@ -28,6 +28,6 @@ BlockScience is further collaborating with ixo, to implement the impact bond pri
 - Model Documentation
 - cadCAD Model
 - Validation Tests
-- Preliminary Modular SDK Specification
+- [Preliminary Modular SDK Specification Mapping](https://hackmd.io/nV1Dkx_BS12mNKEjL1wMJg?view)
     - [Risk Prediction Module](https://hackmd.io/pBdH1OedQLuvhQU0ezTttA?view)
 - [Preliminary Phase 3 Test Plan](https://docs.google.com/spreadsheets/d/1xdiogvWU_NP2PGOTVK6V2rl642u56y26nMKQznGaO1o/edit#gid=0)
