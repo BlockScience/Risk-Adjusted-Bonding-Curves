@@ -22,8 +22,8 @@ BlockScience is further collaborating with ixo, to implement the impact bond pri
 # Phase 1 Deliverables
 - [Problem Statement and Methodology](Paper/0_ProblemStatementandMethodology.md) - Understand what problem we are trying to solve and what methodology we intend to utilize in order to solve it
 - [Ecosystem Roles](Paper/1_EcosystemRoles.md) - Identify all of the various roles users can take in the ecosystem
-- [Bond Lifecycle Phases](2_BondLifecyclePhases.md) - Identify each phase in the bond lifecycle
-- [Engineering Requirements](3_EngineeringRequirements.ipynb) - Define formal mathematical definitions and requirements for the ecosystem
+- [Bond Lifecycle Phases](Paper/2_BondLifecyclePhases.md) - Identify each phase in the bond lifecycle
+- [Engineering Requirements](Paper/3_EngineeringRequirements.ipynb) - Define formal mathematical definitions and requirements for the ecosystem
 
 # Phase 2 Deliverables
 - [Math Specification](Math_Specification) - Mathematical documentation of the model including system and component specifications as well as behavioural models of agents
