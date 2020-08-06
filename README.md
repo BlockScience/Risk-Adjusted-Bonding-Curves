@@ -28,8 +28,8 @@ BlockScience is further collaborating with ixo, to implement the impact bond pri
 # Phase 2 Deliverables
 - [Math Specification](Math_Specification) - Mathematical documentation of the model including system and component specifications as well as behavioural models of agents
 - [cadCAD Model Source Code](src) - Source code of the model built in cadCAD
-- [Simulation Notebook and Explanatory Results](main.ipynb) - Controlled experiments validating that the model meets core system properties
-- [Component Validation Tests](tests) - Testing of various components 
+- [Simulation Notebook and Explanatory Results](main.ipynb) - Representative simulation notebook validating that the model meets core system properties
+- [Component Validation Tests](tests) - Other supporting validation tests (varying granularity, agent beliefs, etc.)
 - [Preliminary (WIP) Modular SDK Specification Mapping](https://hackmd.io/nV1Dkx_BS12mNKEjL1wMJg?view) - Template framework for documenting and implementing an SDK module using the BlockScience Systems Engineering modeling specification.
     - [Risk Prediction Module](https://hackmd.io/pBdH1OedQLuvhQU0ezTttA?view)
 - [Preliminary (WIP) Phase 3 Test Plan](https://docs.google.com/spreadsheets/d/1xdiogvWU_NP2PGOTVK6V2rl642u56y26nMKQznGaO1o/edit#gid=0) - Initial planning around experiments to be performed in Phase 3
