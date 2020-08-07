@@ -1,4 +1,5 @@
 
+
 def update_R(params, substep, state_history, prev_state, policy_input):
 
     # access amt_to_burn using _input['action']['amt_to_burn'] because it's a dict of dicts
@@ -197,6 +198,7 @@ def update_pbar(params, substep, state_history, prev_state, policy_input):
 
 
 def update_I_bondburn(params, substep, state_history, prev_state, policy_input):
+    params = params[0]
     R = prev_state['reserve']
     C = params['C']
     alpha = prev_state['alpha']

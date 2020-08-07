@@ -103,7 +103,10 @@ def update_agent_beliefs(params, substep, state_history, prev_state, policy_inpu
 
     agent = prev_state['chosen_agent']
 
-    new_private_price = agent['agent_private_price']
+    rv = np.random.normal(0, signal['sigma'])
+    new_private_price = price+price*rv
+
+    #new_private_price = agent['agent_private_price']
     new_private_alpha = agent['agent_private_alpha']
 
     agent['agent_private_price'] = new_private_price

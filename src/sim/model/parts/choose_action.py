@@ -6,7 +6,7 @@ import math
 
 
 def set_action(params, substep, state_history, prev_state):
-    # params = params[0]
+    params = params[0]
     # pprint(params)
     # print('Choose Action')
     R = prev_state['reserve']
@@ -34,7 +34,7 @@ def set_action(params, substep, state_history, prev_state):
     dust = params['dust']
     beta = params['beta']
     period = params['period']
-    tau = 1.2*private_price
+    tau = 0  # 1.2*private_price
 
     print('r', r)
 
@@ -49,22 +49,77 @@ def set_action(params, substep, state_history, prev_state):
    # USING ARMIJO RULE
     if P > (private_price + tau) and s_free > 0 and R > 0:
         mech_bc = 'burn'
+        
+        #amt_to_bond = 0
+        #amt_to_burn = s_free*(random.randint(85, 90)/100)
 
+        deltaS = s_free*(1-dust)
+        deltaR = R-((S-deltaS)**kappa)/V
+# 
+        if deltaS == 0:
+            protoRP = kappa*R**((kappa-1)/kappa)/V**(1/kappa)
+        else:
+            protoRP = deltaR/deltaS
+# 
+        while protoRP < private_price:
+            deltaS = beta*deltaS
+# 
+            if deltaS == 0:
+                protoRP = kappa*R**((kappa-1)/kappa)/V**(1/kappa)
+            else:
+                protoRP = deltaR/deltaS
+            
+            if protoRP < dust:
+                break
+# 
+        RP = protoRP
+        print("PROTO RP (BURN) = ", protoRP)
+        amt_to_burn = deltaS
         amt_to_bond = 0
-        #max_burn = s_free*(1-dust)
-        amt_to_burn = s_free*(random.randint(85, 90)/100)
-        #print("s_free = ", s_free, "| RAND = ", (random.randint(85, 90)/100))
+
+        # amt_to_bond = 0
+        # amt_to_burn = s_free*(random.randint(85, 90)/100)
+
+        # max_burn = s_free*(1-dust)
+        # print("s_free = ", s_free, "| RAND = ", (random.randint(85, 90)/100))
         # amt_to_burn = amt*beta <-- send to iteration 2 of amt_to_burn calculation
         print("Agent burns. Amt to burn = ", amt_to_burn)
 
     elif P < (private_price - tau) and r > 0 and S > 0:
         mech_bc = 'bond'
 
-        #max_bond = r*(1-dust)
-        #amt_to_burn = max_bond
-        amt_to_bond = r*(random.randint(85, 90)/100)
-        #print("r =", r, "| RAND = ", (random.randint(85, 90)/100))
+        #amt_to_bond = r*(random.randint(85, 90)/100)
+        #amt_to_burn = 0
+
+        deltaR = r*(1-dust)
+        deltaS = (V*(R+deltaR))**(1/kappa)-S
+# 
+        if deltaS == 0:
+            protoRP = kappa*R**((kappa-1)/kappa)/V**(1/kappa)
+        else:
+            protoRP = deltaR/deltaS
+# 
+        while protoRP > private_price:
+            deltaR = beta*deltaR
+# 
+            if deltaS == 0:
+                protoRP = kappa*R**((kappa-1)/kappa)/V**(1/kappa)
+            else:
+                protoRP = deltaR/deltaS
+            
+            if protoRP < dust:
+                break
+# 
+        RP = protoRP
+        print("PROTO RP (BOND) = ", protoRP)
+        amt_to_bond = deltaR
         amt_to_burn = 0
+
+        # max_bond = r*(1-dust)
+        # amt_to_burn = max_bond
+        # amt_to_bond = r*(random.randint(85, 90)/100)
+        # print("r =", r, "| RAND = ", (random.randint(85, 90)/100))
+        # amt_to_burn = 0
         print("Agent bonds. Amt to bond = ", amt_to_bond)
 
     elif s_free <= 0:

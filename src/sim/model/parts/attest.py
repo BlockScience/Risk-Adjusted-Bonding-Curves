@@ -128,6 +128,7 @@ def attest_neg(R, C, E, alpha, Q, Q1, Q0, S, S1, S0, q0, q1, s_free, s1, s0, s, 
 
 def update_alpha(params, substep, state_history, prev_state, policy_input):
 
+    params = params[0]
     R = prev_state['reserve']
     C = params['C']
     E = params['E']
@@ -174,6 +175,7 @@ def update_alpha(params, substep, state_history, prev_state, policy_input):
 
 def update_kappa(params, substep, state_history, prev_state, policy_input):
 
+    params = params[0]
     R = prev_state['reserve']
     C = params['C']
     E = params['E']
@@ -222,6 +224,8 @@ def update_kappa(params, substep, state_history, prev_state, policy_input):
 
 
 def update_I_attest(params, substep, state_history, prev_state, policy_input):
+
+    params = params[0]
     R = prev_state['reserve']
     C = params['C']
     E = params['E']
@@ -267,6 +271,7 @@ def update_I_attest(params, substep, state_history, prev_state, policy_input):
 
 def update_P_attest(params, substep, state_history, prev_state, policy_input):
 
+    params = params[0]
     R = prev_state['reserve']
     C = params['C']
     E = params['E']
@@ -315,6 +320,7 @@ def update_P_attest(params, substep, state_history, prev_state, policy_input):
 
 def update_V(params, substep, state_history, prev_state, policy_input):
 
+    params = params[0]
     R = prev_state['reserve']
     C = params['C']
     E = params['E']
