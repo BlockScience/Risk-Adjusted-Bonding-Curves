@@ -119,17 +119,17 @@ def update_agent_beliefs(params, substep, state_history, prev_state, policy_inpu
     #new_private_price = agent['agent_private_price']
     #new_private_alpha = agent['agent_private_alpha']
 
-    b_alpha = 0.8 # high bias
+    b_alpha = 0.1 # bias
 
     public_alpha_signal = 0.9
-    private_alpha_signal = random.randint(50,100)/100
+    private_alpha_signal = random.randint(80,100)/100
 
     new_private_alpha = (b_alpha)*public_alpha_signal + (1-b_alpha)*private_alpha_signal
 
-    b_price = 0.8 # high bias
+    b_price = 0.1 # bias
 
     public_price_signal = 0.9
-    private_price_signal = random.randint(50,100)/100
+    private_price_signal = random.randint(80,100)/100
 
     new_private_price = (b_price)*public_price_signal + (1-b_price)*private_price_signal
 
