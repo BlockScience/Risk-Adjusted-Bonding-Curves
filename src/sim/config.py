@@ -1,4 +1,4 @@
-from cadCAD.configuration import Experiment # 4.18 append_configs
+from cadCAD.configuration import append_configs # 4.18: append_configs. Later: Experiment
 from cadCAD.configuration.utils import config_sim
 
 from src.sim.model.state_variables import initial_conditions
@@ -20,8 +20,8 @@ sim_config = config_sim({
 # The configurations above are packaged into a `Configuration` object
 
 ###### 4.18 conversion #######################
-exp = Experiment()
-exp.append_configs(
+#exp = Experiment()
+append_configs(
 ###### 4.18 conversion #######################
     # dict containing variable names and initial values
     initial_state=initial_conditions,

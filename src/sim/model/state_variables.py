@@ -15,7 +15,7 @@ invariant_I = reserve + (C[0]*ALPHA[0])
 
 
 ########## AGENT INITIALIZATION ##########
-number_of_agents = 2
+number_of_agents = 20
 
 PRIVATE_ALPHA = 0.5
 PRIVATE_PRICE = 1.5
@@ -49,9 +49,9 @@ agents_df.insert(0, 'id', range(0, len(agents_df)))
 # 0.6, 0.7, 0.8, 0.9
 # 0.3, 0.4, 0.5, 0.6, 0.7
 # 0.0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1
-agents_df['agent_private_alpha'] = 0.3, 0.7
+agents_df['agent_private_alpha'] = 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5
 # 0.5, 0.9, 1.0, 1.1, 1.5  # 0.2, 2, 3, 4, 6
-agents_df['agent_private_price'] = 0.5, 1.5
+agents_df['agent_private_price'] = 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5
 
 ########## SYSTEM INITIALIZATION ##########
 initial_conditions = {
@@ -73,7 +73,8 @@ initial_conditions = {
     'invariant_V': invariant_V,  # (supply**kappa)/reserve
     'invariant_I': invariant_I,
     'agents': agents_df,
-    'chosen_agent': 0
+    'chosen_agent': 0,
+    'public_alpha': 0
 }
 
 

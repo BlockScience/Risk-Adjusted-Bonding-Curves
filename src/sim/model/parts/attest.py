@@ -360,6 +360,9 @@ def update_V(params, substep, state_history, prev_state, policy_input):
 
     # I = R + (C*new_alpha)
     kappa = I / (I - (C*new_alpha))
+    print("S = ", S)
+    print("KAPPA  = ", kappa)
+    print("R = ", R)
     V = (S**(kappa))/R
 
     return 'invariant_V', V
