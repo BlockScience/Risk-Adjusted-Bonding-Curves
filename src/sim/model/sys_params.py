@@ -2,9 +2,9 @@ import itertools
 
 KAPPA = [2]
 
-C = [2000]
+C = [20000]
 ALPHA = [0.5]
-MONEY_RAISED = [1000]
+MONEY_RAISED = [10000]
 PERIOD = [2000]
 
 # New price singal : Determines signal shape for agent's behaviour heuristic on price
