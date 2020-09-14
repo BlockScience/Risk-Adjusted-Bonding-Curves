@@ -47,7 +47,8 @@ partial_state_update_block = [
             'spot_price': update_P_bondburn,
             'pbar': update_pbar,
             'invariant_I': update_I_bondburn,
-            'chosen_agent': update_agent_BC
+            'chosen_agent': update_agent_BC,
+            'funds_from_bond' : update_funds,
         }
     },
     {

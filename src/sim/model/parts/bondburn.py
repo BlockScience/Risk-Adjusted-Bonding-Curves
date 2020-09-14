@@ -16,11 +16,35 @@ def update_R(params, substep, state_history, prev_state, policy_input):
         deltaR = R - (((S-deltaS)**kappa)/V)
         print("::::delta R::::", deltaR)
         print("::::AMTBOND::::", policy_input['amt_to_bond'])
-        R = R + policy_input['amt_to_bond'] - deltaR
+        ## Continuous ##
+        if params['ENABLE_CONTINUOUS']:
+            R = R + policy_input['amt_to_bond']*(1-params['THETA']) - deltaR  # all burned funds not tempered by theta
+
+        else:
+            R = R + policy_input['amt_to_bond'] - deltaR
         # print("RESERVE = ", R, " | deltaR = ", deltaR, " | deltaS = ", deltaS)
 
     return 'reserve', R
 
+def update_funds(params, substep, state_history, prev_state, policy_input):
+
+    # access amt_to_burn using _input['action']['amt_to_burn'] because it's a dict of dicts
+    F = prev_state['funds_from_bond']
+    V = prev_state['invariant_V']
+    if V == 0:
+        print("V IS ZERO")  # degenerate
+    else:
+        ## Continuous ##
+        if params['ENABLE_CONTINUOUS']:
+            deltaF = policy_input['amt_to_bond'] * (params['THETA']) 
+
+            # burn if else
+
+        else:
+            deltaF = 0
+
+    F += deltaF
+    return 'funds_from_bond', F
 
 def update_S(params, substep, state_history, prev_state, policy_input):
 
@@ -198,7 +222,7 @@ def update_pbar(params, substep, state_history, prev_state, policy_input):
 
 
 def update_I_bondburn(params, substep, state_history, prev_state, policy_input):
-    params = params[0]
+    # params = params[0]
     R = prev_state['reserve']
     C = params['C']
     alpha = prev_state['alpha']
