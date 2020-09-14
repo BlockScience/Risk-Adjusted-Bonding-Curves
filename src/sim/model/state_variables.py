@@ -41,7 +41,11 @@ agents_df = pd.DataFrame({
     'agent_supply_0': s0,
     'agent_supply_free': s_free,
     'agent_private_alpha': PRIVATE_ALPHA,
-    'agent_private_price': PRIVATE_PRICE}, index=[0])
+    'agent_private_price': PRIVATE_PRICE,
+    'agent_private_alpha_signal': 0,
+    'agent_private_price_signal': 0,
+    'agent_public_alpha_signal': 0,
+    'agent_public_price_signal': 0}, index=[0])
 agents_df = pd.concat([agents_df]*number_of_agents, ignore_index=True)
 # Adding IDs to agents
 agents_df.insert(0, 'id', range(0, len(agents_df)))
