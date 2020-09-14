@@ -26,8 +26,14 @@ THETA = [0.5]  # PORTION OF FUNDS FROM BONDING TO PROJECT, (1-theta) to reserve
 ####### CONTINUOUS FUNDING #####################
 
 ####### BURN ACTION #####################
-ENABLE_BURN = [True]
+ENABLE_BURN = [True, False]
 ####### BURN ACTION #####################
+
+####### UNSIWAP STYLE TRADING #####################
+fee_numerator = [997]
+fee_denominator = [1000]
+
+####### UNSIWAP STYLE TRADING #####################
 
 
 
@@ -65,5 +71,7 @@ params = {
     'ENABLE_CONTINUOUS' : ENABLE_CONTINUOUS,
     'THETA' : THETA,
     'ENABLE_BURN' : ENABLE_BURN,
+    'fee_numerator' : fee_numerator,
+    'fee_denominator' : fee_denominator,
 
 }

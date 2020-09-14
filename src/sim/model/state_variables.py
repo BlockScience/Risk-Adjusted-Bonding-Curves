@@ -52,8 +52,15 @@ agents_df.insert(0, 'id', range(0, len(agents_df)))
 agents_df['agent_private_alpha'] = 0.5, 0.5
 # 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5
 # 0.5, 0.9, 1.0, 1.1, 1.5  # 0.2, 2, 3, 4, 6
-agents_df['agent_private_price'] = 5, 5
+agents_df['agent_private_price'] = 0.5, 1.5
 # 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5
+
+####### UNSIWAP STYLE TRADING #####################
+# starting values DO NOT have to the same as the "primary" bonding curve, just a starting place
+UNI_supply =  supply           # bond tokens in uniswap instance
+UNI_reserve =  reserve          # reserve currency in uniswap instance     
+####### UNSIWAP STYLE TRADING #####################
+
 
 ########## SYSTEM INITIALIZATION ##########
 initial_conditions = {
@@ -78,6 +85,9 @@ initial_conditions = {
     'chosen_agent': 0,
     'public_alpha': 0,
     'funds_from_bond': 0, # Continuous funding, funds to project
+    'UNI_supply' : UNI_supply,
+    'UNI_reserve' : UNI_reserve
+
 }
 
 

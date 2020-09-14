@@ -17,11 +17,18 @@ def update_R(params, substep, state_history, prev_state, policy_input):
         print("::::delta R::::", deltaR)
         print("::::AMTBOND::::", policy_input['amt_to_bond'])
         ## Continuous ##
+        # Continuous Enabled, newly reserved funds split to bond reserve and project funding
         if params['ENABLE_CONTINUOUS']:
-            R = R + policy_input['amt_to_bond']*(1-params['THETA']) - deltaR  # all burned funds not tempered by theta
-
+            R = R + policy_input['amt_to_bond']*(1-params['THETA']) # - deltaR  all burned funds not tempered by theta
+            if params['ENABLE_BURN']:
+                R = R  - deltaR # for burning allowed (=TRUE) subtract burned funds from reserve
+                
+        # Continuous Not Enabled, all new reserve funds go to reserve the bond
         else:
-            R = R + policy_input['amt_to_bond'] - deltaR
+            if params['ENABLE_BURN']:
+                R = R + policy_input['amt_to_bond'] - deltaR # for burning allowed (=TRUE) subtract burned funds from reserve
+            else:
+                R = R + policy_input['amt_to_bond'] # for burning on bodning curve not allowed, occurs in uniswap
         # print("RESERVE = ", R, " | deltaR = ", deltaR, " | deltaS = ", deltaS)
 
     return 'reserve', R
@@ -58,7 +65,13 @@ def update_S(params, substep, state_history, prev_state, policy_input):
     # S = S - deltaS + policy_input['amt_to_burn']
     # ?????????????????? Backwards ????????????????????
 
-    S = S + deltaS - policy_input['amt_to_burn']
+    ### If burning allowed on primary bonding curve
+    if params['ENABLE_BURN']:
+        S = S + deltaS - policy_input['amt_to_burn']
+
+    # else burning will occur in uniswap instance
+    else:
+         S = S + deltaS
     # print("SUPPLY = ", S, " | deltaR = ", deltaR, " | deltaS = ", deltaS)
 
     return 'supply', S
