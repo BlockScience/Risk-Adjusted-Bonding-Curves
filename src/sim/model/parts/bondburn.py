@@ -94,7 +94,11 @@ def compute_s_free(R, S, V, kappa, s_free, deltaR, policy_input, timestep):
     s_free = s_free + deltas - policy_input['amt_to_burn']
 
     # TEST RANDOM DROP
-    if timestep % 2 == 0:
+    if timestep > 375 and timestep % 2 == 0:
+        random_drop = 10
+    if timestep > 250 and timestep % 2 == 0:
+        random_drop = 10
+    elif timestep % 2 == 0:
         random_drop = 10
     else:
         random_drop = 0
