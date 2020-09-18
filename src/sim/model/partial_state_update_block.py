@@ -7,7 +7,6 @@ from src.sim.model.parts.attest import *
 from src.sim.model.parts.choose_action import set_action
 from src.sim.model.parts.choose_agent import choose_agent
 from src.sim.model.parts.put_agent_back_to_df import put_agent_back_to_df
-from src.sim.model.parts.uniswap import *
 
 print("-----------------PSUB---------------------")
 
@@ -48,20 +47,7 @@ partial_state_update_block = [
             'spot_price': update_P_bondburn,
             'pbar': update_pbar,
             'invariant_I': update_I_bondburn,
-            'chosen_agent': update_agent_BC,
-            'funds_from_bond' : update_funds,
-        }
-    },
-        {
-        'policies': {
-            'act': set_action
-        },
-        'variables': {
-            # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-            # Sell (BURN) on Secondary (Also trade)
-            'UNI_supply': supply_tokens_added,
-            'UNI_reserve': reserve_redeemed,
-            'chosen_agent': reserve_redeemed_to_agent, 
+            'chosen_agent': update_agent_BC
         }
     },
     {
