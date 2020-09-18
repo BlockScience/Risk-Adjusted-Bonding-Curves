@@ -26,8 +26,8 @@ Q1 = 20
 Q0 = 20
 S1 = 30
 S0 = 30
-r = 100  # Agent reserve, the amount of fiat tokens an agent starts with
-s = 500
+r = 1000  # Agent reserve, the amount of fiat tokens an agent starts with
+s = 5000
 s1 = 3
 s0 = 3
 s_free = s - (s1+s0)
@@ -56,8 +56,15 @@ agents_df.insert(0, 'id', range(0, len(agents_df)))
 agents_df['agent_private_alpha'] = 0.5, 0.5
 # 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5
 # 0.5, 0.9, 1.0, 1.1, 1.5  # 0.2, 2, 3, 4, 6
-agents_df['agent_private_price'] = 1, 1
+agents_df['agent_private_price'] = 0.5, 1.5
 # 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5
+
+####### UNSIWAP STYLE TRADING #####################
+# starting values DO NOT have to the same as the "primary" bonding curve, just a starting place
+UNI_supply =  supply           # bond tokens in uniswap instance
+UNI_reserve =  reserve          # reserve currency in uniswap instance     
+####### UNSIWAP STYLE TRADING #####################
+
 
 ########## SYSTEM INITIALIZATION ##########
 initial_conditions = {
@@ -80,7 +87,11 @@ initial_conditions = {
     'invariant_I': invariant_I,
     'agents': agents_df,
     'chosen_agent': 0,
-    'public_alpha': 0
+    'public_alpha': 0,
+    'funds_from_bond': 0, # Continuous funding, funds to project
+    'UNI_supply' : UNI_supply,
+    'UNI_reserve' : UNI_reserve
+
 }
 
 

@@ -21,57 +21,41 @@ def get_M(k, v):
 
 config_ids = [
     dict(
-        get_M(k, v) for k, v in config.__dict__.items() if k in ['simulation_id', 'run_id', 'sim_config']
+        get_M(k, v) for k, v in config.__dict__.items() if k in ['simulation_id', 'run_id', 'sim_config', 'subset_id']
     ) for config in configs
 ]
 
 
-def run(drop_midsteps=True):
+    # 4.18 Method MC
+def run(drop_midsteps=True, df = df):
+    # results = df
     print('config_ids = ', config_ids)
-    result_records_list, sim_id_records = [], []
+    # sub_dfs = pd.DataFrame(columns= range(max(df.subset)+1))
+    
     results = pd.DataFrame()
-    sim_ids = list(set([_id['simulation_id'] for _id in config_ids]))
-
-    # print(sim_ids)
-    sim_dfs = {_id: [] for _id in sim_ids}
     for i, config_id in enumerate(config_ids):
-        sim_id, run_id = config_id['simulation_id'], config_id['run_id']
         params = config_id['M']
-        result_record = pd.DataFrame.from_records(
-            [tuple([i for i in params.values()])], columns=list(params.keys()))
+        result_record = pd.DataFrame.from_records([tuple([i for i in params.values()])], columns=list(params.keys()))
+        sub_df = df[df.subset == config_id['subset_id']]
+        # sub_df = df[df.subset == config_id['subset_id']][df.run == config_id['run_id'] + 1]
 
-        mod_record = {'sim_id': sim_id, 'meta': result_record}
-        if sim_id not in sim_id_records:
-            sim_id_records.append(sim_id)
-            result_records_list.append(mod_record)
-
-        sim_id = config_id['simulation_id']
-        # print('sim id first loop = ',sim_id)
-
-        sub_df = df[df.simulation == config_id['simulation_id']
-                    ][df.run == config_id['run_id'] + 1]
-        sim_dfs[sim_id].append(sub_df)
-        # print(sub_df[['simulation', 'run', 'substep', 'timestep']].tail(5))
-        # print(sub_df.tail(5))
-
-    for sim_id in sim_ids:
-        result_record = [
-            d for d in result_records_list if d['sim_id'] == sim_id][0]['meta']
-        sim_dfs[sim_id] = pd.concat(sim_dfs[sim_id])
-        sub_df = sim_dfs[sim_id]
-
-        # print('sim id second loop = ',sim_id)
-        # keep only last substep of each timestep
+        # print(sub_df.head())
         if drop_midsteps:
             max_substep = max(sub_df.substep)
-            is_droppable = (sub_df.substep != max_substep) & (
-                sub_df.substep != 0)
+            is_droppable = (sub_df.substep != max_substep) & (sub_df.substep != 0)
             sub_df.drop(sub_df[is_droppable].index, inplace=True)
 
-        # print(sub_df.head(3))
-        # print(sub_df.tail(3))
+
+        # subset_id = max(sub_df.subset)
+        # print(max(df.subset))
+        # # sub_dfs = pd.DataFrame()
+        # # if max(sub_df.subset) ==  
+        # sub_dfs[subset_id].append(sub_df, ignore_index=True)
+        # sub_dfs[subset_id].append(sub_df[subset_id])
+        # sub_dfs[subset_id] = pd.concat(sub_dfs[subset_id])
+        
+
         result_record['dataset'] = [sub_df]
         results = results.append(result_record)
-        # print(sub_df[['simulation', 'run', 'substep', 'timestep']].tail(5))
 
     return results.reset_index()

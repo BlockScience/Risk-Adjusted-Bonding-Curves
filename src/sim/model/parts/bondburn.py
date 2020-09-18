@@ -16,11 +16,42 @@ def update_R(params, substep, state_history, prev_state, policy_input):
         deltaR = R - (((S-deltaS)**kappa)/V)
         print("::::delta R::::", deltaR)
         print("::::AMTBOND::::", policy_input['amt_to_bond'])
-        R = R + policy_input['amt_to_bond'] - deltaR
+        ## Continuous ##
+        # Continuous Enabled, newly reserved funds split to bond reserve and project funding
+        if params['ENABLE_CONTINUOUS']:
+            R = R + policy_input['amt_to_bond']*(1-params['THETA']) # - deltaR  all burned funds not tempered by theta
+            if params['ENABLE_BURN']:
+                R = R  - deltaR # for burning allowed (=TRUE) subtract burned funds from reserve
+                
+        # Continuous Not Enabled, all new reserve funds go to reserve the bond
+        else:
+            if params['ENABLE_BURN']:
+                R = R + policy_input['amt_to_bond'] - deltaR # for burning allowed (=TRUE) subtract burned funds from reserve
+            else:
+                R = R + policy_input['amt_to_bond'] # for burning on bodning curve not allowed, occurs in uniswap
         # print("RESERVE = ", R, " | deltaR = ", deltaR, " | deltaS = ", deltaS)
 
     return 'reserve', R
 
+def update_funds(params, substep, state_history, prev_state, policy_input):
+
+    # access amt_to_burn using _input['action']['amt_to_burn'] because it's a dict of dicts
+    F = prev_state['funds_from_bond']
+    V = prev_state['invariant_V']
+    if V == 0:
+        print("V IS ZERO")  # degenerate
+    else:
+        ## Continuous ##
+        if params['ENABLE_CONTINUOUS']:
+            deltaF = policy_input['amt_to_bond'] * (params['THETA']) 
+
+            # burn if else
+
+        else:
+            deltaF = 0
+
+    F += deltaF
+    return 'funds_from_bond', F
 
 def update_S(params, substep, state_history, prev_state, policy_input):
 
@@ -34,7 +65,13 @@ def update_S(params, substep, state_history, prev_state, policy_input):
     # S = S - deltaS + policy_input['amt_to_burn']
     # ?????????????????? Backwards ????????????????????
 
-    S = S + deltaS - policy_input['amt_to_burn']
+    ### If burning allowed on primary bonding curve
+    if params['ENABLE_BURN']:
+        S = S + deltaS - policy_input['amt_to_burn']
+
+    # else burning will occur in uniswap instance
+    else:
+         S = S + deltaS
     # print("SUPPLY = ", S, " | deltaR = ", deltaR, " | deltaS = ", deltaS)
 
     return 'supply', S
@@ -202,7 +239,7 @@ def update_pbar(params, substep, state_history, prev_state, policy_input):
 
 
 def update_I_bondburn(params, substep, state_history, prev_state, policy_input):
-    params = params[0]
+    # params = params[0]
     R = prev_state['reserve']
     C = params['C']
     alpha = prev_state['alpha']

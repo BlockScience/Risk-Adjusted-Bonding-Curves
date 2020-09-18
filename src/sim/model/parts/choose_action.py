@@ -6,7 +6,7 @@ import math
 
 
 def set_action(params, substep, state_history, prev_state):
-    params = params[0]
+    # params = params[0]
     # pprint(params)
     # print('Choose Action')
     R = prev_state['reserve']
