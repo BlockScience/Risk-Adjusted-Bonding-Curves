@@ -73,7 +73,7 @@ def set_action(params, substep, state_history, prev_state):
                 break
 # 
         RP = protoRP
-        print("PROTO RP (BURN) = ", protoRP)
+        #print("PROTO RP (BURN) = ", protoRP)
         amt_to_burn = deltaS
         amt_to_bond = 0
 
@@ -111,7 +111,7 @@ def set_action(params, substep, state_history, prev_state):
                 break
 # 
         RP = protoRP
-        print("PROTO RP (BOND) = ", protoRP)
+        #print("PROTO RP (BOND) = ", protoRP)
         amt_to_bond = deltaR
         amt_to_burn = 0
 
@@ -121,30 +121,6 @@ def set_action(params, substep, state_history, prev_state):
         # print("r =", r, "| RAND = ", (random.randint(85, 90)/100))
         # amt_to_burn = 0
         print("Agent bonds. Amt to bond = ", amt_to_bond)
-
-    elif s_free <= 0:
-        mech_bc = None
-        amt_to_bond = 0
-        amt_to_burn = 0
-        print("Agent supply too low. No bond/burn", "| s_free = ", s_free)
-
-    elif r <= 0:
-        mech_bc = None
-        amt_to_bond = 0
-        amt_to_burn = 0
-        print("Agent reserve too low. No bond/burn", "| r = ", r)
-
-    elif S <= 0:
-        mech_bc = None
-        amt_to_bond = 0
-        amt_to_burn = 0
-        print("System supply too low. No bond/burn", "| S = ", S)
-
-    elif R <= 0:
-        mech_bc = None
-        amt_to_bond = 0
-        amt_to_burn = 0
-        print("System reserve too low. No bond/burn", "| R = ", R)
 
     else:
         # don't trade
