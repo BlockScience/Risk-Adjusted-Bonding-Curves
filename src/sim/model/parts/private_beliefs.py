@@ -122,16 +122,16 @@ def update_agent_beliefs(params, substep, state_history, prev_state, policy_inpu
     
     b_alpha = 0.3 # bias
 
-    public_alpha_signal = 0.5 - ((1/1000)*timestep)
-    private_alpha_signal = 0.5 - ((1/1000)*timestep)
+    public_alpha_signal = 0.5 + ((1/200)*timestep)
+    private_alpha_signal = 0.5 + ((1/200)*timestep)
     #private_alpha_signal = 0.5 - ((1/1000)*timestep)
 
     new_private_alpha = (b_alpha)*public_alpha_signal + (1-b_alpha)*private_alpha_signal
 
     b_price = 0.3 # bias
 
-    public_price_signal = 0.5 - ((1/1000)*timestep)
-    private_price_signal = 0.5 - ((1/1000)*timestep)
+    public_price_signal = 0.5 + ((1/200)*timestep)
+    private_price_signal = 0.5 + ((1/200)*timestep)
     #private_price_signal = 1.5 - ((1/1000)*timestep)
 
     new_private_price = (b_price)*public_price_signal + (1-b_price)*private_price_signal

@@ -5,6 +5,7 @@ from src.sim.model.parts.private_beliefs import *
 from src.sim.model.parts.bondburn import *
 from src.sim.model.parts.attest import *
 from src.sim.model.parts.choose_action import set_action
+from src.sim.model.parts.monthly_instalment import add_instalment
 from src.sim.model.parts.choose_agent import choose_agent
 from src.sim.model.parts.put_agent_back_to_df import put_agent_back_to_df
 from src.sim.model.parts.uniswap import *
@@ -38,7 +39,8 @@ partial_state_update_block = [
     },
     {
         'policies': {
-            'act': set_action
+            'act': set_action,
+            'add_instalment': add_instalment,
         },
         'variables': {
             # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

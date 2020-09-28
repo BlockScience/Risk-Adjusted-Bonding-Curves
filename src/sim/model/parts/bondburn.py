@@ -1,7 +1,7 @@
 
 
 def update_R(params, substep, state_history, prev_state, policy_input):
-
+    params = params[0]
     # access amt_to_burn using _input['action']['amt_to_burn'] because it's a dict of dicts
     R = prev_state['reserve']
     S = prev_state['supply']
@@ -34,10 +34,12 @@ def update_R(params, substep, state_history, prev_state, policy_input):
     return 'reserve', R
 
 def update_funds(params, substep, state_history, prev_state, policy_input):
-
+    params = params[0]
     # access amt_to_burn using _input['action']['amt_to_burn'] because it's a dict of dicts
     F = prev_state['funds_from_bond']
     V = prev_state['invariant_V']
+    monthly_instalment = policy_input['monthly_instalment']
+    
     if V == 0:
         print("V IS ZERO")  # degenerate
     else:
@@ -51,10 +53,11 @@ def update_funds(params, substep, state_history, prev_state, policy_input):
             deltaF = 0
 
     F += deltaF
+    F += monthly_instalment
     return 'funds_from_bond', F
 
 def update_S(params, substep, state_history, prev_state, policy_input):
-
+    params = params[0]
     R = prev_state['reserve']
     S = prev_state['supply']
     V = prev_state['invariant_V']
@@ -132,7 +135,7 @@ def compute_s_free(R, S, V, kappa, s_free, deltaR, policy_input, timestep):
 
     # TEST RANDOM DROP
     if timestep % 20 == 0:
-        random_drop = 10
+        random_drop = 0
     else:
         random_drop = 0
 
@@ -235,7 +238,7 @@ def update_pbar(params, substep, state_history, prev_state, policy_input):
 
 
 def update_I_bondburn(params, substep, state_history, prev_state, policy_input):
-    # params = params[0]
+    params = params[0]
     R = prev_state['reserve']
     C = params['C']
     alpha = prev_state['alpha']

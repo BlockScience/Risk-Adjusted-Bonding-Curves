@@ -2,10 +2,13 @@ import itertools
 
 KAPPA = [2]
 
-C = [20000]
+C = [0]
 ALPHA = [0.5]
-MONEY_RAISED = [10000]
-PERIOD = [2000]
+MONEY_RAISED = [66000]
+PERIOD = [1200]
+
+### Monthly instalment from Impact Investor
+monthly_instalment = [3000]
 
 # New price singal : Determines signal shape for agent's behaviour heuristic on price
 # rules_price = ["martin"] #, "step"]  # , "ramp", "sin"]
@@ -21,12 +24,12 @@ rules_price = ["martin"]  # , "ramp", "sin"]
 # invariant_I = 650 #reserve + (C[0]*ALPHA[0])
 
 ####### CONTINUOUS FUNDING #####################
-ENABLE_CONTINUOUS = [True, False]
-THETA = [0.5]  # PORTION OF FUNDS FROM BONDING TO PROJECT, (1-theta) to reserve
+ENABLE_CONTINUOUS = [True]
+THETA = [0.9]  # PORTION OF FUNDS FROM BONDING TO PROJECT, (1-theta) to reserve
 ####### CONTINUOUS FUNDING #####################
 
 ####### BURN ACTION #####################
-ENABLE_BURN = [True, False]
+ENABLE_BURN = [False]
 ####### BURN ACTION #####################
 
 ####### UNSIWAP STYLE TRADING #####################
@@ -60,6 +63,7 @@ params = {
     'starting_kappa': KAPPA,  # initial kappa
     'starting_alpha': ALPHA,  # initial alpha
     'money_raised': MONEY_RAISED,  # reserve + C
+    'monthly_instalment': monthly_instalment,
     'C': C,  # Commited outcome payout
     'f': [0.03],  # param to control certainty of alpha at extremes
     'm': [0.15],  # param to modulate curvature of alpha threshold band
