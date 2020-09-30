@@ -33,7 +33,7 @@ def update_private_price(params, substep, state_history, prev_state, policy_inpu
     }
 
     print("UPDATE PRIVATE PRICE")
-    #params = params[0]
+    ## params = params[0]
     rules_price = params['rules_price']
     period = params['period']
     timestep = prev_state['timestep']

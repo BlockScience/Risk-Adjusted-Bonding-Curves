@@ -2,7 +2,7 @@ import itertools
 
 KAPPA = [2]
 
-C = [0]
+C = [72600]
 ALPHA = [0.5]
 MONEY_RAISED = [66000]
 PERIOD = [1200]

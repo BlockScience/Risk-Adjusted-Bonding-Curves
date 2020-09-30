@@ -8,7 +8,7 @@ def getInputPrice(input_amount, input_reserve, output_reserve, params):
 
 # For buying, not needed right now
 def supply_tokens_added(params, substep, state_history, prev_state, policy_input):
-    params = params[0]
+    # params = params[0]
     timestep = prev_state['timestep']
     
     if params['ENABLE_BURN']:
@@ -20,7 +20,7 @@ def supply_tokens_added(params, substep, state_history, prev_state, policy_input
 
 
 def reserve_redeemed(params, substep, state_history, prev_state, policy_input):
-    params = params[0]
+    # params = params[0]
     if params['ENABLE_BURN']:
         return ('UNI_reserve', 0)
     else:
@@ -67,7 +67,7 @@ def reserve_redeemed_to_agent(params, substep, state_history, prev_state, policy
     If uniswap instance is permitted, update reserve redeemed to agent here from burning their tokens
     Burn (supply) is already computed in the bondburn, because the tokens to burn would be the same regardless of where they are burned (assumed price and fees equal)
     """
-    params = params[0]
+    # params = params[0]
     agent = prev_state['chosen_agent']
     if params['ENABLE_BURN']:
         return 'chosen_agent', agent

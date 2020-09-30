@@ -74,10 +74,15 @@ initial_conditions = {
     'pbar': PRICE,  # kappa*(reserve/supply), price is dR/dS = 1
     'realized_price': 0,
     'spot_price': PRICE,
-    'kappa': 0,
+    # 'kappa': 0,
+    'kappa': 2,
     'supply': supply,
-    'alpha': ALPHA,
-    'alpha_bar': ALPHA,
+    # 'alpha': ALPHA,
+    'alpha': ALPHA[0],
+
+    # 'alpha_bar': ALPHA,
+    'alpha_bar': ALPHA[0],
+    
     'supply_0': S0,
     'supply_1': S1,
     'supply_free': supply_free,

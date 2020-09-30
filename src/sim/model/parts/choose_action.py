@@ -6,7 +6,7 @@ import math
 
 
 def set_action(params, substep, state_history, prev_state):
-    params = params[0]
+    # params = params[0]
     # pprint(params)
     # print('Choose Action')
     R = prev_state['reserve']
@@ -129,6 +129,8 @@ def set_action(params, substep, state_history, prev_state):
         amt_to_burn = 0
         print("No trade. P = ", P, "private_price = ", private_price)
 
+    print('alpha ', alpha)
+    print('alpha ', type(alpha), ' private_alpha ', type(private_alpha), ' s_free ', type(s_free))
     if alpha > private_alpha and s_free > 0:
         mech_pm = 'attest_neg'
         print("Negative attestation. | alpha = ",
