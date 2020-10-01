@@ -2,13 +2,13 @@ import pandas as pd
 
 from src.sim.model.sys_params import *
 
-PRICE = 1
-
 # Set initialization state variables for Attestations
+
+PRICE = 1
 Q = 30000
-Q1 = 0
+Q1 = 100
 Q0 = 30000
-S1 = 0
+S1 = 100
 S0 = 30000
 r = 100  # Agent reserve, the amount of fiat tokens an agent starts with
 s = 0
@@ -24,6 +24,11 @@ supply = KAPPA[0]*(reserve/PRICE)
 supply_free = supply - (S0 + S1)
 invariant_V = (supply**KAPPA[0])/reserve
 invariant_I = reserve + (C[0]*ALPHA[0])
+
+ALPHA = S1 * reserve / (S1 * reserve - S0 * reserve + S0*C[0])
+print("ALPHA = ", ALPHA)
+KAPPA = invariant_I / (invariant_I - (C[0]*ALPHA))
+print("KAPPA = ", KAPPA)
 ##### Overwritten in configs.py for parameter sweeps with values in sys_params ######
 
 

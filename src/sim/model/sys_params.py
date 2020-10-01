@@ -1,9 +1,9 @@
 import itertools
 
-KAPPA = [2]
+KAPPA = [2] # computed from I / I-(C*alpha)
 
-C = [0]
-ALPHA = [0.5]
+C = [72000] #some amount greater than money raised, some ROI (10%) over money raised
+ALPHA = [0.03536977491961415] # computed using S1 * reserve / (S1 * reserve - S0 * reserve + S0*C[0])
 MONEY_RAISED = [66000]
 PERIOD = [1200]
 

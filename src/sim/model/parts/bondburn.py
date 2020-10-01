@@ -16,7 +16,7 @@ def update_R(params, substep, state_history, prev_state, policy_input):
         deltaR = R - (((S-deltaS)**kappa)/V)
         #print("::::delta R::::", deltaR)
         #print("::::AMTBOND::::", policy_input['amt_to_bond'])
-        
+
         ## Continuous ##
         # Continuous Enabled, newly reserved funds split to bond reserve and project funding
         if params['ENABLE_CONTINUOUS']:
@@ -210,7 +210,7 @@ def update_P_bondburn(params, substep, state_history, prev_state, policy_input):
     else:
         P = amt_to_bond/amt_to_burn
 
-    print("PRICE (BOND/BURN): ", P)
+    #print("PRICE (BOND/BURN): ", P)
     # print("SPOT PRICE P (from bondburn update) = ", P)
     return 'spot_price', P
 
@@ -223,19 +223,23 @@ def update_pbar(params, substep, state_history, prev_state, policy_input):
     deltaS = policy_input['amt_to_burn']
     deltaR = policy_input['amt_to_bond']
 
-    if deltaS == 0:
-        deltaS = (V*(R+deltaR))**(1/kappa)-S
-   ############ STILL DIVISION by ZERO #######################
-        if deltaS == 0:
-            deltaS = 0.00001
-        ############ STILL DIVISION by ZERO #######################
-    elif deltaR == 0:
+    if deltaS != 0:
         deltaR = R-((S-deltaS)**kappa)/V
+        if deltaR == 0:
+            realized_price = prev_state['pbar']
+        else:
+            realized_price = deltaR/deltaS
+    elif deltaR != 0:
+        deltaS = (V*(R+deltaR))**(1/kappa)-S
+        if deltaS == 0:
+            realized_price = prev_state['pbar']
+        else:
+            realized_price = deltaR/deltaS
+    else:
+        realized_price = prev_state['pbar']
 
-    realized_price = deltaR/deltaS
-    pbar = realized_price
-    print("PRICE pbar (from bondburn update) =", pbar)
-    return 'pbar', pbar
+    print("PRICE pbar (from bondburn update) =", realized_price)
+    return 'pbar', realized_price
 
 
 def update_I_bondburn(params, substep, state_history, prev_state, policy_input):
