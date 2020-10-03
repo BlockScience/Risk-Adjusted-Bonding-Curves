@@ -29,7 +29,7 @@ THETA = [0.9]  # PORTION OF FUNDS FROM BONDING TO PROJECT, (1-theta) to reserve
 ####### CONTINUOUS FUNDING #####################
 
 ####### BURN ACTION #####################
-ENABLE_BURN = [False]
+ENABLE_BURN = [True]
 ####### BURN ACTION #####################
 
 ####### UNSIWAP STYLE TRADING #####################
