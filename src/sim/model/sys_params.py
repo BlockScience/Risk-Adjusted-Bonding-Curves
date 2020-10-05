@@ -38,16 +38,20 @@ fee_denominator = [1000]
 
 ####### UNSIWAP STYLE TRADING #####################
 
-
+#Alpha and price should be biased similarly
+# -1 indicates negative bias, signal linearly decreasing
+# 1 indicates positive bias, signal linearly increasing
+alpha_bias = [1]
+price_bias = [1]
 
 print()
 
 # E = [0.1, 0.2, 0.3]
 E = [0.2]
 
-factors = [rules_price, KAPPA, E, MONEY_RAISED, ALPHA, C, THETA, ENABLE_CONTINUOUS, ENABLE_BURN]
+factors = [rules_price, KAPPA, E, MONEY_RAISED, ALPHA, C, THETA, ENABLE_CONTINUOUS, ENABLE_BURN, alpha_bias, price_bias]
 product = list(itertools.product(*factors))
-rules_price, KAPPA, E, MONEY_RAISED, ALPHA, C, THETA, ENABLE_CONTINUOUS, ENABLE_BURN= zip(*product)
+rules_price, KAPPA, E, MONEY_RAISED, ALPHA, C, THETA, ENABLE_CONTINUOUS, ENABLE_BURN, alpha_bias, price_bias= zip(*product)
 rules_price = list(rules_price)
 KAPPA = list(KAPPA)
 E = list(E)
@@ -57,6 +61,8 @@ C = list(C)
 THETA = list(THETA)
 ENABLE_CONTINUOUS = list(ENABLE_CONTINUOUS)
 ENABLE_BURN = list(ENABLE_BURN)
+alpha_bias = list(alpha_bias)
+price_bias = list(price_bias)
 
 ########## SYSTEM PARAMETERS ##########
 params = {
@@ -77,5 +83,7 @@ params = {
     'ENABLE_BURN' : ENABLE_BURN,
     'fee_numerator' : fee_numerator,
     'fee_denominator' : fee_denominator,
+    'alpha_bias': alpha_bias,
+    'price_bias': price_bias,
 
 }
