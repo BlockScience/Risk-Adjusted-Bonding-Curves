@@ -1,9 +1,9 @@
 # Problem Statement and Methodology
 
-### Bonding curves
+### Background Info: Bonding Curves
 Token bonding curves are continuous liquidity mechanisms which are used in market design for cryptographically-supported token economies whereby tokens are automatically issued using buy and sell functions. 
 
-### Problem: Static bonding curves
+### Problem: Static Bonding Curves are Insufficient
 Current token bonding curve implementations act as automated market makers for initial and ongoing investment. However, they generally are static, with fixed *a priori* assumptions about the interaction between the token economy <a href="https://github.com/BlockScience/InterchainFoundation/blob/shruti-definitions/Paper/glossary.md#note1ref" id="note1ref"><sup>1</sup></a> and its external factors. 
 <br/><br/> 
 Since these bonding curve implementations are static, they cannot incorporate external risk factors during live execution. This results in pricing and supply anomalies, such as tokens being misallocated on both buy-side and sell-side, with loss in risk correlation. 
