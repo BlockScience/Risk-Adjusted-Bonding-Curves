@@ -43,7 +43,7 @@ class ConfigWrapper:
                 'T': self.T,
                 'M': self.M,
             }
-        )[0]
+        )
     
     def append(self, sim_configs=None):
         if not isinstance(sim_configs, list):

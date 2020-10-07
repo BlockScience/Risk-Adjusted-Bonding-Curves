@@ -36,7 +36,7 @@ def set_action(params, substep, state_history, prev_state):
     period = params['period']
     tau = 0  # 1.2*private_price
 
-    print('r', r)
+    # print('r', r)
 
     # print('P', P, type(P))
     # print('R', R, type(R))
@@ -83,7 +83,7 @@ def set_action(params, substep, state_history, prev_state):
         # max_burn = s_free*(1-dust)
         # print("s_free = ", s_free, "| RAND = ", (random.randint(85, 90)/100))
         # amt_to_burn = amt*beta <-- send to iteration 2 of amt_to_burn calculation
-        print("Agent burns. Amt to burn = ", amt_to_burn)
+        # "Agent burns. Amt to burn = ", amt_to_burn)
 
     elif P < (private_price - tau) and r > 0 and S > 0:
         mech_bc = 'bond'
@@ -120,21 +120,21 @@ def set_action(params, substep, state_history, prev_state):
         # amt_to_bond = r*(random.randint(85, 90)/100)
         # print("r =", r, "| RAND = ", (random.randint(85, 90)/100))
         # amt_to_burn = 0
-        print("Agent bonds. Amt to bond = ", amt_to_bond)
+        # print("Agent bonds. Amt to bond = ", amt_to_bond)
 
     else:
         # don't trade
         mech_bc = None
         amt_to_bond = 0
         amt_to_burn = 0
-        print("No trade. P = ", P, "private_price = ", private_price)
+        # print("No trade. P = ", P, "private_price = ", private_price)
 
-    print('alpha ', alpha)
-    print('alpha ', type(alpha), ' private_alpha ', type(private_alpha), ' s_free ', type(s_free))
+    # print('alpha ', alpha)
+    # print('alpha ', type(alpha), ' private_alpha ', type(private_alpha), ' s_free ', type(s_free))
     if alpha > private_alpha and s_free > 0:
         mech_pm = 'attest_neg'
-        print("Negative attestation. | alpha = ",
-              alpha, "private_alpha = ", private_alpha)
+        # print("Negative attestation. | alpha = ",
+        #       alpha, "private_alpha = ", private_alpha)
 
         # Agent's choice of delta s
         amt_pos = 0
@@ -148,13 +148,13 @@ def set_action(params, substep, state_history, prev_state):
         g1 = d + (1-d-f)*a + f
         g0 = (1-d-f)*a
         amt_neg = random.uniform(g0, g1)*s_free
-        print("amt_neg = ", amt_neg)
+        # print("amt_neg = ", amt_neg)
 
         # Compute number of claims
         A = math.sqrt(1+((amt_pos+amt_neg)/S))
         amt_Q1 = 0
         amt_Q0 = Q0*(A-1)
-        print("amt_Q0 = ", amt_Q0)
+        # print("amt_Q0 = ", amt_Q0)
 
         # amt_Q0 = alpha - private_alpha  # units
         # amt_neg = amt_Q0  # delta_s to S0
@@ -164,8 +164,8 @@ def set_action(params, substep, state_history, prev_state):
 
     elif alpha < private_alpha and s_free > 0:
         mech_pm = 'attest_pos'
-        print("Positive attestation. | alpha = ",
-              alpha, "private_alpha = ", private_alpha)
+        # print("Positive attestation. | alpha = ",
+        #       alpha, "private_alpha = ", private_alpha)
 
         # Agent's choice of delta s
         # Heuristic 1: Random choice between 0-50% of agent supply
@@ -179,13 +179,13 @@ def set_action(params, substep, state_history, prev_state):
         amt_pos = random.uniform(g0, g1)*s_free
 
         amt_neg = 0
-        print("amt_pos = ", amt_pos)
+        # print("amt_pos = ", amt_pos)
 
         # Compute number of claims
         A = math.sqrt(1+((amt_pos+amt_neg)/S))
         amt_Q1 = Q1*(A-1)
         amt_Q0 = 0
-        print("amt_Q1 = ", amt_Q1)
+        # print("amt_Q1 = ", amt_Q1)
 
     elif s_free <= 0:
         mech_pm = 'None'
@@ -193,7 +193,7 @@ def set_action(params, substep, state_history, prev_state):
         amt_neg = 0
         amt_Q1 = 0
         amt_Q0 = 0
-        print("Agent supply too low. Cannot attest")
+        # print("Agent supply too low. Cannot attest")
 
     else:
         # don't attest
@@ -202,8 +202,8 @@ def set_action(params, substep, state_history, prev_state):
         amt_Q0 = 0
         amt_pos = 0
         amt_neg = 0
-        print("No attestation. alpha = ", alpha,
-              "private_alpha = ", private_alpha, "s_free = ", s_free)
+        # print("No attestation. alpha = ", alpha,
+        #       "private_alpha = ", private_alpha, "s_free = ", s_free)
 
         # action['posterior'] = {'S': S, 'R': R, 'P': P, 'S1': S0, 'S1': S1,
         #               'Q0': Q0, 'Q1': Q1, 'kappa': kappa, 'alpha': alpha, 'I': I, 'V': V}

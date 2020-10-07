@@ -29,6 +29,7 @@ def run(drop_midsteps: bool=True) -> pd.DataFrame:
     for i, config_id in enumerate(config_ids):
         params = config_id['M']
         result_record = pd.DataFrame.from_records([tuple([i for i in params.values()])], columns=list(params.keys()))
+        print('result_record', result_record)
         sub_df = df[df.subset == config_id['subset_id']]
 
     if drop_midsteps:

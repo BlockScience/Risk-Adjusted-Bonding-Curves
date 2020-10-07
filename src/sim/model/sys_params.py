@@ -24,7 +24,7 @@ rules_price = ["martin"]  # , "ramp", "sin"]
 # invariant_I = 650 #reserve + (C[0]*ALPHA[0])
 
 ####### CONTINUOUS FUNDING #####################
-ENABLE_CONTINUOUS = [True]
+ENABLE_CONTINUOUS = [True] #, False]
 THETA = [0.9]  # PORTION OF FUNDS FROM BONDING TO PROJECT, (1-theta) to reserve
 ####### CONTINUOUS FUNDING #####################
 
@@ -38,25 +38,31 @@ fee_denominator = [1000]
 
 ####### UNSIWAP STYLE TRADING #####################
 
+####### Agent Bias #####################
+fee_numerator = [997]
+fee_denominator = [1000]
+
+####### UNSIWAP STYLE TRADING #####################
 
 
-print()
+
+# print()
 
 # E = [0.1, 0.2, 0.3]
 E = [0.2]
 
-factors = [rules_price, KAPPA, E, MONEY_RAISED, ALPHA, C, THETA, ENABLE_CONTINUOUS, ENABLE_BURN]
-product = list(itertools.product(*factors))
-rules_price, KAPPA, E, MONEY_RAISED, ALPHA, C, THETA, ENABLE_CONTINUOUS, ENABLE_BURN= zip(*product)
-rules_price = list(rules_price)
-KAPPA = list(KAPPA)
-E = list(E)
-MONEY_RAISED = list(MONEY_RAISED)
-ALPHA = list(ALPHA)
-C = list(C)
-THETA = list(THETA)
-ENABLE_CONTINUOUS = list(ENABLE_CONTINUOUS)
-ENABLE_BURN = list(ENABLE_BURN)
+# factors = [rules_price, KAPPA, E, MONEY_RAISED, ALPHA, C, THETA, ENABLE_CONTINUOUS, ENABLE_BURN]
+# product = list(itertools.product(*factors))
+# rules_price, KAPPA, E, MONEY_RAISED, ALPHA, C, THETA, ENABLE_CONTINUOUS, ENABLE_BURN= zip(*product)
+# rules_price = list(rules_price)
+# KAPPA = list(KAPPA)
+# E = list(E)
+# MONEY_RAISED = list(MONEY_RAISED)
+# ALPHA = list(ALPHA)
+# C = list(C)
+# THETA = list(THETA)
+# ENABLE_CONTINUOUS = list(ENABLE_CONTINUOUS)
+# ENABLE_BURN = list(ENABLE_BURN)
 
 ########## SYSTEM PARAMETERS ##########
 params = {

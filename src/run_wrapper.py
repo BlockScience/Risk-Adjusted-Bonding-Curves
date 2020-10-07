@@ -8,7 +8,7 @@ def run(drop_midsteps: bool=True) -> pd.DataFrame:
     exec_mode = ExecutionMode()
     exec_context = ExecutionContext(exec_mode.local_mode)
     run = Executor(exec_context=exec_context, configs=configs)
-    results = pd.DataFrame()
+    # results = pd.DataFrame()
 
     (system_events, tensor_field, sessions) = run.execute()
 

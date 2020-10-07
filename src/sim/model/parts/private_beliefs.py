@@ -76,7 +76,7 @@ def update_private_price(params, substep, state_history, prev_state, policy_inpu
     #print("noise s = ", noise_s)
 
     #new_private_price = (r + (noise_r * r)) / (s + (noise_s * s))
-    print("--------------------------------------")
+    # print("--------------------------------------")
 
     new_private_price = prev_state['chosen_agent']['agent_private_price']
 
@@ -139,7 +139,7 @@ def update_agent_beliefs(params, substep, state_history, prev_state, policy_inpu
     agent['agent_private_price'] = new_private_price
     agent['agent_private_alpha'] = new_private_alpha
 
-    print("agent['agent_private_price'] = ", agent['agent_private_price'])
-    print("agent['agent_private_alpha'] = ", agent['agent_private_alpha'])
+    # print("agent['agent_private_price'] = ", agent['agent_private_price'])
+    # print("agent['agent_private_alpha'] = ", agent['agent_private_alpha'])
 
     return 'chosen_agent', agent

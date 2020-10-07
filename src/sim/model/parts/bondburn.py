@@ -210,7 +210,7 @@ def update_P_bondburn(params, substep, state_history, prev_state, policy_input):
     else:
         P = amt_to_bond/amt_to_burn
 
-    print("PRICE (BOND/BURN): ", P)
+    # print("PRICE (BOND/BURN): ", P)
     # print("SPOT PRICE P (from bondburn update) = ", P)
     return 'spot_price', P
 
@@ -234,7 +234,7 @@ def update_pbar(params, substep, state_history, prev_state, policy_input):
 
     realized_price = deltaR/deltaS
     pbar = realized_price
-    print("PRICE pbar (from bondburn update) =", pbar)
+    # print("PRICE pbar (from bondburn update) =", pbar)
     return 'pbar', pbar
 
 
