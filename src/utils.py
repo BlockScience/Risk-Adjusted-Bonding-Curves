@@ -1,7 +1,13 @@
 import matplotlib.pyplot as plt
 
 def param_test_plot(experiments, config_ids, swept_variable, y_variable, *args):
-    
+    """
+    experiments is the simulation result dataframe.
+    config_ids is the list configs executed upon in the simulation.
+    swept_variable is the key (string) in config_ids that was being tested against.
+    y_variable is the state_variable (string) to be plotted against default timestep.
+    *args for plotting more state_variables (string).
+    """
     experiments = experiments.sort_values(by =['subset']).reset_index(drop=True)
     cols = 1
     rows = 1
