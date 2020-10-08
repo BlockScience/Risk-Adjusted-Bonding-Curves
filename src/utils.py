@@ -17,18 +17,18 @@ def param_test_plot(experiments, config_ids, swept_variable, y_variable, *args):
         fig, axs = plt.subplots(ncols=cols, nrows=rows, figsize=(15*cols,7*rows))
 
         df = sub_experiments.copy()
-        colors = ['b','orange', 'g', 'magenta', 'r', 'k' ]
+        colors = ['orange', 'g', 'magenta', 'r', 'k' ]
 
         ax = axs
-        title = 'ENABLE_CONTINUOUS TEST: Reserve Funds vs. Funds to Project' + '\n' + 'Scenario: ' + str(secondary_label[0]) + ' ' + swept_variable
+        title = swept_variable + ' Effect on ' + y_variable + '\n' + 'Scenario: ' + str(secondary_label[0]) + ' ' + swept_variable
         # + 'Scenario: ' + str(cc_label)  + ' rules_price'
         ax.set_title(title)
         ax.set_ylabel('Funds')
 
         df.plot(x='timestep', y=y_variable, label=y_variable, ax=ax, legend=True, kind ='scatter')
 
-        for arg in args:
-            df.plot(x='timestep', y=arg, label=arg, ax=ax, legend=True, color = colors[5], kind ='scatter')
+        for count, arg in enumerate(args):
+            df.plot(x='timestep', y=arg, label=arg, ax=ax, legend=True, color = colors[count], kind ='scatter')
 
         ax.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)
 
