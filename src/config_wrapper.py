@@ -44,10 +44,16 @@ class ConfigWrapper:
                 'M': self.M,
             }
         )
-    
-    def append(self, sim_configs=None):
+
+    def get_initial_conditions(self):
+        return  self.initial_state
+
+    def append(self, sim_configs=None): #, initial_state=None
         if not isinstance(sim_configs, list):
             sim_configs = config_sim({'N': self.N, 'T': self.T, 'M': self.M})
+
+        # if not isinstance(initial_state, list):
+        #     self.initial_state = initial_state
 
         self.exp.append_configs(
             sim_configs=sim_configs,
