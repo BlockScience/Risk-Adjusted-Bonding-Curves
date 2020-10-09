@@ -6,7 +6,8 @@ Note that in the context of a generalized design pattern, ecosystem roles and th
 
 ## Roles
 
-### Role 1: Investment Agent
+
+### **Role 1: Investment Agent**
 **Investment Agents** are individuals, institutions, or funding mechanisms that commit capital to a bond in return for financial and non-financial returns on the capital. Investors tend to seek returns that are above the market average and are rewarded for their investments if a project funded by the bond is successful in achieving its targets. Investors must therefore analyse the financial risks associated with the bond, as well as the operational risks associated with the project that is funded by the bond. In the the broader context, Investment Agents may choose to buy bond tokens for multiple projects composing a portfolio<a href="glossary.md#note10" id="note10ref"><sup>10</sup></a> of bonds. In this case, they would have their own private valuation of a given project, which they would employ to make buy and sell decisions and ultimately manage their portfolio’s risk to return ratio.
 
 The Investment Agent has a private valuation of a given project, which they employ to make buy and sell decisions and ultimately  manage their portfolio’s risk to return ratio.
@@ -21,7 +22,9 @@ An **InvestmentAgent** role is characterized by the ability to buy and redeem bo
 #### Example:
 A high net worth investor willing to take on the risk of investment for the social benefit to childhood education in India, as well as the potential above market average return.
 
-### Role 2: Service Agent
+<br>
+
+### **Role 2: Service Agent**
 **Service Agents** can be organisations, individuals, or machines that provide goods and services to the project, in order to make progress towards achieving the predetermined outcomes. 
 
 A **ServiceAgent** role is characterized by issuing claims<a href="glossary.md#note4" id="note4ref"><sup>4</sup></a>  and submitting disputes. 
@@ -34,7 +37,9 @@ ServiceAgents are compensated in fee payments for providing goods and services.
 #### Example:
 Chimple - a non-profit education technology provider that will aim to utilize their technology to improve childhood learning in India. 
 
-### Role 3: Verification Agent
+<br>
+
+### **Role 3: Verification Agent**
 **Verification Agents** evaluate the claims made by Service Agents, to opinionate on the probability of a claim being both factually true and positively correlated with an outcome state. In this process, a Verification Agent may further enrich the claims data with additional information, such as statistical predictions, data transformations, and external data. The result of the claim evaluation is cryptographically verified with the Verification Agent's digital identity credentials and signature. 
 
 A **VerificationAgent** role is characterized by providing project verification services, evaluating claims and responding to disputes for Service Agents. They are also capable of issuing their own disputes.
@@ -45,7 +50,9 @@ A **VerificationAgent** role is characterized by providing project verification 
 #### Example:
 Gray Matters India - an independent evaluator that will measure growth in learning outcomes of school-going children in India.
 
-### Role 4: Arbitrator
+<br>
+
+### **Role 4: Arbitrator**
 **Arbitrators** are independent agents employed to facilitate dispute resolution when disputes are raised by any of the participants in a project or bond. The Arbitrator evaluates disputes between counterparties and recommends resolutions.
 
 An **Arbitrator** role is characterized by providing arbitration services evaluating disputes.
@@ -56,7 +63,9 @@ An **Arbitrator** role is characterized by providing arbitration services evalua
 #### Example:
 Jur - a blockchain-based ecosystem for creating smart legal contracts and providing a platform for conflict resolution. This platform will be used to resolve disputes online, with agreed upon arbitrators that have expertise in particular topics. 
 
-### Role 5: Auditor
+<br>
+
+### **Role 5: Auditor**
 **Auditors** are independent agents who may be employed by any of the participating agents in a project or a bond to audit transactions and claims, using available transaction records and data. Audits may be required as part of a bond's Settlement<a href="glossary.md#note19" id="note19ref"><sup>19</sup></a> process. Auditors may provide inputs to dispute resolution mechanisms.
 
 An **Auditor** role is characterized by providing auditing services, auditing claims, auditing financial transactions, and submitting disputes.
@@ -67,7 +76,9 @@ An **Auditor** role is characterized by providing auditing services, auditing cl
 #### Example:
 KPMG - one of the "big four" accounting organizations.
 
-### Role 6: Bond Issuer
+<br>
+
+### **Role 6: Bond Issuer**
 The **Bond Issuer** raises capital for a project through an impact bond debt instrument. They are responsible for ensuring regulatory compliance and for establishing the legal constructs of the fund. The Bond Issuer is liable to investors for the capital raised and liable to Project Owners for making payments for goods and services to be delivered through the project.  The Bond Issuer authorises agents to participate in the bond and interact with the bond mechanisms within the scopes of capabilities allowed by their respective roles. 
 
 A **BondIssuer** role is characterized by the ability to issue bonds, receive bond tokens, distribute bond tokens to the bond’s stakeholders, change bond parameters or terminate bond life, and submit disputes. 
@@ -78,7 +89,9 @@ A **BondIssuer** role is characterized by the ability to issue bonds, receive bo
 #### Example:
 UBS Optimus Foundation - a foundation linked to a global wealth manager staffed with philanthropy experts.
 
-### Role 7: Project Administrator
+<br>
+
+### **Role 7: Project Administrator**
 **Project Administrator** can be assigned by the Project Owner to act on their behalf and run the project. In this role the Project Administrator is also responsible for the approval of milestones and settlements of payments. A **Bond Administrator** on the other hand is equivalent to the traditional finance role of a fund administrator. This agent may be one or more entities or persons, or a system like a governance DAO. The role is assigned by the Bond Issuer. The Bond Administrator is responsible for authorizing projects for funding, fund disbursements and facilitating settlements. They facilitate the governance of the bond. 
 
 These two roles can be generalized under the **Administrator** role which is characterized by performing bond or project administration, reporting on bond or project performance against milestones, evaluating claims, and the ability to change bond or project parameters or terminate bond or project life.
@@ -90,7 +103,9 @@ These two roles can be generalized under the **Administrator** role which is cha
 Project Administrator: Dalberg Capital - an experienced advisor on impact investing. 
 Bond Administrator: DAO
 
-### Role 8: Project Owner
+<br>
+
+### **Role 8: Project Owner**
 The **Project Owner** is the founder and controller of the overall project. This stakeholder initiates the project and defines its parameters. Once a project's parameters have been set up, the Project Owner deploys the project on an impact bond blockchain network, using their cryptographic keys to instantiate the project by signing a message payload that records the genesis of the project in a blockchain record.
 
 A **ProjectOwner** role is characterized by the ability to create projects, receive bond tokens, distribute tokens to project stakeholders, change project parameters or terminate project life, and submit disputes.  
@@ -103,7 +118,9 @@ ProjectOwners can purchase the first tranche of bond tokens prior to launch of t
 #### Example:
 Educational Agency - a formal education agency or department that has educational authority to initiate the project. Most likely the technical duties of actually deploying the project would be delegated to another organization to do so on behalf of the Educational Agency.
 
-### Role 9: Outcomes Payer
+<br>
+
+### **Role 9: Outcomes Payer**
 The **Outcomes Payer** purchases the outcomes of a Project for a promised future value. In other words, the Outcomes payer commits to providing predetermined payment(s) if the project meets predetermined outcome(s). 
 
 An **OutcomesPayer** role is characterized by the ability to make final payments to bond token holders, and submit disputes. 
@@ -114,4 +131,6 @@ An **OutcomesPayer** role is characterized by the ability to make final payments
 #### Example:
 Michael and Susan Dell Foundation - a non-profit foundation dedicated to transforming the lives of children living in urban poverty through improving their education, health, and family economic stability. Note that Government Agencies may also typically fulfill this role.
 
-Continue reading Chapter 2: [Bond Lifecycle Phases](2_BondLifecyclePhases.md)
+<br>
+
+**Continue reading Chapter 2: [Bond Lifecycle Phases](2_BondLifecyclePhases.md)**

@@ -24,24 +24,29 @@ Motivations:
 # Project Breakdown
 
 This project is being carried out in 3 phases: 
-* **Phase 1. Engineering Requirements Gathering** [complete]
-* **Phase 2. Formalized Specification** [complete]
-* **Phase 3. Analysis & Testing** [in progress]
+* **Phase 1. Engineering Requirements Gathering** [*complete*]
+* **Phase 2. Formalized Specification** [*complete*]
+* **Phase 3. Analysis & Testing** [*in progress*]
+
+Each phase is broken out into a series of deliverables as listed below, which are collated into a stakeholder report at the completion of each phase.
 
 ## Phase 1 Deliverables:  Requirements Gathering
-- [Problem Statement and Methodology](Paper/0_ProblemStatementandMethodology.md) - Understand what problem we are trying to solve and what methodology we intend to utilize in order to solve it
-- [Ecosystem Roles](Paper/1_EcosystemRoles.md) - Identify all of the various roles users can take in the ecosystem
-- [Bond Lifecycle Phases](Paper/2_BondLifecyclePhases.md) - Identify each phase in the bond lifecycle
-- [Engineering Requirements](Paper/3_EngineeringRequirements.ipynb) - Define formal mathematical definitions and requirements for the ecosystem
+* **1.1 [Problem Statement and Methodology](Paper/0_ProblemStatementandMethodology.md)** - Understand what problem we are trying to solve and what methodology we intend to utilize in order to solve it
+
+* **1.2 [Ecosystem Roles](Paper/1_EcosystemRoles.md)** - Identify all of the various roles users can take in the ecosystem
+
+* **1.3 [Bond Lifecycle Phases](Paper/2_BondLifecyclePhases.md)** - Identify each phase in the bond lifecycle
+
+* **1.4 [Engineering Requirements](Paper/3_EngineeringRequirements.ipynb)** - Define formal mathematical definitions and requirements for the ecosystem
 
 ## Phase 2 Deliverables: Specification
-- [Math Specification](Math_Specification) - Mathematical documentation of the model including system and component specifications as well as behavioural models of agents
-- [cadCAD Model Source Code](src) - Source code of the model built in cadCAD
-- [Simulation Notebook and Explanatory Results](main.ipynb) - Representative simulation notebook validating that the model meets core system properties
-- [Component Validation Tests](tests) - Other supporting validation tests (varying granularity, agent beliefs, etc.)
-- [Preliminary (WIP) Modular SDK Specification Mapping](https://hackmd.io/nV1Dkx_BS12mNKEjL1wMJg?view) - Template framework for documenting and implementing an SDK module using the BlockScience Systems Engineering modeling specification.
+* **2.1 [Math Specification](Math_Specification)** - Mathematical documentation of the model including system and component specifications as well as behavioural models of agents
+* **2.2 [cadCAD Model Source Code](src)** - Source code of the model built in cadCAD
+* **2.3 [Simulation Notebook and Explanatory Results](main.ipynb)** - Representative simulation notebook validating that the model meets core system properties
+* **2.4 [Component Validation Tests](tests)** - Other supporting validation tests (varying granularity, agent beliefs, etc.)
+* **2.5 [Preliminary (WIP) Modular SDK Specification Mapping](https://hackmd.io/nV1Dkx_BS12mNKEjL1wMJg?view)** - Template framework for documenting and implementing an SDK module using the BlockScience Systems Engineering modeling specification.
     - [Risk Prediction Module](https://hackmd.io/pBdH1OedQLuvhQU0ezTttA?view)
-- [Preliminary (WIP) Phase 3 Test Plan](https://docs.google.com/spreadsheets/d/1xdiogvWU_NP2PGOTVK6V2rl642u56y26nMKQznGaO1o/edit#gid=0) - Initial planning around experiments to be performed in Phase 3
+* **2.6 [Preliminary (WIP) Phase 3 Test Plan](https://docs.google.com/spreadsheets/d/1xdiogvWU_NP2PGOTVK6V2rl642u56y26nMKQznGaO1o/edit#gid=0)** - Initial planning around experiments to be performed in Phase 3
 
 
 <br>
