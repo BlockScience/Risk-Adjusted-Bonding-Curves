@@ -9,6 +9,8 @@ From a technical perspective, the bonding curve system can be described as a fin
 
 ![bond lifecycle phases diagram](artifacts/BondLifecyclePhasesV1.png)
 
+---
+
 ## Phase 0: Pre-initialization 
 The pre-initialization phase is meant to represent all of the activities that occur prior to launch of the bond. This includes all of the prior planning and setup. It includes agreements, expectations, obligations, decisions around bond parameters, initial conditions, payment conditions, roles and rights of stakeholders, et al. During the pre-initialization phase, the bond is set up with an associated wallet and repository and all bond participants are identified with digital IDs, public keys, and credentials. All investments including funding as well as resources, materials, and equipment are agreed upon. At the end of this phase, the bond should be for all intents and purposes ready to launch.
 
@@ -18,7 +20,9 @@ Since this is the first state of the bond lifecycle, there are no state transiti
 ### Inputs
 N/A
 
-### Next State Outputs
+### Outputs to Next State
+Below is a brief list of outputs passed from the Pre-initialization Phase to the Initialization Phase.
+
 1. Agreed upon ProjectTime Threshold<a href="glossary.md#note29" id="note29ref"><sup>29</sup></a>
 2. Agreed upon Claims Submitted Threshold<a href="glossary.md#note31" id="note31ref"><sup>31</sup></a>
 3. Agreed upon Alpha Threshold<a href="glossary.md#note33" id="note33ref"><sup>33</sup></a>
@@ -31,7 +35,11 @@ N/A
 10. Agreed upon Outcomes Payer's Commitment<a href="glossary.md#note40" id="note40ref"><sup>40</sup></a>
 
 ### Transitions out of Pre-initialization Phase
-All planning and setup completed and with the bond Ready to Launch will move the system from the Pre-initialization Phase into the Initialization Phase.
+All planning and setup completed and with the bond ready to launch will move the system from the Pre-initialization Phase into the Initialization Phase.
+
+<br>
+
+---
 
 ## Phase 1: Initialization
 During the Initialization Phase, the bond is launched. All of the parameters, roles and rights, thresholds, conditions, etc. are set. All funds as agreed upon are deposited into appropriate accounts. Funds are divided with a portion of funds going into the Project Operating Funds for use on the project and a portion going into the Reserve Funds to provide liquidity to the bonding curve. Initialization is essentially the instantiation of everything that was agreed upon in pre-initialization.
@@ -51,7 +59,7 @@ All planning and setup completed and with the bond Ready to Launch will move the
 9. Agreed upon Fund Fee
 10. Agreed upon Outcomes Payer's Commitment
 
-### Next State Outputs
+### Outputs to Next State
 1. ProjectTime Threshold
 2. Claims Submitted Threshold
 3. Alpha Threshold
@@ -66,6 +74,9 @@ All planning and setup completed and with the bond Ready to Launch will move the
 ### Transitions out of Initilization Phase
 Initialization Threshold Triggering Event: The bond is launched and as long as funds are placed in the appropriate accounts as agreed upon, the funding threshold is met and the system will move from the Initialization Phase to the Execution Phase. If the funding threshold is not met, the system will move from the Initialization Phase to the Settlement Phase.
 
+<br>
+
+---
 ## Phase 2: Execution
 The execution phase is the phase where active bond trading occurs resulting in updates to the reserve, supply, available project operating funds, and price. Claims and disputes are submitted as the project progresses. Alpha is continually updated to reflect the project's likelihood of success.
 
@@ -106,6 +117,9 @@ All values are at time t = 0:
 1. A Dispute Triggering Event will move from the Execution Phase into the Dispute Pause Phase
 2. A Propose Completion Event will move from the Execution Phase into the Settlement Consideration Pause Phase
 
+<br>
+
+---
 ## Phase 3: Dispute Pause
 In the Dispute Pause Phase, disputes issued against the bond will undergo external resolution. During this state, all system activity except those directly involved in dispute resolution is paused.
 
@@ -125,6 +139,9 @@ If Dispute Verdict results in a Return to Execution, the system will move from t
 
 If Dispute Verdict results in a Resolved to Completion, the system will move from the Dispute Pause Phase to the Settlement Consideration Pause Phase. (Example: Massive fraud, attack, etc. is discovered, the bond state is unrecoverable and thus cannot not return to Execution.)
 
+<br>
+
+---
 ## Phase 4: Settlement Consideration Pause 
 In this phase, the bond is evaluated against the Settlement Conditions<a href="glossary.md#note42" id="note42ref"><sup>42</sup></a> for success or failure. Similar to the Dispute Pause Phase, all system activity other than settlement consideration activity is paused during this phase. A detailed view of the Settlement process is shown [here](artifacts/SettlementConsiderationPhase.png).
 
@@ -144,6 +161,9 @@ In this phase, the bond is evaluated against the Settlement Conditions<a href="g
 1. A Completion event moves the system from the Settlement Consideration Pause Phase to the Settlement Phase
 2. A Not Complete event moves the system from the Settlement Consideration Pause Phase back into the Execution Phase.
 
+<br>
+
+---
 ## Phase 5: Settlement
 During the Settlement Phase, bond tokens are converted into a compatible form and are distributed to the participants in the bond along with any outcomes payments based on the project's success.
 
@@ -164,4 +184,6 @@ During the Settlement Phase, bond tokens are converted into a compatible form an
 ### Transitions out of Settlement Phase
 This is the last phase of the system, thus there are no outward state transitions. 
 
-Continue reading Chapter 3: [Engineering Requirements](3_EngineeringRequirements.ipynb)
+<br>
+
+**Continue reading Chapter 3: [Engineering Requirements](3_EngineeringRequirements.ipynb)**
