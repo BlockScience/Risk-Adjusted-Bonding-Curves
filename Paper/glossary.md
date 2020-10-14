@@ -117,13 +117,13 @@
 <p>     Supply (bond tokens) that are bonded to attest that the project will fail. </p>
     
 <a id="note38" href="#note38ref">38</a> **Reserve Ratio** <br/><br/>
-    The Reserve Ratio of a bond is the ratio of the value that is bonded to the bonding curve reserve to the total value of bond tokens issued (price * value of one bond token). The Reserve Ratio ![img](https://latex.codecogs.com/svg.latex?\rho&space;\in&space;[0,&space;1]) is determined by the curvature of the bonding curve ![img](https://latex.codecogs.com/svg.latex?$\kappa$), and is given by ![img](https://latex.codecogs.com/svg.latex?$$&space;\rho&space;=&space;1/\kappa$$)
+    The Reserve Ratio of a bond is the ratio of the value that is bonded to the bonding curve reserve to the total value of bond tokens issued (price * value of one bond token). The Reserve Ratio ![img](http://latex.codecogs.com/svg.latex?\rho&space;\in&space;[0,&space;&space;1]) is determined by the curvature of the bonding curve ![img](http://latex.codecogs.com/svg.latex?\kappa), and is given by ![img](http://latex.codecogs.com/svg.latex?&space;\rho&space;=&space;1/\kappa)
 
 <a id="note39" href="#note39ref">39</a> **Price** <br/><br/>
     The price signal ![img](https://latex.codecogs.com/svg.latex?P_t%20%5Cin%20%5Cmathbb%7BR%7D_%7B&plus;&plus;%7D) at time ![img](https://latex.codecogs.com/svg.latex?t) is an estimate of the value of the bond token, in units of ![img](https://latex.codecogs.com/svg.latex?R) per units of ![img](https://latex.codecogs.com/svg.latex?S).
 
 <a id="note40" href="#note40ref">40</a> **Outcomes Payer's Commitment** <br/><br/>
-    Outcomes Payer's commitment of a set amount of external currency that they will pay out during the Settlement Phase conditioned on one or many state variables, typically ![img](https://latex.codecogs.com/svg.latex?$\Omega$). The outcomes payer's commitment  ![img](https://latex.codecogs.com/svg.latex?$C\in\mathbb{R}_&plus;$) is set during the Initialization Phase. The bond terms set during Initialization outline all $(C, \Omega)$ pairs, and remain constant through the following phases. ![img](https://latex.codecogs.com/svg.latex?$C$) is known to all agents after the Initialization phase. 
+    Outcomes Payer's commitment of a set amount of external currency that they will pay out during the Settlement Phase conditioned on one or many state variables, typically ![img](http://latex.codecogs.com/svg.latex?\Omega). The outcomes payer's commitment  ![img](http://latex.codecogs.com/svg.latex?C\in\mathbb{R}_&plus;) is set during the Initialization Phase. The bond terms set during Initialization outline all ![img](http://latex.codecogs.com/svg.latex?(C,&space;\Omega)) pairs, and remain constant through the following phases. ![img](http://latex.codecogs.com/svg.latex?C) is known to all agents after the Initialization phase. 
 
 <a id="note41" href="#note41ref">41</a> **Initialization Conditions** <br/>
 <p>     Criteria specified at the Initialization Phase which need to be met for the state to transition into the Execution phase. In the bonding curve use case, the initialization conditions are also referred to as launch conditions. </p>
