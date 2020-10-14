@@ -4,6 +4,8 @@ Defining all of the possible roles one can take in an ecosystem is a crucial fir
 
 Note that in the context of a generalized design pattern, ecosystem roles and their respective rights are unique to the use case and must always be determined prior to launch in the pre-initialization phase (lifecycle phases described in the next chapter). For our purposes here, we will define roles in the impact bond ecosystem and we will take the case of a development impact project improving the quality of primary school education in India to provide real-world examples for each role.
 
+![img](https://i.imgur.com/7zswHLu.png)
+
 ## Roles
 
 
@@ -133,4 +135,4 @@ Michael and Susan Dell Foundation - a non-profit foundation dedicated to transfo
 
 <br>
 
-**Continue reading Chapter 2: [Bond Lifecycle Phases](2_BondLifecyclePhases.md)**
+## **Continue reading Chapter 2: [Bond Lifecycle Phases](2_BondLifecyclePhases.md)**

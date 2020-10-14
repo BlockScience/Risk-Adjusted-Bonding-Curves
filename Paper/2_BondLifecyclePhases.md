@@ -1,7 +1,9 @@
 # Bond Lifecycle Phases
+
+
 With an understanding of all of the ecosystem roles, it is next important to understand each of the phases in the bond lifecycle. Within each phase are a different set of rules and allowable actions that agents can take. There are also certain conditions that must be met in order to move from one phase to another.
 
-Again, here we will provide general descriptions of the phases in order to provide the full context of the activities that occur in the ecosystem, however the *Inputs* and *Next State Outputs* are only intended to define the specific system inputs and outputs that affect the bonding curve system state.
+In this document we will provide general descriptions of the phases in order to provide the full context of the activities that occur in the ecosystem, however the *Inputs* and *Next State Outputs* are only intended to define the specific system inputs and outputs that affect the bonding curve system state.
 
 From a technical perspective, the bonding curve system can be described as a finite state machine, with multiple finite phases or states, inputs and outputs in and out of each state, and state transitions from one state to another in response to an input.
 
@@ -12,7 +14,7 @@ From a technical perspective, the bonding curve system can be described as a fin
 ---
 
 ## Phase 0: Pre-initialization 
-The pre-initialization phase is meant to represent all of the activities that occur prior to launch of the bond. This includes all of the prior planning and setup. It includes agreements, expectations, obligations, decisions around bond parameters, initial conditions, payment conditions, roles and rights of stakeholders, et al. During the pre-initialization phase, the bond is set up with an associated wallet and repository and all bond participants are identified with digital IDs, public keys, and credentials. All investments including funding as well as resources, materials, and equipment are agreed upon. At the end of this phase, the bond should be for all intents and purposes ready to launch.
+The pre-initialization phase is meant to represent all of the activities that occur prior to launch of the bond. This includes planning, setup, agreements, expectations, obligations, decisions around bond parameters, initial conditions, payment conditions, roles and rights of stakeholders, etc. During the pre-initialization phase, the bond is set up with an associated wallet and repository and all bond participants are identified with digital IDs, public keys, and credentials. All investments including funding as well as resources, materials, and equipment are agreed upon. At the end of this phase, the bond should be for all intents and purposes ready to launch.
 
 ### Transitions into Pre-initialization Phase
 Since this is the first state of the bond lifecycle, there are no state transitions into this phase.
@@ -25,6 +27,7 @@ Below is a brief list of outputs passed from the Pre-initialization Phase to the
 
 1. Agreed upon ProjectTime Threshold<a href="glossary.md#note29" id="note29ref"><sup>29</sup></a>
 2. Agreed upon Claims Submitted Threshold<a href="glossary.md#note31" id="note31ref"><sup>31</sup></a>
+# TO DO: Remove #2? Q for Shruti
 3. Agreed upon Alpha Threshold<a href="glossary.md#note33" id="note33ref"><sup>33</sup></a>
 4. Agreed upon Reserve Funds<a href="glossary.md#note34" id="note34ref"><sup>34</sup></a> Raised
 5. Agreed upon Project Operating Funds Raised<a href="glossary.md#note44" id="note44ref"><sup>44</sup></a>
@@ -186,4 +189,4 @@ This is the last phase of the system, thus there are no outward state transition
 
 <br>
 
-**Continue reading Chapter 3: [Engineering Requirements](3_EngineeringRequirements.ipynb)**
+## **Continue reading Chapter 3: [Engineering Requirements](3_EngineeringRequirements.ipynb)**
