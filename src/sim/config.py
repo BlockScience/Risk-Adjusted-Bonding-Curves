@@ -36,7 +36,7 @@ exp.append_configs(
 for c in configs:
     c.initial_state = deepcopy(c.initial_state)
 
-    print("Params (config.py) : ", c.sim_config['M'])
+    # print("Params (config.py) : ", c.sim_config['M'])
 
     c.initial_state['kappa'] = c.sim_config['M']['starting_kappa']
     c.initial_state['alpha'] = c.sim_config['M']['starting_alpha']
