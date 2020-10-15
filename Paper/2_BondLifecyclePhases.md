@@ -26,16 +26,14 @@ N/A
 Below is a brief list of outputs passed from the Pre-initialization Phase to the Initialization Phase.
 
 1. Agreed upon ProjectTime Threshold<a href="glossary.md#note29" id="note29ref"><sup>29</sup></a>
-2. Agreed upon Claims Submitted Threshold<a href="glossary.md#note31" id="note31ref"><sup>31</sup></a>
-# TO DO: Remove #2? Q for Shruti
-3. Agreed upon Alpha Threshold<a href="glossary.md#note33" id="note33ref"><sup>33</sup></a>
-4. Agreed upon Reserve Funds<a href="glossary.md#note34" id="note34ref"><sup>34</sup></a> Raised
-5. Agreed upon Project Operating Funds Raised<a href="glossary.md#note44" id="note44ref"><sup>44</sup></a>
-6. Agreed upon Supply Tokens<a href="glossary.md#note35" id="note35ref"><sup>35</sup></a> to Mint
-7. Agreed upon Maximum Reserve Ratio<a href="glossary.md#note38" id="note38ref"><sup>38</sup></a>
-8. Agreed upon Minimum Reserve Ratio
-9. Agreed upon Fund Fee<a href="glossary.md#note45" id="note45ref"><sup>45</sup></a>
-10. Agreed upon Outcomes Payer's Commitment<a href="glossary.md#note40" id="note40ref"><sup>40</sup></a>
+2. Agreed upon Alpha Threshold<a href="glossary.md#note33" id="note33ref"><sup>33</sup></a>
+3. Agreed upon Reserve Funds<a href="glossary.md#note34" id="note34ref"><sup>34</sup></a> Raised
+4. Agreed upon Project Operating Funds Raised<a href="glossary.md#note44" id="note44ref"><sup>44</sup></a>
+5. Agreed upon Supply Tokens<a href="glossary.md#note35" id="note35ref"><sup>35</sup></a> to Mint
+6. Agreed upon Maximum Reserve Ratio<a href="glossary.md#note38" id="note38ref"><sup>38</sup></a>
+7. Agreed upon Minimum Reserve Ratio
+8. Agreed upon Fund Fee<a href="glossary.md#note45" id="note45ref"><sup>45</sup></a>
+9. Agreed upon Outcomes Payer's Commitment<a href="glossary.md#note40" id="note40ref"><sup>40</sup></a>
 
 ### Transitions out of Pre-initialization Phase
 All planning and setup completed and with the bond ready to launch will move the system from the Pre-initialization Phase into the Initialization Phase.
@@ -52,27 +50,25 @@ All planning and setup completed and with the bond Ready to Launch will move the
 
 ### Inputs
 1. Agreed upon ProjectTime Threshold
-2. Agreed upon Claims Submitted Threshold
-3. Agreed upon Alpha Threshold
-4. Agreed upon Reserve Funds Raised
-5. Agreed upon Project Operating Funds Raised
-6. Agreed upon Supply Tokens to Mint
-7. Agreed upon Maximum Reserve Ratio
-8. Agreed upon Minimum Reserve Ratio
-9. Agreed upon Fund Fee
-10. Agreed upon Outcomes Payer's Commitment
+2. Agreed upon Alpha Threshold
+3. Agreed upon Reserve Funds Raised
+4. Agreed upon Project Operating Funds Raised
+5. Agreed upon Supply Tokens to Mint
+6. Agreed upon Maximum Reserve Ratio
+7. Agreed upon Minimum Reserve Ratio
+8. Agreed upon Fund Fee
+9. Agreed upon Outcomes Payer's Commitment
 
 ### Outputs to Next State
 1. ProjectTime Threshold
-2. Claims Submitted Threshold
-3. Alpha Threshold
-4. Reserve Funds Raised
-5. Project Operating Funds Raised
-6. Supply Tokens to Mint
-7. Maximum Reserve Ratio
-8. Minimum Reserve Ratio
-9. Fund Fee
-10. Outcomes Payer's Commitment
+2. Alpha Threshold
+3. Reserve Funds Raised
+4. Project Operating Funds Raised
+5. Supply Tokens to Mint
+6. Maximum Reserve Ratio
+7. Minimum Reserve Ratio
+8. Fund Fee
+9. Outcomes Payer's Commitment
 
 ### Transitions out of Initilization Phase
 Initialization Threshold Triggering Event: The bond is launched and as long as funds are placed in the appropriate accounts as agreed upon, the funding threshold is met and the system will move from the Initialization Phase to the Execution Phase. If the funding threshold is not met, the system will move from the Initialization Phase to the Settlement Phase.
@@ -90,22 +86,20 @@ The execution phase is the phase where active bond trading occurs resulting in u
 
 ### Initial State
 All values are at time t = 0:
-1. Claims Submitted
-2. Reserve Funds raised
-3. Project Operating Funds Raised
-4. Supply Tokens Minted
-5. Alpha
-6. Reserve Ratio
-7. Price
+1. Reserve Funds raised
+2. Project Operating Funds Raised
+3. Supply Tokens Minted
+4. Alpha
+5. Reserve Ratio
+6. Price
 
 ### Inputs
 1. Reserve Funds to be Deposited
 2. Supply Tokens to be Burned
 3. Project Success Attestation Supply Tokens<a href="glossary.md#note36" id="note36ref"><sup>36</sup></a> 
 4. Project Failure Attestation Supply Tokens<a href="glossary.md#note37" id="note37ref"><sup>37</sup></a> 
-5. Claim Submission
-6. Dispute Submission
-7. Settlement Consideration Claim
+5. Dispute Submission
+6. Settlement Consideration Claim
 
 ### Next State Outputs
 1. Amount of Supply Tokens Minted
