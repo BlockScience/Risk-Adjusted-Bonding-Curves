@@ -19,7 +19,7 @@ s_free = s - (s1+s0)
 
 ######## Just for initalization of variables ##########
 ####  Overwritten in configs.py for parameter sweeps with values in sys_params ######
-reserve = MONEY_RAISED[0]
+reserve = (1-THETA[0])*MONEY_RAISED[0]
 supply = KAPPA[0]*(reserve/PRICE)
 supply_free = supply - (S0 + S1)
 invariant_V = (supply**KAPPA[0])/reserve

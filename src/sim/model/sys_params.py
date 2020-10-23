@@ -24,12 +24,12 @@ rules_price = ["martin"]  # , "ramp", "sin"]
 # invariant_I = 650 #reserve + (C[0]*ALPHA[0])
 
 ####### CONTINUOUS FUNDING #####################
-ENABLE_CONTINUOUS = [True]
+ENABLE_CONTINUOUS = [False]
 THETA = [0.9]  # PORTION OF FUNDS FROM BONDING TO PROJECT, (1-theta) to reserve
 ####### CONTINUOUS FUNDING #####################
 
 ####### BURN ACTION #####################
-ENABLE_BURN = [True]
+ENABLE_BURN = [False]
 ####### BURN ACTION #####################
 
 ####### UNSIWAP STYLE TRADING #####################
@@ -41,8 +41,8 @@ fee_denominator = [1000]
 #Alpha and price should be biased similarly
 # -1 indicates negative bias, signal linearly decreasing
 # 1 indicates positive bias, signal linearly increasing
-alpha_bias = [1]
-price_bias = [1]
+alpha_bias = [-1]
+price_bias = [-1]
 
 print()
 
