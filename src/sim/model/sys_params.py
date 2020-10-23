@@ -44,7 +44,7 @@ fee_denominator = [1000]
 alpha_bias = [-1]
 price_bias = [-1]
 
-print()
+# print()
 
 # E = [0.1, 0.2, 0.3]
 E = [0.2]

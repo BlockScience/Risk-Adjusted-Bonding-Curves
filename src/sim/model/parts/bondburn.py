@@ -238,7 +238,7 @@ def update_pbar(params, substep, state_history, prev_state, policy_input):
     else:
         realized_price = prev_state['pbar']
 
-    print("PRICE pbar (from bondburn update) =", realized_price)
+    # print("PRICE pbar (from bondburn update) =", realized_price)
     return 'pbar', realized_price
 
 

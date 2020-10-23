@@ -26,9 +26,9 @@ invariant_V = (supply**KAPPA[0])/reserve
 invariant_I = reserve + (C[0]*ALPHA[0])
 
 ALPHA = S1 * reserve / (S1 * reserve - S0 * reserve + S0*C[0])
-print("ALPHA = ", ALPHA)
+# print("ALPHA = ", ALPHA)
 KAPPA = invariant_I / (invariant_I - (C[0]*ALPHA))
-print("KAPPA = ", KAPPA)
+# print("KAPPA = ", KAPPA)
 ##### Overwritten in configs.py for parameter sweeps with values in sys_params ######
 
 
@@ -101,4 +101,4 @@ initial_conditions = {
 }
 
 
-print("Initial Conditions (config.py) : ", initial_conditions)
+# print("Initial Conditions (config.py) : ", initial_conditions)

@@ -29,7 +29,7 @@ config_ids = [
     # 4.18 Method MC
 def run(drop_midsteps=False, df = df):
     # results = df
-    print('config_ids = ', config_ids)
+    # print('config_ids = ', config_ids)
     # sub_dfs = pd.DataFrame(columns= range(max(df.subset)+1))
     
     results = pd.DataFrame()
