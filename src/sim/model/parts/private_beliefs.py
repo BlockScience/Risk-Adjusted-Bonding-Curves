@@ -32,7 +32,7 @@ def update_private_price(params, substep, state_history, prev_state, policy_inpu
         'sigma': .005  # , 'N/A', 'N/A', 'N/A']
     }
 
-    # print("UPDATE PRIVATE PRICE")
+    print("UPDATE PRIVATE PRICE")
     #params = params[0]
     rules_price = params['rules_price']
     period = params['period']
@@ -76,7 +76,7 @@ def update_private_price(params, substep, state_history, prev_state, policy_inpu
     #print("noise s = ", noise_s)
 
     #new_private_price = (r + (noise_r * r)) / (s + (noise_s * s))
-    # print("--------------------------------------")
+    print("--------------------------------------")
 
     new_private_price = prev_state['chosen_agent']['agent_private_price']
 
@@ -116,11 +116,18 @@ def update_agent_beliefs(params, substep, state_history, prev_state, policy_inpu
     alpha_bias = params['alpha_bias']
     price_bias = params['price_bias']
 
+    #rv = np.random.normal(0, signal['sigma'])
+    #new_private_price = price+price*rv
+    #new_private_price = agent['agent_private_price']
+
+    #new_private_price = agent['agent_private_price']
+    #new_private_alpha = agent['agent_private_alpha']
     
     b_alpha = 0.3 # weight
 
     public_alpha_signal = 0.5 + alpha_bias*((1/200)*timestep)
     private_alpha_signal = 0.5 + alpha_bias*((1/200)*timestep)
+    #private_alpha_signal = 0.5 - ((1/1000)*timestep)
 
     new_private_alpha = (b_alpha)*public_alpha_signal + (1-b_alpha)*private_alpha_signal
 
@@ -128,10 +135,19 @@ def update_agent_beliefs(params, substep, state_history, prev_state, policy_inpu
 
     public_price_signal = 0.5 + price_bias*((1/200)*timestep)
     private_price_signal = 0.5 + price_bias*((1/200)*timestep)
+    #private_price_signal = 1.5 - ((1/1000)*timestep)
 
     new_private_price = (b_price)*public_price_signal + (1-b_price)*private_price_signal
 
+    agent['agent_private_alpha_signal'] = private_alpha_signal
+    agent['agent_public_alpha_signal'] = public_alpha_signal
+    agent['agent_private_price_signal'] = private_price_signal
+    agent['agent_public_price_signal'] = public_price_signal
+    
     agent['agent_private_price'] = new_private_price
     agent['agent_private_alpha'] = new_private_alpha
+
+    #print("agent['agent_private_price'] = ", agent['agent_private_price'])
+    #print("agent['agent_private_alpha'] = ", agent['agent_private_alpha'])
 
     return 'chosen_agent', agent

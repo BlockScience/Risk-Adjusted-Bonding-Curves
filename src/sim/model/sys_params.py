@@ -24,7 +24,7 @@ rules_price = ["martin"]  # , "ramp", "sin"]
 # invariant_I = 650 #reserve + (C[0]*ALPHA[0])
 
 ####### CONTINUOUS FUNDING #####################
-ENABLE_CONTINUOUS = [False]
+ENABLE_CONTINUOUS = [True]
 THETA = [0.9]  # PORTION OF FUNDS FROM BONDING TO PROJECT, (1-theta) to reserve
 ####### CONTINUOUS FUNDING #####################
 
