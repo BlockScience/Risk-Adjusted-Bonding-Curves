@@ -38,10 +38,13 @@ fee_denominator = [1000]
 
 ####### UNSIWAP STYLE TRADING #####################
 
-####### Agent Bias #####################
-fee_numerator = [997]
-fee_denominator = [1000]
+####### KAPPA INTEGER ENFORCEMENT #####################
+# kappa_rule = [True, False] # TRUE means INTEGER enforcement, False allows decimal type
 
+kappa_rule = ['round', 'none', 'fixed'] 
+# Round enforces Integer Rounding
+# None allows decimal type
+# Fixed kappa is fixed from initial value
 ####### UNSIWAP STYLE TRADING #####################
 
 
@@ -83,5 +86,5 @@ params = {
     'ENABLE_BURN' : ENABLE_BURN,
     'fee_numerator' : fee_numerator,
     'fee_denominator' : fee_denominator,
-
+    'kappa_rule' : kappa_rule,
 }

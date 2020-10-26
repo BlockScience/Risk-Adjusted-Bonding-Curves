@@ -219,6 +219,15 @@ def update_kappa(params, substep, state_history, prev_state, policy_input):
 ########################################################
     kappa = I / (I - (C*new_alpha))
 
+    if params['kappa_rule'] == 'round':
+        kappa = round(kappa)
+
+    elif  params['kappa_rule'] == 'fixed':
+        kappa = params['starting_kappa']
+
+    elif params['kappa_rule'] == 'none':
+        kappa = kappa
+        
     #print("kappa  = ", kappa)
     return 'kappa', kappa
 
