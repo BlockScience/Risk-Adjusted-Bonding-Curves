@@ -10,7 +10,7 @@
 <p> Token Bonding Curves are continuous liquidity mechanisms which are used in market design for cryptographically-supported token economies whereby tokens are automatically issued using buy and sell functions. Academic literature increasingly refers to bonding curves as "configuration spaces" as Bonding Curves are part of a larger theory of scalar functions that remain invariant under legal changes in state. </p>
 
 <a id="note4" href="#note4ref">4</a>  **Claim** <br/>
-<p>   Claims are submitted to prove impact or progress towards achieving the project's predetermined outcomes.
+<p>   Claims are submitted by project participants to report impact or progress towards achieving the project's predetermined outcomes. These can be considered 'informal attestations' denoting the progress of the project, but do not influence the alpha rating of a given project.
     
 <a id="note5" href="#note5ref">5</a>  **Dispute** <br/>
 <p>   Disputes are submitted to dispute the resolution of a claim<a href="glossary.md#note4" id="note4ref"><sup>4</sup></a>.
@@ -37,7 +37,7 @@
     The burn-to-withdraw mechanism removes bond tokens to redeem external currency through an agent’s action ![img](https://latex.codecogs.com/svg.latex?u_%7Ba%2C%20t%7D). The agent’s action represents a transaction to remove ![img](https://latex.codecogs.com/svg.latex?%5CDelta%20S_t%20%3A%3D%20s_%7Ba%2C%20t%7D%20-%20s_%7Ba%2C%20t&plus;1%7D%20%5Cleq%200) quantity of bond tokens from the bonding curve system. 
 
 <a id="note13" href="#note13ref">13</a> **Attestation** <br/><br/>
-    The **attestation** mechanism involves the lifecycle of claims. Claims undergo the stages of submission, evaluation, audit, and resolution. Claims Submission: claims are submitted to prove impact or progress towards achieving the project's predetermined outcomes. Claim Evaluation: submitted claims go through a process of evaluation to verify their validity. Claim Auditing: submitted claims may be audited. Claim Resolution: claims are resolved and completed. During resolution, a dispute could be submitted which would result in subsequent dispute evaluation and resolution. 
+    **Attestations** are the act of bonding tokens either towards the success or failure of the project in the risk prediction mechanism, which adjusts the alpha parameter upwards or downwards accordingly.
     
     
 <a id="note14" href="#note14ref">14</a> **Pre-initialization Phase** <br/>
@@ -117,13 +117,13 @@
 <p>     Supply (bond tokens) that are bonded to attest that the project will fail. </p>
     
 <a id="note38" href="#note38ref">38</a> **Reserve Ratio** <br/><br/>
-    The Reserve Ratio of a bond is the ratio of the value that is bonded to the bonding curve reserve to the total value of bond tokens issued (price * value of one bond token). The Reserve Ratio ![img](https://latex.codecogs.com/svg.latex?\rho&space;\in&space;[0,&space;1]) is determined by the curvature of the bonding curve ![img](https://latex.codecogs.com/svg.latex?$\kappa$), and is given by ![img](https://latex.codecogs.com/svg.latex?$$&space;\rho&space;=&space;1/\kappa$$)
+    The Reserve Ratio of a bond is the ratio of the value that is bonded to the bonding curve reserve to the total value of bond tokens issued (price * value of one bond token). The Reserve Ratio ![img](http://latex.codecogs.com/svg.latex?\rho&space;\in&space;[0,&space;&space;1]) is determined by the curvature of the bonding curve ![img](http://latex.codecogs.com/svg.latex?\kappa), and is given by ![img](http://latex.codecogs.com/svg.latex?&space;\rho&space;=&space;1/\kappa)
 
 <a id="note39" href="#note39ref">39</a> **Price** <br/><br/>
     The price signal ![img](https://latex.codecogs.com/svg.latex?P_t%20%5Cin%20%5Cmathbb%7BR%7D_%7B&plus;&plus;%7D) at time ![img](https://latex.codecogs.com/svg.latex?t) is an estimate of the value of the bond token, in units of ![img](https://latex.codecogs.com/svg.latex?R) per units of ![img](https://latex.codecogs.com/svg.latex?S).
 
 <a id="note40" href="#note40ref">40</a> **Outcomes Payer's Commitment** <br/><br/>
-    Outcomes Payer's commitment of a set amount of external currency that they will pay out during the Settlement Phase conditioned on one or many state variables, typically ![img](https://latex.codecogs.com/svg.latex?$\Omega$). The outcomes payer's commitment  ![img](https://latex.codecogs.com/svg.latex?$C\in\mathbb{R}_&plus;$) is set during the Initialization Phase. The bond terms set during Initialization outline all $(C, \Omega)$ pairs, and remain constant through the following phases. ![img](https://latex.codecogs.com/svg.latex?$C$) is known to all agents after the Initialization phase. 
+    Outcomes Payer's commitment of a set amount of external currency that they will pay out during the Settlement Phase conditioned on one or many state variables, typically ![img](http://latex.codecogs.com/svg.latex?\Omega). The outcomes payer's commitment  ![img](http://latex.codecogs.com/svg.latex?C\in\mathbb{R}_&plus;) is set during the Initialization Phase. The bond terms set during Initialization outline all ![img](http://latex.codecogs.com/svg.latex?(C,&space;\Omega)) pairs, and remain constant through the following phases. ![img](http://latex.codecogs.com/svg.latex?C) is known to all agents after the Initialization phase. 
 
 <a id="note41" href="#note41ref">41</a> **Initialization Conditions** <br/>
 <p>     Criteria specified at the Initialization Phase which need to be met for the state to transition into the Execution phase. In the bonding curve use case, the initialization conditions are also referred to as launch conditions. </p>
