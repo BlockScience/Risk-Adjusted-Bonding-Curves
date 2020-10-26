@@ -63,9 +63,9 @@ The prediction market avoids the Keynesian Beauty Contest problem (also called "
 
 ![img](https://i.imgur.com/G0io8OV.png)
 
-$Alpha$ can be considered a probability of project success, ranging from 0-100%. This parameter is set according to a dynamic average consensus of all prediction market participants, and serves as a "wisdom of the crowd" measure to surface an estimation of project risk to funders & decision makers. 
+$\alpha$ can be considered a probability of project success, ranging from 0-100%. This parameter is set according to a dynamic average consensus of all prediction market participants, and serves as a "wisdom of the crowd" measure to surface an estimation of project risk to funders & decision makers. 
 
-Varying $alpha$ impacts the shape of the bonding curve and thus the price of the token, as well as the reserve ratio. This is explained in mathematical detail in the [System Specification notebook](Math_Specification/1_System_specification.ipynb).  In this model, a lower $alpha$ denotes lower confidence in project success, which increases the collateralization of the bonding curve to reduce risk for participants.
+Varying $alpha$ impacts the shape of the bonding curve and thus the price of the token, as well as the reserve ratio. This is explained in mathematical detail in the [System Specification notebook](Math_Specification/1_System_Specification.ipynb).  In this model, a lower $alpha$ denotes lower confidence in project success, which increases the collateralization of the bonding curve to reduce risk for participants.
 
 <br>
 
