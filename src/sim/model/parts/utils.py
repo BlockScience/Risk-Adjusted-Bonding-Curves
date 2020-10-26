@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-import pickle
+#import pickle
 
 
 def alpha_plot(experiments,test_title):
@@ -33,6 +33,33 @@ def alpha_plot(experiments,test_title):
     
     return agent_public_alpha_signal,agent_private_alpha_signal, agent_private_alpha
         
+def reserve_supply(experiments,test_title):
+    
+    df = experiments.dataset[0][experiments.dataset[0]['substep'] == experiments.dataset[0].substep.max()]
+
+    fig = plt.figure(figsize=(15, 10))
+    plt.plot(range(0,100),df.reserve,label='Reserve',marker='o')
+    plt.plot(range(0,100),df.supply,label='Supply',marker='*')
+    
+    plt.legend()
+    plt.title(test_title)
+    plt.xlabel('Timestep')
+    plt.ylabel('Amount')
+
+    plt.show()
+
+def funds_from_bond(experiments,test_title):
+    
+    df = experiments.dataset[0][experiments.dataset[0]['substep'] == experiments.dataset[0].substep.max()]
+
+    fig = plt.figure(figsize=(15, 10))
+    plt.plot(range(0,100),df.funds_from_bond,label='Funds from Bonds',marker='+')
+    plt.legend()
+    plt.title(test_title)
+    plt.xlabel('Timestep')
+    plt.ylabel('Amount')
+
+    plt.show()
 
 
 def price(experiments,test_title):
@@ -103,7 +130,56 @@ def agent_payout(experiments):
     
     return x_pos,payouts
 
+def agent_payout_2(experiments):
+    t = 600
+    S_free = experiments.dataset[0].supply_free[t]
+    S_0 = experiments.dataset[0].supply_0[t]
+    S_1 = experiments.dataset[0].supply_1[t]
+    agents_id = [0,1]
+    payout_list = []
+    for a in agents_id:
+        q1 = experiments.dataset[0].agents[t].agent_attestations_1[a]
+        q0 = experiments.dataset[0].agents[t].agent_attestations_0[a]
+        s_free = experiments.dataset[0].agents[t].agent_supply_free[a]
+        s1 = experiments.dataset[0].agents[t].agent_supply_1[a]
+        s0 = experiments.dataset[0].agents[t].agent_supply_0[a]
+        s = s_free + s1 + s0
+        agent_private_alpha = experiments.dataset[0].agents[t].agent_private_alpha[a]
+        Q0 = experiments.dataset[0].attestations_0[t]
+        Q1 = 1 
+        R = experiments.dataset[0].reserve[t]
+        S = experiments.dataset[0].supply[t]
+        C = 72000 
+        alpha = experiments.dataset[0].alpha[t]
+        if alpha < 0.5:
+            alpha = 0
+        elif alpha > 0.5:
+            alpha = 1
+        #print("s_free = ", s_free, "| S = ", S)
+        T1 = (s_free/S)*(C*alpha + R)
+        T2 = (s1/(S-S_0))*alpha*(C+R)
+        T3 = (s0/(S-S_1))*(1-alpha)*(R)
+        agent_payout = T1+T2+T3
+        payout_list.append(agent_payout)
 
+        arr2d = np.array(payout_list)
+
+    arr1d = arr2d.flatten()
+
+    x = agents_id
+    payouts = arr1d
+
+    x_pos = [i for i, _ in enumerate(x)]
+
+    fig = plt.figure(figsize=(15, 10))
+    plt.bar(x_pos, payouts, color='green')
+    plt.xlabel("Agent ID")
+    plt.ylabel("Payout amount (tokens)")
+    plt.title("Agent and their Payouts")
+
+    plt.xticks(x_pos, x)
+
+    plt.show()
 
 def load_experiment_data(test):
     with open('chimple_data/'+test+'/Alpha/agent_public_alpha_signal.pickle', 'rb') as filehandle:
