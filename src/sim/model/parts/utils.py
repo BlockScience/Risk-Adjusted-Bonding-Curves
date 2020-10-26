@@ -1,31 +1,27 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import pickle
 
 
 def alpha_plot(experiments,test_title):
     agent_private_alpha_signal = []
     agent_public_alpha_signal = []
     agent_private_alpha = []
+    df = experiments.dataset[0]
+    df = df[df['substep'] == df.substep.max()]
     for i in range (0,100): 
         agent_public_alpha_signal_list = []
-        agent_public_alpha_signal_list.append(experiments.dataset[0].agents[i].agent_public_alpha_signal.to_list())
+        agent_public_alpha_signal_list.append(df.chosen_agent.values[i]['agent_public_alpha_signal'])
         agent_public_alpha_signal.append(np.mean(agent_public_alpha_signal_list))
-
         agent_private_alpha_signal_list= []
-        agent_private_alpha_signal_list.append(experiments.dataset[0].agents[i].agent_private_alpha_signal.to_list())
+        agent_private_alpha_signal_list.append(df.chosen_agent.values[i]['agent_private_alpha_signal'])
         agent_private_alpha_signal.append(np.mean(agent_private_alpha_signal_list))
-
         agent_private_alpha_list = []
-        agent_private_alpha_list.append(experiments.dataset[0].agents[i].agent_private_alpha.to_list())
+        agent_private_alpha_list.append(df.chosen_agent.values[i]['agent_private_alpha'])
         agent_private_alpha.append(np.mean(agent_private_alpha_list))
-
-    df = experiments.dataset[0][experiments.dataset[0]['substep'] == experiments.dataset[0].substep.max()]
     public_alpha = df.alpha
-
-
     fig = plt.figure(figsize=(15, 10))
-
     plt.plot(range(0,100),agent_public_alpha_signal,label='Agent Public Alpha Signal', marker='o')
     plt.plot(range(0,100),agent_private_alpha_signal,label='Agent Private Alpha Signal',marker='o')
     plt.plot(range(0,100),agent_private_alpha,label='Agent Private Alpha',marker='*')
@@ -33,7 +29,6 @@ def alpha_plot(experiments,test_title):
     plt.title(test_title)
     plt.xlabel('Timestep')
     plt.ylabel('Alpha')
-
     plt.show()
     
     return agent_public_alpha_signal,agent_private_alpha_signal, agent_private_alpha

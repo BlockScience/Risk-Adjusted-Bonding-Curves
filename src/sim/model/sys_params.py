@@ -29,7 +29,7 @@ THETA = [0.9]  # PORTION OF FUNDS FROM BONDING TO PROJECT, (1-theta) to reserve
 ####### CONTINUOUS FUNDING #####################
 
 ####### BURN ACTION #####################
-ENABLE_BURN = [False]
+ENABLE_BURN = [True]
 ####### BURN ACTION #####################
 
 ####### UNSIWAP STYLE TRADING #####################
@@ -41,8 +41,8 @@ fee_denominator = [1000]
 #Alpha and price should be biased similarly
 # -1 indicates negative bias, signal linearly decreasing
 # 1 indicates positive bias, signal linearly increasing
-alpha_bias = [-1]
-price_bias = [-1]
+alpha_bias = [1]
+price_bias = [1]
 
 # print()
 
