@@ -6,7 +6,7 @@ import math
 
 
 def set_action(params, substep, state_history, prev_state):
-    params = params[0]
+    # params = params[0]
     # pprint(params)
     # print('Choose Action')
     R = prev_state['reserve']
@@ -83,7 +83,11 @@ def set_action(params, substep, state_history, prev_state):
         # max_burn = s_free*(1-dust)
         # print("s_free = ", s_free, "| RAND = ", (random.randint(85, 90)/100))
         # amt_to_burn = amt*beta <-- send to iteration 2 of amt_to_burn calculation
+<<<<<<< HEAD
         # print("Agent burns. Amt to burn = ", amt_to_burn)
+=======
+        # "Agent burns. Amt to burn = ", amt_to_burn)
+>>>>>>> mb_kappa
 
     elif P < (private_price - tau) and r > 0 and S > 0:
         mech_bc = 'bond'
@@ -129,6 +133,8 @@ def set_action(params, substep, state_history, prev_state):
         amt_to_burn = 0
         # print("No trade. P = ", P, "private_price = ", private_price)
 
+    # print('alpha ', alpha)
+    # print('alpha ', type(alpha), ' private_alpha ', type(private_alpha), ' s_free ', type(s_free))
     if alpha > private_alpha and s_free > 0:
         mech_pm = 'attest_neg'
         # print("Negative attestation. | alpha = ",

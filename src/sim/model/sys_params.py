@@ -24,7 +24,7 @@ rules_price = ["martin"]  # , "ramp", "sin"]
 # invariant_I = 650 #reserve + (C[0]*ALPHA[0])
 
 ####### CONTINUOUS FUNDING #####################
-ENABLE_CONTINUOUS = [True]
+ENABLE_CONTINUOUS = [True] #, False]
 THETA = [0.9]  # PORTION OF FUNDS FROM BONDING TO PROJECT, (1-theta) to reserve
 ####### CONTINUOUS FUNDING #####################
 
@@ -43,6 +43,17 @@ fee_denominator = [1000]
 # 1 indicates positive bias, signal linearly increasing
 alpha_bias = [1]
 price_bias = [1]
+
+####### KAPPA INTEGER ENFORCEMENT #####################
+# kappa_rule = [True, False] # TRUE means INTEGER enforcement, False allows decimal type
+
+kappa_rule = ['round', 'none', 'fixed'] 
+# Round enforces Integer Rounding
+# None allows decimal type
+# Fixed kappa is fixed from initial value
+####### UNSIWAP STYLE TRADING #####################
+
+
 
 # print()
 
@@ -64,6 +75,21 @@ ENABLE_BURN = list(ENABLE_BURN)
 alpha_bias = list(alpha_bias)
 price_bias = list(price_bias)
 
+############ PARAMETRIC TESTS #########################################################################
+# factors = [rules_price, KAPPA, E, MONEY_RAISED, ALPHA, C, THETA, ENABLE_CONTINUOUS, ENABLE_BURN]
+# product = list(itertools.product(*factors))
+# rules_price, KAPPA, E, MONEY_RAISED, ALPHA, C, THETA, ENABLE_CONTINUOUS, ENABLE_BURN= zip(*product)
+# rules_price = list(rules_price)
+# KAPPA = list(KAPPA)
+# E = list(E)
+# MONEY_RAISED = list(MONEY_RAISED)
+# ALPHA = list(ALPHA)
+# C = list(C)
+# THETA = list(THETA)
+# ENABLE_CONTINUOUS = list(ENABLE_CONTINUOUS)
+# ENABLE_BURN = list(ENABLE_BURN)
+############ PARAMETRIC TESTS #########################################################################
+
 ########## SYSTEM PARAMETERS ##########
 params = {
     'starting_kappa': KAPPA,  # initial kappa
@@ -83,7 +109,11 @@ params = {
     'ENABLE_BURN' : ENABLE_BURN,
     'fee_numerator' : fee_numerator,
     'fee_denominator' : fee_denominator,
+<<<<<<< HEAD
     'alpha_bias': alpha_bias,
     'price_bias': price_bias,
 
+=======
+    'kappa_rule' : kappa_rule,
+>>>>>>> mb_kappa
 }

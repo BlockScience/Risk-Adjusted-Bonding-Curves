@@ -3,7 +3,7 @@ import math
 
 
 def add_instalment(params, substep, state_history, prev_state):
-    params = params[0]
+    # params = params[0]
     monthly_instalment = params['monthly_instalment']
     timestep = prev_state['timestep']
 

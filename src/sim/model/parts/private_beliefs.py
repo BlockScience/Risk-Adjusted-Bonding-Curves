@@ -33,7 +33,7 @@ def update_private_price(params, substep, state_history, prev_state, policy_inpu
     }
 
     print("UPDATE PRIVATE PRICE")
-    #params = params[0]
+    ## params = params[0]
     rules_price = params['rules_price']
     period = params['period']
     timestep = prev_state['timestep']
@@ -76,7 +76,7 @@ def update_private_price(params, substep, state_history, prev_state, policy_inpu
     #print("noise s = ", noise_s)
 
     #new_private_price = (r + (noise_r * r)) / (s + (noise_s * s))
-    print("--------------------------------------")
+    # print("--------------------------------------")
 
     new_private_price = prev_state['chosen_agent']['agent_private_price']
 
@@ -99,7 +99,7 @@ def update_private_alpha(params, substep, state_history, prev_state, policy_inpu
 
     public_alpha_signal = 0.9
     private_alpha_signal = random.randint(0,50)/100
-
+    new_public_alpha =  random.randint(0,50)/100
     new_private_alpha = (b)*new_public_alpha + (1-b)*private_alpha_signal
 
     #new_private_alpha = prev_state['chosen_agent']['agent_private_alpha']
@@ -123,37 +123,22 @@ def update_agent_beliefs(params, substep, state_history, prev_state, policy_inpu
     #new_private_price = agent['agent_private_price']
     #new_private_alpha = agent['agent_private_alpha']
     
-<<<<<<< HEAD
     b_alpha = 0.0 # bias
 
     public_alpha_signal = 0.5 + ((1/1000)*timestep)
     private_alpha_signal = 0.5 + ((1/1000)*timestep)
-=======
-    b_alpha = 0.3 # weight
-
-    public_alpha_signal = 0.5 + alpha_bias*((1/200)*timestep)
-    private_alpha_signal = 0.5 + alpha_bias*((1/200)*timestep)
->>>>>>> shru_ixo
     #private_alpha_signal = 0.5 - ((1/1000)*timestep)
 
     private_alpha = (b_alpha)*public_alpha_signal + (1-b_alpha)*private_alpha_signal
 
-<<<<<<< HEAD
     b_price = 0.0 # bias
 
     public_price_signal = 0.5 + ((1/1000)*timestep)
     private_price_signal = 0.5 + ((1/1000)*timestep) 
-=======
-    b_price = 0.3 # weight
-
-    public_price_signal = 0.5 + price_bias*((1/200)*timestep)
-    private_price_signal = 0.5 + price_bias*((1/200)*timestep)
->>>>>>> shru_ixo
     #private_price_signal = 1.5 - ((1/1000)*timestep)
 
     private_price = (b_price)*public_price_signal + (1-b_price)*private_price_signal
 
-<<<<<<< HEAD
     agent['agent_private_price_signal'] = private_price_signal
     agent['agent_private_alpha_signal'] = private_alpha_signal
     agent['agent_public_price_signal'] = public_price_signal
@@ -161,15 +146,6 @@ def update_agent_beliefs(params, substep, state_history, prev_state, policy_inpu
     
     agent['agent_private_price'] = private_price
     agent['agent_private_alpha'] = private_alpha
-=======
-    agent['agent_private_alpha_signal'] = private_alpha_signal
-    agent['agent_public_alpha_signal'] = public_alpha_signal
-    agent['agent_private_price_signal'] = private_price_signal
-    agent['agent_public_price_signal'] = public_price_signal
-    
-    agent['agent_private_price'] = new_private_price
-    agent['agent_private_alpha'] = new_private_alpha
->>>>>>> shru_ixo
 
     #print("agent['agent_private_price'] = ", agent['agent_private_price'])
     #print("agent['agent_private_alpha'] = ", agent['agent_private_alpha'])
