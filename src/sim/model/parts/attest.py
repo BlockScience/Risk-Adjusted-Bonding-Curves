@@ -128,6 +128,7 @@ def attest_neg(R, C, E, alpha, Q, Q1, Q0, S, S1, S0, q0, q1, s_free, s1, s0, s, 
 
 def update_alpha(params, substep, state_history, prev_state, policy_input):
 
+    # params = params[0]
     R = prev_state['reserve']
     C = params['C']
     E = params['E']
@@ -158,12 +159,12 @@ def update_alpha(params, substep, state_history, prev_state, policy_input):
     if attest_action == 'attest_pos':  # positive attestation
         new_alpha = attest_pos(R, C, E, alpha, Q, Q1, Q0, S, S1, S0,
                                q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s)
-        print("Positive attestation 1")
+        # print("Positive attestation 1")
 
     elif attest_action == 'attest_neg':  # negative attestation
         new_alpha = attest_neg(R, C, E, alpha, Q, Q1, Q0, S, S1, S0,
                                q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s)
-        print("Negative attestation 1")
+        # print("Negative attestation 1")
 
     else:
         new_alpha = alpha
@@ -174,6 +175,7 @@ def update_alpha(params, substep, state_history, prev_state, policy_input):
 
 def update_kappa(params, substep, state_history, prev_state, policy_input):
 
+    # params = params[0]
     R = prev_state['reserve']
     C = params['C']
     E = params['E']
@@ -217,11 +219,22 @@ def update_kappa(params, substep, state_history, prev_state, policy_input):
 ########################################################
     kappa = I / (I - (C*new_alpha))
 
+    if params['kappa_rule'] == 'round':
+        kappa = round(kappa)
+
+    elif  params['kappa_rule'] == 'fixed':
+        kappa = params['starting_kappa']
+
+    elif params['kappa_rule'] == 'none':
+        kappa = kappa
+        
     #print("kappa  = ", kappa)
     return 'kappa', kappa
 
 
 def update_I_attest(params, substep, state_history, prev_state, policy_input):
+
+    # params = params[0]
     R = prev_state['reserve']
     C = params['C']
     E = params['E']
@@ -267,6 +280,7 @@ def update_I_attest(params, substep, state_history, prev_state, policy_input):
 
 def update_P_attest(params, substep, state_history, prev_state, policy_input):
 
+    # params = params[0]
     R = prev_state['reserve']
     C = params['C']
     E = params['E']
@@ -307,7 +321,7 @@ def update_P_attest(params, substep, state_history, prev_state, policy_input):
     kappa = I / (I - (C*new_alpha))
 
     P = kappa * (R/S)
-    print("PRICE (ATTEST): ", P)
+    # print("PRICE (ATTEST): ", P)
 
     #print("Spot Price P (attest) = ", P)
     return 'spot_price', P
@@ -315,6 +329,7 @@ def update_P_attest(params, substep, state_history, prev_state, policy_input):
 
 def update_V(params, substep, state_history, prev_state, policy_input):
 
+    # params = params[0]
     R = prev_state['reserve']
     C = params['C']
     E = params['E']
@@ -354,6 +369,9 @@ def update_V(params, substep, state_history, prev_state, policy_input):
 
     # I = R + (C*new_alpha)
     kappa = I / (I - (C*new_alpha))
+    # print("S = ", S)
+    # print("KAPPA  = ", kappa)
+    # print("R = ", R)
     V = (S**(kappa))/R
 
     return 'invariant_V', V

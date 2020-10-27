@@ -33,7 +33,7 @@ def update_private_price(params, substep, state_history, prev_state, policy_inpu
     }
 
     print("UPDATE PRIVATE PRICE")
-    #params = params[0]
+    ## params = params[0]
     rules_price = params['rules_price']
     period = params['period']
     timestep = prev_state['timestep']
@@ -76,7 +76,7 @@ def update_private_price(params, substep, state_history, prev_state, policy_inpu
     #print("noise s = ", noise_s)
 
     #new_private_price = (r + (noise_r * r)) / (s + (noise_s * s))
-    print("--------------------------------------")
+    # print("--------------------------------------")
 
     new_private_price = prev_state['chosen_agent']['agent_private_price']
 
@@ -93,7 +93,16 @@ def update_private_alpha(params, substep, state_history, prev_state, policy_inpu
 
     # new_private_alpha = (random.randint(50, 100))/100
 
-    new_private_alpha = prev_state['chosen_agent']['agent_private_alpha']
+        # e is private alpha's bias towards public alpha
+
+    b = 0.8 # high bias
+
+    public_alpha_signal = 0.9
+    private_alpha_signal = random.randint(0,50)/100
+
+    new_private_alpha = (b)*new_public_alpha + (1-b)*private_alpha_signal
+
+    #new_private_alpha = prev_state['chosen_agent']['agent_private_alpha']
 
     # print("new_private_alpha = ", new_private_alpha)
     return 'private_alpha', new_private_alpha
@@ -102,14 +111,35 @@ def update_private_alpha(params, substep, state_history, prev_state, policy_inpu
 def update_agent_beliefs(params, substep, state_history, prev_state, policy_input):
 
     agent = prev_state['chosen_agent']
+    timestep = prev_state['timestep']
 
-    new_private_price = agent['agent_private_price']
-    new_private_alpha = agent['agent_private_alpha']
+    #rv = np.random.normal(0, signal['sigma'])
+    #new_private_price = price+price*rv
+    #new_private_price = agent['agent_private_price']
+
+    #new_private_price = agent['agent_private_price']
+    #new_private_alpha = agent['agent_private_alpha']
+    
+    b_alpha = 0.3 # bias
+
+    public_alpha_signal = 0.5 + ((1/200)*timestep)
+    private_alpha_signal = 0.5 + ((1/200)*timestep)
+    #private_alpha_signal = 0.5 - ((1/1000)*timestep)
+
+    new_private_alpha = (b_alpha)*public_alpha_signal + (1-b_alpha)*private_alpha_signal
+
+    b_price = 0.3 # bias
+
+    public_price_signal = 0.5 + ((1/200)*timestep)
+    private_price_signal = 0.5 + ((1/200)*timestep)
+    #private_price_signal = 1.5 - ((1/1000)*timestep)
+
+    new_private_price = (b_price)*public_price_signal + (1-b_price)*private_price_signal
 
     agent['agent_private_price'] = new_private_price
     agent['agent_private_alpha'] = new_private_alpha
 
-    print("agent['agent_private_price'] = ", agent['agent_private_price'])
-    print("agent['agent_private_alpha'] = ", agent['agent_private_alpha'])
+    # print("agent['agent_private_price'] = ", agent['agent_private_price'])
+    # print("agent['agent_private_alpha'] = ", agent['agent_private_alpha'])
 
     return 'chosen_agent', agent
