@@ -109,11 +109,8 @@ params = {
     'ENABLE_BURN' : ENABLE_BURN,
     'fee_numerator' : fee_numerator,
     'fee_denominator' : fee_denominator,
-<<<<<<< HEAD
     'alpha_bias': alpha_bias,
     'price_bias': price_bias,
 
-=======
     'kappa_rule' : kappa_rule,
->>>>>>> mb_kappa
 }

@@ -112,7 +112,7 @@ def update_agent_beliefs(params, substep, state_history, prev_state, policy_inpu
 
     agent = prev_state['chosen_agent']
     timestep = prev_state['timestep']
-    params = params[0]
+    # params = params[0]
     alpha_bias = params['alpha_bias']
     price_bias = params['price_bias']
 
