@@ -8,6 +8,9 @@ def put_agent_back_to_df(params, substep, state_history, prev_state, policy_inpu
 #          ' the value is '+str(chosen_agent_id))
     chosen_agent_df = pd.DataFrame(
         chosen_agent, index=[int(chosen_agent['id'])])
+      
+    # print("UPDATED CHOSEN AGENT = ", chosen_agent_df, 'Time ', prev_state['timestep'])
+    # print("---------END OF TIMESTEP", prev_state['timestep'], "-----------")
 
   #  print('Agent after a timestep:::' + chosen_agent_df.to_string())
     agents_df = prev_state['agents']

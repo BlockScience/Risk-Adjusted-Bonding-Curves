@@ -1,4 +1,4 @@
-from cadCAD.configuration import append_configs
+from cadCAD.configuration import append_configs # 4.18: append_configs. Later: Experiment
 from cadCAD.configuration.utils import config_sim
 
 from src.sim.model.state_variables import initial_conditions
@@ -18,7 +18,11 @@ sim_config = config_sim({
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # The configurations above are packaged into a `Configuration` object
+
+###### 4.18 conversion #######################
+#exp = Experiment()
 append_configs(
+###### 4.18 conversion #######################
     # dict containing variable names and initial values
     initial_state=initial_conditions,
     # dict containing state update functions
@@ -32,7 +36,7 @@ append_configs(
 for c in configs:
     c.initial_state = deepcopy(c.initial_state)
 
-    print("Params (config.py) : ", c.sim_config['M'])
+    # print("Params (config.py) : ", c.sim_config['M'])
 
     c.initial_state['kappa'] = c.sim_config['M']['starting_kappa']
     c.initial_state['alpha'] = c.sim_config['M']['starting_alpha']

@@ -5,10 +5,11 @@ from src.sim.model.parts.private_beliefs import *
 from src.sim.model.parts.bondburn import *
 from src.sim.model.parts.attest import *
 from src.sim.model.parts.choose_action import set_action
+from src.sim.model.parts.monthly_instalment import add_instalment
 from src.sim.model.parts.choose_agent import choose_agent
 from src.sim.model.parts.put_agent_back_to_df import put_agent_back_to_df
 
-print("-----------------PSUB---------------------")
+# print("-----------------PSUB---------------------")
 
 partial_state_update_block = [
     {
@@ -18,25 +19,27 @@ partial_state_update_block = [
         'variables': {
             # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
             # Initialization and exogenous processes
-            'chosen_agent': choose_agent
+            'chosen_agent': choose_agent,
+            #'public_alpha': update_public_alpha
         }
     },
-    # {
-    #     'policies': {
-    #         # 'act': set_action
-    #     },
-    #     'variables': {
-    #         # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-    #         # Agent signaling
-    #         # Capture any private signals eg. sine wave
-    #         # 'agent_private_price': update_private_price,
-    #         # 'agent_private_alpha': update_private_alpha,
-    #         # 'chosen_agent': update_agent_beliefs
-    #     }
-    # },
     {
         'policies': {
-            'act': set_action
+             # 'act': set_action
+         },
+        'variables': {
+             # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+             # Agent signaling
+             # Capture any private signals eg. sine wave
+             #'agent_private_price': update_private_price,
+             #'agent_private_alpha': update_private_alpha,
+             'chosen_agent': update_agent_beliefs
+         }
+    },
+    {
+        'policies': {
+            'act': set_action,
+            'add_instalment': add_instalment,
         },
         'variables': {
             # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
