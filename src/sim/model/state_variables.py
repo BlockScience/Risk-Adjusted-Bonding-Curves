@@ -75,11 +75,11 @@ initial_conditions = {
     # 'kappa': 0,
     'kappa': 2,
     'supply': supply,
-    # 'alpha': ALPHA,
-    'alpha': ALPHA[0],
+    'alpha': ALPHA,
+    # 'alpha': ALPHA[0],
 
-    # 'alpha_bar': ALPHA,
-    'alpha_bar': ALPHA[0],
+    'alpha_bar': ALPHA,
+    # 'alpha_bar': ALPHA[0],
     
     'supply_0': S0,
     'supply_1': S1,
