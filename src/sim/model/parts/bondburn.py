@@ -1,7 +1,7 @@
 
 
 def update_R(params, substep, state_history, prev_state, policy_input):
-
+    params = params[0]
     # access amt_to_burn using _input['action']['amt_to_burn'] because it's a dict of dicts
     R = prev_state['reserve']
     S = prev_state['supply']
@@ -14,16 +14,51 @@ def update_R(params, substep, state_history, prev_state, policy_input):
         print("V IS ZERO")  # degenerate
     else:
         deltaR = R - (((S-deltaS)**kappa)/V)
-        print("::::delta R::::", deltaR)
-        print("::::AMTBOND::::", policy_input['amt_to_bond'])
-        R = R + policy_input['amt_to_bond'] - deltaR
+        #print("::::delta R::::", deltaR)
+        #print("::::AMTBOND::::", policy_input['amt_to_bond'])
+
+        ## Continuous ##
+        # Continuous Enabled, newly reserved funds split to bond reserve and project funding
+        if params['ENABLE_CONTINUOUS']:
+            R = R + policy_input['amt_to_bond']*(1-params['THETA']) # - deltaR  all burned funds not tempered by theta
+            if params['ENABLE_BURN']:
+                R = R  - deltaR # for burning allowed (=TRUE) subtract burned funds from reserve
+                
+        # Continuous Not Enabled, all new reserve funds go to reserve the bond
+        else:
+            if params['ENABLE_BURN']:
+                R = R + policy_input['amt_to_bond'] - deltaR # for burning allowed (=TRUE) subtract burned funds from reserve
+            else:
+                R = R + policy_input['amt_to_bond'] # for burning on bodning curve not allowed, occurs in uniswap
         # print("RESERVE = ", R, " | deltaR = ", deltaR, " | deltaS = ", deltaS)
 
     return 'reserve', R
 
+def update_funds(params, substep, state_history, prev_state, policy_input):
+    params = params[0]
+    # access amt_to_burn using _input['action']['amt_to_burn'] because it's a dict of dicts
+    F = prev_state['funds_from_bond']
+    V = prev_state['invariant_V']
+    monthly_instalment = policy_input['monthly_instalment']
+    
+    if V == 0:
+        print("V IS ZERO")  # degenerate
+    else:
+        ## Continuous ##
+        if params['ENABLE_CONTINUOUS']:
+            deltaF = policy_input['amt_to_bond'] * (params['THETA']) 
+
+            # burn if else
+
+        else:
+            deltaF = 0
+
+    F += deltaF
+    F += monthly_instalment
+    return 'funds_from_bond', F
 
 def update_S(params, substep, state_history, prev_state, policy_input):
-
+    params = params[0]
     R = prev_state['reserve']
     S = prev_state['supply']
     V = prev_state['invariant_V']
@@ -94,12 +129,8 @@ def compute_s_free(R, S, V, kappa, s_free, deltaR, policy_input, timestep):
     s_free = s_free + deltas - policy_input['amt_to_burn']
 
     # TEST RANDOM DROP
-    if timestep > 375 and timestep % 2 == 0:
-        random_drop = 10
-    if timestep > 250 and timestep % 2 == 0:
-        random_drop = 10
-    elif timestep % 2 == 0:
-        random_drop = 10
+    if timestep % 20 == 0:
+        random_drop = 0
     else:
         random_drop = 0
 
@@ -173,7 +204,7 @@ def update_P_bondburn(params, substep, state_history, prev_state, policy_input):
     else:
         P = amt_to_bond/amt_to_burn
 
-    print("PRICE (BOND/BURN): ", P)
+    #print("PRICE (BOND/BURN): ", P)
     # print("SPOT PRICE P (from bondburn update) = ", P)
     return 'spot_price', P
 
@@ -186,19 +217,23 @@ def update_pbar(params, substep, state_history, prev_state, policy_input):
     deltaS = policy_input['amt_to_burn']
     deltaR = policy_input['amt_to_bond']
 
-    if deltaS == 0:
-        deltaS = (V*(R+deltaR))**(1/kappa)-S
-   ############ STILL DIVISION by ZERO #######################
-        if deltaS == 0:
-            deltaS = 0.00001
-        ############ STILL DIVISION by ZERO #######################
-    elif deltaR == 0:
+    if deltaS != 0:
         deltaR = R-((S-deltaS)**kappa)/V
+        if deltaR == 0:
+            realized_price = prev_state['pbar']
+        else:
+            realized_price = deltaR/deltaS
+    elif deltaR != 0:
+        deltaS = (V*(R+deltaR))**(1/kappa)-S
+        if deltaS == 0:
+            realized_price = prev_state['pbar']
+        else:
+            realized_price = deltaR/deltaS
+    else:
+        realized_price = prev_state['pbar']
 
-    realized_price = deltaR/deltaS
-    pbar = realized_price
-    print("PRICE pbar (from bondburn update) =", pbar)
-    return 'pbar', pbar
+    # print("PRICE pbar (from bondburn update) =", realized_price)
+    return 'pbar', realized_price
 
 
 def update_I_bondburn(params, substep, state_history, prev_state, policy_input):

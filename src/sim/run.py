@@ -26,9 +26,12 @@ config_ids = [
 ]
 
 
-def run(drop_midsteps=True):
-    print('config_ids = ', config_ids)
-    result_records_list, sim_id_records = [], []
+    # 4.18 Method MC
+def run(drop_midsteps=False, df = df):
+    # results = df
+    # print('config_ids = ', config_ids)
+    # sub_dfs = pd.DataFrame(columns= range(max(df.subset)+1))
+    
     results = pd.DataFrame()
     sim_ids = list(set([_id['simulation_id'] for _id in config_ids]))
 
