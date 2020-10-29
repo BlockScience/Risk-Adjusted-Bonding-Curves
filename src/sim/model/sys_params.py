@@ -41,7 +41,7 @@ fee_denominator = [1000]
 ####### KAPPA INTEGER ENFORCEMENT #####################
 # kappa_rule = [True, False] # TRUE means INTEGER enforcement, False allows decimal type
 
-kappa_rule = ['round', 'none', 'fixed', 'numdem'] 
+kappa_rule = ['round', 'none', 'fixed'] 
 # Round enforces Integer Rounding
 # None allows decimal type
 # Fixed kappa is fixed from initial value
