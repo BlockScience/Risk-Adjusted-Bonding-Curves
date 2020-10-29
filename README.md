@@ -161,9 +161,8 @@ Dive into the Phase 2 [Alpha Bond Simulation Notebook](main.ipynb) and take a de
 
 ## Alpha Bond Testing & Analysis
 
-Read more about the rigorous testing & analysis carried out in Phase 3. [Parametric tests](https://github.com/BlockScience/InterchainFoundation/tree/phase_3_kappa/parametric_tests) were carried out on multiple system parameters, including the [bonding curve shape ($\kappa$)](https://github.com/BlockScience/InterchainFoundation/blob/master/parametric_tests/kappa_test.ipynb), the [proportion of funds allocated to the project vs reserve ($\theta$)](https://github.com/BlockScience/InterchainFoundation/blob/master/parametric_tests/parametric_test_theta.ipynb), [outcome payments ($O$)](https://github.com/BlockScience/InterchainFoundation/blob/phase_3_kappa/parametric_tests/parametric_test_outcome_payment.ipynb), and more.
+Read more about the rigorous testing & analysis carried out in Phase 3. [Simulations and experiments for the ixo pilot of Alpha Bonds](https://github.com/BlockScience/InterchainFoundation/blob/master/IXO_Chimple_Pilot_Revised.ipynb) may be of interest readers interested in social impact bond development. Testing of the [synthesis of public & private $alpha$ signal](https://github.com/BlockScience/InterchainFoundation/blob/master/private_alpha_synthesis_v2.ipynb) was also carried out. [Parametric tests](https://github.com/BlockScience/InterchainFoundation/tree/phase_3_kappa/parametric_tests) were run on multiple system parameters, including the [bonding curve shape ($\kappa$)](https://github.com/BlockScience/InterchainFoundation/blob/master/parametric_tests/kappa_test.ipynb), the [proportion of funds allocated to the project vs reserve ($\theta$)](https://github.com/BlockScience/InterchainFoundation/blob/master/parametric_tests/parametric_test_theta.ipynb), [outcome payments ($O$)](https://github.com/BlockScience/InterchainFoundation/blob/phase_3_kappa/parametric_tests/parametric_test_outcome_payment.ipynb), and more.
 
-# TO DO: COMPLETE SECTION
 
 <br><br>
 
@@ -185,6 +184,8 @@ Each phase is broken out into a series of deliverables as listed below, which ar
 
 * **1.3 [Engineering Requirements](Paper/3_EngineeringRequirements.ipynb)** - The **key deliverable notebook in this phase**. Define formal mathematical definitions and requirements for the alpha bond ecosystem.
 
+<br>
+
 ## Phase 2 Deliverables: System Specification
 * **2.1 [Main Simulation Notebook and Explanatory Results](main.ipynb)** - Representative simulation notebook validating that the model meets core system properties
 * **2.2 [Math Specification](Math_Specification)** - Mathematical documentation of the model including system and component specifications as well as behavioural models of agents
@@ -195,11 +196,20 @@ Each phase is broken out into a series of deliverables as listed below, which ar
     - [Risk Prediction Module](https://hackmd.io/pBdH1OedQLuvhQU0ezTttA?view)
 * **2.6 [Preliminary (WIP) Phase 3 Test Plan](https://docs.google.com/spreadsheets/d/1xdiogvWU_NP2PGOTVK6V2rl642u56y26nMKQznGaO1o/edit#gid=0)** - Initial planning around experiments to be performed in Phase 3
 
-## Phase 3 Deliverables: Analysis & Testing
-* **3.1 [Main Deliverable]()** - Explain main deliverable
-* **3.2 [Parametric Testing Notebooks](https://github.com/BlockScience/InterchainFoundation/tree/master/parametric_tests)** - Parametric tests were carried out on multiple system properties, which can be explored further in these notebooks.
+<br>
 
-# TO DO: COMPLETE SECTION
+## Phase 3 Deliverables: Analysis & Testing
+
+
+* **3.1 [Alpha belief synthesis](https://github.com/BlockScience/InterchainFoundation/blob/master/private_alpha_synthesis_v2.ipynb)** - This notebook provides a battery of tests that examine the synthesis of private & public $alpha$ belief
+
+* **3.2 [ixo Pilot Analysis](https://github.com/BlockScience/InterchainFoundation/blob/master/IXO_Chimple_Pilot_Revised.ipynb)** - This notebook provides a series of experiments & simulations for the ixo pilot implementation of Alpha Bonds
+
+
+* **3.3 [cadCAD Model Files](https://github.com/BlockScience/InterchainFoundation/tree/master/src/sim)** - These files compose the cadCAD simulation for this R&D initiative
+
+* **3.4 [Parametric Testing Notebooks](https://github.com/BlockScience/InterchainFoundation/tree/master/parametric_tests)** - Parametric tests were carried out on multiple system properties, which can be explored further in these notebooks.
+
 <br>
 <br>
 
