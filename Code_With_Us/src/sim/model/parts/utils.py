@@ -3,6 +3,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 #import pickle
 
+from src.sim.sim_setup import SIMULATION_TIME_STEPS, MONTE_CARLO_RUNS
+
 # TODO: refactor to pass in timesteps
 
 def alpha_plot(experiments,test_title):
@@ -15,7 +17,7 @@ def alpha_plot(experiments,test_title):
     df = df[df['substep'] == df.substep.max()]
     df.fillna(0,inplace=True)
 
-    for i in range (0,365): 
+    for i in range (0,SIMULATION_TIME_STEPS): 
         agent_public_alpha_signal_list = []
         agent_public_alpha_signal_list.append(df.chosen_agent.values[i]['agent_public_alpha_signal'])
         agent_public_alpha_signal.append(np.mean(agent_public_alpha_signal_list))
@@ -27,9 +29,9 @@ def alpha_plot(experiments,test_title):
         agent_private_alpha.append(np.mean(agent_private_alpha_list))
     public_alpha = df.alpha
     fig = plt.figure(figsize=(15, 10))
-    plt.plot(range(0,365),agent_public_alpha_signal,label='Agent Public Alpha Signal', marker='o')
-    plt.plot(range(0,365),agent_private_alpha_signal,label='Agent Private Alpha Signal',marker='o')
-    plt.plot(range(0,365),agent_private_alpha,label='Agent Private Alpha',marker='*')
+    plt.plot(range(0,SIMULATION_TIME_STEPS),agent_public_alpha_signal,label='Agent Public Alpha Signal', marker='o')
+    plt.plot(range(0,SIMULATION_TIME_STEPS),agent_private_alpha_signal,label='Agent Private Alpha Signal',marker='o')
+    plt.plot(range(0,SIMULATION_TIME_STEPS),agent_private_alpha,label='Agent Private Alpha',marker='*')
     plt.legend()
     plt.title(test_title)
     plt.xlabel('Timestep')
