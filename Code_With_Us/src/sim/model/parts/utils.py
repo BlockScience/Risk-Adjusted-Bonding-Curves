@@ -1,21 +1,17 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-#import pickle
 
-# TODO: refactor to pass in timesteps
-
-def alpha_plot(experiments,test_title):
+def alpha_plot(experiments,test_title,T):
     agent_private_alpha_signal = []
     agent_public_alpha_signal = []
     agent_private_alpha = []
-    #     df = experiments.dataset[0]
     
     df = experiments
     df = df[df['substep'] == df.substep.max()]
     df.fillna(0,inplace=True)
 
-    for i in range (0,365): 
+    for i in range (0,T): 
         agent_public_alpha_signal_list = []
         agent_public_alpha_signal_list.append(df.chosen_agent.values[i]['agent_public_alpha_signal'])
         agent_public_alpha_signal.append(np.mean(agent_public_alpha_signal_list))
@@ -27,25 +23,24 @@ def alpha_plot(experiments,test_title):
         agent_private_alpha.append(np.mean(agent_private_alpha_list))
     public_alpha = df.alpha
     fig = plt.figure(figsize=(15, 10))
-    plt.plot(range(0,365),agent_public_alpha_signal,label='Agent Public Alpha Signal', marker='o')
-    plt.plot(range(0,365),agent_private_alpha_signal,label='Agent Private Alpha Signal',marker='o')
-    plt.plot(range(0,365),agent_private_alpha,label='Agent Private Alpha',marker='*')
+    plt.plot(range(0,T),agent_public_alpha_signal,label='Agent Public Alpha Signal', marker='o')
+    plt.plot(range(0,T),agent_private_alpha_signal,label='Agent Private Alpha Signal',marker='o')
+    plt.plot(range(0,T),agent_private_alpha,label='Agent Private Alpha',marker='*')
     plt.legend()
     plt.title(test_title)
     plt.xlabel('Timestep')
     plt.ylabel('Alpha')
     plt.show()
             
-def reserve_supply(experiments,test_title):
+def reserve_supply(experiments,test_title,T):
     
-    #df = experiments.dataset[0][experiments.dataset[0]['substep'] == experiments.dataset[0].substep.max()]
     df = experiments
     df = df[df['substep'] == df.substep.max()]
     df.fillna(0,inplace=True)
 
     fig = plt.figure(figsize=(15, 10))
-    plt.plot(range(0,365),df.reserve,label='Reserve',marker='o')
-    plt.plot(range(0,365),df.supply,label='Supply',marker='*')
+    plt.plot(range(0,T),df.reserve,label='Reserve',marker='o')
+    plt.plot(range(0,T),df.supply,label='Supply',marker='*')
     
     plt.legend()
     plt.title(test_title)
@@ -56,15 +51,14 @@ def reserve_supply(experiments,test_title):
 
 
 
-def price(experiments,test_title):
+def price(experiments,test_title,T):
     
-    #df = experiments.dataset[0][experiments.dataset[0]['substep'] == experiments.dataset[0].substep.max()]
     df = experiments
     df = df[df['substep'] == df.substep.max()]
     df.fillna(0,inplace=True)
 
     fig = plt.figure(figsize=(15, 10))
-    plt.plot(range(0,365),df.spot_price,label='Spot Price',marker='+')
+    plt.plot(range(0,T),df.spot_price,label='Spot Price',marker='+')
     plt.legend()
     plt.title(test_title)
     plt.xlabel('Timestep')
@@ -75,8 +69,7 @@ def price(experiments,test_title):
     return 
 
 
-def agent_payout_2(experiments):
-    t = 365
+def agent_payout_2(experiments,t):
     S_free = experiments.supply_free[t]
     S_0 = experiments.supply_0[t]
     S_1 = experiments.supply_1[t]
