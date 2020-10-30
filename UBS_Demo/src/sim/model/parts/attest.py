@@ -176,7 +176,8 @@ def update_alpha(params, substep, state_history, prev_state, policy_input):
 
     #alpha = prev_state['alpha']
 
-    new_alpha = round(np.random.uniform(0.1,1,1)[0],2)
+    #new_alpha = round(np.random.uniform(0.1,1,1)[0],2)
+    new_alpha = round(np.random.normal(0.5,0.2,1)[0],2)
 
     return 'alpha', new_alpha
 
