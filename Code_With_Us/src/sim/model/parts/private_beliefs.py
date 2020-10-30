@@ -1,22 +1,8 @@
-# from Model.src.sim.model.parts.choose_action import *
 
-# prev_state (called s in documentation) is a dict. Captures the current state of the system
 import numpy as np
 import random
 import matplotlib.pyplot as plt
 
-# REMOVE and put in update_private_price function
-# Should be part of parameter if will be varied
-
-# P0 = [1]
-
-# signal = {
-#     # 'dP': ['N/A', P0[0]/4, P0[0]/1000, P0[0]/2],
-#     # 'period': ['N/A', 2000, 2000, 2000]
-#     'dP': P0[0]/4,
-#     'period': 2000,
-#     'sigma': [.005, 'N/A', 'N/A', 'N/A']
-# }
 
 
 def update_private_price(params, substep, state_history, prev_state, policy_input):
@@ -116,18 +102,11 @@ def update_agent_beliefs(params, substep, state_history, prev_state, policy_inpu
     alpha_bias = params['alpha_bias']
     price_bias = params['price_bias']
 
-    #rv = np.random.normal(0, signal['sigma'])
-    #new_private_price = price+price*rv
-    #new_private_price = agent['agent_private_price']
-
-    #new_private_price = agent['agent_private_price']
-    #new_private_alpha = agent['agent_private_alpha']
     
     b_alpha = 0.0 # bias
 
     public_alpha_signal = 0.5 + ((1/1000)*timestep)
     private_alpha_signal = 0.5 + ((1/1000)*timestep)
-    #private_alpha_signal = 0.5 - ((1/1000)*timestep)
 
     private_alpha = (b_alpha)*public_alpha_signal + (1-b_alpha)*private_alpha_signal
 
@@ -135,7 +114,6 @@ def update_agent_beliefs(params, substep, state_history, prev_state, policy_inpu
 
     public_price_signal = 0.5 + ((1/1000)*timestep)
     private_price_signal = 0.5 + ((1/1000)*timestep) 
-    #private_price_signal = 1.5 - ((1/1000)*timestep)
 
     private_price = (b_price)*public_price_signal + (1-b_price)*private_price_signal
 
@@ -147,7 +125,6 @@ def update_agent_beliefs(params, substep, state_history, prev_state, policy_inpu
     agent['agent_private_price'] = private_price
     agent['agent_private_alpha'] = private_alpha
 
-    #print("agent['agent_private_price'] = ", agent['agent_private_price'])
-    #print("agent['agent_private_alpha'] = ", agent['agent_private_alpha'])
+    agent['agent_reserve'] =  agent['agent_reserve'] + 1#000000
 
     return 'chosen_agent', agent
