@@ -178,15 +178,21 @@ def synthetic_alpha(params, substep, state_history, prev_state):
     
     # JUST FIXED FOR NOW
     # TEST CONSTANT ALPHA
-    
-    # new_alpha = prev_state['alpha'] 
-    return {'new_alpha': new_alpha}
+
+    # new_alpha = prev_state['alpha']
+    previous_value = prev_state['alpha']
+    # new_alpha = policy_input['new_alpha']
+    value = previous_value + new_alpha / 140
+
+    return {'new_alpha': value}
 
 def update_alpha(params, substep, state_history, prev_state, policy_input):
+    # previous_value = prev_state['alpha']
+    value = policy_input['new_alpha']
+    # value = previous_value + new_alpha / 140
 
-    new_alpha = policy_input['new_alpha']
 
-    return 'alpha', new_alpha
+    return 'alpha', value
 
 
 
