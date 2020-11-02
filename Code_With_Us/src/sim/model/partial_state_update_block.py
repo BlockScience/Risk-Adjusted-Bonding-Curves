@@ -57,7 +57,8 @@ partial_state_update_block = [
     },
     {
         'policies': {
-            'attest': synthetic_alpha,
+            # 'attest': synthetic_alpha,
+            'alpha_test' : synthetic_alpha_test,
         },
         'variables': {
             # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

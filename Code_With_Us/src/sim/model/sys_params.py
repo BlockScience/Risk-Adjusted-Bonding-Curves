@@ -57,16 +57,23 @@ kappa_rule = ['none']
 # Fixed kappa is fixed from initial value
 ####### UNSIWAP STYLE TRADING #####################
 
+####### KAPPA INTEGER ENFORCEMENT #####################
+# kappa_rule = [True, False] # TRUE means INTEGER enforcement, False allows decimal type
 
+alpha_test = ['success'] 
+# Round enforces Integer Rounding
+# None allows decimal type
+# Fixed kappa is fixed from initial value
+####### UNSIWAP STYLE TRADING #####################
 
 # print()
 
 # E = [0.1, 0.2, 0.3]
 E = [0.2]
 
-factors = [rules_price, KAPPA, E, MONEY_RAISED, ALPHA, C, THETA, ENABLE_CONTINUOUS, ENABLE_BURN, alpha_bias, price_bias]
+factors = [rules_price, KAPPA, E, MONEY_RAISED, ALPHA, C, THETA, ENABLE_CONTINUOUS, ENABLE_BURN, alpha_bias, price_bias, alpha_test]
 product = list(itertools.product(*factors))
-rules_price, KAPPA, E, MONEY_RAISED, ALPHA, C, THETA, ENABLE_CONTINUOUS, ENABLE_BURN, alpha_bias, price_bias= zip(*product)
+rules_price, KAPPA, E, MONEY_RAISED, ALPHA, C, THETA, ENABLE_CONTINUOUS, ENABLE_BURN, alpha_bias, price_bias, alpha_test= zip(*product)
 rules_price = list(rules_price)
 KAPPA = list(KAPPA)
 E = list(E)
@@ -78,6 +85,7 @@ ENABLE_CONTINUOUS = list(ENABLE_CONTINUOUS)
 ENABLE_BURN = list(ENABLE_BURN)
 alpha_bias = list(alpha_bias)
 price_bias = list(price_bias)
+alpha_test = list(alpha_test)
 
 ############ PARAMETRIC TESTS #########################################################################
 # factors = [rules_price, KAPPA, E, MONEY_RAISED, ALPHA, C, THETA, ENABLE_CONTINUOUS, ENABLE_BURN]
@@ -116,4 +124,5 @@ params = {
     'alpha_bias': alpha_bias,
     'price_bias': price_bias,
     'kappa_rule' : kappa_rule,
+    'alpha_test' : alpha_test,
 }
