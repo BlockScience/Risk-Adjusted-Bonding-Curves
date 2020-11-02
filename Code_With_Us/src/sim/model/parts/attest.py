@@ -172,9 +172,19 @@ def attest_neg(R, C, E, alpha, Q, Q1, Q0, S, S1, S0, q0, q1, s_free, s1, s0, s, 
 #     #print("new_alpha = ", new_alpha)
 #     return 'alpha', new_alpha
 
-def update_alpha(params, substep, state_history, prev_state, policy_input):
+def synthetic_alpha(params, substep, state_history, prev_state):
 
     new_alpha = round(np.random.normal(0.5,0.2,1)[0],2)
+    
+    # JUST FIXED FOR NOW
+    # TEST CONSTANT ALPHA
+    
+    # new_alpha = prev_state['alpha'] 
+    return {'new_alpha': new_alpha}
+
+def update_alpha(params, substep, state_history, prev_state, policy_input):
+
+    new_alpha = policy_input['new_alpha']
 
     return 'alpha', new_alpha
 
@@ -182,58 +192,61 @@ def update_alpha(params, substep, state_history, prev_state, policy_input):
 
 def update_kappa(params, substep, state_history, prev_state, policy_input):
 
-    # params = params[0]
-    R = prev_state['reserve']
+    # # params = params[0]
+    # R = prev_state['reserve']
     C = params['C']
-    E = params['E']
+    # E = params['E']
 
-    alpha = prev_state['alpha']
+    # alpha = prev_state['alpha']
 
-    Q = prev_state['attestations_1'] + prev_state['attestations_0']
-    Q1 = prev_state['attestations_1']
-    Q0 = prev_state['attestations_0']
-    S = prev_state['supply']
-    S1 = prev_state['supply_1']
-    S0 = prev_state['supply_0']
+    # Q = prev_state['attestations_1'] + prev_state['attestations_0']
+    # Q1 = prev_state['attestations_1']
+    # Q0 = prev_state['attestations_0']
+    # S = prev_state['supply']
+    # S1 = prev_state['supply_1']
+    # S0 = prev_state['supply_0']
     I = prev_state['invariant_I']
 
-    q1 = prev_state['chosen_agent']['agent_attestations_1']
-    q0 = prev_state['chosen_agent']['agent_attestations_0']
-    s_free = prev_state['chosen_agent']['agent_supply_free']
-    s1 = prev_state['chosen_agent']['agent_supply_1']
-    s0 = prev_state['chosen_agent']['agent_supply_0']
+    # q1 = prev_state['chosen_agent']['agent_attestations_1']
+    # q0 = prev_state['chosen_agent']['agent_attestations_0']
+    # s_free = prev_state['chosen_agent']['agent_supply_free']
+    # s1 = prev_state['chosen_agent']['agent_supply_1']
+    # s0 = prev_state['chosen_agent']['agent_supply_0']
 
-    s = s_free + s1 + s0
+    # s = s_free + s1 + s0
 
-    delta_q1 = policy_input['amt_Q1']
-    delta_q0 = policy_input['amt_Q0']
-    delta_s = policy_input['amt_pos'] + policy_input['amt_neg']
+    # delta_q1 = policy_input['amt_Q1']
+    # delta_q0 = policy_input['amt_Q0']
+    # delta_s = policy_input['amt_pos'] + policy_input['amt_neg']
 
-    if delta_q1 > 0:  # positive attestation
-        new_alpha = attest_pos(R, C, E, alpha, Q, Q1, Q0, S, S1, S0,
-                               q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s)
+    # if delta_q1 > 0:  # positive attestation
+    #     new_alpha = attest_pos(R, C, E, alpha, Q, Q1, Q0, S, S1, S0,
+    #                            q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s)
 
-    elif delta_q0 > 0:  # negative attestation
+    # elif delta_q0 > 0:  # negative attestation
 
-        new_alpha = attest_neg(R, C, E, alpha, Q, Q1, Q0, S, S1, S0,
-                               q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s)
+    #     new_alpha = attest_neg(R, C, E, alpha, Q, Q1, Q0, S, S1, S0,
+    #                            q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s)
 
-    else:
-        new_alpha = alpha
+    # else:
+    #     new_alpha = alpha
 
+
+
+    new_alpha = policy_input['new_alpha']
 
 # if not used, price and s_free go very negative at the outset
 ########################################################
     kappa = I / (I - (C*new_alpha))
 
-    if params['kappa_rule'] == 'round':
-        kappa = round(kappa)
+    # if params['kappa_rule'] == 'round':
+    #     kappa = round(kappa)
 
-    elif  params['kappa_rule'] == 'fixed':
-        kappa = params['starting_kappa']
+    # elif  params['kappa_rule'] == 'fixed':
+    #     kappa = params['starting_kappa']
 
-    elif params['kappa_rule'] == 'none':
-        kappa = kappa
+    # elif params['kappa_rule'] == 'none':
+    #     kappa = kappa
         
     #print("kappa  = ", kappa)
     return 'kappa', kappa
@@ -278,6 +291,8 @@ def update_I_attest(params, substep, state_history, prev_state, policy_input):
 
     else:
         new_alpha = alpha
+
+    new_alpha = policy_input['new_alpha']
 
     I = R + (C*new_alpha)
 
@@ -341,39 +356,40 @@ def update_V(params, substep, state_history, prev_state, policy_input):
     C = params['C']
     E = params['E']
     I = prev_state['invariant_I']
-    alpha = prev_state['alpha']
+    # alpha = prev_state['alpha']
 
-    Q = prev_state['attestations_1'] + prev_state['attestations_0']
-    Q1 = prev_state['attestations_1']
-    Q0 = prev_state['attestations_0']
+    # Q = prev_state['attestations_1'] + prev_state['attestations_0']
+    # Q1 = prev_state['attestations_1']
+    # Q0 = prev_state['attestations_0']
     S = prev_state['supply']
-    S1 = prev_state['supply_1']
-    S0 = prev_state['supply_0']
+    # S1 = prev_state['supply_1']
+    # S0 = prev_state['supply_0']
 
-    q1 = prev_state['chosen_agent']['agent_attestations_1']
-    q0 = prev_state['chosen_agent']['agent_attestations_0']
-    s_free = prev_state['chosen_agent']['agent_supply_free']
-    s1 = prev_state['chosen_agent']['agent_supply_1']
-    s0 = prev_state['chosen_agent']['agent_supply_0']
+    # q1 = prev_state['chosen_agent']['agent_attestations_1']
+    # q0 = prev_state['chosen_agent']['agent_attestations_0']
+    # s_free = prev_state['chosen_agent']['agent_supply_free']
+    # s1 = prev_state['chosen_agent']['agent_supply_1']
+    # s0 = prev_state['chosen_agent']['agent_supply_0']
 
-    s = s_free + s1 + s0
+    # s = s_free + s1 + s0
 
-    delta_q1 = policy_input['amt_Q1']
-    delta_q0 = policy_input['amt_Q0']
-    delta_s = policy_input['amt_pos'] + policy_input['amt_neg']
+    # delta_q1 = policy_input['amt_Q1']
+    # delta_q0 = policy_input['amt_Q0']
+    # delta_s = policy_input['amt_pos'] + policy_input['amt_neg']
 
-    if delta_q1 > 0:  # positive attestation
-        new_alpha = attest_pos(R, C, E, alpha, Q, Q1, Q0, S, S1, S0,
-                               q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s)
+    # if delta_q1 > 0:  # positive attestation
+    #     new_alpha = attest_pos(R, C, E, alpha, Q, Q1, Q0, S, S1, S0,
+    #                            q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s)
 
-    elif delta_q0 > 0:  # negative attestation
+    # elif delta_q0 > 0:  # negative attestation
 
-        new_alpha = attest_neg(R, C, E, alpha, Q, Q1, Q0, S, S1, S0,
-                               q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s)
+    #     new_alpha = attest_neg(R, C, E, alpha, Q, Q1, Q0, S, S1, S0,
+    #                            q0, q1, s_free, s1, s0, s, delta_q1, delta_q0, delta_s)
 
-    else:
-        new_alpha = alpha
+    # else:
+    #     new_alpha = alpha
 
+    new_alpha = policy_input['new_alpha']
     # I = R + (C*new_alpha)
     kappa = I / (I - (C*new_alpha))
     # print("S = ", S)

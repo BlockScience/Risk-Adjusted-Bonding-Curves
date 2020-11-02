@@ -8,8 +8,8 @@ PRICE = 1
 Q = 30000
 Q1 = 100
 Q0 = 30000
-S1 = 100
-S0 = 30000
+S1 = 1 #0 #100
+S0 = 1 #0 #30000
 r = 100  # Agent reserve, the amount of fiat tokens an agent starts with
 s = 0
 s1 = 0
@@ -21,7 +21,9 @@ s_free = s - (s1+s0)
 ####  Overwritten in configs.py for parameter sweeps with values in sys_params ######
 reserve = 1000000# (1-THETA[0])*MONEY_RAISED[0]
 supply = KAPPA[0]*(reserve/PRICE)
-supply_free = supply - (S0 + S1)
+# IF P0 = 1 , then Supply should equal Reserve
+supply = reserve
+supply_free = supply  - (S0 + S1)
 invariant_V = (supply**KAPPA[0])/reserve
 invariant_I = reserve + (C[0]*ALPHA[0])
 
@@ -68,7 +70,7 @@ initial_conditions = {
     'realized_price': 0,
     'spot_price': PRICE,
     # 'kappa': 0,
-    'kappa': 2,
+    'kappa': KAPPA,
     'supply': supply,
     'alpha': ALPHA,
     # 'alpha': ALPHA[0],

@@ -49,6 +49,22 @@ def reserve_supply(experiments,test_title,T):
 
     plt.show()
 
+def supply_plot(experiments,test_title,T):
+    
+    df = experiments
+    df = df[df['substep'] == df.substep.max()]
+    df.fillna(0,inplace=True)
+
+    fig = plt.figure(figsize=(15, 10))
+    # plt.plot(range(0,T),df.reserve,label='Reserve',marker='o')
+    plt.plot(range(0,T),df.supply,label='Supply',marker='*')
+    
+    plt.legend()
+    plt.title(test_title)
+    plt.xlabel('Timestep')
+    plt.ylabel('Amount')
+
+    plt.show()
 
 
 def price(experiments,test_title,T):

@@ -1,6 +1,7 @@
 # One Timestep can contain multiple PSUBs
 # At the end of each PSUB (called a substep), cadCAD returns the state of the system
 
+# from Code_With_Us.src.sim.model.parts.attest import synthetic_alpha
 from src.sim.model.parts.private_beliefs import *
 from src.sim.model.parts.bondburn import *
 from src.sim.model.parts.attest import *
@@ -41,7 +42,7 @@ partial_state_update_block = [
             # 'act': set_action,
             "act" : set_bond_action,
 
-            'add_instalment': add_instalment,
+            # 'add_instalment': add_instalment,
         },
         'variables': {
             # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -56,22 +57,22 @@ partial_state_update_block = [
     },
     {
         'policies': {
-            'act': set_action
+            'attest': synthetic_alpha,
         },
         'variables': {
             # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
             # Attest positive or attest negative
-            'attestations': update_Q,
-            'attestations_1': update_Q1,
-            'attestations_0': update_Q0,
-            'supply_1': update_S1,
-            'supply_0': update_S0,
-            'supply_free': update_S_free,
-            'chosen_agent': update_agent_PM,
+            # 'attestations': update_Q,
+            # 'attestations_1': update_Q1,
+            # 'attestations_0': update_Q0,
+            # 'supply_1': update_S1,
+            # 'supply_0': update_S0,
+            # 'supply_free': update_S_free,
+            # 'chosen_agent': update_agent_PM,
             'alpha': update_alpha,
-            'kappa': update_kappa,
-            'spot_price': update_P_attest,
-            'invariant_V': update_V
+            # 'kappa': update_kappa,  # WANT THIS
+            # 'spot_price': update_P_attest,
+            # 'invariant_V': update_V # WANT THIS
         }
     },
     {

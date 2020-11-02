@@ -48,6 +48,7 @@ def reserve_supply(experiments,test_title):
 
     plt.show()
 
+
 def funds_from_bond(experiments,test_title):
     
     df = experiments.dataset[0][experiments.dataset[0]['substep'] == experiments.dataset[0].substep.max()]
