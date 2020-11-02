@@ -125,6 +125,6 @@ def update_agent_beliefs(params, substep, state_history, prev_state, policy_inpu
     agent['agent_private_price'] = private_price
     agent['agent_private_alpha'] = private_alpha
 
-    agent['agent_reserve'] =  agent['agent_reserve'] + 1#000000
+    agent['agent_reserve'] =  agent['agent_reserve'] + 1000000
 
     return 'chosen_agent', agent

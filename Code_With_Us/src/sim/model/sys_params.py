@@ -12,7 +12,7 @@ MONEY_RAISED = [1000000]
 PERIOD = [1200]
 
 ### Monthly instalment from Impact Investor
-monthly_instalment = [3000]
+monthly_instalment = [0]
 
 # New price singal : Determines signal shape for agent's behaviour heuristic on price
 # rules_price = ["martin"] #, "step"]  # , "ramp", "sin"]
