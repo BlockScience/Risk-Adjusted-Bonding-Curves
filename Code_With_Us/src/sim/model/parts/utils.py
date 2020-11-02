@@ -49,6 +49,22 @@ def reserve_supply(experiments,test_title,T):
 
     plt.show()
 
+def alpha(experiments,test_title,T):
+    
+    df = experiments
+    df = df[df['substep'] == df.substep.max()]
+    df.fillna(0,inplace=True)
+
+    fig = plt.figure(figsize=(15, 10))
+    plt.plot(range(0,T),df.alpha,label='Alpha',marker='o')
+    
+    plt.legend()
+    plt.title(test_title)
+    plt.xlabel('Timestep')
+    plt.ylabel('Amount')
+
+    plt.show()
+    
 def supply_plot(experiments,test_title,T):
     
     df = experiments
@@ -127,7 +143,7 @@ def agent_payout(experiments,t):
     fig = plt.figure(figsize=(15, 10))
     plt.bar(x_pos, payouts, color='green')
     plt.xlabel("Agent ID")
-    plt.ylabel("Payout amount (tokens)")
+    plt.ylabel("Payout amount (uXCHF)")
     plt.title("Agent and their Payouts")
 
     plt.xticks(x_pos, x)
