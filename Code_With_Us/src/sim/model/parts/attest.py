@@ -174,9 +174,6 @@ def attest_neg(R, C, E, alpha, Q, Q1, Q0, S, S1, S0, q0, q1, s_free, s1, s0, s, 
 
 def update_alpha(params, substep, state_history, prev_state, policy_input):
 
-    #alpha = prev_state['alpha']
-
-    #new_alpha = round(np.random.uniform(0.1,1,1)[0],2)
     new_alpha = round(np.random.normal(0.5,0.2,1)[0],2)
 
     return 'alpha', new_alpha

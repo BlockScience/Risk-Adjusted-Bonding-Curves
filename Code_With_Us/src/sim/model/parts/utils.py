@@ -69,7 +69,7 @@ def price(experiments,test_title,T):
     return 
 
 
-def agent_payout_2(experiments,t):
+def agent_payout(experiments,t):
     S_free = experiments.supply_free[t]
     S_0 = experiments.supply_0[t]
     S_1 = experiments.supply_1[t]
