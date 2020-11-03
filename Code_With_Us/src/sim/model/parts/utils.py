@@ -182,8 +182,7 @@ def agent_ROI(experiments,t):
         T3 = (s0/(S-S_1))*(1-alpha)*(R)
         agent_payout = T1+T2+T3
         payout_list.append(agent_payout)
-        roi_0 = (s_free * experiments.spot_price.values[-1]) - (14000000 * experiments.spot_price.values[0]) / 14000000 
-        roi.append(roi_0 * 100)
+        roi.append(((s_free / S_free) * (C + R) - 14000000) / 14000000)
 
         arr2d = np.array(roi)
 
