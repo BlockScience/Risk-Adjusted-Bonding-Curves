@@ -150,3 +150,56 @@ def agent_payout(experiments,t):
 
     plt.show()
 
+    
+    
+def agent_ROI(experiments,t):
+    S_free = experiments.supply_free[t]
+    S_0 = experiments.supply_0[t]
+    S_1 = experiments.supply_1[t]
+    agents_id = [0,1,2,3,4,5,6,7,9]
+    payout_list = []
+    roi = []
+    for a in agents_id:
+        q1 = experiments.agents[t].agent_attestations_1[a]
+        q0 = experiments.agents[t].agent_attestations_0[a]
+        s_free = experiments.agents[t].agent_supply_free[a]
+        s1 = experiments.agents[t].agent_supply_1[a]
+        s0 = experiments.agents[t].agent_supply_0[a]
+        s = s_free + s1 + s0
+        agent_private_alpha = experiments.agents[t].agent_private_alpha[a]
+        Q0 = experiments.attestations_0[t]
+        Q1 = 1 
+        R = experiments.reserve[t]
+        S = experiments.supply[t]
+        C = 300000000 
+        alpha = experiments.alpha[t]
+        if alpha < 0.5:
+            alpha = 0
+        elif alpha > 0.5:
+            alpha = 1
+        T1 = (s_free/S)*(C*alpha + R)
+        T2 = (s1/(S-S_0))*alpha*(C+R)
+        T3 = (s0/(S-S_1))*(1-alpha)*(R)
+        agent_payout = T1+T2+T3
+        payout_list.append(agent_payout)
+        roi_0 = (s_free * experiments.spot_price.values[-1]) - (14000000 * experiments.spot_price.values[0]) / 14000000 
+        roi.append(roi_0 * 100)
+
+        arr2d = np.array(roi)
+
+    arr1d = arr2d.flatten()
+
+    x = agents_id
+    return_on_investments = arr1d
+
+    x_pos = [i for i, _ in enumerate(x)]
+
+    fig = plt.figure(figsize=(15, 10))
+    plt.bar(x_pos, return_on_investments, color='green')
+    plt.xlabel("Agent ID")
+    plt.ylabel("ROI")
+    plt.title("Agent and their ROI")
+
+    plt.xticks(x_pos, x)
+
+    plt.show()
