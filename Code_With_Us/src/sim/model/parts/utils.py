@@ -109,7 +109,7 @@ def agent_payout(experiments,t):
     S_free = experiments.supply_free[t]
     S_0 = experiments.supply_0[t]
     S_1 = experiments.supply_1[t]
-    agents_id = [0,1,2,3,4,5,6,7,9]
+    agents_id = [0,1,2,3,4,5,6,7,8,9]
     payout_list = []
     for a in agents_id:
         q1 = experiments.agents[t].agent_attestations_1[a]
