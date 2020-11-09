@@ -3,7 +3,7 @@
 
 This research project explores the design of cryptoeconomic mechanisms **composing functionality from bonding curves + prediction markets**, the first formalized instance of a dynamic bonding curve.  This risk-adjusted bonding curve will be used to provide dynamic risk assessment for funding outcome-based social impact projects as part of a novel impact finance tool - **Alpha Bonds**.
 
-The outcome of this initiative is a digital twin cadCAD model, which can inform the implementation of this new dynamic bonding curve functionality as part of the Cosmos SDK. We believe it will provide great value within the Sustainability Hub and beyond, into the first use case of 
+The outcome of this initiative is a digital twin cadCAD model, which can inform the implementation of this new dynamic bonding curve functionality as part of the Cosmos SDK. We believe it will provide great value within the Sustainability Hub and beyond, into the first use case of dynamic bonding curves for social impact.
 
 
 ## Implementation Partners
@@ -14,7 +14,7 @@ This project is a collaboration of mutual interest between the [Interchain Found
 Motivations:
 * **Interchain Foundation:** funding robust tooling primitives for the Cosmos SDK
 * **ixo Foundation:** building novel impact funding tools to improve financing options for real world impact
-* **BlockScience:** expanding an open source library of high leverage components using rigorous design & modeling processes and tools
+* **BlockScience:** expanding an open source library of modeled cryptoeconomic components using rigorous design processes and tools
 
 ![logos](https://i.imgur.com/9Xc0R63.jpg)
 
@@ -168,10 +168,10 @@ Read more about the rigorous testing & analysis carried out in Phase 3. [Simulat
 
 # Detailed Research Project Breakdown
 
-This project is being carried out in 3 phases: 
-* **Phase 1. Engineering Requirements Gathering** [*complete*]
-* **Phase 2. Formalized Specification** [*complete*]
-* **Phase 3. Analysis & Testing** [*in progress*]
+This project was carried out in 3 phases: 
+* **Phase 1. Engineering Requirements Gathering** 
+* **Phase 2. Formalized Specification**
+* **Phase 3. Analysis & Testing**
 
 Each phase is broken out into a series of deliverables as listed below, which are collated into a stakeholder report at the completion of each phase.
 
@@ -192,9 +192,9 @@ Each phase is broken out into a series of deliverables as listed below, which ar
 * **2.3 [cadCAD Model Source Code](src)** - Source code of the model built in cadCAD
 
 * **2.4 [Component Validation Tests](tests)** - Other supporting validation tests (varying granularity, agent beliefs, etc.)
-* **2.5 [Preliminary (WIP) Modular SDK Specification Mapping](https://hackmd.io/nV1Dkx_BS12mNKEjL1wMJg?view)** - Template framework for documenting and implementing an SDK module using the BlockScience Systems Engineering modeling specification.
+* **2.5 [Preliminary Modular SDK Specification Mapping](https://hackmd.io/nV1Dkx_BS12mNKEjL1wMJg?view)** - Template framework for documenting and implementing an SDK module using the BlockScience Systems Engineering modeling specification.
     - [Risk Prediction Module](https://hackmd.io/pBdH1OedQLuvhQU0ezTttA?view)
-* **2.6 [Preliminary (WIP) Phase 3 Test Plan](https://docs.google.com/spreadsheets/d/1xdiogvWU_NP2PGOTVK6V2rl642u56y26nMKQznGaO1o/edit#gid=0)** - Initial planning around experiments to be performed in Phase 3
+* **2.6 [Preliminary Phase 3 Test Plan](https://docs.google.com/spreadsheets/d/1xdiogvWU_NP2PGOTVK6V2rl642u56y26nMKQznGaO1o/edit#gid=0)** - Initial planning around experiments to be performed in Phase 3
 
 <br>
 
