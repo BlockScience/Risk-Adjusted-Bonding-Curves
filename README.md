@@ -253,7 +253,14 @@ In order to reperform this code, we recommend the researcher use the following l
 pip install cadCAD==0.4.23
 ```
 
-Then run `cd Risk-Adjusted-Bonding-Curves` to enter the repository. Finally, run `jupyter notebook` to open a notebook server to run the various notebooks in this repository.
+Then enter the repository.
+```
+cd Risk-Adjusted-Bonding-Curves
+``` 
+Finally, open a jupyter notebook server to run the various notebooks in this repository.
+```
+jupyter notebook
+```
 
 Check out the [cadCAD forum](https://community.cadcad.org/t/python-newbies-setup-for-cadcad/101) for more information about installing and using cadCAD.
 
