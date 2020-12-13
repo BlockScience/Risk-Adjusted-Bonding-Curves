@@ -249,9 +249,11 @@ cadCAD links for more information:
 
 ## Model Reproducibility
 In order to reperform this code, we recommend the researcher use the following link https://www.anaconda.com/products/individual to download Python 3.7. To install the specific version of cadCAD this repository was built with, run the following code:
+```
 pip install cadCAD==0.4.23
+```
 
-Then run cd Risk-Adjusted-Bonding-Curves to enter the repository. Finally, run jupyter notebook to open a notebook server to run the various notebooks in this repository.
+Then run `cd Risk-Adjusted-Bonding-Curves` to enter the repository. Finally, run `jupyter notebook` to open a notebook server to run the various notebooks in this repository.
 
 Check out the [cadCAD forum](https://community.cadcad.org/t/python-newbies-setup-for-cadcad/101) for more information about installing and using cadCAD.
 
