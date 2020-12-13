@@ -180,7 +180,7 @@ Each phase is broken out into a series of deliverables as listed below, which ar
 
 * **1.1 [Ecosystem Roles](Paper/1_EcosystemRoles.md)** - Identify all of the various roles users can take in the ecosystem
 
-* **1.2 [Alpha Bond Lifecycle Phases](Paper/2_BondLifecyclePhases.md)** - Identify each phase in the bond lifecycle
+* **1.2 [Alpha Bond Lifecycle Phases](Paper/2_BondLifecyclePhases.md)** - Identify the phases and state transitions in the bond lifecycle
 
 * **1.3 [Engineering Requirements](Paper/3_EngineeringRequirements.ipynb)** - The **key deliverable notebook in this phase**. Define formal mathematical definitions and requirements for the alpha bond ecosystem.
 
@@ -201,14 +201,14 @@ Each phase is broken out into a series of deliverables as listed below, which ar
 ## Phase 3 Deliverables: Analysis & Testing
 
 
-* **3.1 [Alpha belief synthesis](https://github.com/BlockScience/InterchainFoundation/blob/master/private_alpha_synthesis_v2.ipynb)** - This notebook provides a battery of tests that examine the synthesis of private & public $alpha$ belief
+* **3.1 [Alpha belief synthesis](https://github.com/BlockScience/InterchainFoundation/blob/master/private_alpha_synthesis_v2.ipynb)** - This notebook provides a battery of tests that examine the synthesis of private & public alpha belief. 
 
-* **3.2 [ixo Pilot Analysis](https://github.com/BlockScience/InterchainFoundation/blob/master/IXO_Chimple_Pilot_Revised.ipynb)** - This notebook provides a series of experiments & simulations for the ixo pilot implementation of Alpha Bonds
+* **3.2 [ixo Pilot Analysis](https://github.com/BlockScience/InterchainFoundation/blob/master/IXO_Chimple_Pilot_Revised.ipynb)** - This notebook provides a series of experiments & simulations for the ixo pilot implementation of Alpha Bonds.
 
 
-* **3.3 [cadCAD Model Files](https://github.com/BlockScience/InterchainFoundation/tree/master/src/sim)** - These files compose the cadCAD simulation for this R&D initiative
+* **3.3 [cadCAD Model Files](https://github.com/BlockScience/InterchainFoundation/tree/master/src/sim)** - These files compose the cadCAD simulation. Download this if you want to run and play with the simulations locally. 
 
-* **3.4 [Parametric Testing Notebooks](https://github.com/BlockScience/InterchainFoundation/tree/master/parametric_tests)** - Parametric tests were carried out on multiple system properties, which can be explored further in these notebooks.
+* **3.4 [Parametric Testing Notebooks](https://github.com/BlockScience/InterchainFoundation/tree/master/parametric_tests)** - Explore Risk-Adjusted Bonding Curves for yourself by modifying key aspects of the system. 
 
 <br>
 <br>
@@ -251,7 +251,7 @@ cadCAD links for more information:
 In order to reperform this code, we recommend the researcher use the following link https://www.anaconda.com/products/individual to download Python 3.7. To install the specific version of cadCAD this repository was built with, run the following code:
 pip install cadCAD==0.4.23
 
-Then run cd InterchainFoundation to enter the repository. Finally, run jupyter notebook to open a notebook server to run the various notebooks in this repository.
+Then run cd Risk-Adjusted-Bonding-Curves to enter the repository. Finally, run jupyter notebook to open a notebook server to run the various notebooks in this repository.
 
 Check out the [cadCAD forum](https://community.cadcad.org/t/python-newbies-setup-for-cadcad/101) for more information about installing and using cadCAD.
 
