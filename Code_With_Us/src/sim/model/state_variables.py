@@ -32,6 +32,7 @@ ALPHA = S1 * reserve / (S1 * reserve - S0 * reserve + S0*C[0])
 KAPPA = 3.0 #invariant_I / (invariant_I - (C[0]*ALPHA))
 # print("KAPPA = ", KAPPA)
 ##### Overwritten in configs.py for parameter sweeps with values in sys_params ######
+invariant_I = reserve + (C[0]*ALPHA)
 
 
 ########## AGENT INITIALIZATION ##########
