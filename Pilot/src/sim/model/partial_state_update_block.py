@@ -70,7 +70,7 @@ partial_state_update_block = [
             # 'supply_0': update_S0,
             # 'supply_free': update_S_free,
             # 'chosen_agent': update_agent_PM,
-            'alpha': update_alpha,
+            'alpha': synthetic_alpha_update,
             'kappa': update_kappa,  # WANT THIS
             # 'spot_price': update_P_attest,
             'invariant_V': update_V # WANT THIS
