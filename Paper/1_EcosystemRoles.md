@@ -19,7 +19,7 @@ An **InvestmentAgent** role is characterized by the ability to buy and redeem bo
 #### **InvestmentAgent** Mechanism Action Space:
 1. Bond-to-mint<a href="glossary.md#note11" id="note11ref"><sup>11</sup></a> 
 2. Burn-to-withdraw<a href="glossary.md#note12" id="note12ref"><sup>12</sup></a> 
-3. Attestation<a href="glossary.md#note13" id="note13ref"><sup>13</sup></a> 
+3. Claim<a href="glossary.md#note4" id="note4ref"><sup>4</sup></a> 
 
 #### Example:
 A high net worth investor willing to take on the risk of investment for the social benefit to childhood education in India, as well as the potential above market average return.
@@ -34,7 +34,7 @@ A **ServiceAgent** role is characterized by issuing claims<a href="glossary.md#n
 ServiceAgents are compensated in fee payments for providing goods and services.
 
 #### **ServiceAgent** Mechanism Action Space:
-1. Attestation<a href="glossary.md#note13" id="note13ref"><sup>13</sup></a>
+1. Claim<a href="glossary.md#note4" id="note4ref"><sup>4</sup></a> 
 
 #### Example:
 Chimple - a non-profit education technology provider that will aim to utilize their technology to improve childhood learning in India. 
@@ -47,7 +47,7 @@ Chimple - a non-profit education technology provider that will aim to utilize th
 A **VerificationAgent** role is characterized by providing project verification services, evaluating claims and responding to disputes for Service Agents. They are also capable of issuing their own disputes.
 
 #### **VerificationAgent** Mechanism Action Space:
-1. Attestation<a href="glossary.md#note13" id="note13ref"><sup>13</sup></a> 
+1. Claim<a href="glossary.md#note4" id="note4ref"><sup>4</sup></a> 
 
 #### Example:
 Gray Matters India - an independent evaluator that will measure growth in learning outcomes of school-going children in India.
@@ -60,7 +60,7 @@ Gray Matters India - an independent evaluator that will measure growth in learni
 An **Arbitrator** role is characterized by providing arbitration services evaluating disputes.
 
 #### **Arbitrator** Mechanism Action Space:
-1. Attestation<a href="glossary.md#note13" id="note13ref"><sup>13</sup></a>
+1. Claim<a href="glossary.md#note4" id="note4ref"><sup>4</sup></a> 
 
 #### Example:
 Jur - a blockchain-based ecosystem for creating smart legal contracts and providing a platform for conflict resolution. This platform will be used to resolve disputes online, with agreed upon arbitrators that have expertise in particular topics. 
@@ -73,7 +73,7 @@ Jur - a blockchain-based ecosystem for creating smart legal contracts and provid
 An **Auditor** role is characterized by providing auditing services, auditing claims, auditing financial transactions, and submitting disputes.
 
 #### **Auditor** Mechanism Action Space:
-1. Attestation<a href="glossary.md#note13" id="note13ref"><sup>13</sup></a>
+1. Claim<a href="glossary.md#note4" id="note4ref"><sup>4</sup></a> 
 
 #### Example:
 KPMG - one of the "big four" accounting organizations.
@@ -83,10 +83,10 @@ KPMG - one of the "big four" accounting organizations.
 ### **Role 6: Bond Issuer**
 The **Bond Issuer** raises capital for a project through an impact bond debt instrument. They are responsible for ensuring regulatory compliance and for establishing the legal constructs of the fund. The Bond Issuer is liable to investors for the capital raised and liable to Project Owners for making payments for goods and services to be delivered through the project.  The Bond Issuer authorises agents to participate in the bond and interact with the bond mechanisms within the scopes of capabilities allowed by their respective roles. 
 
-A **BondIssuer** role is characterized by the ability to issue bonds, receive bond tokens, distribute bond tokens to the bond’s stakeholders, change bond parameters or terminate bond life, and submit disputes. 
+A **BondIssuer** role is characterized by the ability to issue bonds, receive bond tokens, distribute bond tokens to the bond’s stakeholders, change bond parameters or terminate bond life, and submit disputes.
 
 ####  **BondIssuer** Mechanism Action Space:
-1. Attestation<a href="glossary.md#note13" id="note13ref"><sup>13</sup></a>
+1. Claim<a href="glossary.md#note4" id="note4ref"><sup>4</sup></a> 
 
 #### Example:
 UBS Optimus Foundation - a foundation linked to a global wealth manager staffed with philanthropy experts.
@@ -99,7 +99,7 @@ UBS Optimus Foundation - a foundation linked to a global wealth manager staffed 
 These two roles can be generalized under the **Administrator** role which is characterized by performing bond or project administration, reporting on bond or project performance against milestones, evaluating claims, and the ability to change bond or project parameters or terminate bond or project life.
 
 #### **Adminstrator** Mechanism Action Space:
-1. Attestation<a href="glossary.md#note13" id="note13ref"><sup>13</sup></a>
+1. Claim<a href="glossary.md#note4" id="note4ref"><sup>4</sup></a> 
 
 #### Example:
 Project Administrator: Dalberg Capital - an experienced advisor on impact investing. 
@@ -115,7 +115,7 @@ A **ProjectOwner** role is characterized by the ability to create projects, rece
 ProjectOwners can purchase the first tranche of bond tokens prior to launch of the bond at an entry price close to 0. They then can distribute these tokens to various project stakeholders to incentivize them to participate in roles in the project in order to secure the required resources and funding to launch.
 
 #### **ProjectOwner** Mechanism Action Space:
-1. Attestation<a href="glossary.md#note13" id="note13ref"><sup>13</sup></a>
+1. Claim<a href="glossary.md#note4" id="note4ref"><sup>4</sup></a> 
 
 #### Example:
 Educational Agency - a formal education agency or department that has educational authority to initiate the project. Most likely the technical duties of actually deploying the project would be delegated to another organization to do so on behalf of the Educational Agency.
@@ -128,7 +128,7 @@ The **Outcomes Payer** purchases the outcomes of a Project for a promised future
 An **OutcomesPayer** role is characterized by the ability to make final payments to bond token holders, and submit disputes. 
 
 #### **OutcomesPayer** Mechanism Action Space:
-1. Attestation<a href="glossary.md#note13" id="note13ref"><sup>13</sup></a>
+1. Claim<a href="glossary.md#note4" id="note4ref"><sup>4</sup></a> 
 
 #### Example:
 Michael and Susan Dell Foundation - a non-profit foundation dedicated to transforming the lives of children living in urban poverty through improving their education, health, and family economic stability. Note that Government Agencies may also typically fulfill this role.

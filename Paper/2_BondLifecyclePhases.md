@@ -96,10 +96,8 @@ All values are at time t = 0:
 ### Inputs
 1. Reserve Funds to be Deposited
 2. Supply Tokens to be Burned
-3. Project Success Attestation Supply Tokens<a href="glossary.md#note36" id="note36ref"><sup>36</sup></a> 
-4. Project Failure Attestation Supply Tokens<a href="glossary.md#note37" id="note37ref"><sup>37</sup></a> 
-5. Dispute Submission
-6. Settlement Consideration Claim
+3. Dispute Submission
+4. Settlement Consideration Claim
 
 ### Next State Outputs
 1. Amount of Supply Tokens Minted

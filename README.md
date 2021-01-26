@@ -189,13 +189,13 @@ Each phase is broken out into a series of deliverables as listed below, which ar
 <br>
 
 ## Phase 2 Deliverables: System Specification
-*In Phase 2 we zoomed in on the focus of the design work: the bonding curve itself and the risk-adjusting component, the prediction module. In this Phase our design specifications leave behind the ixo use-case specific details (out of scope for the design) and instead focus specifically on the math related to the primitive design of a risk-adjusted bonding curve.*
+*In Phase 2 we zoomed in on the focus of the design work: the bonding curve itself and the risk-adjusting component, the prediction module. In this Phase our design specifications leave behind the ixo use-case specific details (out of scope for the design) and instead focus specifically on the math related to the primitive design of a risk-adjusted bonding curve. Of particular note, the claims mechanism which is of relevance to the ixo-specific implementation is replaced with the attestation mechanism, introduced as a formal part of the prediction module.*
 
-* **2.1 [Main Simulation Notebook and Explanatory Results](main.ipynb)** - Representative simulation notebook validating that the model meets core system properties
-* **2.2 [Math Specification](Math_Specification)** - Mathematical documentation of the model including system and component specifications as well as behavioural models of agents
-* **2.3 [cadCAD Model Source Code](src)** - Source code of the model built in cadCAD
+* **2.1 [Math Specification](Math_Specification)** - Mathematical documentation of the model including system and component specifications as well as behavioural models of agents
+* **2.2 [cadCAD Model Source Code](src)** - Source code of the model built in cadCAD
+* **2.3 [Component Validation Tests](tests)** - Other supporting validation tests (varying granularity, agent beliefs, etc.)
+* **2.4 [Main Simulation Notebook and Explanatory Results](main.ipynb)** - Representative simulation notebook validating that the model meets core system properties
 
-* **2.4 [Component Validation Tests](tests)** - Other supporting validation tests (varying granularity, agent beliefs, etc.)
 * **2.5 [Preliminary Modular SDK Specification Mapping](https://hackmd.io/nV1Dkx_BS12mNKEjL1wMJg?view)** - Template framework for documenting and implementing an SDK module using the BlockScience Systems Engineering modeling specification.
     - [Risk Prediction Module](https://hackmd.io/pBdH1OedQLuvhQU0ezTttA?view)
 * **2.6 [Preliminary Phase 3 Test Plan](https://docs.google.com/spreadsheets/d/1xdiogvWU_NP2PGOTVK6V2rl642u56y26nMKQznGaO1o/edit#gid=0)** - Initial planning around experiments to be performed in Phase 3
@@ -205,14 +205,13 @@ Each phase is broken out into a series of deliverables as listed below, which ar
 ## Phase 3 Deliverables: Analysis & Testing
 *In Phase 3 we performed validation testing for the bonding curve design and created parametric testing notebooks to allow for exploration and modification of key parameters in the system. In addition, we brought back into view the ixo use-case to ensure that the design primitive could be utilized to meet the needs of ixo alpha bonds. One key customization was that with the prediction market module in ixo’s pilot education use-case, it did not seem feasible or likely at this point for impact investors to participate in making attestations with their bond tokens. So, instead of using agent attestations to create a prediction market to adjust the bonding curve for risk, we instead allowed for the alpha signal to be directly “plugged in”, calculated from real test scores from the education pilot. This was a perfect example of how the design primitive created, could be customized for the particular use-case.*
 
-* **3.1 [Alpha belief synthesis](https://github.com/BlockScience/InterchainFoundation/blob/master/private_alpha_synthesis_v2.ipynb)** - This notebook provides a battery of tests that examine the synthesis of private & public alpha belief. 
+* **3.1 [cadCAD Model Files](https://github.com/BlockScience/InterchainFoundation/tree/master/src/sim)** - These files compose the cadCAD simulation. Download this if you want to run and play with the simulations locally. 
 
-* **3.2 [ixo Pilot Analysis](https://github.com/BlockScience/InterchainFoundation/blob/master/IXO_Chimple_Pilot_Revised.ipynb)** - This notebook provides a series of experiments & simulations for the ixo pilot implementation of Alpha Bonds.
+* **3.2 [Alpha Belief Synthesis](https://github.com/BlockScience/InterchainFoundation/blob/master/private_alpha_synthesis_v2.ipynb)** - This notebook provides a battery of tests that examine the synthesis of private & public alpha belief. 
 
+* **3.3 [Parametric Testing Notebooks](https://github.com/BlockScience/InterchainFoundation/tree/master/parametric_tests)** - Explore Risk-Adjusted Bonding Curves for yourself by modifying key aspects of the system. 
 
-* **3.3 [cadCAD Model Files](https://github.com/BlockScience/InterchainFoundation/tree/master/src/sim)** - These files compose the cadCAD simulation. Download this if you want to run and play with the simulations locally. 
-
-* **3.4 [Parametric Testing Notebooks](https://github.com/BlockScience/InterchainFoundation/tree/master/parametric_tests)** - Explore Risk-Adjusted Bonding Curves for yourself by modifying key aspects of the system. 
+* **3.4 [ixo Pilot Analysis](https://github.com/BlockScience/InterchainFoundation/blob/master/IXO_Chimple_Pilot_Revised.ipynb)** - This notebook provides a simulation for the ixo pilot implementation of Alpha Bonds.
 
 <br>
 <br>

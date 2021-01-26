@@ -10,7 +10,7 @@
 <p> Token Bonding Curves are continuous liquidity mechanisms which are used in market design for cryptographically-supported token economies whereby tokens are automatically issued using buy and sell functions. Academic literature increasingly refers to bonding curves as "configuration spaces" as Bonding Curves are part of a larger theory of scalar functions that remain invariant under legal changes in state. </p>
 
 <a id="note4" href="#note4ref">4</a>  **Claim** <br/>
-<p>   Claims are submitted by project participants to report impact or progress towards achieving the project's predetermined outcomes. These can be considered 'informal attestations' denoting the progress of the project, but do not influence the alpha rating of a given project.
+<p>   Claims are submitted by project participants to report impact or progress towards achieving the project's predetermined outcomes. These can be considered 'informal attestations' denoting the progress of the project, but do not influence the alpha rating of a given project. The *claim mechanism* involves the lifecycle of claims. Claims undergo the stages of submission, evaluation, audit, and resolution. Claims Submission: claims are submitted to prove impact or progress towards achieving the project's predetermined outcomes. Claim Evaluation: submitted claims go through a process of evaluation to verify their validity. Claim Auditing: submitted claims may be audited. Claim Resolution: claims are resolved and completed. During resolution, a dispute could be submitted which would result in subsequent dispute evaluation and resolution.
     
 <a id="note5" href="#note5ref">5</a>  **Dispute** <br/>
 <p>   Disputes are submitted to dispute the resolution of a claim<a href="glossary.md#note4" id="note4ref"><sup>4</sup></a>.
@@ -68,7 +68,7 @@
  <p>   Trader Agents can call the Bond Action and the Burn Action. </p>
 
 <a id="note23" href="#note23ref">23</a> **Operational Requirement 2** <br/>
-<p>    An agent which is able to execute the *Bond-to-Mint* or *Burn-to-Withdraw* mechanisms - such as Trader Agents - must not be involved in the Claim Evaluation, Claim Auditing, and Claim Resolution stages of the *Attestation* mechanism as this creates a conflict of interest. </p>
+<p>    An agent which is able to execute the *Bond-to-Mint* or *Burn-to-Withdraw* mechanisms - such as Trader Agents - must not be involved in the Claim Evaluation, Claim Auditing, and Claim Resolution stages of the *Claim* mechanism as this creates a conflict of interest. </p>
 
 <a id="note24" href="#note24ref">24</a> **Operational Requirement 3** <br/>
 <p>    Claim & Dispute Issuers call the SubmitClaim Action or SubmitDispute Action. </p>
@@ -80,7 +80,7 @@
 <p>    Evaluators can call the EvaluateClaim Action, AuditClaim Action, or ResolveClaim Action to process Claims, or the EvaluateDispute Action or ResolveDispute Action to process Disputes. </p>
 
 <a id="note27" href="#note27ref">27</a> **Operational Requirement 6** <br/>
-<p>    Agents involved in the Claim Evaluation, Claim Auditing, and Claim Resolution stages of the *Attestation* mechanism, such as Claim & Dispute Evaluators, are explictly excluded from holding or trading bond tokens as it results in a conflict of interest. </p>
+<p>    Agents involved in the Claim Evaluation, Claim Auditing, and Claim Resolution stages of the *Claim* mechanism, such as Claim & Dispute Evaluators, are explictly excluded from holding or trading bond tokens as it results in a conflict of interest. </p>
     
 <a id="note28" href="#note28ref">28</a> **ProjectTime** <br/><br/>
     The ProjectTime state variable ![img](https://latex.codecogs.com/svg.latex?p%20%5Cin%20%5Cmathbb%7BZ%7D_%7B&plus;&plus;%7D) describes the duration for which the project has been in the Execution phase.
