@@ -4,36 +4,44 @@ from src.sim.model.sys_params import *
 
 # Set initialization state variables for Attestations
 
-PRICE = 1
+PRICE = 1/3
 Q = 30000
 Q1 = 100
 Q0 = 30000
 S1 = 1 #0 #100
-S0 = 1 #0 #30000
+S0 = 100 #0 #30000
 r = 100  # Agent reserve, the amount of fiat tokens an agent starts with
 s = 0
 s1 = 0
 s0 = 0
 s_free = s - (s1+s0)
 
-
+KAPPA = KAPPA[0]
 ######## Just for initalization of variables ##########
 ####  Overwritten in configs.py for parameter sweeps with values in sys_params ######
-reserve = 1000000# (1-THETA[0])*MONEY_RAISED[0]
-supply = KAPPA[0]*(reserve/PRICE)
+reserve = 1000000 # (1-THETA[0])*MONEY_RAISED[0]
+supply = KAPPA*(reserve/PRICE)
 # IF P0 = 1 , then Supply should equal Reserve
-supply = reserve
+# supply = reserve
 supply_free = supply  - (S0 + S1)
-invariant_V = (supply**KAPPA[0])/reserve
+invariant_V = (supply**KAPPA)/reserve
 invariant_I = reserve + (C[0]*ALPHA[0])
 
 ALPHA = S1 * reserve / (S1 * reserve - S0 * reserve + S0*C[0])
+
+# ALPHA = 0.5
 # print("ALPHA = ", ALPHA)
-KAPPA = 3.0 #invariant_I / (invariant_I - (C[0]*ALPHA))
+#invariant_I / (invariant_I - (C[0]*ALPHA))
 # print("KAPPA = ", KAPPA)
 ##### Overwritten in configs.py for parameter sweeps with values in sys_params ######
 invariant_I = reserve + (C[0]*ALPHA)
 
+# Apply Alpha Initialization Ratio
+S1 = ((C[0] * ALPHA) - (reserve * ALPHA)) / (reserve * (1 - ALPHA)) * S0
+
+# invariant_I = (KAPPA * C[0]*ALPHA) / (KAPPA - 1)
+
+# invariant_I = KAPPA * reserve # equates as above
 
 ########## AGENT INITIALIZATION ##########
 number_of_agents = 2

@@ -10,10 +10,12 @@ def update_R(params, substep, state_history, prev_state, policy_input):
     kappa = prev_state['kappa']
     deltaS = policy_input['amt_to_burn']
 
+    print('R check ', (((S)**kappa)/V))
     if V == 0:
         print("V IS ZERO")  # degenerate
     else:
         deltaR = R - (((S-deltaS)**kappa)/V)
+        
         #print("::::delta R::::", deltaR)
         #print("::::AMTBOND::::", policy_input['amt_to_bond'])
 
@@ -64,6 +66,8 @@ def update_S(params, substep, state_history, prev_state, policy_input):
     V = prev_state['invariant_V']
     kappa = prev_state['kappa']
     deltaR = policy_input['amt_to_bond']
+
+    print('S check ', ((V*R)**(1/kappa)))
 
     deltaS = (V*(R+deltaR))**(1/kappa) - S
     # S = S - deltaS + policy_input['amt_to_burn']

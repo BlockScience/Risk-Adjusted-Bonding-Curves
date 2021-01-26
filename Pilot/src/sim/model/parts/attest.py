@@ -228,8 +228,8 @@ def synthetic_alpha_update(params, substep, state_history, prev_state, policy_in
 
     delta_alpha = alpha_movement(R, C)
 
-    print('delta_alpha',delta_alpha)
-    print('alpha_movement',new_alpha + delta_alpha)
+    # print('delta_alpha',delta_alpha)
+    # print('alpha_movement',new_alpha + delta_alpha)
 
     allowable_alpha_movement = previous_alpha + delta_alpha
 
