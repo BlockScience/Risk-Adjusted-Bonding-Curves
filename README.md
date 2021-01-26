@@ -161,7 +161,7 @@ Dive into the Phase 2 [Alpha Bond Simulation Notebook](main.ipynb) and take a de
 
 ## Alpha Bond Testing & Analysis
 
-Read more about the rigorous testing & analysis carried out in Phase 3. [Simulations and experiments for the ixo pilot of Alpha Bonds](https://github.com/BlockScience/InterchainFoundation/blob/master/IXO_Chimple_Pilot_Revised.ipynb) may be of interest readers interested in social impact bond development. Testing of the [synthesis of public & private $alpha$ signal](https://github.com/BlockScience/InterchainFoundation/blob/master/private_alpha_synthesis_v2.ipynb) was also carried out. [Parametric tests](https://github.com/BlockScience/InterchainFoundation/tree/phase_3_kappa/parametric_tests) were run on multiple system parameters, including the [bonding curve shape ($\kappa$)](https://github.com/BlockScience/InterchainFoundation/blob/master/parametric_tests/kappa_test.ipynb), the [proportion of funds allocated to the project vs reserve ($\theta$)](https://github.com/BlockScience/InterchainFoundation/blob/master/parametric_tests/parametric_test_theta.ipynb), [outcome payments ($O$)](https://github.com/BlockScience/InterchainFoundation/blob/phase_3_kappa/parametric_tests/parametric_test_outcome_payment.ipynb), and more.
+Read more about the rigorous testing & analysis carried out in Phase 3. [Simulations and experiments for the ixo pilot of Alpha Bonds](https://github.com/BlockScience/InterchainFoundation/blob/master/IXO_Chimple_Pilot_Revised.ipynb) may be of interest readers interested in social impact bond development. Testing of the [synthesis of public & private $alpha$ signal](https://github.com/BlockScience/InterchainFoundation/blob/master/private_alpha_synthesis_v2.ipynb) was also carried out. [Parametric tests](https://github.com/BlockScience/InterchainFoundation/tree/phase_3_kappa/parametric_tests) were run on multiple system parameters, including the [bonding curve exponent ($\kappa$)](https://github.com/BlockScience/InterchainFoundation/blob/master/parametric_tests/kappa_test.ipynb), the [proportion of funds allocated to project funding vs reserve of the bonding curve ($\theta$)](https://github.com/BlockScience/InterchainFoundation/blob/master/parametric_tests/parametric_test_theta.ipynb), [outcome payments ($C$)](https://github.com/BlockScience/InterchainFoundation/blob/phase_3_kappa/parametric_tests/parametric_test_outcome_payment.ipynb), and more.
 
 
 <br><br>
@@ -176,6 +176,8 @@ This project was carried out in 3 phases:
 Each phase is broken out into a series of deliverables as listed below, which are collated into a stakeholder report at the completion of each phase.
 
 ## Phase 1 Deliverables:  Requirements Gathering
+*In Phase 1, we focused on gathering requirements around the ixo use-case including all of the roles and lifecycle phases in ixo alpha bonds. This allowed us to understand the overall needs, the participants, and application of our eventual design to that particular use-case. We then took a step back and determined what specific design we needed to focus on in Phase 2 and ensure that it would be a generalized design. The goal we kept in mind was to provide a useful primitive that could, with some customization be utilized by ixo, but also could be applied to any number of other use-cases in the cosmos ecosystem.*
+
 * **1.0 [Problem Statement and Methodology](Paper/0_ProblemStatementandMethodology.md)** - Understand what problem we are trying to solve and what methodology we intend to utilize in order to solve it
 
 * **1.1 [Ecosystem Roles](Paper/1_EcosystemRoles.md)** - Identify all of the various roles users can take in the ecosystem
@@ -187,6 +189,8 @@ Each phase is broken out into a series of deliverables as listed below, which ar
 <br>
 
 ## Phase 2 Deliverables: System Specification
+*In Phase 2 we zoomed in on the focus of the design work: the bonding curve itself and the risk-adjusting component, the prediction module. In this Phase our design specifications leave behind the ixo use-case specific details (out of scope for the design) and instead focus specifically on the math related to the primitive design of a risk-adjusted bonding curve.*
+
 * **2.1 [Main Simulation Notebook and Explanatory Results](main.ipynb)** - Representative simulation notebook validating that the model meets core system properties
 * **2.2 [Math Specification](Math_Specification)** - Mathematical documentation of the model including system and component specifications as well as behavioural models of agents
 * **2.3 [cadCAD Model Source Code](src)** - Source code of the model built in cadCAD
@@ -199,7 +203,7 @@ Each phase is broken out into a series of deliverables as listed below, which ar
 <br>
 
 ## Phase 3 Deliverables: Analysis & Testing
-
+*In Phase 3 we performed validation testing for the bonding curve design and created parametric testing notebooks to allow for exploration and modification of key parameters in the system. In addition, we brought back into view the ixo use-case to ensure that the design primitive could be utilized to meet the needs of ixo alpha bonds. One key customization was that with the prediction market module in ixo’s pilot education use-case, it did not seem feasible or likely at this point for impact investors to participate in making attestations with their bond tokens. So, instead of using agent attestations to create a prediction market to adjust the bonding curve for risk, we instead allowed for the alpha signal to be directly “plugged in”, calculated from real test scores from the education pilot. This was a perfect example of how the design primitive created, could be customized for the particular use-case.*
 
 * **3.1 [Alpha belief synthesis](https://github.com/BlockScience/InterchainFoundation/blob/master/private_alpha_synthesis_v2.ipynb)** - This notebook provides a battery of tests that examine the synthesis of private & public alpha belief. 
 
