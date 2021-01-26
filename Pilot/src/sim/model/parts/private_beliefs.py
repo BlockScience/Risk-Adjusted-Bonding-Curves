@@ -125,6 +125,8 @@ def update_agent_beliefs(params, substep, state_history, prev_state, policy_inpu
     agent['agent_private_price'] = private_price
     agent['agent_private_alpha'] = private_alpha
 
+##################### WATCH THIS HARDCODING OF ADDED RESERVE #########################################
     agent['agent_reserve'] =  agent['agent_reserve'] + 10 #00000
+######################################################################################################
 
     return 'chosen_agent', agent
