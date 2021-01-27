@@ -210,8 +210,9 @@ def synthetic_alpha_test(params, substep, state_history, prev_state):
         new_alpha = (1- (alpha_noise)) * (previous_alpha)
 
     if new_alpha > allowable_alpha_movement:
-        new_alpha = new_alpha - 0.01
+        new_alpha = allowable_alpha_movement * params['alpha_test_bound']
 
+    # print('new_alpha', new_alpha)
     return {'new_alpha': new_alpha}
 
 def synthetic_alpha_update(params, substep, state_history, prev_state, policy_input):
@@ -235,7 +236,7 @@ def synthetic_alpha_update(params, substep, state_history, prev_state, policy_in
 
     # Apply restriction 
     if new_alpha > allowable_alpha_movement:
-        new_alpha = new_alpha - 0.01
+        new_alpha = allowable_alpha_movement * params['alpha_test_bound']
 
     return 'alpha', new_alpha
 

@@ -22,24 +22,25 @@ C = C[0]
 #### FIX KAPPA, ALPHA Dependent VERSION 
 
 # ALPHA = ALPHA[0] #### FIX KAPPA, ALPHA Dependent VERSION 
-ALPHA = 0.5 #### FIX ALPHA, KAPPA Dependent VERSION 
+# ALPHA = 0.5 #### FIX ALPHA, KAPPA Dependent VERSION 
 
 
-# KAPPA = KAPPA[0] #### FIX KAPPA, ALPHA Dependent VERSION 
+KAPPA = KAPPA[0] #### FIX KAPPA, ALPHA Dependent VERSION 
 ######## Just for initalization of variables ##########
 ####  Overwritten in configs.py for parameter sweeps with values in sys_params ######
-reserve = 1000000 # (1-THETA[0])*MONEY_RAISED[0]
+reserve = 100000000 # (1-THETA[0])*MONEY_RAISED[0]
 
-KAPPA = 1 + (C * ALPHA / reserve) #### FIX ALPHA, KAPPA Dependent VERSION 
+# KAPPA = 1 + (C * ALPHA / reserve) #### FIX ALPHA, KAPPA Dependent VERSION 
 
 supply = KAPPA*(reserve/PRICE)
 # IF P0 = 1 , then Supply should equal Reserve
 # supply = reserve
 supply_free = supply  - (S0 + S1)
 invariant_V = (supply**KAPPA)/reserve
-invariant_I = reserve + (C*ALPHA)
 
-# ALPHA = S1 * reserve / (S1 * reserve - S0 * reserve + S0*C[0])
+ALPHA = S1 * reserve / (S1 * reserve - S0 * reserve + S0*C) #### FIX KAPPA, ALPHA Dependent VERSION 
+
+invariant_I = reserve + (C*ALPHA)
 
 # ALPHA = 0.5
 # print("ALPHA = ", ALPHA)

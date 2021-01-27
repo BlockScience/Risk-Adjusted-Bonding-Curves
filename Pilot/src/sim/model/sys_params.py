@@ -2,7 +2,7 @@ import itertools
 
 KAPPA = [3]
   
-C = [3000000] #some amount greater than money raised, some ROI (10%) over money raised
+C = [3000000000] #some amount greater than money raised, some ROI (10%) over money raised
 ALPHA = [0.5] # computed using S1 * reserve / (S1 * reserve - S0 * reserve + S0*C[0])
 MONEY_RAISED = [1000000]
 
@@ -61,6 +61,9 @@ kappa_rule = ['none']
 # kappa_rule = [True, False] # TRUE means INTEGER enforcement, False allows decimal type
 
 alpha_test = ['success'] 
+# Movement bound ratio of maximum movement
+alpha_test_bound = [0.99] 
+
 # Round enforces Integer Rounding
 # None allows decimal type
 # Fixed kappa is fixed from initial value
@@ -71,9 +74,9 @@ alpha_test = ['success']
 # E = [0.1, 0.2, 0.3]
 E = [0.2]
 
-factors = [rules_price, KAPPA, E, MONEY_RAISED, ALPHA, C, THETA, ENABLE_CONTINUOUS, ENABLE_BURN, alpha_bias, price_bias, alpha_test]
+factors = [rules_price, KAPPA, E, MONEY_RAISED, ALPHA, C, THETA, ENABLE_CONTINUOUS, ENABLE_BURN, alpha_bias, price_bias, alpha_test, alpha_test_bound]
 product = list(itertools.product(*factors))
-rules_price, KAPPA, E, MONEY_RAISED, ALPHA, C, THETA, ENABLE_CONTINUOUS, ENABLE_BURN, alpha_bias, price_bias, alpha_test= zip(*product)
+rules_price, KAPPA, E, MONEY_RAISED, ALPHA, C, THETA, ENABLE_CONTINUOUS, ENABLE_BURN, alpha_bias, price_bias, alpha_test, alpha_test_bound= zip(*product)
 rules_price = list(rules_price)
 KAPPA = list(KAPPA)
 E = list(E)
@@ -86,6 +89,7 @@ ENABLE_BURN = list(ENABLE_BURN)
 alpha_bias = list(alpha_bias)
 price_bias = list(price_bias)
 alpha_test = list(alpha_test)
+alpha_test_bound = list(alpha_test_bound)
 
 ############ PARAMETRIC TESTS #########################################################################
 # factors = [rules_price, KAPPA, E, MONEY_RAISED, ALPHA, C, THETA, ENABLE_CONTINUOUS, ENABLE_BURN]
@@ -125,4 +129,5 @@ params = {
     'price_bias': price_bias,
     'kappa_rule' : kappa_rule,
     'alpha_test' : alpha_test,
+    'alpha_test_bound' : alpha_test_bound,
 }
