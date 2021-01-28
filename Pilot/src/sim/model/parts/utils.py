@@ -109,7 +109,7 @@ def agent_payout(experiments,t):
     S_free = experiments.supply_free[t]
     S_0 = experiments.supply_0[t]
     S_1 = experiments.supply_1[t]
-    agents_id = [0,1,2,3,4,5,6,7,8,9]
+    agents_id = [0,1,2,3]
     payout_list = []
     for a in agents_id:
         q1 = experiments.agents[t].agent_attestations_1[a]
@@ -122,8 +122,8 @@ def agent_payout(experiments,t):
         Q0 = experiments.attestations_0[t]
         Q1 = 1 
         R = experiments.reserve[t]
-        S = experiments.supply[t] - 1000000 # subtract initial amount
-        C = 300000000 
+        S = experiments.supply[t] - 0 # subtract initial amount
+        C = 68000
         alpha = experiments.alpha[t]
         if alpha < 0.4:
             alpha = 0
@@ -148,7 +148,7 @@ def agent_payout(experiments,t):
     fig = plt.figure(figsize=(15, 10))
     plt.bar(x_pos, payouts, color='green')
     plt.xlabel("Agent ID")
-    plt.ylabel("Payout amount (uXCHF)")
+    plt.ylabel("Payout amount")
     plt.title("Agent and their Payouts")
 
     plt.xticks(x_pos, x)

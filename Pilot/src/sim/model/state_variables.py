@@ -10,13 +10,18 @@ Q1 = 100
 Q0 = 30000
 S1 = 1 #0 #100
 S0 = 100 #0 #30000
-r = 100  # Agent reserve, the amount of fiat tokens an agent starts with
+r = 0  # Agent reserve, the amount of fiat tokens an agent starts with
 s = 0
 s1 = 0
 s0 = 0
 s_free = s - (s1+s0)
 
 C = C[0]
+
+r1 = 30000 # reserve of agent 1; represents Tranche 1
+r2 = 10000 # reserve of agent 2; represents Tranche 2
+r3 = 10000 # reserve of agent 3; represents Tranche 3
+r4 = 10000 # reserve of agent 4; represents Tranche 4
 
 #### FIX ALPHA, KAPPA Dependent VERSION 
 #### FIX KAPPA, ALPHA Dependent VERSION 
@@ -28,7 +33,7 @@ C = C[0]
 KAPPA = KAPPA[0] #### FIX KAPPA, ALPHA Dependent VERSION 
 ######## Just for initalization of variables ##########
 ####  Overwritten in configs.py for parameter sweeps with values in sys_params ######
-reserve = 100000000 # (1-THETA[0])*MONEY_RAISED[0]
+reserve = 1 # (1-THETA[0])*MONEY_RAISED[0]
 
 # KAPPA = 1 + (C * ALPHA / reserve) #### FIX ALPHA, KAPPA Dependent VERSION 
 
@@ -57,7 +62,7 @@ S1 = ((C * ALPHA) - (reserve * ALPHA)) / (reserve * (1 - ALPHA)) * S0
 # invariant_I = KAPPA * reserve # equates as above
 
 ########## AGENT INITIALIZATION ##########
-number_of_agents = 2
+number_of_agents = 4
 
 PRIVATE_ALPHA = 0.5
 PRIVATE_PRICE = 0.5
@@ -80,9 +85,10 @@ agents_df = pd.concat([agents_df]*number_of_agents, ignore_index=True)
 # Adding IDs to agents
 agents_df.insert(0, 'id', range(0, len(agents_df)))
 
+agents_df['agent_private_alpha'] = 0.5, 0.5, 0.5, 0.5
+agents_df['agent_private_price'] = 0.5, 0.5, 0.5, 0.5
+agents_df['agent_reserve'] = 30000, 10000, 10000, 10000
 
-agents_df['agent_private_alpha'] = 0.5, 0.5
-agents_df['agent_private_price'] = 0.5, 0.5
 
 ########## SYSTEM INITIALIZATION ##########
 initial_conditions = {

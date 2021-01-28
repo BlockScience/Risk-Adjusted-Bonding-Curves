@@ -4,5 +4,5 @@ import numpy as np
 import scipy.stats as sts
 import seaborn as sns
 
-SIMULATION_TIME_STEPS = 1400
+SIMULATION_TIME_STEPS = 365
 MONTE_CARLO_RUNS = 1
