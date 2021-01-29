@@ -38,7 +38,7 @@ def set_bond_action(params, substep, state_history, prev_state):
 
     amt_to_bond = deltaR
     amt_to_burn = 0
-
+    # print('amt_to_bond',amt_to_bond)
     mech_pm = None
     amt_Q1 = 0
     amt_Q0 = 0

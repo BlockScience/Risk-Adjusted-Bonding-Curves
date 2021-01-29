@@ -126,7 +126,7 @@ def compute_r(R, S, V, kappa, r, deltaS, policy_input):
 def compute_s_free(R, S, V, kappa, s_free, deltaR, policy_input, timestep):
 
     deltas = (V*(R+deltaR))**(1/kappa)-S
-
+    # print(deltas)
     s_free = s_free + deltas - policy_input['amt_to_burn']
 
     # TEST RANDOM DROP
@@ -159,6 +159,7 @@ def update_agent_BC(params, substep, state_history, prev_state, policy_input):
 
     agent['agent_supply_free'] = compute_s_free(
         R, S, V, kappa, s_free, deltaR, policy_input, timestep)
+
     # print(agent['agent_supply_free'])
     return 'chosen_agent', agent
 

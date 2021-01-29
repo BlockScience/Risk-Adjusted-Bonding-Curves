@@ -86,7 +86,8 @@ agents_df = pd.concat([agents_df]*number_of_agents, ignore_index=True)
 agents_df.insert(0, 'id', range(0, len(agents_df)))
 
 agents_df['agent_private_alpha'] = 0.5, 0.5, 0.5, 0.5
-agents_df['agent_private_price'] = 0.5, 0.5, 0.5, 0.5
+# agents_df['agent_private_price'] = 0.5, 0.5, 0.5, 0.5
+agents_df['agent_private_price'] = 10000, 10000, 10000, 10000
 agents_df['agent_reserve'] = 30000, 10000, 10000, 10000
 
 

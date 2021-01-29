@@ -105,17 +105,24 @@ def agent_payout(experiments,t):
     """
     For CWU Payout
     """
-
+    # print(experiments.agents[t])
     S_free = experiments.supply_free[t]
     S_0 = experiments.supply_0[t]
     S_1 = experiments.supply_1[t]
     agents_id = [0,1,2,3]
     payout_list = []
+    # for a in agents_id:
+    #     # print(experiments.agents[t])
+    #     q1 = experiments.agents[t].agent_attestations_1[a]
+    #     q0 = experiments.agents[t].agent_attestations_0[a]
+    #     s_free = experiments.agents[t].agent_supply_free[a]
     for a in agents_id:
+        # print(experiments.agents[t])
         q1 = experiments.agents[t].agent_attestations_1[a]
         q0 = experiments.agents[t].agent_attestations_0[a]
         s_free = experiments.agents[t].agent_supply_free[a]
-        # print(s_free)
+        # print(a)
+        # print('s_free', s_free)
         s1 = experiments.agents[t].agent_supply_1[a]
         s0 = experiments.agents[t].agent_supply_0[a]
         s = s_free + s1 + s0
@@ -124,7 +131,7 @@ def agent_payout(experiments,t):
         Q1 = 1 
         R = experiments.reserve[t]
         S = experiments.supply[t] - 0 # subtract initial amount
-        C = 68000
+        C = 68100
         alpha = experiments.alpha[t]
         if alpha < 0.4:
             alpha = 0
