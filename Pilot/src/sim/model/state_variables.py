@@ -4,7 +4,7 @@ from src.sim.model.sys_params import *
 
 # Set initialization state variables for Attestations
 
-PRICE = 1/3
+PRICE = 1
 Q = 30000
 Q1 = 100
 Q0 = 30000

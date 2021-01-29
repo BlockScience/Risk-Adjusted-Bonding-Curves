@@ -115,6 +115,7 @@ def agent_payout(experiments,t):
         q1 = experiments.agents[t].agent_attestations_1[a]
         q0 = experiments.agents[t].agent_attestations_0[a]
         s_free = experiments.agents[t].agent_supply_free[a]
+        # print(s_free)
         s1 = experiments.agents[t].agent_supply_1[a]
         s0 = experiments.agents[t].agent_supply_0[a]
         s = s_free + s1 + s0
@@ -137,14 +138,13 @@ def agent_payout(experiments,t):
         payout_list.append(agent_payout)
 
         arr2d = np.array(payout_list)
-
     arr1d = arr2d.flatten()
 
     x = agents_id
     payouts = arr1d
 
     x_pos = [i for i, _ in enumerate(x)]
-
+    
     fig = plt.figure(figsize=(15, 10))
     plt.bar(x_pos, payouts, color='green')
     plt.xlabel("Agent ID")

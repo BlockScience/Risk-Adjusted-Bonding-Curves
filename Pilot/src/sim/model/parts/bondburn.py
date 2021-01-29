@@ -159,7 +159,7 @@ def update_agent_BC(params, substep, state_history, prev_state, policy_input):
 
     agent['agent_supply_free'] = compute_s_free(
         R, S, V, kappa, s_free, deltaR, policy_input, timestep)
-
+    # print(agent['agent_supply_free'])
     return 'chosen_agent', agent
 
 
