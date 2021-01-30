@@ -16,8 +16,8 @@ def update_R(params, substep, state_history, prev_state, policy_input):
     else:
         deltaR = R - (((S-deltaS)**kappa)/V)
         
-        #print("::::delta R::::", deltaR)
-        #print("::::AMTBOND::::", policy_input['amt_to_bond'])
+        # print("::::delta R::::", deltaR)
+        # print("::::AMTBOND::::", policy_input['amt_to_bond'])
 
         ## Continuous ##
         # Continuous Enabled, newly reserved funds split to bond reserve and project funding

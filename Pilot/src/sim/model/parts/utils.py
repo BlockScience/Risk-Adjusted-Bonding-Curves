@@ -133,7 +133,7 @@ def agent_payout(experiments,t):
         Q0 = experiments.attestations_0[t]
         Q1 = 1 
         R = experiments.reserve[t]
-        S = experiments.supply[t] - 0 # subtract initial amount
+        S = experiments.supply[t] - 30000 # subtract initial amount
         C = 68100
         alpha = experiments.alpha[t]
         if alpha < 0.4:
