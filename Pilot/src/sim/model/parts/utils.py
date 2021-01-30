@@ -111,6 +111,7 @@ def agent_payout(experiments,t):
     S_1 = experiments.supply_1[t]
     agents_id = [0,1,2,3]
     payout_list = []
+    no_R_payout_list = []
     # for a in agents_id:
     #     # print(experiments.agents[t])
     #     q1 = experiments.agents[t].agent_attestations_1[a]
@@ -126,6 +127,8 @@ def agent_payout(experiments,t):
         s1 = experiments.agents[t].agent_supply_1[a]
         s0 = experiments.agents[t].agent_supply_0[a]
         s = s_free + s1 + s0
+        # print('s ', s)
+        # print("s_free ", s_free)
         agent_private_alpha = experiments.agents[t].agent_private_alpha[a]
         Q0 = experiments.attestations_0[t]
         Q1 = 1 
@@ -143,20 +146,34 @@ def agent_payout(experiments,t):
 
         agent_payout = T1
         payout_list.append(agent_payout)
-
         arr2d = np.array(payout_list)
+        
+        no_R_payout = (s_free/S)*(C*alpha)
+        no_R_payout_list.append(no_R_payout)
+        arr2d_no_R = np.array(no_R_payout_list)
+
     arr1d = arr2d.flatten()
-
+    arr1d_no_R = arr2d_no_R.flatten()
     x = agents_id
-    payouts = arr1d
 
+    payouts = arr1d
+    # print(payouts)
     x_pos = [i for i, _ in enumerate(x)]
-    
+    x_pos2 = [i+0.25 for i, _ in enumerate(x)]
+    x_pos3 = [i-0.25 for i, _ in enumerate(x)]
+
+    investment = [30000, 10000, 10000, 10000]
     fig = plt.figure(figsize=(15, 10))
-    plt.bar(x_pos, payouts, color='green')
+    
+    plt.bar(x_pos3, investment, color='red', width=0.25)
+    plt.bar(x_pos, arr1d_no_R, color='blue', width=0.25)
+    plt.bar(x_pos2,payouts, color='green', width=0.25)
+
+    plt.legend(['Invested', 'Outcome Share', 'Outcome + Reserve Share'])
+
     plt.xlabel("Agent ID")
     plt.ylabel("Payout amount")
-    plt.title("Agent and their Payouts")
+    plt.title("Agents Spend and Return")
 
     plt.xticks(x_pos, x)
 
