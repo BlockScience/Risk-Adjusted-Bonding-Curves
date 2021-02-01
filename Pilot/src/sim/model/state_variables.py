@@ -34,6 +34,7 @@ KAPPA = KAPPA[0] #### FIX KAPPA, ALPHA Dependent VERSION
 ######## Just for initalization of variables ##########
 ####  Overwritten in configs.py for parameter sweeps with values in sys_params ######
 reserve = 10000 # (1-THETA[0])*MONEY_RAISED[0]
+# reserve = 5000 # (1-THETA[0])*MONEY_RAISED[0]
 
 # KAPPA = 1 + (C * ALPHA / reserve) #### FIX ALPHA, KAPPA Dependent VERSION 
 

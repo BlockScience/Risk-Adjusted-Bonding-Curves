@@ -15,36 +15,36 @@ def choose_agent(params, substep, state_history, prev_state, policy_input):
     #agent = timestep % 10
    
     # print ("TIMESTEP = ", timestep)
-    # if timestep >= 0 and timestep < 90:
-    #     agent = 0
-    #     # print("AGENT 0 = ", agent)
-    # elif timestep >= 90 and timestep < 180: 
-    #     agent = 1
-    #     # print("AGENT 1 = ", agent)
-    # elif timestep >= 180 and timestep < 270: 
-    #     agent = 2
-    #     # print("AGENT 2 = ", agent)
-    # elif timestep >= 270: 
-    #     agent = 3
+    if timestep >= 0 and timestep < 90:
+        agent = 0
+        # print("AGENT 0 = ", agent)
+    elif timestep >= 90 and timestep < 180: 
+        agent = 1
+        # print("AGENT 1 = ", agent)
+    elif timestep >= 180 and timestep < 270: 
+        agent = 2
+        # print("AGENT 2 = ", agent)
+    elif timestep >= 270: 
+        agent = 3
     #     # print("AGENT 3 = ", agent)
         
         # print ("TIMESTEP = ", timestep)
-    if  timestep < 90:
-        agent = 4
-        # print("AGENT 0 = ", agent)
+    # if  timestep < 90:
+    #     agent = 4
+    #     # print("AGENT 0 = ", agent)
 
-    elif  timestep >= 90 and timestep < 180:
-        agent = 0
-        # print("AGENT 0 = ", agent)
+    # elif  timestep >= 90 and timestep < 180:
+    #     agent = 0
+    #     # print("AGENT 0 = ", agent)
 
-    elif timestep >= 180 and timestep < 270:
-        agent = 1
-        # print("AGENT 0 = ", agent)
-    elif timestep >= 270 and timestep < 360: 
-        agent = 2
-        # print("AGENT 1 = ", agent)
-    elif timestep >= 360: # and timestep < 360: 
-        agent = 3
+    # elif timestep >= 180 and timestep < 270:
+    #     agent = 1
+    #     # print("AGENT 0 = ", agent)
+    # elif timestep >= 270 and timestep < 360: 
+    #     agent = 2
+    #     # print("AGENT 1 = ", agent)
+    # elif timestep >= 360: # and timestep < 360: 
+    #     agent = 3
         # print("AGENT 2 = ", agent)
     # elif timestep >= 3600: 
     #     agent = 3

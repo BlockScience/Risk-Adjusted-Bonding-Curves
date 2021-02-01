@@ -101,7 +101,7 @@ def price(experiments,test_title,T):
     return 
 
 
-def agent_payout(experiments,t):
+def agent_payout(experiments,t, invest_list, initial_supply):
     """
     For CWU Payout
     """
@@ -133,7 +133,8 @@ def agent_payout(experiments,t):
         Q0 = experiments.attestations_0[t]
         Q1 = 1 
         R = experiments.reserve[t]
-        S = experiments.supply[t] - 30000 # subtract initial amount
+
+        S = experiments.supply[t] - initial_supply # subtract initial amount
         C = 68100
         alpha = experiments.alpha[t]
         if alpha < 0.4:
@@ -151,18 +152,24 @@ def agent_payout(experiments,t):
         no_R_payout = (s_free/S)*(C*alpha)
         no_R_payout_list.append(no_R_payout)
         arr2d_no_R = np.array(no_R_payout_list)
-
+        print(no_R_payout)
     arr1d = arr2d.flatten()
     arr1d_no_R = arr2d_no_R.flatten()
     x = agents_id
 
     payouts = arr1d
     # print(payouts)
+    
+    print(np.sum(no_R_payout_list))
     x_pos = [i for i, _ in enumerate(x)]
     x_pos2 = [i+0.25 for i, _ in enumerate(x)]
     x_pos3 = [i-0.25 for i, _ in enumerate(x)]
 
-    investment = [30000, 10000, 10000, 10000]
+### BAD PRACTICE, read in reserve list
+    # investment = [25000, 10000, 10000, 10000]
+    investment = invest_list
+    hatch = experiments.reserve[0]
+    investment[0] = investment[0] + hatch
     fig = plt.figure(figsize=(15, 10))
     
     plt.bar(x_pos3, investment, color='red', width=0.25)
