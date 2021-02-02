@@ -4,7 +4,7 @@ KAPPA = [3]
   
 C = [68100] #some amount greater than money raised, some ROI (10%) over money raised
 ALPHA = [0.5] # computed using S1 * reserve / (S1 * reserve - S0 * reserve + S0*C[0])
-MONEY_RAISED = [1000000]
+MONEY_RAISED = [60000]
 
 # KAPPA = [3.0] # computed from I / I-(C*alpha)
 # C = [300000000] #some amount greater than money raised, some ROI (10%) over money raised
