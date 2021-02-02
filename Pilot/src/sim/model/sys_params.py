@@ -1,6 +1,6 @@
 import itertools
 
-KAPPA = [3]
+KAPPA = [4]
   
 C = [68100] #some amount greater than money raised, some ROI (10%) over money raised
 ALPHA = [0.5] # computed using S1 * reserve / (S1 * reserve - S0 * reserve + S0*C[0])
@@ -60,7 +60,9 @@ kappa_rule = ['none']
 ####### KAPPA INTEGER ENFORCEMENT #####################
 # kappa_rule = [True, False] # TRUE means INTEGER enforcement, False allows decimal type
 
-alpha_test = ['success'] 
+# alpha_test = ['success'] 
+alpha_test = ['failure'] 
+
 # Movement bound ratio of maximum movement
 alpha_test_bound = [0.99] 
 

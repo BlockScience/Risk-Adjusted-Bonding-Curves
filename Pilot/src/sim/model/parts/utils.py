@@ -106,6 +106,7 @@ def agent_payout(experiments,t, invest_list, initial_supply):
     For CWU Payout
     """
     # print(experiments.agents[t])
+    C = 68100
     S_free = experiments.supply_free[t]
     S_0 = experiments.supply_0[t]
     S_1 = experiments.supply_1[t]
@@ -135,8 +136,11 @@ def agent_payout(experiments,t, invest_list, initial_supply):
         R = experiments.reserve[t]
 
         S = experiments.supply[t] - initial_supply # subtract initial amount
-        C = 68100
+        
         alpha = experiments.alpha[t]
+        # TEMP TO SHOW A POINT
+        alpha = 1
+        # TEMP TO SHOW A POINT
         if alpha < 0.4:
             alpha = 0
         elif alpha >= 0.4:
@@ -155,9 +159,17 @@ def agent_payout(experiments,t, invest_list, initial_supply):
         print(no_R_payout)
     arr1d = arr2d.flatten()
     arr1d_no_R = arr2d_no_R.flatten()
-    x = agents_id
+    print(arr1d_no_R, type(arr1d_no_R))
+
+    # x = agents_id
+    x = [0,1,2,3,4]
+    hatch_supply = experiments.supply[0]
+    hatch_payout_no_R = hatch_supply / experiments.supply[t] * C
+    arr1d_no_R_with_hatch = np.insert(arr1d_no_R, 0, hatch_payout_no_R)
+    hatch_payout = hatch_supply / experiments.supply[t] * (C + experiments.reserve[t])
 
     payouts = arr1d
+    payouts_with_hatch = np.insert(arr1d, 0, hatch_payout)
     # print(payouts)
     
     print(np.sum(no_R_payout_list))
@@ -169,21 +181,24 @@ def agent_payout(experiments,t, invest_list, initial_supply):
     # investment = [25000, 10000, 10000, 10000]
     investment = invest_list
     hatch = experiments.reserve[0]
-    investment[0] = investment[0] + hatch
+    # investment[0] = investment[0] #+ hatch
+    investment.insert(0,hatch)
+    
     fig = plt.figure(figsize=(15, 10))
     
     plt.bar(x_pos3, investment, color='red', width=0.25)
-    plt.bar(x_pos, arr1d_no_R, color='blue', width=0.25)
-    plt.bar(x_pos2,payouts, color='green', width=0.25)
+    plt.bar(x_pos, arr1d_no_R_with_hatch, color='blue', width=0.25)
+    plt.bar(x_pos2,payouts_with_hatch, color='green', width=0.25)
 
     plt.legend(['Invested', 'Outcome Share', 'Outcome + Reserve Share'])
 
     plt.xlabel("Agent ID")
     plt.ylabel("Payout amount")
     plt.title("Agents Spend and Return")
+    plt.xticks(x_pos, ['Hatch', '0', '1', '2', '3'])
 
-    plt.xticks(x_pos, x)
-
+    # plt.xticks(x_pos, x)
+    # plt.xlabel(['Hatch', '0', '1', '2', '3'])
     plt.show()
 
 # def agent_payout(experiments,t):

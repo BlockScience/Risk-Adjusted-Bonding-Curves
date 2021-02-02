@@ -200,14 +200,20 @@ def synthetic_alpha_test(params, substep, state_history, prev_state):
 
     delta_alpha = alpha_movement(R, C)
     # print('delta_alpha',delta_alpha)
-    alpha_noise = round(np.random.normal(0.5,0.2,1)[0],2) / 100
+    # Original
+    # alpha_noise = round(np.random.normal(0.5,0.2,1)[0],2) / 100
+    # Playing with it
+    alpha_noise = round(np.random.normal(0.03,0.01,1)[0],2) / 100
     allowable_alpha_movement = previous_alpha + delta_alpha
 
     if params['alpha_test'] == 'success':
         new_alpha = 1 - (1- (alpha_noise)) * (1 - previous_alpha)
 
-    elif params['alpha_test'] == 'failure':
+    elif params['alpha_test'] == 'failure':      
         new_alpha = (1- (alpha_noise)) * (previous_alpha)
+
+    elif params['alpha_test'] == 'constant':      
+        new_alpha = previous_alpha
 
     if new_alpha > allowable_alpha_movement:
         new_alpha = allowable_alpha_movement * params['alpha_test_bound']
