@@ -49,6 +49,21 @@ def reserve_supply(experiments,test_title,T):
 
     plt.show()
 
+def public_alpha(experiments,test_title,T):
+    
+    df = experiments
+    df = df[df['substep'] == df.substep.max()]
+    df.fillna(0,inplace=True)
+
+    fig = plt.figure(figsize=(15, 10))
+    plt.plot(range(0,T),df.public_alpha,label='Public Alpha',marker='o')
+    
+    plt.legend()
+    plt.title(test_title)
+    plt.xlabel('Timestep')
+    plt.ylabel('Amount')
+
+    plt.show()
 def alpha(experiments,test_title,T):
     
     df = experiments

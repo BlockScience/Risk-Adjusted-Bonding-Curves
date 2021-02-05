@@ -25,19 +25,20 @@ r4 = 10000 # reserve of agent 4; represents Tranche 4
 
 #### FIX ALPHA, KAPPA Dependent VERSION 
 #### FIX KAPPA, ALPHA Dependent VERSION 
-
+PUBLIC_ALPHA = 0.5
 # ALPHA = ALPHA[0] #### FIX KAPPA, ALPHA Dependent VERSION 
 # ALPHA = 0.5 #### FIX ALPHA, KAPPA Dependent VERSION 
 
 
-KAPPA = KAPPA[0] #### FIX KAPPA, ALPHA Dependent VERSION 
+# KAPPA = KAPPA[0] #### FIX KAPPA, ALPHA Dependent VERSION 
 ######## Just for initalization of variables ##########
 ####  Overwritten in configs.py for parameter sweeps with values in sys_params ######
 reserve = 10000 # (1-THETA[0])*MONEY_RAISED[0]
 # reserve = 5000 # (1-THETA[0])*MONEY_RAISED[0]
-ALPHA = S1 * reserve / (S1 * reserve - S0 * reserve + S0*C) #### FIX KAPPA, ALPHA Dependent VERSION 
 
-# KAPPA = 1 + (C * ALPHA / reserve) #### FIX ALPHA, KAPPA Dependent VERSION 
+ALPHA = PUBLIC_ALPHA * S1 * reserve / (S1 * reserve - S0 * reserve + S0*C) #### FIX KAPPA, ALPHA Dependent VERSION 
+
+KAPPA = 1 + (C * ALPHA / reserve) #### FIX ALPHA, KAPPA Dependent VERSION 
 
 supply = KAPPA*(reserve/PRICE)
 # IF P0 = 1 , then Supply should equal Reserve
@@ -69,6 +70,8 @@ number_of_agents = 4
 
 PRIVATE_ALPHA = 0.5
 PRIVATE_PRICE = 0.5
+
+
 
 # Configure agents for agent-based model
 agents_df = pd.DataFrame({
@@ -120,7 +123,7 @@ initial_conditions = {
     'invariant_I': invariant_I,
     'agents': agents_df,
     'chosen_agent': 0,
-    'public_alpha': 0
+    'public_alpha': PUBLIC_ALPHA,
 }
 
 

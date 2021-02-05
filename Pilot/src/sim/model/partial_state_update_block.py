@@ -73,7 +73,8 @@ partial_state_update_block = [
             'alpha': synthetic_alpha_update,
             'kappa': update_kappa,  # WANT THIS
             # 'spot_price': update_P_attest,
-            'invariant_V': update_V # WANT THIS
+            'invariant_V': update_V, # WANT THIS,
+            'public_alpha' : public_alpha_update
         }
     },
     {

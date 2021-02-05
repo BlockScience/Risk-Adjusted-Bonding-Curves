@@ -187,7 +187,7 @@ def synthetic_alpha_test(params, substep, state_history, prev_state):
     # alpha_noise = round(np.random.normal(0.5,0.2,1)[0],2) / 100
     
     # Make more noisy to break before restriction
-
+    previous_public_alpha = prev_state['public_alpha']
     previous_alpha = prev_state['alpha']
     # new_alpha = policy_input['new_alpha']
 
@@ -208,28 +208,46 @@ def synthetic_alpha_test(params, substep, state_history, prev_state):
 
     if params['alpha_test'] == 'success':
         new_alpha = 1 - (1- (alpha_noise)) * (1 - previous_alpha)
+        new_public_alpha = 1 - (1- (alpha_noise)) * (1 - previous_public_alpha)
 
     elif params['alpha_test'] == 'failure':      
         new_alpha = (1- (alpha_noise)) * (previous_alpha)
+        new_public_alpha = (1- (alpha_noise)) * (previous_public_alpha)
+  
 
     elif params['alpha_test'] == 'constant':      
         new_alpha = previous_alpha
+        new_public_alpha = previous_public_alpha
 
     if new_alpha > allowable_alpha_movement:
         new_alpha = allowable_alpha_movement * params['alpha_test_bound']
+        new_public_alpha = allowable_alpha_movement * params['alpha_test_bound']
+    
+
 
     # print('new_alpha', new_alpha)
-    return {'new_alpha': new_alpha}
+    return {'new_alpha': new_alpha, 'public_alpha_update': new_public_alpha}
+
+def public_alpha_update(params, substep, state_history, prev_state, policy_input):
+    '''
+    Takes in synthetic alpha update. Also imposes the alpha movement restriction. 
+    Even though this should be applied in the action/policy, This restriction must be part of the mechanism.
+    '''
+    # previous_alpha = prev_state['public_alpha']
+    new_alpha = policy_input['public_alpha_update']
+    # # new_alpha = previous_alpha + delta_alpha
+    # new_alpha = 1 - (1- (delta_alpha)) * (1 - previous_alpha)
+    return 'public_alpha', new_alpha
 
 def synthetic_alpha_update(params, substep, state_history, prev_state, policy_input):
     '''
     Takes in synthetic alpha update. Also imposes the alpha movement restriction. 
     Even though this should be applied in the action/policy, This restriction must be part of the mechanism.
     '''
-
-    new_alpha = policy_input['new_alpha']
-    # value = previous_value + new_alpha / 140
     previous_alpha = prev_state['alpha']
+ 
+    new_alpha = policy_input['new_alpha']
+
     R = prev_state['reserve']
     C = params['C']
 
