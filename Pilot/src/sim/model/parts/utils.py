@@ -101,12 +101,12 @@ def price(experiments,test_title,T):
     return 
 
 
-def agent_payout(experiments,t, invest_list, initial_supply):
+def agent_payout(experiments,t, invest_list, initial_supply, C):
     """
     For CWU Payout
     """
     # print(experiments.agents[t])
-    C = 68100
+    # C = 68100
     S_free = experiments.supply_free[t]
     S_0 = experiments.supply_0[t]
     S_1 = experiments.supply_1[t]
@@ -136,7 +136,7 @@ def agent_payout(experiments,t, invest_list, initial_supply):
         R = experiments.reserve[t]
 
         S = experiments.supply[t] - initial_supply # subtract initial amount
-        
+        print(S)
         alpha = experiments.alpha[t]
         # TEMP TO SHOW A POINT
         alpha = 1
@@ -160,19 +160,20 @@ def agent_payout(experiments,t, invest_list, initial_supply):
     arr1d = arr2d.flatten()
     arr1d_no_R = arr2d_no_R.flatten()
     print(arr1d_no_R, type(arr1d_no_R))
-
+    S_zero = experiments.supply[0] #- initial_supply # subtract initial amount
     # x = agents_id
     x = [0,1,2,3,4]
-    hatch_supply = experiments.supply[0]
-    hatch_payout_no_R = hatch_supply / experiments.supply[t] * C
+    hatch_supply = S_zero #* (1 - experiments.alpha[0])
+    hatch_payout_no_R = hatch_supply /  experiments.supply[t] * C
     arr1d_no_R_with_hatch = np.insert(arr1d_no_R, 0, hatch_payout_no_R)
-    hatch_payout = hatch_supply / experiments.supply[t] * (C + experiments.reserve[t])
+    hatch_payout = hatch_supply /  experiments.supply[t] * (C + experiments.reserve[t])
 
     payouts = arr1d
     payouts_with_hatch = np.insert(arr1d, 0, hatch_payout)
     # print(payouts)
     
     print(np.sum(no_R_payout_list))
+    print(np.sum(no_R_payout_list)+hatch_payout_no_R)
     x_pos = [i for i, _ in enumerate(x)]
     x_pos2 = [i+0.25 for i, _ in enumerate(x)]
     x_pos3 = [i-0.25 for i, _ in enumerate(x)]

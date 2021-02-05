@@ -4,12 +4,12 @@ from src.sim.model.sys_params import *
 
 # Set initialization state variables for Attestations
 
-PRICE = 1/4
+PRICE = 1
 Q = 30000
 Q1 = 100
 Q0 = 30000
-S1 = 1 #0 #100
-S0 = 100 #0 #30000
+S1 = 100 #0 #100
+S0 = 2000 #0 #30000
 r = 0  # Agent reserve, the amount of fiat tokens an agent starts with
 s = 0
 s1 = 0
@@ -30,21 +30,21 @@ r4 = 10000 # reserve of agent 4; represents Tranche 4
 # ALPHA = 0.5 #### FIX ALPHA, KAPPA Dependent VERSION 
 
 
-# KAPPA = KAPPA[0] #### FIX KAPPA, ALPHA Dependent VERSION 
+KAPPA = KAPPA[0] #### FIX KAPPA, ALPHA Dependent VERSION 
 ######## Just for initalization of variables ##########
 ####  Overwritten in configs.py for parameter sweeps with values in sys_params ######
 reserve = 10000 # (1-THETA[0])*MONEY_RAISED[0]
 # reserve = 5000 # (1-THETA[0])*MONEY_RAISED[0]
 ALPHA = S1 * reserve / (S1 * reserve - S0 * reserve + S0*C) #### FIX KAPPA, ALPHA Dependent VERSION 
 
-KAPPA = 1 + (C * ALPHA / reserve) #### FIX ALPHA, KAPPA Dependent VERSION 
+# KAPPA = 1 + (C * ALPHA / reserve) #### FIX ALPHA, KAPPA Dependent VERSION 
 
 supply = KAPPA*(reserve/PRICE)
 # IF P0 = 1 , then Supply should equal Reserve
 # supply = reserve
 supply_free = supply  - (S0 + S1)
 invariant_V = (supply**KAPPA)/reserve
-
+# supply = supply * (1 - ALPHA) # maybe the right supply awarded the hatch investor?
 # ALPHA = S1 * reserve / (S1 * reserve - S0 * reserve + S0*C) #### FIX KAPPA, ALPHA Dependent VERSION 
 
 invariant_I = reserve + (C*ALPHA)
@@ -58,7 +58,8 @@ invariant_I = reserve + (C*ALPHA)
 
 # Apply Alpha Initialization Ratio
 S1 = ((C * ALPHA) - (reserve * ALPHA)) / (reserve * (1 - ALPHA)) * S0
-
+print(S1)
+print(S0)
 # invariant_I = (KAPPA * C[0]*ALPHA) / (KAPPA - 1)
 
 # invariant_I = KAPPA * reserve # equates as above
