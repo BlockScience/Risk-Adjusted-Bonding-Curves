@@ -64,7 +64,7 @@ kappa_rule = ['none']
 alpha_test = ['failure'] 
 
 # Movement bound ratio of maximum movement
-alpha_test_bound = [0.99] 
+alpha_test_bound = [0.60] 
 
 # Round enforces Integer Rounding
 # None allows decimal type

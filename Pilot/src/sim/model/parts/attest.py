@@ -203,35 +203,48 @@ def synthetic_alpha_test(params, substep, state_history, prev_state):
     # Original
     # alpha_noise = round(np.random.normal(0.5,0.2,1)[0],2) / 100
     # Playing with it
-    alpha_noise = round(np.random.normal(0.03,0.01,1)[0],2) / 100
+    alpha_noise = round(np.random.normal(0.1,0.05,1)[0],2) / 50
     allowable_alpha_movement = previous_alpha + delta_alpha
 
     if params['alpha_test'] == 'success':
-        new_alpha = 1 - (1- (alpha_noise)) * (1 - previous_alpha)
+        # new_alpha = 1 - (1- (alpha_noise)) * (1 - previous_alpha)
         new_public_alpha = 1 - (1- (alpha_noise)) * (1 - previous_public_alpha)
 
     elif params['alpha_test'] == 'failure':      
-        new_alpha = (1- (alpha_noise)) * (previous_alpha)
+        # new_alpha = (1- (alpha_noise)) * (previous_alpha)
         new_public_alpha = (1- (alpha_noise)) * (previous_public_alpha)
   
 
     elif params['alpha_test'] == 'constant':      
-        new_alpha = previous_alpha
+        # new_alpha = previous_alpha
         new_public_alpha = previous_public_alpha
 
+    delta_public_alpha = np.abs(previous_public_alpha - new_public_alpha) * previous_public_alpha * params['alpha_test_bound']
+    previous_alpha = prev_state['alpha']
+
+    allowable_alpha_movement = previous_alpha + delta_alpha
+
+    if params['alpha_test'] == 'success':
+        new_alpha = 1 - (1- (delta_public_alpha)) * (1 - previous_alpha)
+
+    elif params['alpha_test'] == 'failure':      
+        new_alpha = (1- (delta_public_alpha)) * (previous_alpha)
+  
+
+    elif params['alpha_test'] == 'constant':      
+        new_alpha = previous_alpha
+
+    # Apply restriction 
     if new_alpha > allowable_alpha_movement:
         new_alpha = allowable_alpha_movement * params['alpha_test_bound']
-        new_public_alpha = allowable_alpha_movement * params['alpha_test_bound']
     
-
-
     # print('new_alpha', new_alpha)
     return {'new_alpha': new_alpha, 'public_alpha_update': new_public_alpha}
+    # return {'public_alpha_update': new_public_alpha}
 
 def public_alpha_update(params, substep, state_history, prev_state, policy_input):
     '''
-    Takes in synthetic alpha update. Also imposes the alpha movement restriction. 
-    Even though this should be applied in the action/policy, This restriction must be part of the mechanism.
+    Tracks public alpha signal, used to generate alpha
     '''
     # previous_alpha = prev_state['public_alpha']
     new_alpha = policy_input['public_alpha_update']
@@ -244,23 +257,39 @@ def synthetic_alpha_update(params, substep, state_history, prev_state, policy_in
     Takes in synthetic alpha update. Also imposes the alpha movement restriction. 
     Even though this should be applied in the action/policy, This restriction must be part of the mechanism.
     '''
-    previous_alpha = prev_state['alpha']
+    # new_public_alpha = policy_input['public_alpha_update']
+    # previous_public_alpha = prev_state['public_alpha']
+    # delta_public_alpha = np.abs(previous_public_alpha - new_public_alpha) * previous_public_alpha * params['alpha_test_bound']
+    # previous_alpha = prev_state['alpha']
  
+    # # new_alpha = policy_input['new_alpha']
+
+    # R = prev_state['reserve']
+    # C = params['C']
+
+    # delta_alpha = alpha_movement(R, C)
+
+    # # print('delta_alpha',delta_alpha)
+    # # print('alpha_movement',new_alpha + delta_alpha)
+
+    # allowable_alpha_movement = previous_alpha + delta_alpha
+
+    # if params['alpha_test'] == 'success':
+    #     new_alpha = 1 - (1- (delta_public_alpha)) * (1 - previous_alpha)
+
+    # elif params['alpha_test'] == 'failure':      
+    #     new_alpha = (1- (delta_public_alpha)) * (previous_alpha)
+  
+
+    # elif params['alpha_test'] == 'constant':      
+    #     new_alpha = previous_alpha
+
     new_alpha = policy_input['new_alpha']
 
-    R = prev_state['reserve']
-    C = params['C']
 
-    delta_alpha = alpha_movement(R, C)
-
-    # print('delta_alpha',delta_alpha)
-    # print('alpha_movement',new_alpha + delta_alpha)
-
-    allowable_alpha_movement = previous_alpha + delta_alpha
-
-    # Apply restriction 
-    if new_alpha > allowable_alpha_movement:
-        new_alpha = allowable_alpha_movement * params['alpha_test_bound']
+    # # Apply restriction 
+    # if new_alpha > allowable_alpha_movement:
+    #     new_alpha = allowable_alpha_movement * params['alpha_test_bound']
 
     return 'alpha', new_alpha
 
@@ -306,6 +335,7 @@ def update_kappa(params, substep, state_history, prev_state, policy_input):
     #     new_alpha = alpha
 
 
+    # new_alpha = prev_state['alpha']
 
     new_alpha = policy_input['new_alpha']
 
@@ -464,6 +494,8 @@ def update_V(params, substep, state_history, prev_state, policy_input):
     #     new_alpha = alpha
 
     new_alpha = policy_input['new_alpha']
+    # new_alpha = prev_state['alpha']
+
     # I = R + (C*new_alpha)
     kappa = I / (I - (C*new_alpha))
     # print("S = ", S)

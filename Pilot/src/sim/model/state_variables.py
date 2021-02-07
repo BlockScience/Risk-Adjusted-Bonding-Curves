@@ -36,7 +36,7 @@ PUBLIC_ALPHA = 0.5
 reserve = 10000 # (1-THETA[0])*MONEY_RAISED[0]
 # reserve = 5000 # (1-THETA[0])*MONEY_RAISED[0]
 
-ALPHA = PUBLIC_ALPHA * S1 * reserve / (S1 * reserve - S0 * reserve + S0*C) #### FIX KAPPA, ALPHA Dependent VERSION 
+ALPHA = S1 * reserve / (S1 * reserve - S0 * reserve + S0*C) #### FIX KAPPA, ALPHA Dependent VERSION 
 
 KAPPA = 1 + (C * ALPHA / reserve) #### FIX ALPHA, KAPPA Dependent VERSION 
 
