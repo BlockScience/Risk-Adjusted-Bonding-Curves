@@ -25,7 +25,7 @@ r4 = 10000 # reserve of agent 4; represents Tranche 4
 
 #### FIX ALPHA, KAPPA Dependent VERSION 
 #### FIX KAPPA, ALPHA Dependent VERSION 
-PUBLIC_ALPHA = 0.5
+PUBLIC_ALPHA = 0.99
 # ALPHA = ALPHA[0] #### FIX KAPPA, ALPHA Dependent VERSION 
 # ALPHA = 0.5 #### FIX ALPHA, KAPPA Dependent VERSION 
 
@@ -36,7 +36,7 @@ PUBLIC_ALPHA = 0.5
 reserve = 10000 # (1-THETA[0])*MONEY_RAISED[0]
 # reserve = 5000 # (1-THETA[0])*MONEY_RAISED[0]
 
-ALPHA = S1 * reserve / (S1 * reserve - S0 * reserve + S0*C) #### FIX KAPPA, ALPHA Dependent VERSION 
+ALPHA = PUBLIC_ALPHA * S1 * reserve / (S1 * reserve - S0 * reserve + S0*C) #### FIX KAPPA, ALPHA Dependent VERSION 
 
 KAPPA = 1 + (C * ALPHA / reserve) #### FIX ALPHA, KAPPA Dependent VERSION 
 
