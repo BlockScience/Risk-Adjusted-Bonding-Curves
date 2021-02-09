@@ -5,6 +5,7 @@
 from src.sim.model.parts.private_beliefs import *
 from src.sim.model.parts.bondburn import *
 from src.sim.model.parts.attest import *
+from src.sim.model.parts.public_alpha import *
 from src.sim.model.parts.choose_action import set_action, set_bond_action
 from src.sim.model.parts.monthly_instalment import add_instalment
 from src.sim.model.parts.choose_agent import choose_agent
@@ -15,13 +16,15 @@ from src.sim.model.parts.put_agent_back_to_df import put_agent_back_to_df
 partial_state_update_block = [
     {
         'policies': {
-            # 'agent': choose_agent
+            # 'agent': choose_agent,
+            'synthetic_public_alpha' : synthetic_alpha_test,
         },
         'variables': {
             # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
             # Initialization and exogenous processes
             'chosen_agent': choose_agent,
-            #'public_alpha': update_public_alpha
+            'public_alpha': public_alpha_update,
+            'delta_public_alpha': delta_public_alpha_update,
         }
     },
     {
@@ -58,7 +61,7 @@ partial_state_update_block = [
     {
         'policies': {
             # 'attest': synthetic_alpha,
-            'alpha_test' : synthetic_alpha_test,
+            'system_alpha_policy' : system_alpha_policy,
         },
         'variables': {
             # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -74,7 +77,7 @@ partial_state_update_block = [
             'kappa': update_kappa,  # WANT THIS
             # 'spot_price': update_P_attest,
             'invariant_V': update_V, # WANT THIS,
-            'public_alpha' : public_alpha_update
+            # 'public_alpha' : public_alpha_update
         }
     },
     {

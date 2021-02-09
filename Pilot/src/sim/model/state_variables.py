@@ -25,7 +25,9 @@ r4 = 10000 # reserve of agent 4; represents Tranche 4
 
 #### FIX ALPHA, KAPPA Dependent VERSION 
 #### FIX KAPPA, ALPHA Dependent VERSION 
-PUBLIC_ALPHA = 0.99
+
+PUBLIC_ALPHA = PUBLIC_ALPHA[0] # Enter value in sys_params.py
+
 # ALPHA = ALPHA[0] #### FIX KAPPA, ALPHA Dependent VERSION 
 # ALPHA = 0.5 #### FIX ALPHA, KAPPA Dependent VERSION 
 
@@ -124,6 +126,7 @@ initial_conditions = {
     'agents': agents_df,
     'chosen_agent': 0,
     'public_alpha': PUBLIC_ALPHA,
+    'delta_public_alpha' : 0,
 }
 
 
