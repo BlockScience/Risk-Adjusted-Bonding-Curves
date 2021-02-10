@@ -1,10 +1,10 @@
 import itertools
 
-KAPPA = [3]
+KAPPA = [3] #not relevant, will be computed and overwritten in state_variables.py
   
 C = [68100] #some amount greater than money raised, some ROI (10%) over money raised
 PUBLIC_ALPHA = [0.5] # Starting value for PUBLIC_ALPHA!! System alpha is computed in state_variables.py
-MONEY_RAISED = [10000]
+MONEY_RAISED = [60000]
 
 # KAPPA = [3.0] # computed from I / I-(C*alpha)
 # C = [300000000] #some amount greater than money raised, some ROI (10%) over money raised

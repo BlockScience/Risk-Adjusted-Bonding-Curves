@@ -35,7 +35,7 @@ PUBLIC_ALPHA = PUBLIC_ALPHA[0] # Enter value in sys_params.py
 # KAPPA = KAPPA[0] #### FIX KAPPA, ALPHA Dependent VERSION 
 ######## Just for initalization of variables ##########
 ####  Overwritten in configs.py for parameter sweeps with values in sys_params ######
-reserve = 10000 # (1-THETA[0])*MONEY_RAISED[0]
+reserve = 1 # (1-THETA[0])*MONEY_RAISED[0]
 # reserve = 5000 # (1-THETA[0])*MONEY_RAISED[0]
 
 ALPHA = PUBLIC_ALPHA * S1 * reserve / (S1 * reserve - S0 * reserve + S0*C) #### FIX KAPPA, ALPHA Dependent VERSION 
