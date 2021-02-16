@@ -60,8 +60,8 @@ kappa_rule = ['none']
 ####### KAPPA INTEGER ENFORCEMENT #####################
 # kappa_rule = [True, False] # TRUE means INTEGER enforcement, False allows decimal type
 
-# alpha_test = ['success'] 
-alpha_test = ['failure'] 
+alpha_test = ['success'] 
+# alpha_test = ['failure'] 
 
 # Movement bound ratio of maximum movement
 alpha_test_bound = [0.85] 

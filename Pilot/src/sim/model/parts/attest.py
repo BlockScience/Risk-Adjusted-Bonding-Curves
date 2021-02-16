@@ -207,16 +207,13 @@ def system_alpha_policy(params, substep, state_history, prev_state):
 
     allowable_alpha_movement = previous_alpha + delta_alpha
 
-    if params['alpha_test'] == 'success':
+    if delta_public_alpha > 0:
         new_alpha = 1 - (1- (scaled_delta_public_alpha)) * (1 - previous_alpha)
+        # print('Positive triggered', new_alpha)
 
-    elif params['alpha_test'] == 'failure':      
+    else :     
         new_alpha = (1- (scaled_delta_public_alpha)) * (previous_alpha)
-  
-
-    elif params['alpha_test'] == 'constant':      
-        new_alpha = previous_alpha
-
+        # print('Negative triggered', new_alpha)
     # Apply restriction 
     if new_alpha > allowable_alpha_movement:
         new_alpha = allowable_alpha_movement * params['alpha_test_bound']
