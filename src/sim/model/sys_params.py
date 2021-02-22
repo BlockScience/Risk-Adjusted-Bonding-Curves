@@ -47,7 +47,7 @@ price_bias = [1]
 ####### KAPPA INTEGER ENFORCEMENT #####################
 # kappa_rule = [True, False] # TRUE means INTEGER enforcement, False allows decimal type
 
-kappa_rule = ['round', 'none', 'fixed'] 
+kappa_rule = ['none'] 
 # Round enforces Integer Rounding
 # None allows decimal type
 # Fixed kappa is fixed from initial value
