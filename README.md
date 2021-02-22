@@ -211,7 +211,7 @@ Each phase is broken out into a series of deliverables as listed below, which ar
 
 * **3.3 [Parametric Testing Notebooks](https://github.com/BlockScience/InterchainFoundation/tree/master/parametric_tests)** - Explore Risk-Adjusted Bonding Curves for yourself by modifying key aspects of the system. 
 
-* **3.4 [ixo Pilot Analysis](https://github.com/BlockScience/InterchainFoundation/blob/master/IXO_Chimple_Pilot_Revised.ipynb)** - This notebook provides a simulation for the ixo pilot implementation of Alpha Bonds.
+* **3.4 [ixo Pilot Analysis](https://github.com/BlockScience/Risk-Adjusted-Bonding-Curves/blob/master/Pilot/Chimple_Pilot.ipynb)** - This notebook provides a simulation for the ixo pilot implementation of Alpha Bonds.
 
 <br>
 <br>
