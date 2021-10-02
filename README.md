@@ -123,7 +123,7 @@ Read more about the [lifecycle stages of an Alpha Bond](Paper/2_BondLifecyclePha
 
 ## Alpha Bond Settlement & Payout
 
-When a project comes to a close (in either success or failure), the alpha bond resolves to its settlement phase. Payouts from the alpha bond system vary depending on project completion. For a full mathematical derivation of payouts, see the [System Specification notebook](Math_Specification/1_System_specification.ipynb). A TL;DR is below.
+When a project comes to a close (in either success or failure), the alpha bond resolves to its settlement phase. Payouts from the alpha bond system vary depending on project completion. For a full mathematical derivation of payouts, see the [System Specification notebook](Math_Specification/1_System_Specification.ipynb). A TL;DR is below.
 
 <br>
 
