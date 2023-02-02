@@ -267,7 +267,15 @@ jupyter notebook
 
 Check out the [cadCAD forum](https://community.cadcad.org/t/python-newbies-setup-for-cadcad/101) for more information about installing and using cadCAD.
 
-<br>
+
+## Read More 
+Read the blog post [Alpha Bonds: Risk-adjusted Bonding Curves for Financing Impact](https://medium.com/block-science/alpha-bonds-risk-adjusted-bonding-curves-for-financing-impact-5be949fbc5a0) 
+
+## About BlockScience
+BlockScience® is a complex systems engineering, R&D, and analytics firm. Our goal is to combine academic-grade research with advanced mathematical and computational engineering to design safe and resilient socio-technical systems. We provide engineering, design, and analytics services to a wide range of clients, including for-profit, non-profit, academic, and government organizations, and contribute to open-source research and software development.
+
+## Follow & Subscribe
+[🐦Twitter](https://twitter.com/block_science) | [📚 Medium](https://medium.com/block-science) | [👻Blog](https://blockscience.ghost.io/) | [🎥 YouTube](https://www.youtube.com/c/BlockScience) | [👥 Linkedin](https://www.linkedin.com/company/blockscience/)
 
 ## Contact
 
